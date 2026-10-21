@@ -93,6 +93,9 @@ New arrays with units > 1 kb were almost all tandem tRNA-gene clusters and one U
   (`class_merge_kmer_sweep_*.tsv`).
 - **Gene arrays** (observed / expected for one gene per unit, cut 0.5 / 0.7 / 0.8): Gar 2.97 / 2.95 / 2.95 Mb.
 - **TE layer** (intrinsic cut 0.2 / 0.3 / 0.5): TE insertions are 0.7–2.4 % of satellite sequence.
+- **Interruptions between runs** (`interruptions_between_runs.tsv`; gaps ≤ 50 kb inside one array): TE-filled gaps total 4.69–4.82 Mb
+  (Gar) and 5.80–6.34 Mb (Mac) over 9 filter settings. In Mac, most are a ~7.5-kb LTR element (EDTA TE_00003409, LTR/unknown) every
+  ~12.5 kb in MacSat03 arrays; EDTA gives it the satellite's own label, so intrinsic labels are filtered per feature, not per label.
 - **Second-order topology** (`second_order_sweep.tsv`; H1 − H2 against 50 chains simulated from each array's own first-order matrix,
   BH q per genome). At q < 0.05 and excess ≥ 0.05 bits, 13–25 % of long chains have order-2 structure: Gar 88 of 459 arrays with ≥ 50
   copies (2.43 Mb), 15 of 64 with ≥ 200; Mac 73 of 552 (0.99 Mb), 8 of 56. Results barely change between q 0.05 and 0.01. The effect-size
