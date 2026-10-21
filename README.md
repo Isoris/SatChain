@@ -93,6 +93,12 @@ New arrays with units > 1 kb were almost all tandem tRNA-gene clusters and one U
   (`class_merge_kmer_sweep_*.tsv`).
 - **Gene arrays** (observed / expected for one gene per unit, cut 0.5 / 0.7 / 0.8): Gar 2.97 / 2.95 / 2.95 Mb.
 - **TE layer** (intrinsic cut 0.2 / 0.3 / 0.5): TE insertions are 0.7–2.4 % of satellite sequence.
+- **Second-order topology** (`second_order_sweep.tsv`; H1 − H2 against 50 chains simulated from each array's own first-order matrix,
+  BH q per genome). At q < 0.05 and excess ≥ 0.05 bits, 13–25 % of long chains have order-2 structure: Gar 88 of 459 arrays with ≥ 50
+  copies (2.43 Mb), 15 of 64 with ≥ 200; Mac 73 of 552 (0.99 Mb), 8 of 56. Results barely change between q 0.05 and 0.01. The effect-size
+  floor is needed: without it, large arrays pass on tiny excess. Carriers are the centromeric lineage A/B families (GarSat03/04,
+  MacSat03/06). The typical context is V1>V1:V1, i.e. variant blocks longer than a first-order chain makes. Synthetic checks: (AAB)n z = 377,
+  i.i.d. z = −0.15. Chains under 50 copies are not interpretable.
 
 ## Pipeline
 
@@ -106,6 +112,8 @@ New arrays with units > 1 kb were almost all tandem tRNA-gene clusters and one U
 | 53 / 53b / 53c | `53_array_segmentation.py`, `53b_topology_compare.py`, `53c_library_pool.py` | windows, change points, topology (memory, structure index, core/accessory), topology library |
 | 55 | `55a_lineage_sample.py`, `55c_lineage_cluster.py`, `55d_family_lineage.py` | lineage per copy from k-mer profiles |
 | 59 | `59_final_catalogue.py`, `59b_gene_arrays.py`, `59c_te_layer.py`, `59d_family_names.py`, `famnew.py` | catalogue, per-run gates, gene arrays, TE layer, names (species + Sat + rank + unit) |
+| 59e | `59e_interruptions.py` | gaps between runs of one array: TE / missed TE / other annotation / unannotated (intrinsic EDTA labels filtered per feature) |
+| 53b (order 2) | `53b_o2_summary.py` | second-order test summary with q / excess / chain-length sweep |
 | 60 | `60a_tx_kmers.py` | family-specific k-mers for transcription tests in RNA-seq (in development) |
 | plots / sweeps | `plot53_*.py`, `plot53b_units.py`, `plot_sweep.py`, `kmer_separation_sweep.py`, `sweep53_compare.py`, `sweep53b.py` | figures and sensitivity sweeps |
 
@@ -121,8 +129,8 @@ New arrays with units > 1 kb were almost all tandem tRNA-gene clusters and one U
 
 ## Status and limits
 
-Experimental, single-genome. Not yet done: second-order (Miga) topology, read-level copy-number support, transcription test
-(step 60, running). Large TEs between two runs of one array are not yet corrected for EDTA's satellite labelling.
+Experimental, single-genome. Not yet done: read-level copy-number support, transcription test (step 60, running), comparison of
+order-2 topologies between arrays (Miga-style second-order graph). The second-order test itself is in (step 53b).
 
 ## Methods paragraph
 

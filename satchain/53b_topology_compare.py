@@ -166,6 +166,50 @@ def build_path(cs, feats, period, gapfrac):
     return path
 
 
+def order2(path, rng, sims=100):
+    """second-order (Miga) test on a path: H(next | previous) - H(next | previous two), in bits, against simulations of the path's own
+    first-order chain (same run lengths, same transition matrix): excess and z; plus the most informative two-state context"""
+    runs = []; cur = []
+    for _, s in path:
+        if s is None:
+            if len(cur) > 2: runs.append(cur)
+            cur = []
+        else: cur.append(s)
+    if len(cur) > 2: runs.append(cur)
+    def gain(rr):
+        p1 = collections.defaultdict(collections.Counter); p2 = collections.defaultdict(collections.Counter)
+        for r in rr:
+            for a, b in zip(r, r[1:]): p1[a][b] += 1
+            for a, b, c in zip(r, r[1:], r[2:]): p2[(a, b)][c] += 1
+        n1 = sum(sum(v.values()) for v in p1.values()); n2 = sum(sum(v.values()) for v in p2.values())
+        if not n2: return None, p1, p2
+        h1 = sum(sum(v.values()) / n1 * H(v) for v in p1.values()); h2 = sum(sum(v.values()) / n2 * H(v) for v in p2.values())
+        return h1 - h2, p1, p2
+    g, p1, p2 = gain(runs)
+    if g is None: return dict(order2_gain_bits='NA', order2_null_bits='NA', order2_excess_bits='NA', order2_z='NA', order2_top_context='NA')
+    P = {a: (list(v), [x / sum(v.values()) for x in v.values()]) for a, v in p1.items()}
+    null = []
+    for _ in range(sims):
+        rr = []
+        for r in runs:
+            s = [r[0]]
+            for _ in range(len(r) - 1):
+                nx = P.get(s[-1])
+                s.append(rng.choices(nx[0], nx[1])[0] if nx else s[-1])
+            rr.append(s)
+        gn, _, _ = gain(rr); null.append(gn or 0.0)
+    mu = sum(null) / len(null); sd = (sum((x - mu) ** 2 for x in null) / max(1, len(null) - 1)) ** 0.5
+    best = None
+    for (a, b), v in p2.items():
+        n = sum(v.values())
+        if n < 10 or b not in P: continue
+        q = dict(zip(*P[b])); kl = sum(c / n * math.log2((c / n) / max(1e-9, q.get(x, 1e-9))) for x, c in v.items())
+        if best is None or kl * n > best[0]: best = (kl * n, f'{a}>{b}:{v.most_common(1)[0][0]}({v.most_common(1)[0][1] / n:.2f} vs {q.get(v.most_common(1)[0][0], 0):.2f})')
+    return dict(order2_gain_bits=round(g, 4), order2_null_bits=round(mu, 4), order2_excess_bits=round(g - mu, 4),
+                order2_z=round((g - mu) / sd, 2) if sd > 1e-6 else 'NA', order2_top_context=best[1] if best else 'none')
+
+
+
 def stats(path, rng, perms):
     seq = [st for _, st in path]
     trans = collections.Counter(); comp = collections.Counter(st for st in seq if st is not None)
@@ -246,6 +290,7 @@ def main():
     ap.add_argument('--overlays', required=True); ap.add_argument('--genome-tag', required=True)
     ap.add_argument('--arrays'); ap.add_argument('--max-gap-frac', type=float, default=0.5); ap.add_argument('--perms', type=int, default=200)
     ap.add_argument('--runs', help='catalogue runs tsv (run mode, as in 53 --runs)')
+    ap.add_argument('--order2-sims', type=int, default=100, help='first-order simulations for the second-order (Miga) test')
     ap.add_argument('--min-trans', type=int, default=40, help='segments with fewer transitions are reported but not paired')
     ap.add_argument('--intrinsic-frac', type=float, default=0.3)
     ap.add_argument('--uniform-frac', type=float, default=0.95); ap.add_argument('--copy-scale', type=float, default=2.0)
@@ -285,7 +330,7 @@ def main():
     feats = load_annotations(a, {r['chrom'] for r in arrays.values()})
     rng = random.Random(53)
     tw = csv.writer(open(os.path.join(dest, '53b_topologies.tsv'), 'w', newline=''), delimiter='\t', lineterminator='\n')
-    cols = ['n_states', 'n_trans', 'n_breaks', 'size_flag', 'entropy_bits', 'entropy_rate_bits', 'memory_MI_bits', 'memory_null_bits', 'memory_excess_bits', 'memory_z', 'stay_obs', 'stay_expected', 'structure_index', 'structure_z', 'annotation_frac', 'var_n_trans', 'var_memory_excess_bits', 'var_memory_z', 'var_structure_index', 'var_structure_z']
+    cols = ['n_states', 'n_trans', 'n_breaks', 'size_flag', 'entropy_bits', 'entropy_rate_bits', 'memory_MI_bits', 'memory_null_bits', 'memory_excess_bits', 'memory_z', 'stay_obs', 'stay_expected', 'structure_index', 'structure_z', 'annotation_frac', 'var_n_trans', 'var_memory_excess_bits', 'var_memory_z', 'var_structure_index', 'var_structure_z', 'order2_gain_bits', 'order2_null_bits', 'order2_excess_bits', 'order2_z', 'order2_top_context']
     tw.writerow(['array_id', 'chrom', 'unit', 'start0', 'end', 'segment_profile'] + cols + ['D_trans_vs_array', 'D_comp_vs_array', 'D_trans_vs_next', 'D_comp_vs_next', 'composition'])
     lw = csv.writer(open(os.path.join(dest, '53b_transitions.tsv'), 'w', newline=''), delimiter='\t', lineterminator='\n')
     lw.writerow(['array_id', 'unit', 'from', 'to', 'count'])
@@ -343,6 +388,7 @@ def main():
             pv = [(x, s_ if (s_ is not None and s_.split('.')[0].startswith('V')) else None) for x, s_ in p]
             sv, _, _ = stats(pv, rng, a.perms)
             for k_ in ('n_trans', 'memory_excess_bits', 'memory_z', 'structure_index', 'structure_z'): st['var_' + k_] = sv.get(k_, 'NA')
+            st.update(order2(pv, rng, a.order2_sims))
             res.append((name, us, ue, prof, st, tr, comp))
             for (x, y), v in sorted(tr.items()): lw.writerow([aid, name, x, y, v])
         arr = res[0]
