@@ -1,0 +1,4 @@
+posterior_cut	n_hmm_runs	hmm_Mb	step36_Mb	shared_Mb	hmm_only_Mb	step36_only_Mb
+0.5	5088	17.68	14.33	14.27	3.41	0.06
+0.8	5097	17.34	14.33	14.24	3.1	0.08
+0.95	5068	17.25	14.33	14.22	3.04	0.11

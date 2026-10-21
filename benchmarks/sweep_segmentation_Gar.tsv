@@ -1,0 +1,14 @@
+setting	n_accepted_boundaries	recall_of_default	precision_vs_default	profile_agreement_bp	merge_decisions_changed	n_pairs_tested	frac_homogeneous	frac_variant_mixed	frac_alternating	frac_interleaved	frac_unresolved
+default	33	1.0	1.0	1.0	0	262	0.617	0.202	0.0	0.096	0.086
+merge_cut_80_20	34	1.0	0.971	0.96	36	262	0.581	0.242	0.0	0.091	0.086
+merge_cut_95_05	33	1.0	1.0	0.95	29	262	0.666	0.152	0.0	0.096	0.086
+merge_diag_1	33	1.0	1.0	1.0	19	262	0.617	0.202	0.0	0.096	0.086
+merge_diag_10	33	1.0	1.0	0.95	11	262	0.666	0.152	0.0	0.096	0.086
+min_seg_2	37	1.0	0.892	0.997	0	262	0.615	0.201	0.0	0.096	0.088
+min_seg_5	29	0.879	0.966	0.995	0	262	0.621	0.2	0.0	0.095	0.083
+min_win_2000	33	1.0	1.0	1.0	0	262	0.617	0.202	0.0	0.096	0.086
+min_win_500	33	1.0	1.0	1.0	0	262	0.617	0.202	0.0	0.096	0.086
+penalty_1.5	70	1.0	0.486	0.967	0	262	0.622	0.194	0.0	0.071	0.113
+penalty_6	18	0.576	1.0	0.984	0	262	0.611	0.208	0.0	0.106	0.075
+win_units_10	63	0.97	0.556	0.967	0	262	0.613	0.194	0.0	0.077	0.116
+win_units_40	18	0.455	0.778	0.984	0	262	0.622	0.2	0.0	0.106	0.072

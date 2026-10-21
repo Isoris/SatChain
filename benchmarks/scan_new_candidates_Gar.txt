@@ -1,0 +1,24 @@
+Gar: class	tier	TE	n	Mb	TRF-supported
+Gar	40-60	new_array	TE	146	0.42	1.00
+Gar	40-60	new_array	nonTE	213	0.58	1.00
+Gar	40-60	new_pair	TE	6	0.02	0.83
+Gar	40-60	new_pair	nonTE	9	0.02	1.00
+Gar	40-60	weak	TE	31	0.08	0.94
+Gar	40-60	weak	nonTE	60	0.16	1.00
+Gar	61-1000	new_array	TE	634	1.86	0.76
+Gar	61-1000	new_array	nonTE	246	0.67	0.73
+Gar	61-1000	new_pair	TE	594	1.40	0.07
+Gar	61-1000	new_pair	nonTE	234	0.57	0.10
+Gar	61-1000	weak	TE	207	0.54	0.38
+Gar	61-1000	weak	nonTE	90	0.23	0.52
+Gar	7-39	new_array	TE	791	2.25	1.00
+Gar	7-39	new_array	nonTE	957	2.71	0.99
+Gar	7-39	new_pair	TE	30	0.08	0.97
+Gar	7-39	new_pair	nonTE	53	0.14	0.96
+Gar	7-39	weak	TE	268	0.71	0.97
+Gar	7-39	weak	nonTE	558	1.50	0.96
+Gar	>1000	new_array	TE	2	0.03	0.00
+Gar	>1000	new_array	nonTE	13	0.21	0.00
+Gar	>1000	new_pair	TE	1	0.02	0.00
+Gar	>1000	weak	TE	2	0.02	0.00
+Gar: new arrays (>= 3 copies) 8.73 Mb, of which non-TE 4.17 Mb

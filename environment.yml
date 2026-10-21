@@ -1,0 +1,15 @@
+name: satchain
+channels: [conda-forge, bioconda]
+dependencies:
+  - python>=3.10
+  - numpy
+  - pandas
+  - matplotlib
+  - openpyxl
+  - python-edlib
+  - stringdecomposer=1.1.2
+  - trf
+  - blast
+  - samtools
+  - sra-tools
+  - kmer-jellyfish=2.3.1

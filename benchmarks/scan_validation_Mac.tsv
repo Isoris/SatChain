@@ -1,0 +1,4 @@
+tier	candidate_Mb	recall_validated_hmm_bp	recall_step36_bp	share_of_02_interval_bp	new_outside_02_Mb	new_7-39bp	new_40-60bp	new_61-1000bp	new_gt1000bp	new_TE_derived
+0.95	186.53	0.872	0.905	0.504	172.14	38.55Mb	5.15Mb	28.14Mb	19.13Mb	81.17Mb
+0.99	77.23	0.864	0.897	0.414	49.92	15.14Mb	2.79Mb	10.21Mb	1.17Mb	20.63Mb
+0.999	36.91	0.859	0.891	0.348	11.6	5.26Mb	0.89Mb	1.46Mb	0.21Mb	3.78Mb

@@ -1,0 +1,12 @@
+setting	n_major_edges	n_core	role_changed	edges_new	edges_lost	arrays_intrinsic_changed	units_SI_sign_changed	library_types_D0.05
+default	305	252	0	0	0	0	0	46
+major_p_0.10	366	306	7	61	0	0	0	46
+major_p_0.25	245	197	3	0	60	0	0	46
+major_n_3	367	302	6	62	0	0	0	46
+major_n_10	244	205	3	0	61	0	0	46
+intrinsic_0.2	305	252	0	0	0	0	0	46
+intrinsic_0.5	305	252	0	0	0	1	0	46
+uniform_0.9	315	262	0	14	4	1	4	46
+uniform_0.99	288	235	0	25	42	5	6	46
+copy_scale_1.5	305	252	0	0	0	0	0	46
+copy_scale_4	305	252	0	0	0	0	0	46
