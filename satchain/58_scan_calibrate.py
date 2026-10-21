@@ -2,7 +2,8 @@
 """
 58_scan_calibrate.py  (v4.6; calibration and validation of the genome-wide tandem scan 57)
 
-Clean null: windows (per scale) touching no EDTA TE, TRF call (any period), GMATA SSR, step-02 array or N.
+Null: ordinary genome windows (per scale) with no N, outside step-02 arrays and TRF calls with unit >= 7 bp; TEs and SSRs allowed
+(a TE-free null keeps only the least repetitive windows and is biased low). Best lag < 7 bp counts as 0 (micro texture).
 Tiers: p95, p99, p99.9 of the null max_excess (per scale). Tandem window: max_excess > tier.
 Candidate regions: consecutive tandem windows (same scale, overlapping or adjacent) whose best lags agree within 10 % (or are 2x / 3x
 multiples), merged; a region keeps its median lag and the max excess.
