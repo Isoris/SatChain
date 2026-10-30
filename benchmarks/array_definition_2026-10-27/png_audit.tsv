@@ -1,0 +1,393 @@
+path	modified	status	reason
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG19_Gar_SAT01121_stack.png	2026-10-27 06:48	check	prototype stack (Gar LG19/LG20) superseded by _rlvl2_stack
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG20_Gar_SAT01185_stack.png	2026-10-27 06:48	check	prototype stack (Gar LG19/LG20) superseded by _rlvl2_stack
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/cross_Mac_LG04_x_LG24.png	2026-10-27 11:38	current	strand-corrected
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/curate_spacers_Mac_LG12.png	2026-10-27 10:52	current	microsatellites masked
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/divmap_Gar_LG19.png	2026-10-27 10:20	current	insulation-plateau array call (v2)
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/divmap_Mac_LG03_25Mb.png	2026-10-27 10:22	current	insulation-plateau array call (v2)
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/divmap_Mac_LG03_28Mb.png	2026-10-27 10:23	current	insulation-plateau array call (v2)
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/divmap_Mac_LG04.png	2026-10-27 10:19	current	insulation-plateau array call (v2)
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/ideogram_Gar_rlvl1.png	2026-10-27 11:25	current	nested levels (k-mer recurrence), legend column
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/ideogram_Gar_rlvl2.png	2026-10-27 11:25	current	nested levels (k-mer recurrence), legend column
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/ideogram_Gar_rlvl3.png	2026-10-27 11:25	current	nested levels (k-mer recurrence), legend column
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/ideogram_Mac_rlvl1.png	2026-10-27 11:23	current	nested levels (k-mer recurrence), legend column
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/ideogram_Mac_rlvl2.png	2026-10-27 11:23	current	nested levels (k-mer recurrence), legend column
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/ideogram_Mac_rlvl3.png	2026-10-27 11:23	current	nested levels (k-mer recurrence), legend column
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/ideogram_intervals_Gar.png	2026-10-27 10:04	current	step-02 interval vs run-chain comparison (G = 20 kb)
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/ideogram_intervals_Mac.png	2026-10-27 10:04	current	step-02 interval vs run-chain comparison (G = 20 kb)
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG01_Gar_SAT00053_rlvl2_stack.png	2026-10-27 11:32	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG01_Gar_SAT00053_rlvl3_linear.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG01_Gar_SAT00053_rlvl3_topology.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG02_Gar_SAT00140_rlvl2_stack.png	2026-10-27 11:32	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG02_Gar_SAT00140_rlvl3_linear.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG02_Gar_SAT00140_rlvl3_topology.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG03_Gar_SAT00231_rlvl2_stack.png	2026-10-27 11:31	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG03_Gar_SAT00231_rlvl3_linear.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG03_Gar_SAT00231_rlvl3_topology.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG04_Gar_SAT00280_rlvl2_stack.png	2026-10-27 11:32	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG04_Gar_SAT00280_rlvl3_linear.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG04_Gar_SAT00280_rlvl3_topology.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG05_Gar_SAT00336_rlvl2_stack.png	2026-10-27 11:32	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG05_Gar_SAT00336_rlvl3_linear.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG05_Gar_SAT00336_rlvl3_topology.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG06_Gar_SAT00406_rlvl2_stack.png	2026-10-27 11:32	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG06_Gar_SAT00406_rlvl3_linear.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG06_Gar_SAT00406_rlvl3_topology.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG07_Gar_SAT00462_rlvl2_stack.png	2026-10-27 11:32	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG07_Gar_SAT00462_rlvl3_linear.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG07_Gar_SAT00462_rlvl3_topology.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG08_Gar_SAT00533_rlvl2_stack.png	2026-10-27 11:33	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG08_Gar_SAT00533_rlvl3_linear.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG08_Gar_SAT00533_rlvl3_topology.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG09_Gar_SAT00587_rlvl2_stack.png	2026-10-27 11:33	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG09_Gar_SAT00587_rlvl3_linear.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG09_Gar_SAT00587_rlvl3_topology.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG10_Gar_SAT00658_rlvl2_stack.png	2026-10-27 11:33	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG10_Gar_SAT00658_rlvl3_linear.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG10_Gar_SAT00658_rlvl3_topology.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG11_Gar_SAT00712_rlvl2_stack.png	2026-10-27 11:33	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG11_Gar_SAT00712_rlvl3_linear.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG11_Gar_SAT00712_rlvl3_topology.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG12_Gar_SAT00747_rlvl2_stack.png	2026-10-27 11:33	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG12_Gar_SAT00747_rlvl3_linear.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG12_Gar_SAT00747_rlvl3_topology.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG13_Gar_SAT00826_rlvl2_stack.png	2026-10-27 11:33	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG13_Gar_SAT00826_rlvl3_linear.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG13_Gar_SAT00826_rlvl3_topology.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG14_Gar_SAT00873_rlvl2_stack.png	2026-10-27 11:34	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG14_Gar_SAT00873_rlvl3_linear.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG14_Gar_SAT00873_rlvl3_topology.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG15_Gar_SAT00913_rlvl2_stack.png	2026-10-27 11:34	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG15_Gar_SAT00913_rlvl3_linear.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG15_Gar_SAT00913_rlvl3_topology.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG16_Gar_SAT00966_rlvl2_stack.png	2026-10-27 11:34	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG16_Gar_SAT00966_rlvl3_linear.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG16_Gar_SAT00966_rlvl3_topology.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG18_Gar_SAT01075_rlvl2_stack.png	2026-10-27 11:34	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG18_Gar_SAT01075_rlvl3_linear.png	2026-10-27 11:26	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG18_Gar_SAT01075_rlvl3_topology.png	2026-10-27 11:26	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG19_Gar_SAT01121_rlvl2_stack.png	2026-10-27 11:34	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG19_Gar_SAT01121_rlvl3_linear.png	2026-10-27 11:26	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG19_Gar_SAT01121_rlvl3_topology.png	2026-10-27 11:26	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG20_Gar_SAT01185_rlvl2_stack.png	2026-10-27 11:34	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG20_Gar_SAT01185_rlvl3_linear.png	2026-10-27 11:26	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG20_Gar_SAT01185_rlvl3_topology.png	2026-10-27 11:26	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG21_Gar_SAT01241_rlvl2_stack.png	2026-10-27 11:34	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG21_Gar_SAT01241_rlvl3_linear.png	2026-10-27 11:26	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG21_Gar_SAT01241_rlvl3_topology.png	2026-10-27 11:26	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG22_Gar_SAT01307_rlvl2_stack.png	2026-10-27 11:34	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG22_Gar_SAT01307_rlvl3_linear.png	2026-10-27 11:26	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG22_Gar_SAT01307_rlvl3_topology.png	2026-10-27 11:26	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG23_Gar_SAT01364_rlvl2_stack.png	2026-10-27 11:35	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG23_Gar_SAT01364_rlvl3_linear.png	2026-10-27 11:26	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG23_Gar_SAT01364_rlvl3_topology.png	2026-10-27 11:26	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG24_Gar_SAT01388_rlvl2_stack.png	2026-10-27 11:35	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG24_Gar_SAT01388_rlvl3_linear.png	2026-10-27 11:26	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG24_Gar_SAT01388_rlvl3_topology.png	2026-10-27 11:26	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG25_Gar_SAT01447_rlvl2_stack.png	2026-10-27 11:35	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG25_Gar_SAT01447_rlvl3_linear.png	2026-10-27 11:26	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG25_Gar_SAT01447_rlvl3_topology.png	2026-10-27 11:26	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG26_Gar_SAT01489_rlvl2_stack.png	2026-10-27 11:35	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG26_Gar_SAT01489_rlvl3_linear.png	2026-10-27 11:26	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG26_Gar_SAT01489_rlvl3_topology.png	2026-10-27 11:26	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG27_Gar_SAT01517_rlvl2_stack.png	2026-10-27 11:35	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG27_Gar_SAT01517_rlvl3_linear.png	2026-10-27 11:26	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG27_Gar_SAT01517_rlvl3_topology.png	2026-10-27 11:26	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG28_Gar_SAT01588_rlvl2_stack.png	2026-10-27 11:35	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG28_Gar_SAT01588_rlvl3_linear.png	2026-10-27 11:26	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG28_Gar_SAT01588_rlvl3_topology.png	2026-10-27 11:26	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG01_Mac_SAT00059_rlvl2_stack.png	2026-10-27 11:26	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG01_Mac_SAT00059_rlvl3_linear.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG01_Mac_SAT00059_rlvl3_topology.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG02_Mac_SAT00133_rlvl2_stack.png	2026-10-27 11:26	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG02_Mac_SAT00133_rlvl3_linear.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG02_Mac_SAT00133_rlvl3_topology.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG03_Mac_SAT00249_rlvl2_stack.png	2026-10-27 11:26	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG03_Mac_SAT00249_rlvl3_linear.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG03_Mac_SAT00249_rlvl3_topology.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG04_Mac_SAT00318_rlvl2_stack.png	2026-10-27 11:27	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG04_Mac_SAT00318_rlvl3_linear.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG04_Mac_SAT00318_rlvl3_topology.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG05_Mac_SAT00380_rlvl2_stack.png	2026-10-27 11:27	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG05_Mac_SAT00380_rlvl3_linear.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG05_Mac_SAT00380_rlvl3_topology.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG06_Mac_SAT00485_rlvl2_stack.png	2026-10-27 11:27	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG06_Mac_SAT00485_rlvl3_linear.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG06_Mac_SAT00485_rlvl3_topology.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG07_Mac_SAT00530_rlvl2_stack.png	2026-10-27 11:27	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG07_Mac_SAT00530_rlvl3_linear.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG07_Mac_SAT00530_rlvl3_topology.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG08_Mac_SAT00626_rlvl2_stack.png	2026-10-27 11:27	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG08_Mac_SAT00626_rlvl3_linear.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG08_Mac_SAT00626_rlvl3_topology.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG09_Mac_SAT00687_rlvl2_stack.png	2026-10-27 11:27	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG09_Mac_SAT00687_rlvl3_linear.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG09_Mac_SAT00687_rlvl3_topology.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG10_Mac_SAT00751_rlvl2_stack.png	2026-10-27 11:28	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG10_Mac_SAT00751_rlvl3_linear.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG10_Mac_SAT00751_rlvl3_topology.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG11_Mac_SAT00823_rlvl2_stack.png	2026-10-27 11:28	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG11_Mac_SAT00823_rlvl3_linear.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG11_Mac_SAT00823_rlvl3_topology.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG12_Mac_SAT00868_rlvl2_stack.png	2026-10-27 11:28	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG12_Mac_SAT00868_rlvl3_linear.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG12_Mac_SAT00868_rlvl3_topology.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG13_Mac_SAT00965_rlvl2_stack.png	2026-10-27 11:29	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG13_Mac_SAT00965_rlvl3_linear.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG13_Mac_SAT00965_rlvl3_topology.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG14_Mac_SAT01029_rlvl2_stack.png	2026-10-27 11:29	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG14_Mac_SAT01029_rlvl3_linear.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG14_Mac_SAT01029_rlvl3_topology.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG15_Mac_SAT01090_rlvl2_stack.png	2026-10-27 11:29	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG15_Mac_SAT01090_rlvl3_linear.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG15_Mac_SAT01090_rlvl3_topology.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG16_Mac_SAT01171_rlvl2_stack.png	2026-10-27 11:29	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG16_Mac_SAT01171_rlvl3_linear.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG16_Mac_SAT01171_rlvl3_topology.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG17_Mac_SAT01226_rlvl2_stack.png	2026-10-27 11:29	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG17_Mac_SAT01226_rlvl3_linear.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG17_Mac_SAT01226_rlvl3_topology.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG18_Mac_SAT01280_rlvl2_stack.png	2026-10-27 11:29	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG18_Mac_SAT01280_rlvl3_linear.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG18_Mac_SAT01280_rlvl3_topology.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG19_Mac_SAT01345_rlvl2_stack.png	2026-10-27 11:30	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG19_Mac_SAT01345_rlvl3_linear.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG19_Mac_SAT01345_rlvl3_topology.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG20_Mac_SAT01417_rlvl2_stack.png	2026-10-27 11:30	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG20_Mac_SAT01417_rlvl3_linear.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG20_Mac_SAT01417_rlvl3_topology.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG21_Mac_SAT01479_rlvl2_stack.png	2026-10-27 11:30	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG21_Mac_SAT01479_rlvl3_linear.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG21_Mac_SAT01479_rlvl3_topology.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG22_Mac_SAT01541_rlvl2_stack.png	2026-10-27 11:30	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG22_Mac_SAT01541_rlvl3_linear.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG22_Mac_SAT01541_rlvl3_topology.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG23_Mac_SAT01637_rlvl2_stack.png	2026-10-27 11:30	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG23_Mac_SAT01637_rlvl3_linear.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG23_Mac_SAT01637_rlvl3_topology.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG24_Mac_SAT01699_rlvl2_stack.png	2026-10-27 11:30	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG24_Mac_SAT01699_rlvl3_linear.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG24_Mac_SAT01699_rlvl3_topology.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG25_Mac_SAT01787_rlvl2_stack.png	2026-10-27 11:31	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG25_Mac_SAT01787_rlvl3_linear.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG25_Mac_SAT01787_rlvl3_topology.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG26_Mac_SAT01859_rlvl2_stack.png	2026-10-27 11:31	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG26_Mac_SAT01859_rlvl3_linear.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG26_Mac_SAT01859_rlvl3_topology.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG27_Mac_SAT01955_rlvl2_stack.png	2026-10-27 11:31	current	rlvl2 stack with JSD domains
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG27_Mac_SAT01955_rlvl3_linear.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG27_Mac_SAT01955_rlvl3_topology.png	2026-10-27 11:25	current	rlvl3 copy-level views
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/inregister_consistency_v2_Mac_SAT00318_LG04.png	2026-10-24 13:42	current	alignment-based spacer distance, both pairings
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/linear_states_Mac_SAT00318_LG04.png	2026-10-24 13:32	current	A / B / C types, sequence features, no EDTA
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/topology_order_profiles_Mac_SAT00318_LG04.png	2026-10-24 13:43	current	LG04 topology v3 grouped by the following spacer (A / B / C)
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/rte_structure.png	2026-10-24 05:09	current	RTE source element structure (sequence-based)
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/spacer_int_view_LG04.png	2026-10-24 13:48	current (diagnostic)	row view with flanking monomers; publication redesign pending (per-type architecture)
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/spacer_types_msa_LG04.png	2026-10-24 13:26	current (supplement)	reference-free variant matrix
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/genome_divmap.png	2026-10-27 10:55	current, caveat	0.9 identity / 5-kb windows not yet swept; satellite and spacer windows mixed
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/kmer_homogeneity.png	2026-10-27 10:21	current, caveat	runs only: degraded edge copies / flanks trimmed by the runs are not counted
+F:/data/satellite_FISH/motif_views_v2/Gar_LG01_GarSat04.png	2026-10-18 07:14	current, caveat	haplotype strips untested (reference-based clustering)
+F:/data/satellite_FISH/motif_views_v2/Gar_LG08_GarSat03.png	2026-10-18 07:14	current, caveat	haplotype strips untested (reference-based clustering)
+F:/data/satellite_FISH/motif_views_v2/Gar_LG27_GarSat04.png	2026-10-18 07:13	current, caveat	haplotype strips untested (reference-based clustering)
+F:/data/satellite_FISH/motif_views_v2/Mac_LG22_MacSat06.png	2026-10-18 07:15	current, caveat	haplotype strips untested (reference-based clustering)
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG01_Gar_SAT00053_linear.png	2026-10-26 23:17	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG01_Gar_SAT00053_topology.png	2026-10-26 23:40	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG02_Gar_SAT00140_linear.png	2026-10-26 23:17	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG02_Gar_SAT00140_topology.png	2026-10-26 23:40	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG03_Gar_SAT00231_linear.png	2026-10-26 23:18	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG03_Gar_SAT00231_topology.png	2026-10-26 23:40	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG04_Gar_SAT00280_linear.png	2026-10-26 23:19	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG04_Gar_SAT00280_topology.png	2026-10-26 23:40	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG05_Gar_SAT00336_linear.png	2026-10-26 23:19	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG05_Gar_SAT00336_topology.png	2026-10-26 23:40	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG06_Gar_SAT00406_linear.png	2026-10-26 23:19	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG06_Gar_SAT00406_topology.png	2026-10-26 23:40	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG07_Gar_SAT00462_linear.png	2026-10-26 23:21	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG07_Gar_SAT00462_topology.png	2026-10-26 23:41	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG08_Gar_SAT00533_linear.png	2026-10-26 23:21	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG08_Gar_SAT00533_topology.png	2026-10-26 23:41	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG09_Gar_SAT00587_linear.png	2026-10-26 23:21	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG09_Gar_SAT00587_topology.png	2026-10-26 23:41	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG10_Gar_SAT00658_linear.png	2026-10-26 23:22	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG10_Gar_SAT00658_topology.png	2026-10-26 23:41	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG11_Gar_SAT00712_linear.png	2026-10-26 23:22	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG11_Gar_SAT00712_topology.png	2026-10-26 23:41	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG12_Gar_SAT00747_linear.png	2026-10-26 23:22	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG12_Gar_SAT00747_topology.png	2026-10-26 23:41	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG13_Gar_SAT00826_linear.png	2026-10-26 23:24	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG13_Gar_SAT00826_topology.png	2026-10-26 23:42	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG14_Gar_SAT00873_linear.png	2026-10-26 23:24	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG14_Gar_SAT00873_topology.png	2026-10-26 23:42	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG15_Gar_SAT00913_linear.png	2026-10-26 23:24	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG15_Gar_SAT00913_topology.png	2026-10-26 23:42	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG16_Gar_SAT00966_linear.png	2026-10-26 23:25	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG16_Gar_SAT00966_topology.png	2026-10-26 23:42	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG18_Gar_SAT01075_linear.png	2026-10-26 23:25	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG18_Gar_SAT01075_topology.png	2026-10-26 23:42	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG19_Gar_SAT01121_linear.png	2026-10-26 23:26	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG19_Gar_SAT01121_topology.png	2026-10-26 23:42	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG20_Gar_SAT01185_linear.png	2026-10-26 23:27	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG20_Gar_SAT01185_topology.png	2026-10-26 23:43	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG21_Gar_SAT01241_linear.png	2026-10-26 23:27	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG21_Gar_SAT01241_topology.png	2026-10-26 23:43	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG22_Gar_SAT01307_linear.png	2026-10-26 23:27	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG22_Gar_SAT01307_topology.png	2026-10-26 23:43	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG23_Gar_SAT01364_linear.png	2026-10-26 23:28	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG23_Gar_SAT01364_topology.png	2026-10-26 23:43	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG24_Gar_SAT01388_linear.png	2026-10-26 23:29	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG24_Gar_SAT01388_topology.png	2026-10-26 23:43	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG25_Gar_SAT01447_linear.png	2026-10-26 23:29	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG25_Gar_SAT01447_topology.png	2026-10-26 23:43	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG26_Gar_SAT01489_linear.png	2026-10-26 23:30	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG26_Gar_SAT01489_topology.png	2026-10-26 23:44	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG27_Gar_SAT01517_linear.png	2026-10-26 23:30	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG27_Gar_SAT01517_topology.png	2026-10-26 23:44	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG28_Gar_SAT01588_linear.png	2026-10-26 23:30	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Gar/gar_LG28_Gar_SAT01588_topology.png	2026-10-26 23:44	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG01_Mac_SAT00059_linear.png	2026-10-26 22:57	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG01_Mac_SAT00059_topology.png	2026-10-26 23:32	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG02_Mac_SAT00133_linear.png	2026-10-26 22:56	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG02_Mac_SAT00133_topology.png	2026-10-26 23:33	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG03_Mac_SAT00249_linear.png	2026-10-26 22:57	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG03_Mac_SAT00249_topology.png	2026-10-26 23:32	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG04_Mac_SAT00318_linear.png	2026-10-26 22:59	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG04_Mac_SAT00318_topology.png	2026-10-26 23:33	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG05_Mac_SAT00380_linear.png	2026-10-26 22:59	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG05_Mac_SAT00380_topology.png	2026-10-26 23:33	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG06_Mac_SAT00485_linear.png	2026-10-26 22:59	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG06_Mac_SAT00485_topology.png	2026-10-26 23:33	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG07_Mac_SAT00530_linear.png	2026-10-26 23:01	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG07_Mac_SAT00530_topology.png	2026-10-26 23:34	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG08_Mac_SAT00626_linear.png	2026-10-26 23:01	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG08_Mac_SAT00626_topology.png	2026-10-26 23:34	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG09_Mac_SAT00687_linear.png	2026-10-26 23:01	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG09_Mac_SAT00687_topology.png	2026-10-26 23:34	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG10_Mac_SAT00751_linear.png	2026-10-26 23:04	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG10_Mac_SAT00751_topology.png	2026-10-26 23:35	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG11_Mac_SAT00823_linear.png	2026-10-26 23:04	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG11_Mac_SAT00823_topology.png	2026-10-26 23:35	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG12_Mac_SAT00868_linear.png	2026-10-26 23:04	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG12_Mac_SAT00868_topology.png	2026-10-26 23:35	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG13_Mac_SAT00965_linear.png	2026-10-26 23:06	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG13_Mac_SAT00965_topology.png	2026-10-26 23:36	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG14_Mac_SAT01029_linear.png	2026-10-26 23:06	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG14_Mac_SAT01029_topology.png	2026-10-26 23:36	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG15_Mac_SAT01090_linear.png	2026-10-26 23:06	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG15_Mac_SAT01090_topology.png	2026-10-26 23:36	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG16_Mac_SAT01171_linear.png	2026-10-26 23:08	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG16_Mac_SAT01171_topology.png	2026-10-26 23:37	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG17_Mac_SAT01226_linear.png	2026-10-26 23:08	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG17_Mac_SAT01226_topology.png	2026-10-26 23:37	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG18_Mac_SAT01280_linear.png	2026-10-26 23:08	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG18_Mac_SAT01280_topology.png	2026-10-26 23:37	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG19_Mac_SAT01345_linear.png	2026-10-26 23:11	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG19_Mac_SAT01345_topology.png	2026-10-26 23:38	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG20_Mac_SAT01417_linear.png	2026-10-26 23:11	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG20_Mac_SAT01417_topology.png	2026-10-26 23:38	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG21_Mac_SAT01479_linear.png	2026-10-26 23:11	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG21_Mac_SAT01479_topology.png	2026-10-26 23:38	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG22_Mac_SAT01541_linear.png	2026-10-26 23:13	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG22_Mac_SAT01541_topology.png	2026-10-26 23:38	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG23_Mac_SAT01637_linear.png	2026-10-26 23:13	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG23_Mac_SAT01637_topology.png	2026-10-26 23:38	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG24_Mac_SAT01699_linear.png	2026-10-26 23:14	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG24_Mac_SAT01699_topology.png	2026-10-26 23:38	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG25_Mac_SAT01787_linear.png	2026-10-26 23:15	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG25_Mac_SAT01787_topology.png	2026-10-26 23:39	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG26_Mac_SAT01859_linear.png	2026-10-26 23:16	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG26_Mac_SAT01859_topology.png	2026-10-26 23:39	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG27_Mac_SAT01955_linear.png	2026-10-26 23:16	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/Mac/mac_LG27_Mac_SAT01955_topology.png	2026-10-26 23:39	duplicate	same content as _rlvl3_linear / _rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/divergence_by_part.png	2026-10-23 22:10	needs review	RTE / unit divergence on 10-23 element and unit copies (pre run-based split, pre strand fix); numbers may hold, unit boundaries do not
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/element_age.png	2026-10-23 22:09	needs review	RTE / unit divergence on 10-23 element and unit copies (pre run-based split, pre strand fix); numbers may hold, unit boundaries do not
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/homogenization.png	2026-10-23 22:06	needs review	RTE / unit divergence on 10-23 element and unit copies (pre run-based split, pre strand fix); numbers may hold, unit boundaries do not
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/homologous_divergence.png	2026-10-24 00:24	needs review	RTE / unit divergence on 10-23 element and unit copies (pre run-based split, pre strand fix); numbers may hold, unit boundaries do not
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/kmer_divergence.png	2026-10-23 21:13	needs review	RTE / unit divergence on 10-23 element and unit copies (pre run-based split, pre strand fix); numbers may hold, unit boundaries do not
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/per_unit_divergence.png	2026-10-24 00:27	needs review	RTE / unit divergence on 10-23 element and unit copies (pre run-based split, pre strand fix); numbers may hold, unit boundaries do not
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/per_unit_kmer_grid.png	2026-10-24 00:27	needs review	RTE / unit divergence on 10-23 element and unit copies (pre run-based split, pre strand fix); numbers may hold, unit boundaries do not
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/spacer_content_Mac_SAT00318_LG04.png	2026-10-24 12:48	needs update	P-segment profile current; add curated module / microsatellite calls, the 245-bp ins and structural variants
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/divmap_Gar_LG20.png	2026-10-27 10:18	outdated	drawn with the v1 block rule (>= 0.8 blocks); redraw with the insulation-plateau call
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/gallery_Gar_p01.png	2026-10-27 10:14	outdated	copy barcodes empty for NEW arrays and meaningless for micro / mini; replace with sequence-based (divergence) thumbnails
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/gallery_Gar_p02.png	2026-10-27 10:14	outdated	copy barcodes empty for NEW arrays and meaningless for micro / mini; replace with sequence-based (divergence) thumbnails
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/gallery_Gar_p03.png	2026-10-27 10:14	outdated	copy barcodes empty for NEW arrays and meaningless for micro / mini; replace with sequence-based (divergence) thumbnails
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/gallery_Gar_p04.png	2026-10-27 10:14	outdated	copy barcodes empty for NEW arrays and meaningless for micro / mini; replace with sequence-based (divergence) thumbnails
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/gallery_Gar_p05.png	2026-10-27 10:14	outdated	copy barcodes empty for NEW arrays and meaningless for micro / mini; replace with sequence-based (divergence) thumbnails
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/gallery_Gar_p06.png	2026-10-27 10:15	outdated	copy barcodes empty for NEW arrays and meaningless for micro / mini; replace with sequence-based (divergence) thumbnails
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/gallery_Gar_p07.png	2026-10-27 10:15	outdated	copy barcodes empty for NEW arrays and meaningless for micro / mini; replace with sequence-based (divergence) thumbnails
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/gallery_Gar_p08.png	2026-10-27 10:15	outdated	copy barcodes empty for NEW arrays and meaningless for micro / mini; replace with sequence-based (divergence) thumbnails
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/gallery_Gar_p09.png	2026-10-27 10:15	outdated	copy barcodes empty for NEW arrays and meaningless for micro / mini; replace with sequence-based (divergence) thumbnails
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/gallery_Gar_p10.png	2026-10-27 10:15	outdated	copy barcodes empty for NEW arrays and meaningless for micro / mini; replace with sequence-based (divergence) thumbnails
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/gallery_Gar_p11.png	2026-10-27 10:15	outdated	copy barcodes empty for NEW arrays and meaningless for micro / mini; replace with sequence-based (divergence) thumbnails
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/gallery_Gar_p12.png	2026-10-27 10:15	outdated	copy barcodes empty for NEW arrays and meaningless for micro / mini; replace with sequence-based (divergence) thumbnails
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/gallery_Gar_p13.png	2026-10-27 10:15	outdated	copy barcodes empty for NEW arrays and meaningless for micro / mini; replace with sequence-based (divergence) thumbnails
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/gallery_Gar_p14.png	2026-10-27 10:15	outdated	copy barcodes empty for NEW arrays and meaningless for micro / mini; replace with sequence-based (divergence) thumbnails
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/gallery_Gar_p15.png	2026-10-27 10:15	outdated	copy barcodes empty for NEW arrays and meaningless for micro / mini; replace with sequence-based (divergence) thumbnails
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/gallery_Mac_p01.png	2026-10-27 10:11	outdated	copy barcodes empty for NEW arrays and meaningless for micro / mini; replace with sequence-based (divergence) thumbnails
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/gallery_Mac_p02.png	2026-10-27 10:12	outdated	copy barcodes empty for NEW arrays and meaningless for micro / mini; replace with sequence-based (divergence) thumbnails
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/gallery_Mac_p03.png	2026-10-27 10:12	outdated	copy barcodes empty for NEW arrays and meaningless for micro / mini; replace with sequence-based (divergence) thumbnails
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/gallery_Mac_p04.png	2026-10-27 10:12	outdated	copy barcodes empty for NEW arrays and meaningless for micro / mini; replace with sequence-based (divergence) thumbnails
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/gallery_Mac_p05.png	2026-10-27 10:12	outdated	copy barcodes empty for NEW arrays and meaningless for micro / mini; replace with sequence-based (divergence) thumbnails
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/gallery_Mac_p06.png	2026-10-27 10:12	outdated	copy barcodes empty for NEW arrays and meaningless for micro / mini; replace with sequence-based (divergence) thumbnails
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/gallery_Mac_p07.png	2026-10-27 10:12	outdated	copy barcodes empty for NEW arrays and meaningless for micro / mini; replace with sequence-based (divergence) thumbnails
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/gallery_Mac_p08.png	2026-10-27 10:12	outdated	copy barcodes empty for NEW arrays and meaningless for micro / mini; replace with sequence-based (divergence) thumbnails
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/gallery_Mac_p09.png	2026-10-27 10:12	outdated	copy barcodes empty for NEW arrays and meaningless for micro / mini; replace with sequence-based (divergence) thumbnails
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/gallery_Mac_p10.png	2026-10-27 10:12	outdated	copy barcodes empty for NEW arrays and meaningless for micro / mini; replace with sequence-based (divergence) thumbnails
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/gallery_Mac_p11.png	2026-10-27 10:12	outdated	copy barcodes empty for NEW arrays and meaningless for micro / mini; replace with sequence-based (divergence) thumbnails
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/gallery_Mac_p12.png	2026-10-27 10:12	outdated	copy barcodes empty for NEW arrays and meaningless for micro / mini; replace with sequence-based (divergence) thumbnails
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/gallery_Mac_p13.png	2026-10-27 10:12	outdated	copy barcodes empty for NEW arrays and meaningless for micro / mini; replace with sequence-based (divergence) thumbnails
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/gallery_Mac_p14.png	2026-10-27 10:12	outdated	copy barcodes empty for NEW arrays and meaningless for micro / mini; replace with sequence-based (divergence) thumbnails
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/gallery_Mac_p15.png	2026-10-27 10:12	outdated	copy barcodes empty for NEW arrays and meaningless for micro / mini; replace with sequence-based (divergence) thumbnails
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/gallery_Mac_p16.png	2026-10-27 10:12	outdated	copy barcodes empty for NEW arrays and meaningless for micro / mini; replace with sequence-based (divergence) thumbnails
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/gallery_Mac_p17.png	2026-10-27 10:12	outdated	copy barcodes empty for NEW arrays and meaningless for micro / mini; replace with sequence-based (divergence) thumbnails
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/gallery_Mac_p18.png	2026-10-27 10:12	outdated	copy barcodes empty for NEW arrays and meaningless for micro / mini; replace with sequence-based (divergence) thumbnails
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/residuals.png	2026-10-27 10:29	outdated	relies on EDTA / AnnoSINE calls (judged unreliable); replace with residual families + manual curation
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/anchored_units.png	2026-10-23 22:16	outdated	composite unit drawn from the EDTA unit entry before the run-based split (user: unit not correct)
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/composite_unit.png	2026-10-23 20:57	outdated	composite unit drawn from the EDTA unit entry before the run-based split (user: unit not correct)
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/composite_unit_context.png	2026-10-23 21:04	outdated	composite unit drawn from the EDTA unit entry before the run-based split (user: unit not correct)
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/composite_unit_depth.png	2026-10-23 21:04	outdated	composite unit drawn from the EDTA unit entry before the run-based split (user: unit not correct)
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/centromeres_rlvl1_overview_Gar.png	2026-10-27 11:35	outdated	prints strand calls; 5 corrected 2026-10-27
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/centromeres/centromeres_rlvl1_overview_Mac.png	2026-10-27 11:35	outdated	prints strand calls; 5 corrected 2026-10-27
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/spacer_decomposition_Mac_SAT00318_LG04.png	2026-10-24 12:07	outdated	EDTA-cut segments S1-S23 -> sequence segments P1-P15 (spacer_content)
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/spacers_Mac_SAT00318_LG04.png	2026-10-24 12:05	outdated	draws EDTA calls (inconsistent between identical spacers)
+F:/data/satellite_FISH/centromere_composition_2026-10-24/centromere_composition.png	2026-10-24 01:50	outdated	family composition with EDTA TE insertions; replace with rlvl1 overview + residual families
+F:/data/satellite_FISH/motif_views_v2/Gar_LG28_GarSat156.png	2026-10-18 07:14	outdated	only 33 % of the plotted copies lie inside v4.6 runs (pre-extent-fix interval)
+F:/data/thesis_defense_slides_tpl/figures/slide_D01_parental_chromosome_number.png	2026-10-19 01:50	outdated	predates the v4.6 catalogue (pre-runs-of-record arrays / copies)
+F:/data/thesis_defense_slides_tpl/figures/slide_D02_haploid_set_from_each_species.png	2026-10-19 01:50	outdated	predates the v4.6 catalogue (pre-runs-of-record arrays / copies)
+F:/data/thesis_defense_slides_tpl/figures/slide_D06_chromosome_scale_assembly.png	2026-10-19 01:50	outdated	predates the v4.6 catalogue (pre-runs-of-record arrays / copies)
+F:/data/thesis_defense_slides_tpl/figures/slide_E02_composition_vs_organization.png	2026-10-19 01:52	outdated	predates the v4.6 catalogue (pre-runs-of-record arrays / copies)
+F:/data/thesis_defense_slides_tpl/figures/slide_G01_chromosome_number_is_one_dimension.png	2026-10-19 01:49	outdated	predates the v4.6 catalogue (pre-runs-of-record arrays / copies)
+F:/data/thesis_defense_slides_tpl/figures/slide_G02_conserved_correspondence.png	2026-10-19 01:49	outdated	predates the v4.6 catalogue (pre-runs-of-record arrays / copies)
+F:/data/thesis_defense_slides_tpl/figures/slide_G03_five_genome_synteny.png	2026-10-19 01:50	outdated	predates the v4.6 catalogue (pre-runs-of-record arrays / copies)
+F:/data/thesis_defense_slides_tpl/figures/slide_G04_candidate_history.png	2026-10-19 01:50	outdated	predates the v4.6 catalogue (pre-runs-of-record arrays / copies)
+F:/data/thesis_defense_slides_tpl/figures/slide_G05_junction_localization.png	2026-10-19 01:50	outdated	predates the v4.6 catalogue (pre-runs-of-record arrays / copies)
+F:/data/thesis_defense_slides_tpl/figures/slide_G07_LG27_LG23_worked_example.png	2026-10-19 01:50	outdated	predates the v4.6 catalogue (pre-runs-of-record arrays / copies)
+F:/data/thesis_defense_slides_tpl/figures/slide_G07b_satellite_lineage_trees.png	2026-10-19 01:50	outdated	predates the v4.6 catalogue (pre-runs-of-record arrays / copies)
+F:/data/thesis_defense_slides_tpl/figures/slide_G11_physical_mapping.png	2026-10-19 01:51	outdated	predates the v4.6 catalogue (pre-runs-of-record arrays / copies)
+F:/data/thesis_defense_slides_tpl/figures/slide_G11_physical_mapping_alt.png	2026-10-19 01:51	outdated	predates the v4.6 catalogue (pre-runs-of-record arrays / copies)
+F:/data/thesis_defense_slides_tpl/figures/slide_G11c_ighm_anchor.png	2026-10-19 01:51	outdated	predates the v4.6 catalogue (pre-runs-of-record arrays / copies)
+F:/data/thesis_defense_slides_tpl/figures/slide_G11d_all_Gar_chromosomes.png	2026-10-19 01:51	outdated	predates the v4.6 catalogue (pre-runs-of-record arrays / copies)
+F:/data/thesis_defense_slides_tpl/figures/slide_G11e_all_Mac_chromosomes.png	2026-10-19 01:51	outdated	predates the v4.6 catalogue (pre-runs-of-record arrays / copies)
+F:/data/thesis_defense_slides_tpl/figures/slide_G11f_primers_Gar.png	2026-10-19 01:52	outdated	old family names, 14 gene arrays shown as satellites, v1 one-orientation in-silico PCR verdicts (verify_2026-10-24)
+F:/data/thesis_defense_slides_tpl/figures/slide_G11g_primers_Mac.png	2026-10-19 01:52	outdated	old family names, 14 gene arrays shown as satellites, v1 one-orientation in-silico PCR verdicts (verify_2026-10-24)
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/ideogram_types_Gar.png	2026-10-27 10:24	superseded	first type scheme (catalogue unit mixed micro / mini / satellite) -> ideogram_<sp>_rlvl1-3 (nested, k-mer recurrence)
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/ideogram_types_Gar_rlvl1.png	2026-10-27 11:15	superseded	first type scheme (catalogue unit mixed micro / mini / satellite) -> ideogram_<sp>_rlvl1-3 (nested, k-mer recurrence)
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/ideogram_types_Gar_rlvl2.png	2026-10-27 11:15	superseded	first type scheme (catalogue unit mixed micro / mini / satellite) -> ideogram_<sp>_rlvl1-3 (nested, k-mer recurrence)
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/ideogram_types_Gar_rlvl3.png	2026-10-27 11:15	superseded	first type scheme (catalogue unit mixed micro / mini / satellite) -> ideogram_<sp>_rlvl1-3 (nested, k-mer recurrence)
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/ideogram_types_Mac.png	2026-10-27 10:24	superseded	first type scheme (catalogue unit mixed micro / mini / satellite) -> ideogram_<sp>_rlvl1-3 (nested, k-mer recurrence)
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/ideogram_types_Mac_rlvl1.png	2026-10-27 11:15	superseded	first type scheme (catalogue unit mixed micro / mini / satellite) -> ideogram_<sp>_rlvl1-3 (nested, k-mer recurrence)
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/ideogram_types_Mac_rlvl2.png	2026-10-27 11:15	superseded	first type scheme (catalogue unit mixed micro / mini / satellite) -> ideogram_<sp>_rlvl1-3 (nested, k-mer recurrence)
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/ideogram_types_Mac_rlvl3.png	2026-10-27 11:15	superseded	first type scheme (catalogue unit mixed micro / mini / satellite) -> ideogram_<sp>_rlvl1-3 (nested, k-mer recurrence)
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/diag_Mac_SAT00059_LG01.png	2026-10-24 11:49	superseded	step-03 class chain diagnostics -> rlvl2 stack + rlvl3 linear / topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/diag_Mac_SAT00318_LG04.png	2026-10-24 11:49	superseded	step-03 class chain diagnostics -> rlvl2 stack + rlvl3 linear / topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/diag_Mac_SAT00868_LG12.png	2026-10-24 11:49	superseded	step-03 class chain diagnostics -> rlvl2 stack + rlvl3 linear / topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/diag_Mac_SAT01787_LG25.png	2026-10-24 11:49	superseded	step-03 class chain diagnostics -> rlvl2 stack + rlvl3 linear / topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/inregister_consistency_Mac_SAT00318_LG04.png	2026-10-24 12:28	superseded	v1 in-register test (k-mer Jaccard dominated by ins / RTE deletion / GT runs; blank rows) -> inregister_consistency_v2
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/spacer_kmer_hires_Mac_SAT00318_LG04.png	2026-10-24 12:16	superseded	reference-biased H0/H1/H2 spacer groups -> spacer_types_msa / spacer_int_view (reference-free)
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/topology_Mac_SAT00318_LG04.png	2026-10-24 11:51	superseded	topology v1/v2 (single INT node, arbitrary halves, false transitions) -> topology v3 / centromeres rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/topology_Mac_SAT00318_LG04_runs_INT.png	2026-10-24 11:52	superseded	topology v1/v2 (single INT node, arbitrary halves, false transitions) -> topology v3 / centromeres rlvl3_topology
+F:/data/satellite_FISH/LTR_MacSat03_2026-10-22/figure/diagnostics/topology_clean_Mac_SAT00318_LG04.png	2026-10-24 11:53	superseded	topology v1 (single INT node) -> topology v3 / rlvl3_topology
+F:/data/satellite_FISH/motif_views/Gar_LG01_GarSat04.png	2026-10-15 11:59	superseded	motif views v1 -> motif_views_v2
+F:/data/satellite_FISH/motif_views/Gar_LG08_GarSat03.png	2026-10-15 11:59	superseded	motif views v1 -> motif_views_v2
+F:/data/satellite_FISH/motif_views/Gar_LG27_GarSat04.png	2026-10-15 11:59	superseded	motif views v1 -> motif_views_v2
+F:/data/satellite_FISH/motif_views/Gar_LG28_GarSat156.png	2026-10-15 11:59	superseded	motif views v1 -> motif_views_v2
+F:/data/satellite_FISH/motif_views/Mac_LG22_MacSat06.png	2026-10-15 11:59	superseded	motif views v1 -> motif_views_v2
+F:/data/SatChain/benchmarks/array_definition_2026-10-27/png_audit_unreviewed_sheet.png	2026-10-27 11:40	unreviewed	no rule; newer than the v4.6 catalogue

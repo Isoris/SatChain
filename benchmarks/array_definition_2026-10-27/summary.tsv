@@ -1,0 +1,7 @@
+species	G_kb	A_arrays	B_arrays	A_multirun	A_1:1	A_A split by B	A_A merged by B	A_complex	A_mixed_family	A_with_assembly_gap	breaks_inside_A: family change	breaks_inside_A: interruption > 10 kb	breaks_inside_A: assembly gap	median_A_bp	median_B_bp	breaks_inside_A: interruption > 20 kb	breaks_inside_A: interruption > 50 kb
+Mac	10	3414	3969	738	466	261	6	5	156	53	293	234.0	43	1143	1118	0.0	0.0
+Mac	20	3414	3799	738	518	207	8	5	156	53	293	0.0	43	1143	1116	67.0	0.0
+Mac	50	3414	3717	738	530	181	17	10	156	53	293	0.0	43	1143	1120	0.0	6.0
+Gar	10	3306	3680	570	421	143	2	4	83	39	109	258.0	6	1055	1105	0.0	0.0
+Gar	20	3306	3430	570	450	107	7	6	83	39	109	0.0	6	1055	1043	21.0	0.0
+Gar	50	3306	3398	570	454	95	14	7	83	39	109	0.0	6	1055	1036	0.0	3.0

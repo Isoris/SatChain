@@ -1,0 +1,571 @@
+array_id	chrom	lo	hi	runs	sat_kb	span_kb	rel_span	int_per_100kb	unit_bp	top_unit_cov	gene	family	centromeric	type_R7	type_R8	type_R9
+Gar_NEW00011	C_gar_LG01	1372515	1376210	5	2.2	3.7	0.593	108.25	22	0.119	False	NewSatGar00263	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00020	C_gar_LG01	2079746	2080592	2	0.8	0.8	0.944	118.2	31	0.254	False	NewSatGar00084	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00046	C_gar_LG01	6177896	6179420	2	1.3	1.5	0.835	65.62	25	0.251	False	NewSatGar00307	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00067	C_gar_LG01	9881075	9881697	2	0.4	0.6	0.635	160.77	19	0.462	False	NewSatGar00321	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00095	C_gar_LG01	15171934	15174874	2	1.0	2.9	0.326	34.01	38	0.664	False	GarSat768	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00104	C_gar_LG01	17625937	17626938	2	0.5	1.0	0.466	99.9	23	0.188	False	NewSatGar00022	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00144	C_gar_LG01	23693800	23694651	2	0.5	0.9	0.559	117.51	22	0.511	False	NewSatGar00372	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00145	C_gar_LG01	25264000	25265367	2	0.3	1.4	0.203	73.15	22	0.35	False	NewSatGar00017	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00179	C_gar_LG01	42188419	42189629	3	0.8	1.2	0.633	165.29	22	0.161	False	NewSatGar00022	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00204	C_gar_LG01	46900921	46902333	2	0.9	1.4	0.642	70.82	18	0.777	False	NewSatGar00429	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00211	C_gar_LG01	47414132	47415678	5	1.0	1.5	0.621	258.73	11	0.122	False	NewSatGar00440	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00217	C_gar_LG01	48046343	48048569	2	2.2	2.2	0.968	44.92	30	0.096	False	MacSat5838	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00243	C_gar_LG01	50682910	50683989	2	0.7	1.1	0.692	92.68	17	0.414	False	NewSatGar00487	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00246	C_gar_LG01	50769104	50771047	2	1.6	1.9	0.822	51.47	22	0.142	False	NewSatGar00499	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00260	C_gar_LG02	1022894	1024649	2	1.7	1.8	0.979	56.98	22	0.253	False	NewSatGar00532	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00289	C_gar_LG02	5025864	5029812	2	0.6	3.9	0.141	25.33	38	0.6	False	GarSat768	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00292	C_gar_LG02	5703142	5704437	2	1.2	1.3	0.928	77.22	20	0.077	False	NewSatGar00560	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00304	C_gar_LG02	7104747	7106029	2	0.5	1.3	0.369	78.0	23	0.443	False	NewSatGar00583	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00340	C_gar_LG02	15189415	15190565	2	0.6	1.1	0.511	86.96	23	0.255	False	GarSat17	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00349	C_gar_LG02	16484933	16486102	2	0.7	1.2	0.585	85.54	28	0.581	False	GarSat822	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00364	C_gar_LG02	19208417	19209230	2	0.5	0.8	0.595	123.0	22	0.304	False	NewSatGar00640	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00379	C_gar_LG02	24694515	24695337	2	0.4	0.8	0.534	121.65	23	0.311	False	NewSatGar00006	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00380	C_gar_LG02	24974092	24975473	2	0.3	1.4	0.25	72.41	22	0.338	False	NewSatGar00653	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00383	C_gar_LG02	25585413	25585851	2	0.4	0.4	0.879	228.31	29	0.383	False	NewSatGar00050	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00384	C_gar_LG02	25585258	25586777	2	1.4	1.5	0.914	65.83	42	0.27	False	NewSatGar00050	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00462	C_gar_LG02	48597043	48597586	2	0.3	0.5	0.527	184.16	13	0.947	False	NewSatGar00727	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00472	C_gar_LG02	49096638	49098320	3	0.9	1.7	0.541	118.91	19	0.373	False	NewSatGar00736	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00507	C_gar_LG03	1226084	1228846	6	0.8	2.8	0.306	181.03	9	0.189	False	NewSatGar00770	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00515	C_gar_LG03	2676256	2677866	2	0.9	1.6	0.553	62.11	25	0.23	False	NewSatGar00789	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00523	C_gar_LG03	5003909	5004752	2	0.7	0.8	0.807	118.62	38	0.878	False	GarSat768	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00551	C_gar_LG03	12228184	12229952	2	1.7	1.8	0.955	56.56	29	0.226	False	NewSatGar00839	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00571	C_gar_LG03	14729188	14730204	2	0.9	1.0	0.906	98.43	33	0.203	False	NewSatGar00858	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00575	C_gar_LG03	15623394	15624988	5	0.8	1.6	0.524	250.94	11	0.265	False	NewSatGar00872	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00592	C_gar_LG03	23096494	23097828	2	1.0	1.3	0.723	74.96	24	0.719	False	NewSatGar00905	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00619	C_gar_LG03	28908882	28911116	2	2.1	2.2	0.938	44.76	21	0.326	False	NewSatGar00933	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00634	C_gar_LG03	31738554	31739720	2	0.8	1.2	0.69	85.76	24	0.341	False	NewSatGar00952	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00647	C_gar_LG03	33892145	33893355	2	0.8	1.2	0.669	82.64	23	0.813	False	GarSat858	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00676	C_gar_LG03	43879069	43880983	2	0.9	1.9	0.449	52.25	27	0.46	False	NewSatGar00990	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00703	C_gar_LG04	167014	168984	2	1.8	2.0	0.917	50.76	27	0.094	False	NewSatGar01029	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00704	C_gar_LG04	168021	170555	2	2.4	2.5	0.936	39.46	30	0.249	False	NewSatGar00055	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00714	C_gar_LG04	1433107	1435591	2	0.8	2.5	0.322	40.26	38	0.749	False	GarSat768	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00720	C_gar_LG04	2242034	2242780	2	0.7	0.7	0.949	134.05	13	0.223	False	NewSatGar01044	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00739	C_gar_LG04	5610621	5611904	2	0.4	1.3	0.297	77.94	25	0.375	False	NewSatGar00023	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00754	C_gar_LG04	12167383	12168050	2	0.3	0.7	0.49	149.93	31	0.669	False	NewSatGar01093	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00772	C_gar_LG04	23743976	23745243	2	1.1	1.3	0.85	78.93	33	0.397	False	NewSatGar01107	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00776	C_gar_LG04	28330350	28333943	2	1.3	3.6	0.355	27.83	143	0.519	False	GarSat29	False	composite periodic	composite periodic	composite periodic
+Gar_NEW00798	C_gar_LG04	36642250	36642867	2	0.5	0.6	0.757	162.07	26	0.4	False	NewSatGar01125	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00802	C_gar_LG04	38673042	38674916	4	1.1	1.9	0.586	160.09	13	0.312	False	NewSatGar01136	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00818	C_gar_LG04	40605152	40606234	2	0.9	1.1	0.85	92.42	20	0.258	False	NewSatGar00137	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00828	C_gar_LG04	42833082	42848434	10	7.0	15.4	0.453	58.62	151	0.398	False	GarSat29	False	composite periodic	composite periodic	composite periodic
+Gar_NEW00841	C_gar_LG05	1231820	1233142	2	1.2	1.3	0.905	75.64	17	0.234	False	NewSatGar01181	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00866	C_gar_LG05	3489338	3491308	2	1.4	2.0	0.69	50.76	112	0.522	False	NewSatGar01216	False	composite periodic	composite periodic	composite periodic
+Gar_NEW00884	C_gar_LG05	11571945	11572859	2	0.9	0.9	0.939	109.41	24	0.242	False	NewSatGar01226	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00896	C_gar_LG05	16536237	16537011	2	0.4	0.8	0.55	129.2	13	0.293	False	NewSatGar01238	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00897	C_gar_LG05	17292049	17293381	2	0.9	1.3	0.647	75.08	37	0.133	False	NewSatGar01244	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00900	C_gar_LG05	20295247	20296212	2	0.5	1.0	0.483	103.63	23	0.279	False	NewSatGar00006	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00912	C_gar_LG05	27939070	27939606	2	0.3	0.5	0.601	186.57	13	0.638	False	NewSatGar01268	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00920	C_gar_LG05	31830664	31832840	2	1.9	2.2	0.872	45.96	31	0.093	False	NewSatGar01279	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00938	C_gar_LG05	36542071	36543000	2	0.9	0.9	0.919	107.64	21	0.295	False	NewSatGar01299	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00949	C_gar_LG05	37127930	37129197	2	1.0	1.3	0.786	78.93	37	0.265	False	NewSatGar01311	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00975	C_gar_LG05	40559553	40560278	2	0.5	0.7	0.702	137.93	22	0.394	False	NewSatGar01328	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00977	C_gar_LG05	40649078	40650833	5	0.6	1.8	0.344	227.92	11	0.369	False	NewSatGar01334	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00992	C_gar_LG06	576480	577695	2	0.3	1.2	0.27	82.3	25	0.556	False	NewSatGar00023	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW00999	C_gar_LG06	994100	996684	2	1.0	2.6	0.399	38.7	41	0.518	False	GarSat861	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW01016	C_gar_LG06	2615449	2617778	2	1.6	2.3	0.704	42.94	20	0.219	False	NewSatGar01383	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW01037	C_gar_LG06	6268264	6269466	2	1.0	1.2	0.834	83.19	26	0.217	False	NewSatGar01408	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW01051	C_gar_LG06	11399491	11400556	2	0.9	1.1	0.816	93.9	28	0.37	False	NewSatGar01427	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW01059	C_gar_LG06	16623266	16624812	2	0.9	1.5	0.563	64.68	25	0.185	False	NewSatGar01435	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW01063	C_gar_LG06	18947987	18949520	2	1.1	1.5	0.735	65.23	30	0.351	False	NewSatGar01442	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW01120	C_gar_LG06	38924330	38925605	2	0.4	1.3	0.331	78.43	25	0.314	False	NewSatGar00062	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW01133	C_gar_LG06	40420019	40421791	2	1.0	1.8	0.573	56.43	19	0.138	False	NewSatGar01514	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW01134	C_gar_LG06	40453624	40456981	3	1.4	3.4	0.41	59.58	38	0.3	False	GarSat768	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW01142	C_gar_LG06	40843000	40845206	2	1.2	2.2	0.536	45.33	27	0.318	False	NewSatGar01526	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW01143	C_gar_LG06	40903712	40904717	2	0.9	1.0	0.903	99.5	21	0.385	False	NewSatGar01529	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW01164	C_gar_LG07	858068	859187	2	0.9	1.1	0.818	89.37	12	0.185	False	NewSatGar01566	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW01180	C_gar_LG07	3163802	3164969	2	0.6	1.2	0.522	85.69	23	0.411	False	NewSatGar01597	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW01196	C_gar_LG07	9659247	9660628	2	0.2	1.4	0.169	72.41	22	0.394	False	NewSatGar00017	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW01197	C_gar_LG07	9748103	9750986	2	2.0	2.9	0.676	34.69	145	0.407	False	GarSat37	False	composite periodic	composite periodic	composite periodic
+Gar_NEW01228	C_gar_LG07	21307118	21308885	3	0.8	1.8	0.43	113.19	22	0.18	False	NewSatGar00093	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW01245	C_gar_LG07	30690520	30691937	2	0.6	1.4	0.433	70.57	18	0.145	False	NewSatGar01648	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW01259	C_gar_LG07	34296294	34298017	2	1.0	1.7	0.604	58.04	21	0.319	False	NewSatGar01664	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW01274	C_gar_LG07	36964606	36966162	2	1.1	1.6	0.681	64.27	23	0.567	False	GarSat17	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW01309	C_gar_LG07	41178869	41179473	2	0.5	0.6	0.848	165.56	11	0.322	False	NewSatGar01715	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW01373	C_gar_LG08	9183068	9184661	2	0.7	1.6	0.458	62.77	25	0.571	False	NewSatGar01812	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW01425	C_gar_LG08	37790208	37791987	4	0.8	1.8	0.45	168.63	13	0.239	False	NewSatGar01864	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW01428	C_gar_LG08	38032012	38034780	5	1.4	2.8	0.523	144.51	11	0.115	False	NewSatGar01868	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW01429	C_gar_LG08	38061392	38062878	2	0.6	1.5	0.415	67.29	20	0.257	False	NewSatGar01877	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW01461	C_gar_LG08	40003069	40004412	2	1.0	1.3	0.757	74.46	22	0.191	False	GarSat4377	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW01467	C_gar_LG09	314000	315918	2	1.0	1.9	0.515	52.14	19	0.175	False	NewSatGar01924	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW01470	C_gar_LG09	344645	346000	2	1.3	1.4	0.962	73.8	18	0.346	False	NewSatGar01933	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW01486	C_gar_LG09	1738485	1739637	2	1.0	1.2	0.831	86.81	20	0.118	False	NewSatGar01964	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW01505	C_gar_LG09	3612000	3613094	2	1.0	1.1	0.913	91.41	17	0.299	False	NewSatGar01987	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW01569	C_gar_LG09	22756586	22757618	2	0.7	1.0	0.679	96.9	15	0.346	False	NewSatGar02076	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW01575	C_gar_LG09	23509951	23510635	2	0.3	0.7	0.439	146.2	11	0.45	False	NewSatGar02089	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW01576	C_gar_LG09	25429472	25430717	2	0.9	1.2	0.73	80.32	19	0.15	False	NewSatGar02097	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW01608	C_gar_LG09	32634062	32635458	2	1.1	1.4	0.788	71.63	34	0.218	False	NewSatGar02133	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW01611	C_gar_LG09	33166159	33167277	2	0.9	1.1	0.761	89.45	23	0.192	False	NewSatGar02135	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW01618	C_gar_LG09	33949047	33951605	4	1.5	2.6	0.605	117.28	17	0.301	False	NewSatGar02145	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW01645	C_gar_LG09	36840846	36845884	5	1.4	5.0	0.276	79.4	17	0.181	False	NewSatGar02171	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW01654	C_gar_LG10	281874	283989	4	0.6	2.1	0.292	141.84	12	0.175	False	NewSatGar02193	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW01659	C_gar_LG10	1227539	1228268	2	0.6	0.7	0.818	137.17	59	0.71	False	NewSatGar02199	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW01736	C_gar_LG10	26948128	26949243	2	1.0	1.1	0.915	89.69	13	0.185	False	NewSatGar02275	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW01740	C_gar_LG10	27683222	27684321	2	1.0	1.1	0.927	90.99	34	0.293	False	NewSatGar02280	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW01773	C_gar_LG10	33158013	33159498	2	1.3	1.5	0.906	67.34	21	0.071	False	NewSatGar02310	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW01791	C_gar_LG11	297438	299613	7	1.4	2.2	0.657	275.86	11	0.195	False	NewSatGar02344	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW01796	C_gar_LG11	551314	553110	2	1.2	1.8	0.67	55.68	26	0.263	False	GarSat859	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW01840	C_gar_LG11	8538012	8539358	2	0.5	1.3	0.336	74.29	25	0.432	False	NewSatGar00062	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW01870	C_gar_LG11	22820774	22821793	2	0.4	1.0	0.414	98.14	23	0.372	False	NewSatGar02431	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW01917	C_gar_LG11	32446597	32450636	2	1.5	4.0	0.364	24.76	30	0.215	False	NewSatGar00187	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW01954	C_gar_LG12	2633585	2634810	2	1.0	1.2	0.836	81.63	17	0.151	False	NewSatGar02521	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW01989	C_gar_LG12	8534353	8535581	2	1.0	1.2	0.85	81.43	27	0.357	False	GarSat3678	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02006	C_gar_LG12	9869868	9872000	2	0.9	2.1	0.437	46.9	21	0.225	False	NewSatGar02569	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02020	C_gar_LG12	13708093	13709382	2	0.4	1.3	0.313	77.58	25	0.327	False	NewSatGar00023	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02053	C_gar_LG12	25911643	25913237	2	0.9	1.6	0.566	62.74	18	0.192	False	NewSatGar02619	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02065	C_gar_LG12	28438193	28439259	2	0.8	1.1	0.712	93.81	19	0.206	False	NewSatGar02639	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02081	C_gar_LG12	29740726	29742353	2	0.8	1.6	0.486	61.46	17	0.287	False	NewSatGar02662	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02091	C_gar_LG12	30226850	30227480	2	0.5	0.6	0.856	158.73	20	0.164	False	NewSatGar02679	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02119	C_gar_LG12	33527553	33529368	2	0.5	1.8	0.295	55.1	34	0.742	False	GarSat36	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02130	C_gar_LG13	300324	301752	2	0.5	1.4	0.331	70.03	25	0.498	False	NewSatGar02698	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02192	C_gar_LG13	18792679	18793933	6	0.9	1.3	0.7	398.72	13	0.115	False	NewSatGar02772	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02199	C_gar_LG13	20705110	20706094	2	0.3	1.0	0.263	101.63	23	0.315	False	NewSatGar02786	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02210	C_gar_LG13	24748778	24749873	2	0.5	1.1	0.473	91.32	25	0.305	False	NewSatGar00201	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02256	C_gar_LG14	210121	211608	5	0.8	1.5	0.521	269.0	11	0.289	False	NewSatGar02845	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02258	C_gar_LG14	215837	217002	3	0.6	1.2	0.535	171.67	21	0.229	False	NewSatGar02859	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02261	C_gar_LG14	317856	320293	3	1.3	2.4	0.551	82.07	28	0.329	False	NewSatGar02865	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02264	C_gar_LG14	699097	700719	2	1.0	1.6	0.625	61.65	21	0.166	False	NewSatGar02872	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02309	C_gar_LG14	14201036	14202736	2	0.9	1.7	0.505	58.82	16	0.347	False	NewSatGar02927	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02315	C_gar_LG14	16529723	16530448	2	0.3	0.7	0.421	137.93	11	0.366	False	NewSatGar02934	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02325	C_gar_LG14	21959711	21960362	2	0.4	0.7	0.674	153.61	15	0.343	False	NewSatGar02951	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02338	C_gar_LG14	27477630	27478440	2	0.6	0.8	0.767	123.46	11	0.243	False	NewSatGar02971	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02375	C_gar_LG14	32143000	32145024	4	1.5	2.0	0.73	148.22	14	0.118	False	NewSatGar03012	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02390	C_gar_LG15	1686770	1688496	6	1.2	1.7	0.705	289.69	26	0.352	False	NewSatGar03025	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02401	C_gar_LG15	4292666	4293737	2	0.5	1.1	0.437	93.37	11	0.154	False	NewSatGar03035	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02443	C_gar_LG15	9249211	9250540	3	1.0	1.3	0.716	150.49	28	0.27	False	NewSatGar00208	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02445	C_gar_LG15	9761595	9765443	2	3.1	3.8	0.817	25.99	33	0.183	False	MacSat5785	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02467	C_gar_LG15	19607619	19608658	2	0.5	1.0	0.495	96.25	23	0.215	False	NewSatGar00014	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02469	C_gar_LG15	19610758	19611802	2	0.5	1.0	0.514	95.79	23	0.326	False	NewSatGar03118	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02473	C_gar_LG15	22304594	22307000	2	1.9	2.4	0.792	41.56	25	0.28	False	NewSatGar03123	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02475	C_gar_LG15	22825195	22826480	2	0.6	1.3	0.454	77.82	21	0.25	False	NewSatGar03127	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02476	C_gar_LG15	22847157	22847504	2	0.2	0.3	0.677	288.18	26	0.487	False	NewSatGar03131	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02481	C_gar_LG15	24687336	24688759	2	0.5	1.4	0.371	70.27	25	0.51	False	NewSatGar00062	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02509	C_gar_LG15	34510010	34511942	2	0.7	1.9	0.381	51.76	14	0.124	False	NewSatGar03168	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02516	C_gar_LG16	150096	151085	2	0.9	1.0	0.92	101.11	22	0.192	False	NewSatGar03181	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02520	C_gar_LG16	737763	739990	5	1.3	2.2	0.58	179.61	11	0.167	False	NewSatGar03185	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02521	C_gar_LG16	1148433	1149977	2	0.6	1.5	0.409	64.77	19	0.115	False	NewSatGar03197	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02524	C_gar_LG16	1311078	1312606	2	0.7	1.5	0.439	65.45	20	0.257	False	NewSatGar03205	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02577	C_gar_LG16	14420999	14422544	2	0.8	1.5	0.493	64.72	31	0.355	False	NewSatGar00011	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02616	C_gar_LG16	30440993	30441782	2	0.5	0.8	0.638	126.74	29	0.359	False	NewSatGar03285	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02632	C_gar_LG16	32424197	32425207	2	0.8	1.0	0.779	99.01	17	0.308	False	NewSatGar03314	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02649	C_gar_LG16	33552599	33553789	2	1.1	1.2	0.956	84.03	21	0.074	False	NewSatGar03347	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02650	C_gar_LG16	33553000	33554704	2	1.3	1.7	0.751	58.69	29	0.15	False	NewSatGar03349	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02655	C_gar_LG17	119590	120713	3	0.5	1.1	0.447	178.09	11	0.303	False	NewSatGar03357	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02660	C_gar_LG17	409816	411756	4	0.9	1.9	0.457	154.64	14	0.388	False	NewSatGar03376	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02664	C_gar_LG17	646037	646977	2	0.8	0.9	0.902	106.38	24	0.431	False	NewSatGar03391	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02679	C_gar_LG17	1520000	1521253	2	0.4	1.3	0.303	79.81	25	0.376	False	NewSatGar00023	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02698	C_gar_LG17	5144622	5146705	2	1.0	2.1	0.482	48.01	23	0.191	False	NewSatGar03441	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02704	C_gar_LG17	6544844	6545956	2	0.9	1.1	0.791	89.93	41	0.188	False	NewSatGar03452	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02720	C_gar_LG17	17156930	17158090	2	0.8	1.2	0.719	86.21	39	0.409	False	MacSat2322	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02756	C_gar_LG17	27834837	27835729	2	0.7	0.9	0.768	112.11	32	0.217	False	NewSatGar03501	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02762	C_gar_LG17	28770592	28772648	2	1.8	2.1	0.898	48.64	20	0.219	False	NewSatGar03510	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02769	C_gar_LG17	30146150	30146714	2	0.2	0.6	0.392	177.3	13	0.873	False	NewSatGar03525	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02771	C_gar_LG18	465336	467356	2	0.8	2.0	0.414	49.5	21	0.209	False	NewSatGar00004	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02774	C_gar_LG18	653362	654747	2	0.3	1.4	0.217	72.2	22	0.412	False	NewSatGar03532	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02805	C_gar_LG18	3417012	3418517	2	0.8	1.5	0.553	66.45	21	0.352	False	NewSatGar03565	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02892	C_gar_LG18	19706000	19707488	3	1.4	1.5	0.933	134.41	21	0.064	False	NewSatGar03652	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02899	C_gar_LG18	21390129	21390855	2	0.6	0.7	0.773	137.74	11	0.244	False	NewSatGar03663	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02904	C_gar_LG18	23435103	23436010	2	0.8	0.9	0.92	110.25	24	0.202	False	NewSatGar03680	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02956	C_gar_LG19	206572	208098	2	0.7	1.5	0.448	65.53	11	0.212	False	NewSatGar03735	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02981	C_gar_LG19	12150565	12151659	3	0.7	1.1	0.624	182.82	25	0.281	False	NewSatGar00201	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW02982	C_gar_LG19	12672150	12675481	4	1.4	3.3	0.434	90.06	34	0.201	False	NewSatGar00006	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03018	C_gar_LG19	22706768	22708152	2	1.2	1.4	0.851	72.25	31	0.311	False	MacSat6141	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03024	C_gar_LG19	25424784	25425640	3	0.5	0.9	0.641	233.64	27	0.258	False	NewSatGar03804	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03060	C_gar_LG19	30067118	30068943	2	0.5	1.8	0.297	54.79	11	0.159	False	NewSatGar03872	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03074	C_gar_LG20	242406	243587	2	0.5	1.2	0.459	84.67	24	0.249	False	NewSatGar03898	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03076	C_gar_LG20	638770	639379	2	0.3	0.6	0.447	164.2	20	0.328	False	NewSatGar03902	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03210	C_gar_LG21	235041	237256	3	1.7	2.2	0.782	90.29	14	0.359	False	NewSatGar04022	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03213	C_gar_LG21	359270	360980	2	0.7	1.7	0.424	58.48	15	0.258	False	NewSatGar04030	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03218	C_gar_LG21	566452	567132	2	0.5	0.7	0.75	147.06	17	0.649	False	NewSatGar04048	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03226	C_gar_LG21	763206	764755	2	0.8	1.5	0.504	64.56	20	0.37	False	NewSatGar04067	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03228	C_gar_LG21	815531	817000	2	0.8	1.5	0.512	68.07	25	0.32	False	NewSatGar04077	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03231	C_gar_LG21	831639	832508	2	0.4	0.9	0.504	115.07	26	0.254	False	NewSatGar04081	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03240	C_gar_LG21	1531473	1532427	3	0.6	1.0	0.634	209.64	16	0.343	False	NewSatGar04093	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03252	C_gar_LG21	2960402	2961624	2	1.2	1.2	0.952	81.83	19	0.165	False	NewSatGar04116	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03276	C_gar_LG21	8002837	8004326	2	1.4	1.5	0.958	67.16	30	0.498	False	NewSatGar04131	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03338	C_gar_LG21	24465951	24467100	2	0.7	1.1	0.643	87.03	14	0.237	False	NewSatGar04215	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03339	C_gar_LG21	24526114	24527560	3	1.0	1.4	0.671	138.31	23	0.611	False	GarSat17	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03342	C_gar_LG21	25359650	25360089	2	0.4	0.4	0.809	227.79	13	0.448	False	NewSatGar04222	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03374	C_gar_LG21	28464614	28465173	2	0.1	0.6	0.247	178.89	18	0.673	False	NewSatGar04244	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03375	C_gar_LG21	28473197	28474902	2	0.4	1.7	0.263	58.65	14	0.465	False	NewSatGar04245	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03393	C_gar_LG21	30265292	30267767	3	1.8	2.5	0.721	80.81	14	0.16	False	NewSatGar04273	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03435	C_gar_LG22	3739938	3741682	2	1.6	1.7	0.892	57.34	28	0.24	False	NewSatGar00079	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03455	C_gar_LG22	12247864	12248918	2	0.5	1.1	0.486	94.88	23	0.176	False	NewSatGar00022	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03458	C_gar_LG22	12915077	12916717	2	0.5	1.6	0.315	60.98	22	0.447	False	NewSatGar04340	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03476	C_gar_LG22	18614927	18617703	2	0.8	2.8	0.274	36.02	38	0.665	False	GarSat768	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03492	C_gar_LG22	24553714	24554725	2	0.9	1.0	0.915	98.91	29	0.211	False	NewSatGar04371	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03523	C_gar_LG22	29057262	29059838	2	1.5	2.6	0.592	38.82	20	0.154	False	NewSatGar04396	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03526	C_gar_LG22	29225089	29225607	2	0.2	0.5	0.367	193.05	11	0.1	False	NewSatGar04406	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03533	C_gar_LG22	29720554	29721314	2	0.5	0.8	0.633	131.58	20	0.415	False	NewSatGar04431	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03542	C_gar_LG24	263221	265982	2	2.2	2.8	0.788	36.22	28	0.174	False	NewSatGar04438	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03550	C_gar_LG24	1182019	1183209	2	1.2	1.2	0.986	84.03	14	0.18	False	NewSatGar04446	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03555	C_gar_LG24	1301866	1304000	2	1.8	2.1	0.828	46.86	18	0.148	False	NewSatGar04458	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03565	C_gar_LG24	2138489	2142947	2	2.3	4.5	0.521	22.43	34	0.134	False	NewSatGar00080	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03574	C_gar_LG24	4138109	4139543	2	1.4	1.4	0.959	69.74	36	0.243	False	NewSatGar00239	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03634	C_gar_LG24	22405852	22407078	2	0.6	1.2	0.47	81.57	11	0.146	False	NewSatGar04540	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03642	C_gar_LG24	24044747	24051000	3	2.3	6.3	0.364	31.98	42	0.265	False	GarSat584	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03652	C_gar_LG24	24697775	24699168	3	0.7	1.4	0.502	143.58	20	0.388	False	NewSatGar04586	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03666	C_gar_LG24	25658536	25659926	2	1.2	1.4	0.87	71.94	19	0.23	False	NewSatGar04602	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03677	C_gar_LG25	688089	690075	4	1.0	2.0	0.528	151.06	13	0.209	False	NewSatGar04621	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03678	C_gar_LG25	709655	710271	3	0.3	0.6	0.506	324.68	21	0.329	False	NewSatGar04628	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03687	C_gar_LG25	2141076	2142061	2	0.7	1.0	0.724	101.52	40	0.306	False	GarSat441	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03707	C_gar_LG25	9486218	9487394	2	0.8	1.2	0.687	85.03	26	0.527	False	GarSat870	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03751	C_gar_LG25	22910018	22911629	2	1.1	1.6	0.688	62.07	28	0.176	False	GarSat4277	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03762	C_gar_LG25	24735771	24736729	2	0.9	1.0	0.971	104.38	20	0.169	False	NewSatGar04731	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03766	C_gar_LG25	25292442	25293245	2	0.7	0.8	0.879	124.53	17	0.393	False	NewSatGar04742	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03776	C_gar_LG26	595297	596918	7	1.0	1.6	0.616	370.14	15	0.285	False	NewSatGar04766	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03780	C_gar_LG26	839048	841343	2	2.1	2.3	0.925	43.57	28	0.053	False	NewSatGar00081	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03783	C_gar_LG26	1085295	1087672	3	1.1	2.4	0.445	84.14	26	0.163	False	NewSatGar04778	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03802	C_gar_LG26	3212802	3214778	2	1.4	2.0	0.719	50.61	33	0.495	False	NewSatGar00246	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03814	C_gar_LG26	6402237	6404126	2	1.2	1.9	0.647	52.94	39	0.711	False	NewSatGar00011	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03821	C_gar_LG26	7796132	7798612	7	0.7	2.5	0.277	241.94	11	0.234	False	NewSatGar04824	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03823	C_gar_LG26	8252482	8253713	2	0.3	1.2	0.245	81.23	25	0.466	False	NewSatGar04835	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03834	C_gar_LG26	13168660	13169946	2	0.5	1.3	0.411	77.76	25	0.464	False	NewSatGar00023	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_NEW03862	C_gar_LG26	25349361	25350385	3	0.4	1.0	0.405	195.31	15	0.366	False	NewSatGar04880	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00005	C_gar_LG01	674853	677388	6	1.3	2.5	0.529	197.24	42	0.432	False	GarSat200	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00012	C_gar_LG01	1928820	1930560	2	1.5	1.7	0.876	57.47	72	0.365	False	GarSat4190	False	colinear, multi-variant	colinear, multi-variant	composite periodic
+Gar_SAT00019	C_gar_LG01	4405875	4534481	4	118.7	128.6	0.923	2.33	940	0.918	True	GarSat277	False	gene array	gene array	gene array
+Gar_SAT00029	C_gar_LG01	11868626	11870343	2	1.4	1.7	0.832	58.24	50	0.415	False	GarSat725	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00032	C_gar_LG01	12204732	12207284	3	1.9	2.6	0.757	78.37	40	0.534	False	GarSat1331	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00040	C_gar_LG01	15326299	15331794	2	2.7	5.5	0.496	18.2	152	0.314	False	GarSat37	False	composite periodic	composite periodic	composite periodic
+Gar_SAT00042	C_gar_LG01	20547129	20594433	6	43.7	47.3	0.925	10.57	716	0.961	True	GarSat4249	False	gene array	gene array	gene array
+Gar_SAT00048	C_gar_LG01	25589041	25913588	2	311.8	324.5	0.961	0.31	219	0.571	False	GarSat04	False	colinear, homogeneous	colinear, homogeneous	colinear, homogeneous
+Gar_SAT00053	C_gar_LG01	29709247	30629358	4	915.0	920.1	0.994	0.33	226	0.651	False	GarSat04	True	colinear, homogeneous	colinear, homogeneous	colinear, homogeneous
+Gar_SAT00055	C_gar_LG01	34095181	34097798	2	2.3	2.6	0.892	38.21	40	0.428	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00059	C_gar_LG01	40881516	40885263	2	1.5	3.7	0.393	26.69	40	0.773	False	GarSat56	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00060	C_gar_LG01	41386705	41644669	13	94.1	258.0	0.365	4.65	226	0.331	False	GarSat10	False	interrupted, irregular	interrupted, irregular	interrupted, irregular
+Gar_SAT00080	C_gar_LG01	50382324	50387158	2	4.2	4.8	0.873	20.69	66	0.619	False	GarSat23	False	colinear, homogeneous	colinear, homogeneous	composite periodic
+Gar_SAT00081	C_gar_LG01	50597423	50604202	3	2.7	6.8	0.395	29.5	87	0.702	False	GarSat767	False	composite periodic	composite periodic	composite periodic
+Gar_SAT00083	C_gar_LG01	50790399	50846915	5	4.4	56.5	0.078	7.08	56	0.379	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00084	C_gar_LG01	50905156	50922667	3	14.2	17.5	0.809	11.42	46	0.461	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00086	C_gar_LG02	91104	124276	2	32.3	33.2	0.974	3.01	873	0.925	False	GarSat41	False	colinear, homogeneous	colinear, homogeneous	colinear, homogeneous
+Gar_SAT00087	C_gar_LG02	261981	455659	15	12.8	193.7	0.066	7.23	42	0.247	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00088	C_gar_LG02	577631	581220	2	3.6	3.6	0.992	27.86	60	0.461	False	GarSat242	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00090	C_gar_LG02	687631	693075	2	4.6	5.4	0.839	18.37	108	0.44	False	GarSat4366	False	colinear, multi-variant	colinear, multi-variant	composite periodic
+Gar_SAT00095	C_gar_LG02	3254679	3256381	2	1.6	1.7	0.929	58.75	42	0.297	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00106	C_gar_LG02	6350916	6357376	2	2.8	6.5	0.428	15.48	68	0.369	False	GarSat829	False	composite periodic	composite periodic	composite periodic
+Gar_SAT00118	C_gar_LG02	8257664	8261772	2	2.1	4.1	0.513	24.34	54	0.589	False	GarSat766	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00121	C_gar_LG02	10017468	10021100	2	1.8	3.6	0.498	27.53	74	0.772	False	GarSat48	False	composite periodic	composite periodic	composite periodic
+Gar_SAT00124	C_gar_LG02	10954535	10958050	2	0.8	3.5	0.222	28.45	46	0.507	False	GarSat26	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00129	C_gar_LG02	14779393	15114912	12	115.0	335.5	0.343	3.28	225	0.42	False	GarSat03	False	interrupted, irregular	interrupted, irregular	interrupted, irregular
+Gar_SAT00130	C_gar_LG02	15368466	15370074	2	1.4	1.6	0.891	62.19	40	0.376	False	GarSat11	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00140	C_gar_LG02	27140191	28176547	10	981.7	1036.4	0.947	0.87	216	0.575	False	GarSat04	True	colinear, homogeneous	colinear, homogeneous	colinear, homogeneous
+Gar_SAT00156	C_gar_LG02	42984872	42987376	2	1.1	2.5	0.431	39.94	48	0.503	False	GarSat3231	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00168	C_gar_LG02	46946346	47054536	33	42.7	108.2	0.394	29.58	140	0.387	False	GarSat05	False	composite periodic	composite periodic	composite periodic
+Gar_SAT00169	C_gar_LG02	47182125	47188381	2	2.6	6.3	0.412	15.98	151	0.391	False	GarSat37	False	composite periodic	composite periodic	composite periodic
+Gar_SAT00181	C_gar_LG02	51530278	51690000	3	147.5	159.7	0.924	1.25	216	0.604	False	GarSat04	False	colinear, homogeneous	colinear, homogeneous	colinear, homogeneous
+Gar_SAT00182	C_gar_LG03	36	10246	2	10.0	10.2	0.976	9.79	42	0.881	False	GarSat54	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00183	C_gar_LG03	231731	246205	3	14.0	14.5	0.971	13.82	40	0.251	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00184	C_gar_LG03	362048	396395	4	2.6	34.3	0.075	8.73	48	0.473	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00185	C_gar_LG03	466963	472790	2	5.8	5.8	0.995	17.16	40	0.374	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00186	C_gar_LG03	613250	653173	4	14.3	39.9	0.359	7.51	42	0.257	False	GarSat1497	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00192	C_gar_LG03	1439135	1441420	2	2.0	2.3	0.896	43.76	48	0.484	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00196	C_gar_LG03	2064140	2097770	2	6.5	33.6	0.194	2.97	60	0.339	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00201	C_gar_LG03	3098128	3283229	42	44.0	185.1	0.238	22.15	140	0.379	False	GarSat05	False	scattered	scattered	scattered
+Gar_SAT00205	C_gar_LG03	5975625	5989828	5	4.9	14.2	0.346	28.16	160	0.379	False	GarSat16	False	composite periodic	composite periodic	composite periodic
+Gar_SAT00208	C_gar_LG03	10633107	10639942	4	2.6	6.8	0.386	43.89	64	0.496	False	GarSat817	False	composite periodic	composite periodic	composite periodic
+Gar_SAT00210	C_gar_LG03	11416256	11421529	3	4.0	5.3	0.757	37.93	54	0.401	False	GarSat1302	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00225	C_gar_LG03	28512374	28593402	23	30.8	81.0	0.381	27.15	140	0.4	False	GarSat05	False	composite periodic	composite periodic	composite periodic
+Gar_SAT00231	C_gar_LG03	30607172	30636554	5	26.1	29.4	0.888	13.61	225	0.358	False	GarSat115	True	colinear, multi-variant	colinear, multi-variant	composite periodic
+Gar_SAT00232	C_gar_LG03	30882133	30908915	2	26.3	26.8	0.984	3.73	235	0.391	False	GarSat284	True	colinear, multi-variant	colinear, multi-variant	colinear, multi-variant
+Gar_SAT00248	C_gar_LG03	47220948	47248174	2	7.6	27.2	0.278	3.67	57	0.23	False	GarSat324	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00249	C_gar_LG03	47368357	47375062	2	6.2	6.7	0.928	14.91	48	0.475	False	GarSat08	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00250	C_gar_LG03	47607506	47620000	2	6.6	12.5	0.532	8.0	42	0.982	False	GarSat45	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00251	C_gar_LG04	324	19074	7	5.0	18.8	0.267	32.0	146	0.31	False	GarSat65	False	scattered	scattered	scattered
+Gar_SAT00252	C_gar_LG04	55849	63933	5	1.9	8.1	0.23	49.48	40	0.288	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00253	C_gar_LG04	102321	104840	2	2.3	2.5	0.909	39.7	42	0.306	False	GarSat02	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00255	C_gar_LG04	339773	343798	3	1.2	4.0	0.308	49.69	40	0.329	False	GarSat13	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00261	C_gar_LG04	1253028	1255237	3	1.6	2.2	0.71	90.54	60	0.435	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00267	C_gar_LG04	7527127	7762302	9	87.2	235.2	0.371	3.4	225	0.417	False	GarSat03	False	interrupted, irregular	interrupted, irregular	interrupted, irregular
+Gar_SAT00277	C_gar_LG04	16445642	16490525	2	39.4	44.9	0.878	2.23	206	0.806	True	GarSat49	False	gene array	gene array	gene array
+Gar_SAT00279	C_gar_LG04	20738701	21219873	10	402.1	481.2	0.836	1.87	209	0.818	True	GarSat49	False	gene array	gene array	gene array
+Gar_SAT00280	C_gar_LG04	21610556	22000074	8	357.0	389.5	0.916	1.8	209	0.828	True	GarSat49	True	gene array	gene array	gene array
+Gar_SAT00283	C_gar_LG04	28330240	28340000	3	2.4	9.8	0.247	20.49	140	0.471	False	GarSat05	False	scattered	scattered	scattered
+Gar_SAT00284	C_gar_LG04	29652921	29659274	2	3.7	6.4	0.584	15.74	186	0.612	False	GarSat4315	False	composite periodic	composite periodic	composite periodic
+Gar_SAT00296	C_gar_LG04	39278585	39283037	4	4.1	4.5	0.92	67.39	40	0.372	False	GarSat2958	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00301	C_gar_LG04	40671237	40673744	2	2.3	2.5	0.922	39.89	42	0.416	False	GarSat06	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00302	C_gar_LG04	40843704	40844950	2	0.5	1.2	0.416	80.26	44	0.556	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00308	C_gar_LG04	42932100	43005931	12	27.9	73.8	0.378	14.9	42	0.335	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00315	C_gar_LG05	62951	179945	6	112.7	117.0	0.963	4.27	793	0.928	True	GarSat4239	False	gene array	gene array	gene array
+Gar_SAT00316	C_gar_LG05	466579	511633	5	3.2	45.1	0.072	8.88	40	0.266	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00318	C_gar_LG05	1214340	1222672	2	3.4	8.3	0.402	12.0	42	0.543	False	GarSat06	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00326	C_gar_LG05	5408125	5604720	11	59.1	196.6	0.301	5.09	235	0.471	False	GarSat10	False	composite periodic	composite periodic	composite periodic
+Gar_SAT00333	C_gar_LG05	12131709	12139555	2	4.1	7.8	0.521	12.75	151	0.401	False	GarSat37	False	composite periodic	composite periodic	composite periodic
+Gar_SAT00336	C_gar_LG05	13868660	14121877	2	252.5	253.2	0.997	0.39	218	0.697	False	GarSat04	True	colinear, homogeneous	colinear, homogeneous	colinear, homogeneous
+Gar_SAT00349	C_gar_LG05	34244785	34246852	2	1.8	2.1	0.864	48.38	66	0.724	False	GarSat3714	False	colinear, homogeneous	colinear, homogeneous	composite periodic
+Gar_SAT00359	C_gar_LG05	39091693	39101314	2	8.3	9.6	0.863	10.39	48	0.385	False	GarSat142	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00363	C_gar_LG05	39953148	39960914	3	2.7	7.8	0.354	25.75	48	0.464	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00364	C_gar_LG05	40844779	40893186	8	15.2	48.4	0.315	14.46	40	0.359	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00365	C_gar_LG05	41003019	41286886	12	268.8	283.9	0.947	3.88	214	0.304	False	GarSat4282	False	colinear, multi-variant	colinear, multi-variant	colinear, multi-variant
+Gar_SAT00368	C_gar_LG06	12444	60285	4	6.5	47.8	0.136	6.27	206	0.88	False	GarSat15	False	scattered	scattered	scattered
+Gar_SAT00370	C_gar_LG06	298078	304634	2	3.8	6.6	0.584	15.25	56	0.484	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00372	C_gar_LG06	712298	715555	2	3.1	3.3	0.943	30.7	48	0.384	False	GarSat164	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00373	C_gar_LG06	794952	800999	2	3.7	6.0	0.619	16.54	42	0.339	False	GarSat351	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00374	C_gar_LG06	888746	978154	8	17.7	89.4	0.198	7.83	84	0.714	False	GarSat861	False	scattered	scattered	scattered
+Gar_SAT00375	C_gar_LG06	1082716	1108325	2	3.4	25.6	0.133	3.9	84	0.701	False	GarSat861	False	scattered	scattered	scattered
+Gar_SAT00381	C_gar_LG06	2264710	2270750	3	2.9	6.0	0.475	33.11	43	0.241	False	GarSat06	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00387	C_gar_LG06	5222762	5318444	3	93.8	95.7	0.98	2.09	220	0.59	False	GarSat04	False	colinear, homogeneous	colinear, homogeneous	colinear, homogeneous
+Gar_SAT00388	C_gar_LG06	5549005	5550205	2	0.9	1.2	0.788	83.33	51	0.165	False	GarSat1758	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00391	C_gar_LG06	6201849	6210004	3	0.7	8.2	0.089	24.52	48	0.39	False	GarSat696	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00394	C_gar_LG06	6813644	6816941	2	0.6	3.3	0.168	30.33	72	0.953	False	GarSat17	False	scattered	scattered	scattered
+Gar_SAT00396	C_gar_LG06	9093838	9095990	2	2.1	2.2	0.989	46.47	42	0.241	False	GarSat44	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00400	C_gar_LG06	18357838	18377858	6	4.4	20.0	0.221	24.98	160	0.436	False	GarSat05	False	scattered	scattered	scattered
+Gar_SAT00406	C_gar_LG06	29472882	29728425	7	159.8	255.5	0.625	2.35	226	0.497	False	GarSat03	True	interrupted, irregular	interrupted, irregular	interrupted, irregular
+Gar_SAT00418	C_gar_LG06	40200860	40230142	2	1.9	29.3	0.064	3.42	42	0.367	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00419	C_gar_LG06	40719967	40725941	3	5.5	6.0	0.913	33.48	40	0.654	False	GarSat614	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00421	C_gar_LG06	40868706	40871363	2	1.3	2.7	0.494	37.64	40	0.232	False	GarSat21	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00422	C_gar_LG06	40913710	40917116	2	3.2	3.4	0.945	29.36	48	0.509	False	GarSat204	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00423	C_gar_LG06	40972168	40977726	2	5.5	5.6	0.981	17.99	42	0.285	False	GarSat408	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00425	C_gar_LG06	41133622	41136412	2	2.7	2.8	0.963	35.84	54	0.6	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00426	C_gar_LG06	41234763	41239700	2	3.2	4.9	0.643	20.26	50	0.289	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00428	C_gar_LG07	2919	38277	15	16.7	35.4	0.473	39.59	206	0.653	False	GarSat15	False	composite periodic	composite periodic	composite periodic
+Gar_SAT00452	C_gar_LG07	17729095	18009743	17	99.2	280.6	0.354	5.7	235	0.295	False	GarSat10	False	composite periodic	composite periodic	composite periodic
+Gar_SAT00461	C_gar_LG07	30981243	30998798	2	10.0	17.6	0.571	5.7	60	0.57	False	GarSat1579	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00462	C_gar_LG07	31690321	32664426	8	966.5	974.1	0.992	0.72	210	0.592	False	GarSat04	True	colinear, homogeneous	colinear, homogeneous	colinear, homogeneous
+Gar_SAT00472	C_gar_LG07	38447719	38448823	2	1.0	1.1	0.872	90.58	40	0.251	False	GarSat1050	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00473	C_gar_LG07	38483856	38486828	3	2.7	3.0	0.91	67.29	42	0.261	False	GarSat465	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00477	C_gar_LG07	40353304	40357252	3	1.7	3.9	0.431	50.66	46	0.747	False	GarSat26	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00478	C_gar_LG07	40800000	40829436	4	27.7	29.4	0.94	10.19	302	0.304	False	GarSat29	False	colinear, multi-variant	colinear, multi-variant	colinear, multi-variant
+Gar_SAT00484	C_gar_LG07	41478029	41481304	2	3.1	3.3	0.937	30.53	57	0.093	False	GarSat69	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00485	C_gar_LG07	41528208	41531515	4	2.8	3.3	0.837	90.72	57	0.108	False	GarSat69	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00492	C_gar_LG07	42524858	42561918	6	7.5	37.1	0.203	13.49	206	0.812	False	GarSat15	False	scattered	scattered	scattered
+Gar_SAT00494	C_gar_LG08	302280	308476	2	1.7	6.2	0.281	16.14	42	0.476	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00495	C_gar_LG08	417135	423078	2	0.7	5.9	0.121	16.83	40	0.312	False	GarSat02	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00503	C_gar_LG08	5591468	5601640	2	2.2	10.2	0.215	9.83	84	0.27	False	GarSat24	False	scattered	scattered	scattered
+Gar_SAT00505	C_gar_LG08	7323103	7325438	2	2.1	2.3	0.901	42.83	42	0.233	False	GarSat08	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00507	C_gar_LG08	7531480	7533443	2	0.3	2.0	0.153	50.94	40	0.475	False	GarSat14	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00508	C_gar_LG08	7576026	7579635	2	3.0	3.6	0.823	27.71	62	0.333	False	GarSat86	False	colinear, multi-variant	colinear, multi-variant	composite periodic
+Gar_SAT00533	C_gar_LG08	28718828	29393254	2	667.6	674.4	0.99	0.15	226	0.713	False	GarSat03	True	colinear, homogeneous	colinear, homogeneous	colinear, homogeneous
+Gar_SAT00546	C_gar_LG08	38112861	38123514	6	2.7	10.7	0.254	46.94	40	0.224	False	GarSat02	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00549	C_gar_LG08	38642000	38645327	2	3.3	3.3	0.996	30.06	40	0.506	False	GarSat08	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00552	C_gar_LG08	39031182	39038724	2	1.0	7.5	0.131	13.26	42	0.969	False	GarSat02	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00556	C_gar_LG08	39479170	39481054	2	1.3	1.9	0.706	53.08	42	0.133	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00558	C_gar_LG08	39664140	39667604	2	1.3	3.5	0.385	28.87	42	0.69	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00559	C_gar_LG08	39794515	39797791	2	3.1	3.3	0.939	30.53	42	0.492	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00563	C_gar_LG09	32	12489	2	9.8	12.5	0.785	8.03	42	0.801	False	GarSat45	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00565	C_gar_LG09	204646	231355	4	17.1	26.7	0.639	11.23	42	0.769	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00566	C_gar_LG09	385211	432999	6	10.8	47.8	0.225	10.46	42	0.413	False	GarSat389	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00567	C_gar_LG09	543640	610794	2	2.1	67.2	0.032	1.49	56	0.605	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00568	C_gar_LG09	688947	692806	2	3.6	3.9	0.93	25.91	54	0.33	False	GarSat2954	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00571	C_gar_LG09	1121133	1146571	3	6.3	25.4	0.25	7.86	42	0.848	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00579	C_gar_LG09	2709114	2730932	2	3.1	21.8	0.143	4.58	68	0.498	False	GarSat4156	False	scattered	scattered	scattered
+Gar_SAT00580	C_gar_LG09	2803870	2805600	2	1.4	1.7	0.837	57.8	42	0.46	False	GarSat1791	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00584	C_gar_LG09	4369316	4371380	2	2.0	2.1	0.982	48.45	42	0.237	False	GarSat31	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00587	C_gar_LG09	9121571	9602711	3	476.8	481.1	0.991	0.42	210	0.708	False	GarSat04	True	colinear, homogeneous	colinear, homogeneous	colinear, homogeneous
+Gar_SAT00591	C_gar_LG09	20570017	21217318	4	610.0	647.3	0.942	0.46	226	0.726	False	GarSat03	False	colinear, homogeneous	colinear, homogeneous	colinear, homogeneous
+Gar_SAT00592	C_gar_LG09	21271589	21300596	3	13.3	29.0	0.459	6.89	227	0.276	False	GarSat03	False	composite periodic	composite periodic	composite periodic
+Gar_SAT00593	C_gar_LG09	24968178	24985576	6	4.9	17.4	0.283	28.74	140	0.508	False	GarSat05	False	scattered	scattered	scattered
+Gar_SAT00596	C_gar_LG09	29454788	29458204	2	1.2	3.4	0.337	29.27	72	0.728	False	GarSat36	False	composite periodic	composite periodic	composite periodic
+Gar_SAT00597	C_gar_LG09	31472606	31476265	2	2.3	3.7	0.616	27.33	68	0.382	False	GarSat828	False	composite periodic	composite periodic	composite periodic
+Gar_SAT00609	C_gar_LG09	33904289	33905729	2	1.4	1.4	0.982	69.44	45	0.413	False	GarSat398	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00617	C_gar_LG09	35698558	35700340	2	1.6	1.8	0.889	56.12	42	0.572	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00628	C_gar_LG09	37284157	37302513	2	14.8	18.4	0.806	5.45	206	0.927	False	GarSat15	False	colinear, homogeneous	colinear, homogeneous	composite periodic
+Gar_SAT00649	C_gar_LG10	5545031	5608475	2	60.5	63.4	0.953	1.58	186	0.387	True	GarSat157	False	gene array	gene array	gene array
+Gar_SAT00658	C_gar_LG10	19853472	20100085	11	119.3	246.6	0.484	4.05	225	0.38	False	GarSat09	True	interrupted, irregular	interrupted, irregular	interrupted, irregular
+Gar_SAT00660	C_gar_LG10	22286233	22319685	5	29.0	33.5	0.866	11.96	302	0.32	False	GarSat29	False	colinear, multi-variant	colinear, multi-variant	composite periodic
+Gar_SAT00665	C_gar_LG10	28381846	28388539	3	2.5	6.7	0.377	29.88	140	0.514	False	GarSat05	False	composite periodic	composite periodic	composite periodic
+Gar_SAT00678	C_gar_LG10	33613437	33628986	2	15.0	15.5	0.964	6.43	40	0.181	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00685	C_gar_LG10	34293848	34301830	2	3.3	8.0	0.414	12.53	48	0.313	False	GarSat328	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00686	C_gar_LG10	34375787	34377233	3	1.2	1.4	0.799	138.31	42	0.409	False	GarSat691	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00687	C_gar_LG10	34418490	34420089	2	1.3	1.6	0.81	62.54	42	0.321	False	GarSat06	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00690	C_gar_LG11	245517	262107	3	1.7	16.6	0.104	12.06	40	0.472	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00691	C_gar_LG11	413721	428082	2	8.7	14.4	0.604	6.96	62	0.529	False	GarSat01	False	composite periodic	composite periodic	composite periodic
+Gar_SAT00693	C_gar_LG11	571264	575114	2	1.2	3.9	0.315	25.97	42	0.545	False	GarSat02	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00695	C_gar_LG11	734218	743090	2	3.3	8.9	0.376	11.27	40	0.307	False	GarSat08	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00698	C_gar_LG11	1971445	1976927	2	5.5	5.5	0.995	18.24	42	0.262	False	GarSat203	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00699	C_gar_LG11	2111751	2122934	2	2.7	11.2	0.24	8.94	42	0.242	False	GarSat1765	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00704	C_gar_LG11	3589013	3608092	6	5.1	19.1	0.269	26.21	140	0.448	False	GarSat16	False	scattered	scattered	scattered
+Gar_SAT00709	C_gar_LG11	4750101	4757049	3	2.5	6.9	0.365	28.79	140	0.534	False	GarSat05	False	composite periodic	composite periodic	composite periodic
+Gar_SAT00721	C_gar_LG11	28695891	28698517	2	2.3	2.6	0.872	38.08	63	0.53	False	GarSat117	False	colinear, homogeneous	colinear, homogeneous	composite periodic
+Gar_SAT00733	C_gar_LG11	33097983	33099942	2	1.3	2.0	0.677	51.05	48	0.652	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00735	C_gar_LG11	33280409	33298272	2	3.4	17.9	0.192	5.6	62	0.506	False	GarSat01	False	scattered	scattered	scattered
+Gar_SAT00741	C_gar_LG12	200904	720500	8	485.5	519.6	0.934	1.35	985	0.965	True	GarSat154	False	gene array	gene array	gene array
+Gar_SAT00744	C_gar_LG12	2392291	2450943	3	52.9	58.7	0.901	3.41	51	0.118	False	GarSat2949	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00747	C_gar_LG12	2831979	3158480	14	145.4	326.5	0.445	3.98	226	0.497	False	GarSat03	True	interrupted, irregular	interrupted, irregular	interrupted, irregular
+Gar_SAT00748	C_gar_LG12	3229512	3247112	2	14.9	17.6	0.847	5.68	54	0.411	False	GarSat799	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00753	C_gar_LG12	5065730	5078792	2	2.6	13.1	0.199	7.66	84	0.192	False	GarSat24	False	scattered	scattered	scattered
+Gar_SAT00761	C_gar_LG12	15929462	15931038	2	1.4	1.6	0.907	63.45	42	0.292	False	GarSat400	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00765	C_gar_LG12	20504504	20505932	2	1.4	1.4	0.989	70.03	40	0.719	False	GarSat11	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00785	C_gar_LG12	29045141	29048252	3	2.7	3.1	0.866	64.29	74	0.582	False	GarSat249	False	colinear, homogeneous	colinear, homogeneous	composite periodic
+Gar_SAT00786	C_gar_LG12	29110666	29114944	2	1.6	4.3	0.364	23.38	44	0.868	False	GarSat233	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00798	C_gar_LG12	31636544	31731893	22	25.6	95.3	0.269	22.02	140	0.339	False	GarSat05	False	scattered	scattered	scattered
+Gar_SAT00799	C_gar_LG12	31772045	31817969	11	13.1	45.9	0.285	21.78	302	0.424	False	GarSat29	False	scattered	scattered	scattered
+Gar_SAT00800	C_gar_LG12	31885495	31895316	4	3.2	9.8	0.329	30.55	140	0.463	False	GarSat05	False	composite periodic	composite periodic	composite periodic
+Gar_SAT00801	C_gar_LG12	32904719	32915525	4	3.5	10.8	0.324	27.76	140	0.47	False	GarSat05	False	composite periodic	composite periodic	composite periodic
+Gar_SAT00802	C_gar_LG12	33110982	33213665	25	35.7	102.7	0.348	23.37	140	0.308	False	GarSat16	False	composite periodic	composite periodic	composite periodic
+Gar_SAT00807	C_gar_LG13	15353	23423	3	5.7	8.1	0.707	24.78	206	0.828	False	GarSat15	False	colinear, homogeneous	composite periodic	composite periodic
+Gar_SAT00808	C_gar_LG13	234252	236716	2	2.0	2.5	0.814	40.58	40	0.516	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00818	C_gar_LG13	10384891	10387467	2	2.1	2.6	0.819	38.82	41	0.691	False	GarSat178	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00826	C_gar_LG13	16980938	17064064	4	66.1	83.1	0.795	3.61	206	0.794	True	GarSat49	True	gene array	gene array	gene array
+Gar_SAT00829	C_gar_LG13	22548255	22553319	2	5.0	5.1	0.977	19.75	62	0.674	False	GarSat23	False	colinear, homogeneous	colinear, homogeneous	colinear, homogeneous
+Gar_SAT00830	C_gar_LG13	25874144	26098024	12	70.0	223.9	0.313	4.91	225	0.445	False	GarSat09	False	interrupted, irregular	interrupted, irregular	interrupted, irregular
+Gar_SAT00836	C_gar_LG13	30694689	30736808	9	10.8	42.1	0.257	18.99	140	0.373	False	GarSat05	False	scattered	scattered	scattered
+Gar_SAT00840	C_gar_LG13	32989654	32996338	3	2.5	6.7	0.376	29.92	140	0.457	False	GarSat05	False	composite periodic	composite periodic	composite periodic
+Gar_SAT00845	C_gar_LG14	197917	200276	2	1.3	2.4	0.571	42.39	62	0.63	False	GarSat77	False	composite periodic	composite periodic	composite periodic
+Gar_SAT00853	C_gar_LG14	1154859	1162515	3	1.7	7.7	0.218	26.12	60	0.443	False	GarSat382	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00856	C_gar_LG14	1620000	1745000	4	121.2	125.0	0.97	2.4	738	0.454	True	GarSat153	False	gene array	gene array	gene array
+Gar_SAT00860	C_gar_LG14	4568834	4570901	2	1.7	2.1	0.831	48.38	42	0.341	False	GarSat3082	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00863	C_gar_LG14	5238525	5240886	2	2.2	2.4	0.951	42.35	44	0.274	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00864	C_gar_LG14	5362070	5507151	6	64.9	145.1	0.447	3.45	235	0.433	False	GarSat10	False	interrupted, irregular	interrupted, irregular	interrupted, irregular
+Gar_SAT00870	C_gar_LG14	10938312	10944847	2	4.2	6.5	0.647	15.3	48	0.226	False	GarSat07	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00873	C_gar_LG14	12660896	13134585	3	470.4	473.7	0.993	0.42	214	0.626	False	GarSat04	True	colinear, homogeneous	colinear, homogeneous	colinear, homogeneous
+Gar_SAT00875	C_gar_LG14	17388375	17428651	9	14.6	40.3	0.362	19.86	140	0.367	False	GarSat05	False	composite periodic	composite periodic	composite periodic
+Gar_SAT00887	C_gar_LG14	31511622	31514401	2	2.5	2.8	0.914	35.98	40	0.361	False	GarSat1448	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00888	C_gar_LG14	31556952	31574382	2	13.8	17.4	0.793	5.74	60	0.583	False	GarSat789	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00889	C_gar_LG14	31622646	31627565	2	2.2	4.9	0.444	20.33	68	0.43	False	GarSat345	False	composite periodic	composite periodic	composite periodic
+Gar_SAT00890	C_gar_LG14	31685073	31763901	6	2.9	78.8	0.037	6.34	40	0.401	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00894	C_gar_LG15	1537	28268	12	7.0	26.7	0.263	41.15	146	0.33	False	GarSat65	False	scattered	scattered	scattered
+Gar_SAT00899	C_gar_LG15	4209698	4250983	3	18.4	41.3	0.445	4.84	324	0.566	False	GarSat848	False	interrupted, irregular	interrupted, irregular	interrupted, irregular
+Gar_SAT00904	C_gar_LG15	6941907	7086446	8	67.8	144.5	0.469	4.84	226	0.456	False	GarSat03	False	interrupted, irregular	interrupted, irregular	interrupted, irregular
+Gar_SAT00905	C_gar_LG15	7126491	7132993	2	4.5	6.5	0.691	15.38	225	0.619	False	GarSat03	False	composite periodic	composite periodic	composite periodic
+Gar_SAT00906	C_gar_LG15	8046462	8174430	3	120.5	128.0	0.942	1.56	666	0.592	True	GarSat155	False	gene array	gene array	gene array
+Gar_SAT00913	C_gar_LG15	12737493	12966287	5	215.0	228.8	0.94	1.75	218	0.537	False	GarSat04	True	colinear, homogeneous	colinear, homogeneous	colinear, homogeneous
+Gar_SAT00917	C_gar_LG15	21948890	21959006	2	9.0	10.1	0.894	9.89	498	0.469	False	GarSat4272	False	colinear, multi-variant	colinear, multi-variant	composite periodic
+Gar_SAT00922	C_gar_LG15	29459088	29484805	3	11.7	25.7	0.454	7.78	639	0.833	True	GarSat4256	False	gene array	gene array	gene array
+Gar_SAT00924	C_gar_LG15	32230915	32233127	3	2.1	2.2	0.941	90.42	40	0.441	False	GarSat631	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00927	C_gar_LG15	33937888	33955975	5	4.6	18.1	0.256	22.12	140	0.502	False	GarSat05	False	scattered	scattered	scattered
+Gar_SAT00928	C_gar_LG15	34167644	34173111	2	1.2	5.5	0.217	18.29	48	0.301	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00929	C_gar_LG15	34340818	34351659	2	1.0	10.8	0.092	9.22	48	0.517	False	GarSat13	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00934	C_gar_LG16	8281	18086	2	8.4	9.8	0.858	10.2	206	0.761	False	GarSat15	False	colinear, homogeneous	colinear, homogeneous	composite periodic
+Gar_SAT00935	C_gar_LG16	137992	140432	2	2.2	2.4	0.91	40.98	48	0.28	False	GarSat184	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00936	C_gar_LG16	209917	310169	10	9.7	100.3	0.096	8.98	54	0.275	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00939	C_gar_LG16	545693	548804	3	2.5	3.1	0.806	64.29	40	0.309	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00946	C_gar_LG16	3371674	3378063	2	2.6	6.4	0.402	15.65	151	0.429	False	GarSat37	False	composite periodic	composite periodic	composite periodic
+Gar_SAT00947	C_gar_LG16	4157225	4163587	2	2.6	6.4	0.405	15.72	151	0.443	False	GarSat37	False	composite periodic	composite periodic	composite periodic
+Gar_SAT00955	C_gar_LG16	6367642	6371216	2	2.9	3.6	0.812	27.98	60	0.284	False	GarSat238	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00956	C_gar_LG16	6403630	6407450	2	2.6	3.8	0.67	26.18	42	0.572	False	GarSat2053	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00957	C_gar_LG16	6691391	6697741	2	4.2	6.3	0.656	15.75	140	0.536	False	GarSat05	False	composite periodic	composite periodic	composite periodic
+Gar_SAT00958	C_gar_LG16	7103810	7105939	4	1.5	2.1	0.694	140.91	40	0.475	False	GarSat297	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00960	C_gar_LG16	7581210	7583682	2	2.3	2.5	0.921	40.45	62	0.31	False	GarSat01	False	colinear, multi-variant	colinear, multi-variant	colinear, multi-variant
+Gar_SAT00966	C_gar_LG16	10869253	11339880	3	461.9	470.6	0.982	0.42	208	0.811	False	GarSat04	True	colinear, homogeneous	colinear, homogeneous	colinear, homogeneous
+Gar_SAT00969	C_gar_LG16	13221859	13227210	2	1.8	5.4	0.339	18.69	140	0.449	False	GarSat05	False	composite periodic	composite periodic	composite periodic
+Gar_SAT00970	C_gar_LG16	13407241	13410529	2	2.0	3.3	0.602	30.41	78	0.77	False	GarSat148	False	composite periodic	composite periodic	composite periodic
+Gar_SAT00975	C_gar_LG16	22328061	22795631	21	180.6	467.6	0.386	4.28	225	0.425	False	GarSat03	False	interrupted, irregular	interrupted, irregular	interrupted, irregular
+Gar_SAT00976	C_gar_LG16	23485438	23488399	2	0.6	3.0	0.187	33.77	72	1.0	False	GarSat17	False	scattered	scattered	scattered
+Gar_SAT00992	C_gar_LG16	32934043	33075746	9	6.3	141.7	0.044	5.65	60	0.536	False	GarSat02	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00993	C_gar_LG16	33115159	33117050	2	1.8	1.9	0.975	52.88	40	0.603	False	GarSat27	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00994	C_gar_LG16	33155530	33175169	3	7.4	19.6	0.378	10.18	42	0.554	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00995	C_gar_LG16	33443061	33451385	2	4.7	8.3	0.569	12.01	40	0.365	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00997	C_gar_LG16	33535091	33539761	2	2.1	4.7	0.452	21.41	42	0.284	False	GarSat611	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00998	C_gar_LG16	33613844	33632361	2	2.3	18.5	0.122	5.4	42	0.256	False	GarSat06	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT00999	C_gar_LG16	33834079	33838835	4	4.0	4.8	0.834	63.08	104	0.423	False	GarSat865	False	colinear, multi-variant	colinear, multi-variant	composite periodic
+Gar_SAT01000	C_gar_LG17	32370	72577	29	25.7	40.2	0.639	69.64	153	0.48	False	GarSat291	False	composite periodic	composite periodic	composite periodic
+Gar_SAT01001	C_gar_LG17	166323	194410	2	15.3	28.1	0.546	3.56	56	0.336	False	GarSat3715	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01002	C_gar_LG17	309461	343959	2	8.2	34.5	0.237	2.9	45	0.387	False	GarSat611	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01009	C_gar_LG17	1357090	1359328	2	1.4	2.2	0.621	44.68	42	0.308	False	GarSat719	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01013	C_gar_LG17	4950383	4951911	2	1.1	1.5	0.741	65.45	42	0.446	False	GarSat4024	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01016	C_gar_LG17	10774125	11021841	13	91.7	247.7	0.37	4.84	225	0.434	False	GarSat09	False	interrupted, irregular	interrupted, irregular	interrupted, irregular
+Gar_SAT01019	C_gar_LG17	15230438	15234705	4	2.1	4.3	0.494	70.31	46	0.671	False	GarSat17	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01020	C_gar_LG17	15567987	15576602	2	4.8	8.6	0.561	11.61	151	0.393	False	GarSat37	False	composite periodic	composite periodic	composite periodic
+Gar_SAT01021	C_gar_LG17	18573736	18580397	3	2.8	6.7	0.422	30.03	140	0.428	False	GarSat05	False	composite periodic	composite periodic	composite periodic
+Gar_SAT01035	C_gar_LG17	28456532	28458650	2	1.9	2.1	0.886	47.21	72	0.856	False	GarSat22	False	colinear, homogeneous	colinear, homogeneous	composite periodic
+Gar_SAT01036	C_gar_LG17	28887978	28892992	3	1.7	5.0	0.343	39.89	42	0.272	False	GarSat1749	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01041	C_gar_LG17	29733832	29736416	3	2.0	2.6	0.776	77.4	50	0.259	False	GarSat02	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01043	C_gar_LG17	29907567	29946024	5	6.3	38.5	0.165	10.4	40	0.381	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01044	C_gar_LG17	29987274	30018808	2	6.2	31.5	0.198	3.17	56	0.52	False	GarSat402	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01046	C_gar_LG17	30264990	30282118	7	10.0	17.1	0.586	35.03	206	0.786	False	GarSat15	False	composite periodic	composite periodic	composite periodic
+Gar_SAT01047	C_gar_LG18	7395	34530	5	9.7	27.1	0.356	14.74	206	0.92	False	GarSat15	False	composite periodic	composite periodic	composite periodic
+Gar_SAT01057	C_gar_LG18	1951969	1964910	2	8.8	12.9	0.679	7.73	60	0.374	False	GarSat177	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01071	C_gar_LG18	8867925	8912271	5	13.5	44.3	0.304	9.02	58	0.537	False	GarSat07	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01075	C_gar_LG18	9780145	9979805	3	192.2	199.7	0.963	1.0	214	0.631	False	GarSat04	True	colinear, homogeneous	colinear, homogeneous	colinear, homogeneous
+Gar_SAT01084	C_gar_LG18	20640256	20995416	16	135.0	355.2	0.38	4.22	225	0.437	False	GarSat09	False	interrupted, irregular	interrupted, irregular	interrupted, irregular
+Gar_SAT01102	C_gar_LG18	29846774	29871017	8	12.6	24.2	0.519	28.87	140	0.339	False	GarSat05	False	composite periodic	composite periodic	composite periodic
+Gar_SAT01104	C_gar_LG18	30070893	30100081	6	7.0	29.2	0.241	17.13	40	0.211	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01107	C_gar_LG19	111501	113608	2	2.0	2.1	0.928	47.46	42	0.361	False	GarSat06	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01112	C_gar_LG19	3091898	3096777	6	2.0	4.9	0.402	102.48	60	0.225	False	GarSat818	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01115	C_gar_LG19	12930496	12944768	2	12.5	14.3	0.876	7.01	66	0.26	False	GarSat28	False	colinear, multi-variant	colinear, multi-variant	composite periodic
+Gar_SAT01116	C_gar_LG19	13292053	13295679	2	3.4	3.6	0.925	27.58	57	0.497	False	GarSat38	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01120	C_gar_LG19	18156480	18158867	2	1.4	2.4	0.581	41.89	160	0.577	False	GarSat16	False	composite periodic	composite periodic	composite periodic
+Gar_SAT01121	C_gar_LG19	18203564	18424462	12	74.7	220.9	0.338	4.98	225	0.259	False	GarSat285	True	interrupted, irregular	interrupted, irregular	interrupted, irregular
+Gar_SAT01130	C_gar_LG19	29653166	29657979	2	1.2	4.8	0.257	20.78	44	0.169	False	GarSat192	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01134	C_gar_LG19	30022399	30034505	2	0.7	12.1	0.059	8.26	48	0.697	False	GarSat30	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01137	C_gar_LG19	30231777	30243975	3	3.2	12.2	0.26	16.4	40	0.382	False	GarSat737	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01141	C_gar_LG19	30637396	30645966	4	5.5	8.6	0.638	35.01	203	0.331	False	GarSat283	False	composite periodic	composite periodic	composite periodic
+Gar_SAT01145	C_gar_LG20	262195	273453	2	5.7	11.3	0.508	8.88	42	0.25	False	GarSat06	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01148	C_gar_LG20	1108529	1111795	3	0.7	3.3	0.228	61.24	45	0.862	False	GarSat371	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01151	C_gar_LG20	1399658	1405397	5	5.4	5.7	0.938	69.7	42	0.197	False	GarSat375	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01164	C_gar_LG20	5495146	5497241	2	1.1	2.1	0.523	47.73	40	0.279	False	GarSat57	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01165	C_gar_LG20	5618153	5620938	3	2.7	2.8	0.966	71.81	44	0.337	False	GarSat222	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01169	C_gar_LG20	6119444	6141402	3	3.6	22.0	0.165	9.11	78	0.63	False	GarSat61	False	scattered	scattered	scattered
+Gar_SAT01173	C_gar_LG20	6499567	6505167	2	4.3	5.6	0.773	17.86	78	0.628	False	GarSat61	False	colinear, homogeneous	composite periodic	composite periodic
+Gar_SAT01175	C_gar_LG20	6887321	6915755	3	12.9	28.4	0.453	7.03	72	0.079	False	GarSat805	False	composite periodic	composite periodic	composite periodic
+Gar_SAT01182	C_gar_LG20	10685123	10686632	2	1.2	1.5	0.791	66.27	44	0.395	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01183	C_gar_LG20	10891680	10897406	3	2.0	5.7	0.345	34.93	140	0.451	False	GarSat05	False	composite periodic	composite periodic	composite periodic
+Gar_SAT01185	C_gar_LG20	14813581	15317760	2	501.8	504.2	0.995	0.2	226	0.719	False	GarSat03	True	colinear, homogeneous	colinear, homogeneous	colinear, homogeneous
+Gar_SAT01198	C_gar_LG20	23080450	23096994	2	4.2	16.5	0.255	6.04	57	0.281	False	GarSat120	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01210	C_gar_LG20	25349817	25363611	2	13.8	13.8	0.997	7.25	65	0.903	False	GarSat07	False	colinear, homogeneous	colinear, homogeneous	colinear, homogeneous
+Gar_SAT01213	C_gar_LG20	26302588	26337680	3	6.1	35.1	0.173	5.7	97	0.197	False	GarSat4177	False	scattered	scattered	scattered
+Gar_SAT01217	C_gar_LG20	27071055	27083952	2	8.7	12.9	0.677	7.75	206	0.771	False	GarSat15	False	composite periodic	composite periodic	composite periodic
+Gar_SAT01219	C_gar_LG21	309022	330906	2	9.5	21.9	0.436	4.57	54	0.452	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01222	C_gar_LG21	639304	658315	2	6.9	19.0	0.362	5.26	58	0.351	False	GarSat20	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01233	C_gar_LG21	3503325	3509821	3	2.4	6.5	0.367	30.79	140	0.483	False	GarSat05	False	composite periodic	composite periodic	composite periodic
+Gar_SAT01237	C_gar_LG21	5886030	5890249	2	1.3	4.2	0.312	23.7	42	0.241	False	GarSat596	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01241	C_gar_LG21	16858521	17130112	12	113.3	271.6	0.417	4.05	225	0.493	False	GarSat03	True	interrupted, irregular	interrupted, irregular	interrupted, irregular
+Gar_SAT01250	C_gar_LG21	22471194	22478888	2	2.3	7.7	0.295	13.0	152	0.351	False	GarSat37	False	scattered	scattered	scattered
+Gar_SAT01258	C_gar_LG21	25939837	25966676	2	1.4	26.8	0.051	3.73	48	0.5	False	GarSat02	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01261	C_gar_LG21	27056224	27059620	2	1.1	3.4	0.323	29.45	64	0.948	False	GarSat48	False	composite periodic	composite periodic	composite periodic
+Gar_SAT01272	C_gar_LG21	28483200	28492768	2	8.1	9.6	0.846	10.45	42	0.119	False	GarSat3132	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01276	C_gar_LG21	29007169	29015104	5	6.9	7.9	0.867	50.41	46	0.732	False	GarSat874	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01280	C_gar_LG21	30207229	30213056	2	2.7	5.8	0.472	17.16	62	0.489	False	GarSat19	False	composite periodic	composite periodic	composite periodic
+Gar_SAT01282	C_gar_LG22	6104	40191	2	33.2	34.1	0.974	2.93	874	0.995	False	GarSat41	False	colinear, homogeneous	colinear, homogeneous	colinear, homogeneous
+Gar_SAT01283	C_gar_LG22	205627	217715	3	11.6	12.1	0.956	16.55	40	0.231	False	GarSat06	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01300	C_gar_LG22	9405996	9410139	2	1.5	4.1	0.368	24.14	58	0.814	False	GarSat869	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01301	C_gar_LG22	11910166	11912692	2	2.0	2.5	0.785	39.59	72	0.722	False	GarSat3737	False	colinear, homogeneous	composite periodic	composite periodic
+Gar_SAT01302	C_gar_LG22	13458263	13463685	3	0.8	5.4	0.153	36.89	46	0.375	False	GarSat26	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01306	C_gar_LG22	18016562	18018369	2	1.5	1.8	0.809	55.34	68	0.994	False	GarSat768	False	colinear, homogeneous	colinear, homogeneous	composite periodic
+Gar_SAT01307	C_gar_LG22	18731844	19518176	2	775.9	786.3	0.987	0.13	226	0.506	False	GarSat03	True	colinear, homogeneous	colinear, homogeneous	colinear, homogeneous
+Gar_SAT01310	C_gar_LG22	24078638	24081641	2	2.8	3.0	0.937	33.3	42	0.427	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01323	C_gar_LG22	29518523	29528343	2	2.8	9.8	0.287	10.18	52	0.445	False	GarSat4041	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01329	C_gar_LG23	271998	274149	2	1.9	2.2	0.899	46.49	54	0.516	False	GarSat458	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01330	C_gar_LG23	356720	359385	2	2.6	2.7	0.967	37.52	66	0.511	False	GarSat79	False	colinear, homogeneous	colinear, homogeneous	colinear, homogeneous
+Gar_SAT01336	C_gar_LG23	1928483	1937978	2	4.8	9.5	0.509	10.53	44	0.276	False	GarSat1859	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01343	C_gar_LG23	3975880	3976494	2	0.4	0.6	0.596	162.87	40	0.635	False	GarSat13	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01345	C_gar_LG23	5054337	5056654	2	2.2	2.3	0.957	43.16	66	0.546	False	GarSat3843	False	colinear, homogeneous	colinear, homogeneous	colinear, homogeneous
+Gar_SAT01347	C_gar_LG23	6949141	6955084	3	2.0	5.9	0.328	33.65	140	0.479	False	GarSat05	False	composite periodic	composite periodic	composite periodic
+Gar_SAT01350	C_gar_LG23	13716932	13724496	2	3.8	7.6	0.501	13.22	151	0.432	False	GarSat37	False	composite periodic	composite periodic	composite periodic
+Gar_SAT01359	C_gar_LG23	23685888	23691023	3	4.9	5.1	0.955	38.95	62	0.557	False	GarSat142	False	colinear, homogeneous	colinear, homogeneous	colinear, homogeneous
+Gar_SAT01364	C_gar_LG23	25207229	25623823	20	175.1	416.6	0.42	4.56	226	0.387	False	GarSat03	True	interrupted, irregular	interrupted, irregular	interrupted, irregular
+Gar_SAT01368	C_gar_LG24	163230	167048	2	1.7	3.8	0.447	26.19	42	0.246	False	GarSat06	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01382	C_gar_LG24	4268518	4270660	2	1.8	2.1	0.842	46.69	98	0.66	False	GarSat151	False	colinear, homogeneous	colinear, homogeneous	composite periodic
+Gar_SAT01388	C_gar_LG24	12868725	13299713	5	415.1	431.0	0.963	0.93	352	0.523	False	GarSat91	True	colinear, homogeneous	colinear, homogeneous	colinear, homogeneous
+Gar_SAT01403	C_gar_LG24	24045000	24048289	2	1.4	3.3	0.432	30.4	44	0.365	False	GarSat584	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01405	C_gar_LG24	24213348	24219547	2	5.2	6.2	0.842	16.13	62	0.475	False	GarSat304	False	colinear, multi-variant	colinear, multi-variant	composite periodic
+Gar_SAT01406	C_gar_LG24	24297537	24303550	2	0.8	6.0	0.131	16.63	42	0.327	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01412	C_gar_LG24	24803089	24808290	2	4.3	5.2	0.822	19.23	58	0.593	False	GarSat1759	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01417	C_gar_LG24	25477399	25543020	2	4.4	65.6	0.067	1.52	50	0.428	False	GarSat1414	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01418	C_gar_LG24	25600704	25625063	2	17.3	24.4	0.709	4.11	72	0.897	False	GarSat01	False	colinear, homogeneous	interrupted, irregular	interrupted, irregular
+Gar_SAT01419	C_gar_LG24	25759657	25763044	2	3.3	3.4	0.972	29.52	40	0.438	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01424	C_gar_LG25	483802	508310	2	4.0	24.5	0.162	4.08	42	0.716	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01425	C_gar_LG25	631588	635664	2	3.1	4.1	0.767	24.53	42	0.335	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01439	C_gar_LG25	3270073	3273465	3	3.3	3.4	0.966	58.96	48	0.443	False	GarSat402	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01445	C_gar_LG25	11346200	11539957	7	180.3	193.8	0.931	3.1	877	0.878	True	GarSat847	False	gene array	gene array	gene array
+Gar_SAT01446	C_gar_LG25	13737070	13756905	2	18.4	19.8	0.926	5.04	56	0.377	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01447	C_gar_LG25	14144861	14432192	9	216.9	287.3	0.755	2.78	226	0.388	False	GarSat03	True	colinear, multi-variant	interrupted, irregular	interrupted, irregular
+Gar_SAT01454	C_gar_LG25	21967449	21969880	2	2.3	2.4	0.944	41.14	68	0.483	False	GarSat3711	False	colinear, multi-variant	colinear, multi-variant	colinear, multi-variant
+Gar_SAT01455	C_gar_LG25	22386130	22391860	2	5.6	5.7	0.975	17.45	60	0.296	False	GarSat82	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01466	C_gar_LG25	25211043	25231560	2	0.9	20.5	0.044	4.87	42	0.634	False	GarSat02	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01471	C_gar_LG26	295454	324741	3	9.2	29.3	0.313	6.83	46	0.326	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01473	C_gar_LG26	472795	557498	6	5.6	84.7	0.066	5.9	42	0.506	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01476	C_gar_LG26	1042563	1051189	2	2.3	8.6	0.27	11.59	66	0.628	False	GarSat842	False	scattered	scattered	scattered
+Gar_SAT01477	C_gar_LG26	1094834	1100356	2	2.7	5.5	0.489	18.11	40	0.296	False	GarSat02	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01481	C_gar_LG26	2526163	2538221	5	4.0	12.1	0.328	33.17	140	0.541	False	GarSat05	False	composite periodic	composite periodic	composite periodic
+Gar_SAT01489	C_gar_LG26	13359345	13796992	5	416.5	437.6	0.952	0.91	227	0.657	False	GarSat115	True	colinear, homogeneous	colinear, homogeneous	colinear, homogeneous
+Gar_SAT01501	C_gar_LG26	25846248	25882924	5	1.8	36.7	0.048	10.91	42	0.183	False	GarSat138	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01504	C_gar_LG26	26090487	26117637	4	2.7	27.1	0.101	11.05	40	0.348	False	GarSat01	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01506	C_gar_LG27	2734	45960	3	18.4	43.2	0.425	4.63	229	0.5	False	GarSat282	False	interrupted, irregular	interrupted, irregular	interrupted, irregular
+Gar_SAT01507	C_gar_LG27	87418	262756	7	81.9	175.3	0.467	3.42	530	0.591	False	GarSat90	False	interrupted, irregular	interrupted, irregular	interrupted, irregular
+Gar_SAT01509	C_gar_LG27	479295	482623	2	2.4	3.3	0.706	30.05	48	0.387	False	GarSat524	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01524	C_gar_LG27	18895792	18898447	2	2.2	2.7	0.828	37.66	66	0.545	False	GarSat4103	False	colinear, homogeneous	colinear, homogeneous	composite periodic
+Gar_SAT01538	C_gar_LG27	23884850	23885201	2	0.3	0.4	0.949	284.9	64	0.768	False	GarSat3055	False	colinear, homogeneous	colinear, homogeneous	colinear, homogeneous
+Gar_SAT01542	C_gar_LG28	111870	114759	2	1.2	2.9	0.408	34.61	62	0.54	False	GarSat321	False	composite periodic	composite periodic	composite periodic
+Gar_SAT01543	C_gar_LG28	188272	200136	3	6.8	11.9	0.574	16.86	66	0.291	False	GarSat113	False	composite periodic	composite periodic	composite periodic
+Gar_SAT01545	C_gar_LG28	540884	542537	2	1.5	1.7	0.892	60.5	48	0.392	False	GarSat554	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01547	C_gar_LG28	706072	709548	2	0.8	3.5	0.245	28.77	48	0.984	False	GarSat17	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01550	C_gar_LG28	1315015	1315693	3	0.4	0.7	0.553	294.99	50	0.502	False	GarSat292	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01551	C_gar_LG28	1614438	1639768	2	3.9	25.3	0.153	3.95	60	0.593	False	GarSat771	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01563	C_gar_LG28	7293069	7329945	10	9.5	36.9	0.257	24.41	152	0.549	False	GarSat289	False	scattered	scattered	scattered
+Gar_SAT01573	C_gar_LG28	8652810	8655319	2	2.4	2.5	0.961	39.86	42	0.483	False	GarSat50	False	micro / mini-satellite	micro / mini-satellite	micro / mini-satellite
+Gar_SAT01581	C_gar_LG28	15348708	15393690	5	39.8	45.0	0.884	8.89	700	0.762	True	GarSat62	False	gene array	gene array	gene array
+Gar_SAT01582	C_gar_LG28	15455509	15726008	3	268.5	270.5	0.992	0.74	877	0.754	True	GarSat62	False	gene array	gene array	gene array
+Gar_SAT01588	C_gar_LG28	18012472	18224314	14	68.1	211.8	0.321	6.14	216	0.456	False	GarSat156	True	composite periodic	composite periodic	composite periodic
+Gar_SAT01590	C_gar_LG28	18582225	18592994	2	2.8	10.8	0.257	9.29	62	0.484	False	GarSat87	False	scattered	scattered	scattered
