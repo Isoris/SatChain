@@ -141,4 +141,4 @@ See `docs/METHODS.md`.
 
 ## License
 
-Not chosen yet; until a license is added, all rights are reserved by the author.
+MIT License (see `LICENSE`).
