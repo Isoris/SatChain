@@ -46,12 +46,15 @@ def load_copies(path, keep):
 def runs(bed):
     out = []
     for l in open(bed):
-        c, s, e, nm = l.split('\t')[:4]; out.append((c, int(s), int(e), nm.split('|')[0]))
+        c, s, e, nm = l.split('\t')[:4]; seg = [x[1:] for x in nm.split('|') if x.startswith('g') and x[1:].isdigit()]
+        out.append((c, int(s), int(e), nm.split('|')[0], int(seg[0]) if seg else 1))
     return out
 
 
 R_old = runs(os.path.join(H, '56_runs_validated_q0.9.bed')); R_new = runs(os.path.join(HN, '56_runs_post0.95.bed')) if os.path.exists(os.path.join(HN, '56_runs_post0.95.bed')) else []
 C_old = load_copies(os.path.join(P, '03_monomer_copies.tsv'), {r[3] for r in R_old})
+NSEG = collections.Counter(); [NSEG.update([(r[3], r[4])]) for r in R_old + R_new]
+NSEG = collections.Counter(a for a, _ in NSEG)             # v4.7: arrays that 56 split at assembly gaps get array_id <array>~g<segment>
 C_new = load_copies(os.path.join(N03, '03_monomer_copies.tsv'), {r[3] for r in R_new}) if R_new else {}
 per = {}
 for path in (os.path.join(P, '02_satellite_arrays.tsv'), os.path.join(N03, '02_satellite_arrays.tsv')):
@@ -62,7 +65,11 @@ for path in (os.path.join(P, '03_array_consensus.tsv'), os.path.join(N03, '03_ar
     if os.path.exists(path):
         for r in csv.DictReader(open(path), delimiter='\t'): cgc[(r['array_id'], r['monomer_class'])] = float(r['consensus_GC_percent'])
 te = collections.defaultdict(list)
-for l in gzip.open(os.path.join(FUNC, '_repeats_EDTA', f'fClaHyb_{G}.TEanno.sorted.gff3.gz'), 'rt'):
+def func_path(sub, name):                                   # annotation folders were renamed 2026-10 (_repeats_EDTA -> fClaHyb_<G>_repeats_EDTA)
+    for d in (os.path.join(FUNC, sub), os.path.join(FUNC, f'fClaHyb_{G}{sub}')):
+        if os.path.exists(os.path.join(d, name)): return os.path.join(d, name)
+    raise FileNotFoundError(f'{sub}/{name} under {FUNC}')
+for l in gzip.open(func_path('_repeats_EDTA', f'fClaHyb_{G}.TEanno.sorted.gff3.gz'), 'rt'):
     if l.startswith('#'): continue
     f = l.split('\t', 5)
     if len(f) > 4 and f[2] not in ('repeat_region', 'target_site_duplication', 'long_terminal_repeat'): te[f[0]].append((int(f[3]) - 1, int(f[4])))
@@ -81,7 +88,7 @@ def gc_of(c, s, e):
     n = len(q) - q.count(b'N'); return 100 * (q.count(b'G') + q.count(b'C')) / max(1, n)
 rows = []
 for src, R, C in (('existing', R_old, C_old), ('new', R_new, C_new)):
-    for k, (c, s, e, aid) in enumerate(R):
+    for k, (c, s, e, aid, seg) in enumerate(R):
         cs = [x for x in C.get(aid, []) if x[0] >= s and x[1] <= e]
         conf = [x for x in cs if x[3] and x[2] >= 80]
         if not conf: continue
@@ -94,7 +101,8 @@ for src, R, C in (('existing', R_old, C_old), ('new', R_new, C_new)):
         g1 = 'PASS' if cg is not None and abs(rgc - cg) <= 5 else 'FAIL'
         g2 = 'PASS' if mid >= (85 if u <= 60 else 75) else 'FAIL'
         g3 = 'PASS' if not (0.35 < rev < 0.65) else 'FAIL'
-        rows.append(dict(run_id=f'{G}_{"E" if src == "existing" else "N"}{k + 1:05d}', subgenome=G, chrom=c, start0=s, end=e, bp=e - s, source=src, array_id=aid,
+        rows.append(dict(run_id=f'{G}_{"E" if src == "existing" else "N"}{k + 1:05d}', subgenome=G, chrom=c, start0=s, end=e, bp=e - s, source=src,
+                         array_id=f'{aid}~g{seg}' if NSEG[aid] > 1 else aid, array_id_v46=aid, gap_segment=seg,
                          unit_bp=int(u), unit_class=ucls, n_conf=len(conf), n_weak=sum(1 for x in cs if 65 <= x[2] < 80 or (not x[3] and x[2] >= 80)),
                          n_junk=sum(1 for x in cs if x[2] < 65), mean_identity_conf=round(mid, 2), reverse_fraction=round(rev, 3), run_GC=round(rgc, 2),
                          consensus_GC=cg if cg is not None else 'NA', G1=g1, G2=g2, G3=g3, gates_passed=(g1, g2, g3).count('PASS'),

@@ -6,6 +6,7 @@ TE coverage. Class: TE_insertion (TE >= 50 % of the gap), missed_TE_54 (a step-5
 v2 (2026-10-21): the intrinsic-label filter is per feature, not per label. An EDTA feature with a label intrinsic to the flanking runs still
 counts as TE when it is a whole element sitting in the gap (>= OWN of its length inside the gap and >= MINLEN bp): EDTA gives MacSat03 and a
 7.5-kb LTR element interleaved with it the same label (LTR/unknown), and the v1 filter dropped the element.
+v4.7 (2026-10-26): no interruption across an assembly gap (env SATCHAIN_GAPS = gap BED); reported as refused. Renamed annotation folders handled.
 usage: 59e_interruptions.py <G> <cat59 dir> <func folder> <ins54 dir> [max_gap] [own_frac] [min_len] [out suffix]"""
 import sys, csv, gzip, collections, bisect, os
 G, C, FUNC, INS = sys.argv[1:5]; MAXGAP = int(sys.argv[5]) if len(sys.argv) > 5 else 50000
@@ -15,7 +16,13 @@ intr = {}
 for r in csv.DictReader(open(f'{C}/59c_te_{G}.tsv'), delimiter='\t'):
     intr[r['run_id']] = set(x for x in r['intrinsic_labels_0.3'].split(',') if x != 'none')
 te = collections.defaultdict(list)
-for l in gzip.open(os.path.join(FUNC, '_repeats_EDTA', f'fClaHyb_{G}.TEanno.sorted.gff3.gz'), 'rt'):
+def func_path(sub, name):
+    for d in (os.path.join(FUNC, sub), os.path.join(FUNC, f'fClaHyb_{G}{sub}')):
+        if os.path.exists(os.path.join(d, name)): return os.path.join(d, name)
+    return os.path.join(FUNC, sub, name)
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); from gaps import Gaps
+GAPS = Gaps(os.environ['SATCHAIN_GAPS']) if os.environ.get('SATCHAIN_GAPS') else None; refused = 0
+for l in gzip.open(func_path('_repeats_EDTA', f'fClaHyb_{G}.TEanno.sorted.gff3.gz'), 'rt'):
     if l.startswith('#'): continue
     f = l.rstrip('\n').split('\t')
     if len(f) < 9 or f[2] in ('repeat_region', 'target_site_duplication', 'long_terminal_repeat'): continue
@@ -23,7 +30,7 @@ for l in gzip.open(os.path.join(FUNC, '_repeats_EDTA', f'fClaHyb_{G}.TEanno.sort
 for v in te.values(): v.sort()
 other = collections.defaultdict(list)
 for sub, name in (('_genes_lifton', 'lifton'), ('_ncRNA_rfam', 'rfam.all_classes'), ('_tRNA_tRNAscan', 'tRNA'), ('_rRNA_barrnap', 'rRNA')):
-    p = os.path.join(FUNC, sub, f'fClaHyb_{G}.{name}.sorted.gff3.gz')
+    p = func_path(sub, f'fClaHyb_{G}.{name}.sorted.gff3.gz')
     if not os.path.exists(p): continue
     for l in gzip.open(p, 'rt'):
         if l.startswith('#'): continue
@@ -58,6 +65,7 @@ for aid, rs in by.items():
     for a, b in zip(rs, rs[1:]):
         s, e = int(a['end']), int(b['start0']); c = a['chrom']
         if e <= s or e - s > MAXGAP: continue
+        if GAPS is not None and GAPS.between(c, s, e): refused += 1; continue           # an assembly gap is not an interruption
         skip = intr.get(a['run_id'], set()) | intr.get(b['run_id'], set()); L = e - s
         t = cover(te, c, s, e, skip); k = cover({c: kte.get(c, [])}, c, s, e); o = cover(other, c, s, e)
         cls = 'TE_insertion' if t >= 0.5 * L else 'missed_TE_54' if k >= 0.5 * L else 'other_annotation' if o >= 0.5 * L else 'unannotated'
@@ -69,5 +77,6 @@ for aid, rs in by.items():
 with open(f'{C}/59e_interruptions_{G}{SUF}.tsv', 'w', newline='') as fh:
     w = csv.writer(fh, delimiter='\t', lineterminator='\n')
     w.writerow(['subgenome', 'array_id', 'chrom', 'start0', 'end', 'bp', 'run_left', 'run_right', 'TE_frac', 'missed_TE54_frac', 'other_annot_frac', 'class', 'top_TE_label']); w.writerows(out)
-print(G, 'interruptions between runs (<= %d bp, own %.2f, minlen %d):' % (MAXGAP, OWN, MINLEN), {k: (S[k], round(B[k] / 1e6, 2)) for k in S})
+print(G, 'interruptions between runs (<= %d bp, own %.2f, minlen %d):' % (MAXGAP, OWN, MINLEN), {k: (S[k], round(B[k] / 1e6, 2)) for k in S},
+      '| refused at assembly gaps:', refused if GAPS is not None else 'no gap BED given')
 tl = collections.Counter(x[12] for x in out if x[11] == 'TE_insertion'); print('   top TE labels:', tl.most_common(6))

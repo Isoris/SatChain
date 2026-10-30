@@ -14,13 +14,13 @@ Outputs (<dest>/): 56_hmm_params.tsv, 56_runs.bed (BED6, name = array|run|n_conf
 step-36 runs: shared, HMM-only, 36-only), 56_summary.tsv.
 usage: 56_path_hmm.py --out <pipeline out> --dest <dir> [--post 0.5,0.8,0.95]
 """
-import argparse, collections, csv, math, os
+import sys, argparse, collections, csv, math, os
 import numpy as np
 csv.field_size_limit(1 << 30)
 SYM = {'C': 0, 'W': 1, 'J': 2, 'G': 3}
 
 
-def paths(out, conf, weak, gapu):
+def paths(out, conf, weak, gapu, gaps=None):
     arr = {r['array_id']: r for r in csv.DictReader(open(os.path.join(out, '02_satellite_arrays.tsv')), delimiter='\t')}
     cop = collections.defaultdict(list)
     with open(os.path.join(out, '03_monomer_copies.tsv'), newline='') as fh:
@@ -28,16 +28,25 @@ def paths(out, conf, weak, gapu):
         for row in rd:
             try: idt = float(row[ix['best_alignment_identity']])
             except ValueError: idt = 0.0
-            cop[row[ix['array_id']]].append((int(row[ix['genomic_start_0based']]), int(row[ix['genomic_end']]), idt, row[ix['complete_or_truncated']] == 'complete'))
-    P = {}
+            cop[row[ix['array_id']]].append((int(row[ix['genomic_start_0based']]), int(row[ix['genomic_end']]), idt, row[ix['complete_or_truncated']] == 'complete',
+                                             row[ix['chrom']] if 'chrom' in ix else ''))
+    # v4.7: a path (and so a run) never crosses an assembly gap: the copies after a gap start a new segment (key (array, segment));
+    # copies overlapping a gap are dropped. v4.6 bug fixed: chrom of arrays missing from 02 was taken from a coordinate.
+    P = {}; dropped = 0
     for aid, cs in cop.items():
         cs.sort(); per = float(arr[aid]['period_mode_bp'] or 0) if aid in arr else 0
-        obs, pos = [], []; last = None
-        for s, e, idt, comp in cs:
+        chrom = arr[aid]['chrom'] if aid in arr else cs[0][4]
+        seg = 1; obs, pos = [], []; last = None
+        for s, e, idt, comp, _c in cs:
+            if gaps is not None and gaps.between(chrom, s, e): dropped += 1; continue
+            if gaps is not None and last is not None and gaps.between(chrom, last, s):
+                if obs: P[(aid, seg)] = (chrom, np.array(obs), pos)
+                seg += 1; obs, pos = [], []; last = None
             if last is not None and s - last > gapu * max(1, per): obs.append(3); pos.append((last, s))
             o = 0 if (comp and idt >= conf) else 1 if idt >= weak and (comp or idt >= conf) else 1 if idt >= weak else 2
             obs.append(o); pos.append((s, e)); last = e if last is None else max(last, e)
-        P[aid] = (arr[aid]['chrom'] if aid in arr else cs[0][0], np.array(obs), pos)
+        if obs: P[(aid, seg)] = (chrom, np.array(obs), pos)
+    if gaps is not None: print(f'gap stop: {sum(1 for k in P if k[1] > 1)} extra segments, {dropped} copies overlapping a gap dropped', flush=True)
     return P, arr
 
 
@@ -75,8 +84,12 @@ def main():
     ap.add_argument('--conf', type=float, default=80); ap.add_argument('--weak', type=float, default=65); ap.add_argument('--gap-units', type=float, default=0.5)
     ap.add_argument('--post', default='0.5,0.8,0.95'); ap.add_argument('--min-c', type=int, default=4)
     ap.add_argument('--train-n', type=int, default=400, help='arrays used to learn the parameters (seeded sample)')
+    ap.add_argument('--gaps', default='', help='assembly-gap BED (v4.7: runs stop at gaps)'); ap.add_argument('--genome', default='', help='with --scan-n: FASTA to find N runs')
+    ap.add_argument('--scan-n', action='store_true')
     a = ap.parse_args(); os.makedirs(a.dest, exist_ok=True)
-    P, arr = paths(a.out, a.conf, a.weak, a.gap_units)
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); from gaps import Gaps
+    gaps = Gaps(a.gaps or None, a.genome if a.scan_n else None) if (a.gaps or a.scan_n) else None
+    P, arr = paths(a.out, a.conf, a.weak, a.gap_units, gaps)
     keys = sorted(P); rs = np.random.default_rng(56); tr = rs.choice(len(keys), min(a.train_n, len(keys)), replace=False)
     seqs = [P[keys[i]][1] for i in tr]
     T, E, pi, ll, nit = baum_welch(seqs)
@@ -104,7 +117,7 @@ def main():
                 if len(cidx) >= a.min_c:
                     s, e = pos[cidx[0]][0], pos[cidx[-1]][1]; n += 1
                     runs[chrom].append((s, e))
-                    bed.write(f'{chrom}\t{s}\t{e}\t{aid}|hmm{n}|{len(cidx)}|{j - i + 1}|{g[i:j + 1, 0].mean():.3f}\t0\t.\n')
+                    bed.write(f'{chrom}\t{s}\t{e}\t{aid[0]}|hmm{n}|{len(cidx)}|{j - i + 1}|{g[i:j + 1, 0].mean():.3f}|g{aid[1]}\t0\t.\n')
                 i = j + 1
         bed.close()
         def bp(iv):
