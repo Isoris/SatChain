@@ -1,0 +1,3 @@
+scale	n_windows	n_clean_null	n_clean_null_lag7	p95_coded0	p99_coded0	p99.9_coded0	p95	p99	p99.9	null_used
+small	892376	600591	206109	0.0035	0.0156	0.0733	0.0095	0.0392	0.1295	lag7
+large	178446	37131	37131	0.0152	0.3989	0.7783	0.0152	0.3989	0.7783	lag7

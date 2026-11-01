@@ -4,22 +4,30 @@
 HiCAT (Gao et al. 2023): threshold-swept block graph -> Louvain communities -> HTRM -> rotation merge -> coverage score.)
 
 Differences from HiCAT: copies are SatChain confident copies (step 03 + HMM runs), not raw StringDecomposer blocks of a whole region;
-every threshold is reported with its HOR coverage (stability table), the max-coverage threshold is only the default pick; --runs may
-list several arrays (cross-array mode): one shared alphabet is built from the pooled copies, so HOR patterns are comparable between arrays.
+every threshold is reported with its HOR coverage AND a shuffled-string null (stability table); the threshold is chosen by stability, not
+by maximum coverage (2026-11-01, D04); --runs may list several arrays (cross-array mode): one shared alphabet is built from the pooled
+copies, so HOR patterns are comparable between arrays.
 
 1 Unique copy sequences (in array orientation; strand = majority strand of each run) with counts. Pairwise identity = global alignment
-  score (match 1, mismatch 0, gap -1) / longer length, on unique sequences (<= --max-unique; above that, the most frequent ones and the
-  rest assigned to their best match).
-2 For t in --t-min..--t-max by --t-step: graph (edge if identity >= t, weight = identity x counts), Louvain communities = monomers.
+  score (match 1, mismatch 0, gap -1) / longer length, on unique sequences (<= --max-unique; above that, the most frequent ones form the
+  core and the rest are assigned to their best match among ALL core sequences; D18, before: the 200 most frequent only).
+2 For t in --t-min..--t-max by --t-step: graph (edge if identity >= t, weight = identity x sqrt(count_i x count_j); D14), Louvain
+  communities = monomers.
 3 Per run: monomer string in genomic order (array orientation). HTRM: repeatedly find the tandem repeat (unit length 2..--max-unit,
-  >= --min-copies consecutive copies) covering the most monomers, replace each maximal run of the unit by one new symbol (the unit
+  >= --min-copies consecutive copies; default 3 since 2026-11-01: with 2, any two adjacent distinct monomers repeated twice are a 'HOR',
+  coverage 0.66 on random 2-letter strings) covering the most monomers, replace each maximal run of the unit by one new symbol (the unit
   pattern is recorded), until none is found. Units that are rotations of each other are merged (canonical = smallest rotation).
 4 HOR = pattern of >= 2 monomers; coverage = monomers inside HOR runs / all monomers; nesting = depth of the symbol hierarchy.
+  Null (D04): per t and per run the monomer string is shuffled --null times (same alphabet and composition, no order) and mined the same
+  way; null_coverage = mean, null_p95 = 95th percentile of the pooled coverage; excess = coverage - null_coverage.
+  Threshold choice (stability): consecutive t with the same (top HOR length, monomer count) form a plateau; the chosen t is the middle of
+  the longest plateau whose coverage exceeds the null p95; when no t exceeds its null, no HOR is reported (hors.tsv empty).
   Rank by coverage (ties: nesting); name R<rank>L<pattern length in monomers>.
-Outputs (<dest>/<name>_): thresholds.tsv (t, monomers, HOR coverage, top HOR), hors.tsv (best t: rank, name, pattern, length, copies,
-coverage, depth, runs), monomer_track.tsv (copy -> monomer, HOR id at best t).
+Sweep (--sweep, D09): min_copies 2 / 3 / 4 x t -> coverage, null, excess, chosen t, written to <repo>/benchmarks/65_sweep.tsv (or --sweep-out).
+Outputs (<dest>/<name>_): thresholds.tsv (t, monomers, HOR coverage, null coverage, null p95, excess, top HOR, plateau, chosen),
+hors.tsv (chosen t: rank, name, pattern, length, copies, coverage, depth, runs), monomer_track.tsv (copy -> monomer at the chosen t).
 usage: 65_hor_mining.py --catalogue <59> --copies <03> [...] --runs id1,id2 --dest <dir> --name <n> [--t-min 0.90 --t-max 0.995 --t-step 0.005]
-       [--max-unit 40] [--min-copies 2] [--min-identity 60] [--max-unique 1500]
+       [--max-unit 40] [--min-copies 3] [--min-identity 60] [--max-unique 1500] [--null 20] [--sweep] [--sweep-out path]
 """
 import argparse, collections, csv, os, random
 import numpy as np
@@ -105,14 +113,53 @@ def expand(sym, patterns):
     return [sym]
 
 
+def coverage_of(strings, max_unit, min_copies):
+    """mine every monomer string; returns coverage, patterns, per-run (string, compressed), HOR occurrence counts"""
+    patterns = {}; total = covered = 0; per_run = {}; hor_counts = collections.Counter()
+    for rid, ms in strings.items():
+        comp = htrm(list(ms), max_unit, min_copies, patterns); per_run[rid] = (ms, comp); total += len(ms)
+        covered += sum(len(expand(x, patterns)) for x in comp if x in patterns)
+        for x in comp:
+            if x in patterns: hor_counts[x] += 1
+    return covered / max(total, 1), patterns, per_run, hor_counts
+
+
+def null_coverage(strings, max_unit, min_copies, reps, rng):
+    """coverage of the same strings with the monomer order shuffled per run (D04), reps times"""
+    out = []
+    for _ in range(reps):
+        sh = {}
+        for rid, ms in strings.items():
+            s = list(ms); rng.shuffle(s); sh[rid] = s
+        out.append(coverage_of(sh, max_unit, min_copies)[0])
+    return out
+
+
+def choose_t(rows):
+    """stability rule: longest plateau of consecutive t with the same (top_hor_len, monomers) among rows above their null p95; middle t.
+    Returns the chosen row index or None; marks rows['plateau'] with the plateau id."""
+    pid = 0; prev = None
+    for r in rows:
+        key = (r['top_hor_len'], r['monomers'])
+        if key != prev: pid += 1; prev = key
+        r['plateau'] = pid
+    good = collections.defaultdict(list)
+    for i, r in enumerate(rows):
+        if r['hor_coverage'] > r['null_p95'] and r['top_hor_len'] > 0: good[r['plateau']].append(i)
+    if not good: return None
+    best = max(good.values(), key=lambda v: (len(v), rows[v[0]]['hor_coverage'] - rows[v[0]]['null_coverage']))
+    return best[len(best) // 2]
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--catalogue', required=True); ap.add_argument('--copies', nargs='+', required=True); ap.add_argument('--runs', required=True)
     ap.add_argument('--dest', required=True); ap.add_argument('--name', required=True)
     ap.add_argument('--t-min', type=float, default=0.90); ap.add_argument('--t-max', type=float, default=0.995); ap.add_argument('--t-step', type=float, default=0.005)
-    ap.add_argument('--max-unit', type=int, default=40); ap.add_argument('--min-copies', type=int, default=2)
+    ap.add_argument('--max-unit', type=int, default=40); ap.add_argument('--min-copies', type=int, default=3); ap.add_argument('--null', type=int, default=20)
     ap.add_argument('--min-identity', type=float, default=60); ap.add_argument('--max-unique', type=int, default=1500); ap.add_argument('--seed', type=int, default=65)
-    a = ap.parse_args(); os.makedirs(a.dest, exist_ok=True); want = a.runs.split(',')
+    ap.add_argument('--sweep', action='store_true'); ap.add_argument('--sweep-out', default='')
+    a = ap.parse_args(); os.makedirs(a.dest, exist_ok=True); want = a.runs.split(','); rng = random.Random(a.seed)
     runs = {r['run_id']: r for r in csv.DictReader(open(a.catalogue), delimiter='\t') if r['run_id'] in want}
     span = collections.defaultdict(list)
     for r in runs.values(): span[r['chrom']].append((int(r['start0']), int(r['end']), r['run_id']))
@@ -138,49 +185,64 @@ def main():
     for i in range(n):
         for j in range(i + 1, n): S[i, j] = S[j, i] = GA.score(core[i], core[j]) / max(len(core[i]), len(core[j]))
     assign = {s: i for i, s in enumerate(core)}
-    for s in uniq[a.max_unique:]:
-        sc = [GA.score(s, c) / max(len(s), len(c)) for c in core[:200]]; assign[s] = int(np.argmax(sc))
+    for s in uniq[a.max_unique:]:                      # D18: best match among ALL core sequences
+        sc = [GA.score(s, c) / max(len(s), len(c)) for c in core]; assign[s] = int(np.argmax(sc))
     w = np.array([cnt[s] for s in core], float)
-    rows, best = [], None
-    t = a.t_min
-    while t <= a.t_max + 1e-9:
+    ts = []; t = a.t_min
+    while t <= a.t_max + 1e-9: ts.append(round(t, 4)); t += a.t_step
+    comms = {}
+    for t in ts:
         Wm = np.where(S >= t, S, 0.0) * np.sqrt(np.outer(w, w)); np.fill_diagonal(Wm, 0)
-        comm = louvain(Wm, a.seed)
-        patterns = {}; total = covered = 0; per_run = {}
-        for rid, (L, seqs) in chains.items():
-            ms = [int(comm[assign[s]]) for s in seqs]; total += len(ms)
-            comp = htrm(ms, a.max_unit, a.min_copies, patterns)
-            per_run[rid] = (ms, comp)
-            covered += sum(len(expand(x, patterns)) for x in comp if x in patterns)
-        cov = covered / max(total, 1)
-        hor_counts = collections.Counter()
-        for rid, (ms, comp) in per_run.items():
-            for x in comp:
-                if x in patterns: hor_counts[x] += 1
-        top = hor_counts.most_common(1)
-        rows.append(dict(t=round(t, 4), monomers=len(set(comm)), hor_coverage=round(cov, 4), n_hor_patterns=len(hor_counts),
-                         top_hor_len=len(expand(top[0][0], patterns)) if top else 0, top_hor_copies=top[0][1] if top else 0))
-        print(rows[-1], flush=True)
-        if best is None or cov > best[0] + 1e-9: best = (cov, t, comm.copy(), patterns, per_run, hor_counts)
-        t += a.t_step
+        comms[t] = louvain(Wm, a.seed)
+
+    def sweep_mc(mc):
+        rows, keep = [], {}
+        for t in ts:
+            comm = comms[t]; strings = {rid: [int(comm[assign[s]]) for s in seqs] for rid, (L, seqs) in chains.items()}
+            cov, patterns, per_run, hor_counts = coverage_of(strings, a.max_unit, mc)
+            nul = null_coverage(strings, a.max_unit, mc, a.null, rng)
+            top = hor_counts.most_common(1)
+            rows.append(dict(t=t, min_copies=mc, monomers=len(set(comm)), hor_coverage=round(cov, 4), null_coverage=round(float(np.mean(nul)), 4),
+                             null_p95=round(float(np.percentile(nul, 95)), 4), excess=round(cov - float(np.mean(nul)), 4), n_hor_patterns=len(hor_counts),
+                             top_hor_len=len(expand(top[0][0], patterns)) if top else 0, top_hor_copies=top[0][1] if top else 0))
+            keep[t] = (comm, patterns, per_run, hor_counts)
+            print(rows[-1], flush=True)
+        ch = choose_t(rows)
+        for i, r in enumerate(rows): r['chosen'] = int(i == ch)
+        return rows, keep, ch
+
+    rows, keep, ch = sweep_mc(a.min_copies)
     with open(os.path.join(a.dest, f'{a.name}_thresholds.tsv'), 'w', newline='') as fh:
-        wr = csv.DictWriter(fh, fieldnames=list(rows[0].keys()), delimiter='\t'); wr.writeheader(); wr.writerows(rows)
-    cov, tb, comm, patterns, per_run, hc = best
-    total = sum(len(ms) for ms, _ in per_run.values())
+        wr = csv.DictWriter(fh, fieldnames=list(rows[0].keys()), delimiter='\t', lineterminator='\n'); wr.writeheader(); wr.writerows(rows)
     hs = []
-    for sym, k in hc.items():
-        L = len(expand(sym, patterns)); cv = k * L / max(total, 1)
-        hs.append(dict(pattern='-'.join(str(x) for x in expand(sym, patterns)), length=L, copies=k, coverage=round(cv, 4), depth=patterns[sym][1],
-                       runs=sum(1 for _, comp in per_run.values() if sym in comp)))
-    hs.sort(key=lambda h: (-h['coverage'], -h['depth']))
-    for i, h in enumerate(hs, 1): h['name'] = f"R{i}L{h['length']}"
+    if ch is None: tb = ts[0]; comm = keep[tb][0]; print('no threshold exceeds its shuffled null: no HOR reported')
+    else:
+        tb = rows[ch]['t']; comm, patterns, per_run, hc = keep[tb]
+        total = sum(len(ms) for ms, _ in per_run.values())
+        for sym, k in hc.items():
+            L = len(expand(sym, patterns)); cv = k * L / max(total, 1)
+            hs.append(dict(pattern='-'.join(str(x) for x in expand(sym, patterns)), length=L, copies=k, coverage=round(cv, 4), depth=patterns[sym][1],
+                           runs=sum(1 for _, comp in per_run.values() if sym in comp)))
+        hs.sort(key=lambda h: (-h['coverage'], -h['depth']))
+        for i, h in enumerate(hs, 1): h['name'] = f"R{i}L{h['length']}"
     with open(os.path.join(a.dest, f'{a.name}_hors.tsv'), 'w', newline='') as fh:
-        wr = csv.DictWriter(fh, fieldnames=['name', 'pattern', 'length', 'copies', 'coverage', 'depth', 'runs'], delimiter='\t'); wr.writeheader(); wr.writerows(hs)
+        wr = csv.DictWriter(fh, fieldnames=['name', 'pattern', 'length', 'copies', 'coverage', 'depth', 'runs'], delimiter='\t', lineterminator='\n'); wr.writeheader(); wr.writerows(hs)
     with open(os.path.join(a.dest, f'{a.name}_monomer_track.tsv'), 'w') as fh:
         fh.write('run_id\tstart\tend\tmonomer\n')
         for rid, (L, seqs) in chains.items():
             for (s, e, st, _), sq in zip(L, seqs): fh.write(f'{rid}\t{s}\t{e}\t{int(comm[assign[sq]])}\n')
-    print(f'best t {tb:.3f}: HOR coverage {cov:.3f}; top HORs:', [(h["name"], h["pattern"][:60], h["copies"]) for h in hs[:5]])
+    if ch is not None: print(f'chosen t {tb:.3f} (plateau of {sum(1 for r in rows if r["plateau"] == rows[ch]["plateau"])} t values): HOR coverage {rows[ch]["hor_coverage"]:.3f} '
+                             f'vs null {rows[ch]["null_coverage"]:.3f}; top HORs:', [(h["name"], h["pattern"][:60], h["copies"]) for h in hs[:5]])
+    if a.sweep:
+        SW = [dict(step='65', name=a.name, **r) for r in rows]
+        for mc in (2, 3, 4):
+            if mc == a.min_copies: continue
+            SW += [dict(step='65', name=a.name, **r) for r in sweep_mc(mc)[0]]
+        out = a.sweep_out or os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'benchmarks', '65_sweep.tsv')
+        os.makedirs(os.path.dirname(out), exist_ok=True)
+        with open(out, 'w', newline='') as fh:
+            wr = csv.DictWriter(fh, fieldnames=list(SW[0].keys()), delimiter='\t', lineterminator='\n'); wr.writeheader(); wr.writerows(SW)
+        print('sweep ->', out)
 
 
 if __name__ == '__main__':

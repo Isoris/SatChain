@@ -13,7 +13,7 @@ else:
     for l in open(sys.argv[4]):
         q, s, pid, ln, *_ , ql, sl = l.rstrip('\n').split('\t'); pid = float(pid); cov = int(ln) / int(ql)
         if pid < 80 or cov < 0.5: continue
-        g, fam = s.split('|')[0], s.split('|')[1]; sc = pid * cov + (1 if g == G else 0)
+        g, fam = s.split('|')[0], s.split('|')[1]; sc = pid * cov + (1 if g == G else 0)   # same-subgenome bonus of 1 point (pid x cov is on the 0-100 scale): a same-subgenome hit wins unless the cross-subgenome hit is > 1 point better (audit C19; documented 2026-11-01)
         if q not in best or sc > best[q][0]: best[q] = (sc, fam, g, pid, cov)
     with open(sys.argv[5], 'w', newline='') as fh:
         w = csv.writer(fh, delimiter='\t', lineterminator='\n'); w.writerow(['array_id', 'monomer_class', 'family', 'hit_subgenome', 'identity', 'coverage'])

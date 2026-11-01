@@ -4,14 +4,24 @@ edges; (2) the transition matrix as a band along the array (one line per matrix 
 (3) a filmstrip of local transition graphs, frame by frame along the array.
 States = step-03 classes of confident copies (identity >= 80, complete), merged by 53_class_merges.tsv; other copies = U.
 Path breaks where consecutive copies are separated by > 0.5 x period (no edge across a break).
-usage: plot53_topology.py <03_monomer_copies.tsv> <53 run dir> <array_id> <segA,segB> <png> [frames]"""
-import sys, csv, collections, math
+2026-11-01 (HB11): the unit is a run of record (--runs <runs tsv>, <id> = run_id; copies = the parent array's copies with midpoint in the
+run); a step-02 interval needs --extents-ok. PNG at --dpi (default 450) plus a vector PDF.
+usage: plot53_topology.py <03_monomer_copies.tsv> <53 run dir> <run_id> <segA,segB> <png> [--frames 18] --runs <runs tsv> [--dpi 450]"""
+import sys, csv, collections, math, argparse
 import matplotlib; matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from matplotlib.patches import FancyArrowPatch, Circle, Arc, Rectangle
 
-COP, RUN, AID, SEGS, PNG = sys.argv[1:6]; NF = int(sys.argv[6]) if len(sys.argv) > 6 else 18
+ap = argparse.ArgumentParser()
+for p in ('cop', 'run', 'aid', 'segs', 'png'): ap.add_argument(p)
+ap.add_argument('--frames', type=int, default=18); ap.add_argument('--runs'); ap.add_argument('--dpi', type=int, default=450); ap.add_argument('--extents-ok', action='store_true')
+A = ap.parse_args(); COP, RUN, AID, SEGS, PNG, NF = A.cop, A.run, A.aid, A.segs, A.png, A.frames
+if not A.runs and not A.extents_ok: ap.error('--runs <runs of record> (run_id) is the unit; a step-02 interval needs --extents-ok (CA43)')
 csv.field_size_limit(1 << 30)
+rrow = next((r for r in csv.DictReader(open(A.runs), delimiter='\t') if r['run_id'] == AID), None) if A.runs else None
+if A.runs and rrow is None: sys.exit(f'{AID} not in {A.runs}')
+PARENT, S0, E0 = (rrow['array_id'], int(rrow['start0']), int(rrow['end'])) if rrow else (AID, None, None)
+UNIT = 'run' if rrow else 'step-02 interval'
 INK, INK2, GRID = '#1f1f1e', '#5f5e58', '#e4e2dc'
 segs = {r['segment']: r for r in csv.DictReader(open(f'{RUN}/53_segments.tsv'), delimiter='\t') if r['array_id'] == AID}
 cps = [int(r['position']) for r in csv.DictReader(open(f'{RUN}/53_change_points.tsv'), delimiter='\t') if r['array_id'] == AID and r['status'] == 'accepted']
@@ -30,7 +40,8 @@ for a_, bs in merge.items():
 cop = []
 with open(COP, newline='') as fh:
     for r in csv.DictReader(fh, delimiter='\t'):
-        if r['array_id'] != AID: continue
+        if r['array_id'] != PARENT: continue
+        if rrow and not (S0 <= (int(r['genomic_start_0based']) + int(r['genomic_end'])) // 2 < E0): continue   # midpoint rule
         try: idt = float(r['best_alignment_identity'])
         except ValueError: idt = 0
         conf = r['complete_or_truncated'] == 'complete' and idt >= 80
@@ -114,7 +125,7 @@ for k in keys:
 ax.plot(xs, ufr, lw=1, color='#b4b2a9', label='uncertain-copy fraction')
 for c in cps: ax.axvline(c / 1e6, color=INK, lw=1.1)
 ax.set_ylim(-0.02, 1.02); ax.set_xlim(x0 / 1e6, x1 / 1e6); ax.set_ylabel('transition\nprobability', color=INK2)
-ax.set_title('transition matrix along the array (windows of 40 copies; solid = stay in the same state, dashed = switch)', fontsize=10.5, color=INK, loc='left')
+ax.set_title(f'transition matrix along the {UNIT} (windows of 40 copies; solid = stay in the same state, dashed = switch)', fontsize=10.5, color=INK, loc='left')
 ax.legend(frameon=False, fontsize=8.5, ncol=5, loc='upper center', bbox_to_anchor=(0.5, -0.2)); ax.grid(color=GRID, lw=0.6)
 for sp_ in ('top', 'right'): ax.spines[sp_].set_visible(False)
 for S in segs.values(): ax.add_patch(Rectangle((int(S['start0']) / 1e6, 1.03), (int(S['end']) - int(S['start0'])) / 1e6, 0.04, color=SEGCOL[S['profile']], clip_on=False))
@@ -126,9 +137,10 @@ for f in range(NF):
     prof = next((S['profile'] for S in segs.values() if int(S['start0']) <= mid < int(S['end'])), 'unresolved')
     draw_graph(ax, t, n, mer_states, col_mer, f'{lo / 1e6:.2f}-{hi / 1e6:.2f}', small=True)
     ax.add_patch(Rectangle((-1.6, -1.6), 3.2, 3.2, fill=False, edgecolor=SEGCOL[prof], lw=2.5, clip_on=False))
-fig.suptitle(f'{AID}: transition-graph topology, segment {sA} vs segment {sB}, with a frame-by-frame filmstrip along the array',
+fig.suptitle(f'{AID} ({UNIT}, {x1 - x0:,} bp): transition-graph topology, segment {sA} vs segment {sB}, with a frame-by-frame filmstrip along the {UNIT}',
              x=0.01, ha='left', fontsize=13, fontweight='bold', color=INK)
 fig.text(0.01, 0.955, f"states after merge: {', '.join(s for s in mer_states if s != 'U')}; U = uncertain copy (identity < 80 % or truncated). "
          'Solid coloured edge = major (>= 15 % of the source state\'s transitions), dashed grey = minor; width = probability; node area = copies. '
          'Frame border = segment colour.', fontsize=9, color=INK2, wrap=True)
-fig.savefig(PNG, dpi=140, facecolor='white', bbox_inches='tight'); print('wrote', PNG)
+fig.savefig(PNG, dpi=A.dpi, facecolor='white', bbox_inches='tight'); fig.savefig(PNG.rsplit('.', 1)[0] + '.pdf', facecolor='white', bbox_inches='tight')
+print('wrote', PNG, 'and', PNG.rsplit('.', 1)[0] + '.pdf')   # 2026-11-01: >= 450 dpi + vector PDF

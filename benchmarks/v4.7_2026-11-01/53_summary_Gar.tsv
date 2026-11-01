@@ -1,0 +1,38 @@
+kind	name	n	Mb
+segment_profile	homogeneous_monomeric	1346	8.27
+segment_profile	too_short	854	4.95
+segment_profile	variant_mixed	293	2.3
+segment_profile	unresolved	157	0.16
+segment_profile	interleaved_families	103	1.12
+segment_profile	alternating	31	0.09
+run_architecture	single_segment	2715	
+run_architecture	same_profile_segments	27	
+run_architecture	multi_profile	5	
+run_windowing	unsegmentable	1019	1.14
+run_windowing	copy10	534	1.8
+run_windowing	bp	340	12.38
+run_windowing	copy5	320	0.47
+run_windowing	copy7	236	0.48
+run_windowing	copy9	171	0.43
+run_windowing	copy4	47	0.06
+run_windowing	copy6	43	0.06
+run_windowing	copy8	37	0.07
+accepted_boundary_blocks	comp,period	7	
+accepted_boundary_blocks	label,period,topo	4	
+accepted_boundary_blocks	comp,kmer,period	3	
+accepted_boundary_blocks	comp,label,period	3	
+accepted_boundary_blocks	kmer,period	3	
+accepted_boundary_blocks	comp,label,topo	3	
+accepted_boundary_blocks	period,topo	2	
+accepted_boundary_blocks	label,period	2	
+accepted_boundary_blocks	comp,kmer,label,period	2	
+accepted_boundary_blocks	comp,label,period,topo	2	
+accepted_boundary_blocks	kmer,label,topo	1	
+accepted_boundary_blocks	kmer,label	1	
+accepted_boundary_blocks	comp,kmer,topo	1	
+accepted_boundary_blocks	comp,label	1	
+accepted_boundary_blocks	kmer,period,topo	1	
+accepted_boundary_blocks	comp,kmer,label	1	
+acceptance_rule	comp_kmer_only_candidates	8	
+acceptance_rule	comp_kmer_only_share_of_old_rule	0.178	
+state_definition	class	2747	

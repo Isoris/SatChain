@@ -1,0 +1,9 @@
+K	min_ARI_across_k	min_ARI_restarts	mean_silhouette	passes_rule	chosen	note
+2	1.0	1.0	0.388	True	yes	fallback_K2
+3	0.376	0.522	0.337	False	no	
+4	0.701	0.719	0.289	False	no	
+5	0.749	0.444	0.26	False	no	
+6	0.608	0.635	0.283	False	no	
+7	0.751	0.493	0.302	False	no	
+8	0.695	0.614	0.31	False	no	
+# rule: largest K with min ARI across k >= 0.8, min ARI between restart seeds >= 0.8, mean silhouette >= 0.9 x best (0.388); fallback K = 2. Chosen K = 2 at k = 6.

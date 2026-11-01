@@ -6,12 +6,21 @@ PATH. Each array becomes one ordered path of states along the chromosome:
   copy states   confident step-03 copies (identity >= 80, complete), classes merged by 53_class_merges.tsv, then named by RANK
                 inside the array (V1 = most copies, V2, V3, Vx = the rest) so paths of different arrays share one state space;
                 a copy of another family than the array's dominant one = OF; an uncertain copy = U
-  annotation    TE:<superfamily> (step 45 insertions), 5S, rRNA (other barrnap), tRNA, SINE (AnnoSINE), miRNA, CDS, exon (lifton),
-  states        GAP (detgaps). An annotation covering >= 50 % of a copy replaces it; consecutive copies replaced by the same
+  annotation    TE:<superfamily> (EDTA), 5S, rRNA (other barrnap), tRNA, SINE (AnnoSINE), miRNA, CDS, exon (lifton), snRNA / ncRNA
+  states        (Rfam), SSR (GMATA). An annotation covering >= 50 % of a copy replaces it; consecutive copies replaced by the same
                 feature collapse into ONE state (a TE is one step of the path, never masked). Annotation features lying
-                between copies are inserted in order. Two neighbours farther apart than --max-gap-frac x period with no
-                feature in between = path break (no transition across it).
-UNITS. The whole array ('array' = big topology) and each step-53 segment ('segment' = subtopology).
+                between copies are inserted in order. Two neighbours farther apart than max(50 bp, --max-gap-frac x period) with
+                no feature in between get an INS:<size> node (unannotated, non-satellite DNA; 2026-11-01 CA22: this is a node, not
+                a break). The only path BREAK (no transition across it) is an assembly gap or contig join: gaps.Gaps.between()
+                on the --gaps detgaps BED between two neighbours or inside a copy (2026-11-01, HB16 / CA25).
+LAYERS (2026-11-01, CA25 / HB16 / CA44). Every layer is resolved with satpaths.func_path / overlay_path (current layout
+  fClaHyb_<G>_<layer>/, old layout as fallback); a missing layer stops the run unless named in --allow-missing (then a WARNING is
+  printed); feature ids are (layer, chrom, start, end), so two features of one layer at the same start no longer collide.
+UNIT (2026-11-01, HB02 / CA43 / CA23): the catalogue runs of record (--runs, the default; --extents-ok for step-02 extents); a run's
+  copies are the parent array's copies whose MIDPOINT lies in the run, the same rule as step 53. The output column array_id holds the
+  run_id and the 'array' unit row is the WHOLE RUN (big topology); each step-53 segment ('segment') is a subtopology. The
+  reported counts are therefore run counts, never array counts.
+RNG (2026-11-01, CA20): one random.Random seeded with crc32(run_id) ^ --seed per run (perms and order-2 simulations).
 PER UNIT. composition pi; transition counts C[i][j]; entropy of pi; entropy rate H(next | current); memory MI = H(next) - H(next | current);
   structure index S = (stay_obs - stay_exp) / (1 - stay_exp), stay_exp = sum_i r_i c_i / N^2 (r = row, c = column totals):
   +1 = pure blocks, 0 = no memory (independent draws), < 0 = alternation; z of stay_obs against --perms shuffles of the
@@ -20,14 +29,25 @@ COMPARISON of two units P, Q (same state space):
   D_trans = sum_i w_i JSD(P_i., Q_i.), w_i = mean of the two stationary frequencies (rows with no data in either are skipped)
             -> 'do the same states lead to the same next states'
   D_comp  = JSD(pi_P, pi_Q) -> 'are the same states present in the same amounts'
-  Both are in bits, 0 = identical, 1 = disjoint. Reported: every segment vs its whole array, vs the next segment, and all
-  segment pairs across arrays (53b_segment_pairs.tsv) for clustering into topology types.
-Outputs (<53 dir>/53b/): 53b_topologies.tsv, 53b_transitions.tsv (long format counts per unit), 53b_segment_pairs.tsv,
-  53b_state_map.tsv (rank name -> step-03 classes per array).
-NOT here: second-order (Miga) topology, i.e. transitions conditioned on the two previous states / cycles; planned next.
-usage: 53b_topology_compare.py --out <pipeline out of one subgenome> --run <53 dir> --func <func annotation genome folder> [--arrays ...]
+  Both are in bits, 0 = identical, 1 = disjoint. Reported: every segment vs its whole run, vs the next segment, and all
+  segment pairs across runs (53b_segment_pairs.tsv) for clustering into topology types.
+LIBRARY (2026-11-01, HB09): the cut below which two segments are 'the same topology type' comes from a SPLIT-HALF NULL, not from
+  quantiles of the data: every pooled segment's path is cut in two halves and D(half 1, half 2) = D_trans + D_comp on the library
+  alphabet is the distance one topology shows against itself from sampling alone; cuts are the --lib-null-quantiles of these
+  values (53b_library_null.tsv), so a type is a set of segments no farther apart than a segment is from its own other half.
+SECOND ORDER: order2_* columns = H(next | previous) - H(next | previous two) on the VARIANT-ONLY path against --order2-sims
+  simulations of the path's own first-order chain (the count is written as order2_sims); the p / q (BH) procedure over runs is in
+  53b_o2_summary.py (2026-11-01, HB04).
+Outputs (--dest, default <53 dir>/53b/): 53b_topologies.tsv (+ intrinsic_annotations for every unit, CA24), 53b_transitions.tsv
+  (long format counts per unit), 53b_segment_pairs.tsv, 53b_state_map.tsv (rank name -> step-03 classes per run),
+  53b_core_accessory_edges.tsv, 53b_library_null.tsv, 53b_topology_library.tsv.
+usage: 53b_topology_compare.py --out <pipeline out of one subgenome> --run <53 dir> --func <annotation folder> --overlays <dir>
+       --genome-tag <G> --runs <runs of record tsv> [--gaps <detgaps bed>] [--dest <dir>] [--allow-missing SSR,Rfam]
 """
-import argparse, collections, csv, gzip, math, os, random
+import argparse, collections, csv, gzip, math, os, random, sys, zlib
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from satpaths import func_path, overlay_path, gaps_bed
+from gaps import Gaps
 
 csv.field_size_limit(1 << 30)
 
@@ -57,63 +77,56 @@ def te_label(s):
 EDTA_SKIP = {'repeat_region', 'target_site_duplication', 'long_terminal_repeat'}
 
 
+LAYERS = {'EDTA': ('_repeats_EDTA', 'fClaHyb_{G}.TEanno.sorted.gff3.gz'), 'Rfam': ('_ncRNA_rfam', 'fClaHyb_{G}.rfam.all_classes.sorted.gff3.gz'),
+          'SSR': ('_TR', 'GMATA_SSR/fClaHyb_{G}.SSR.{nm}.bed.gz'), 'rRNA': ('_rRNA_barrnap', 'fClaHyb_{G}.rRNA.sorted.gff3.gz'),
+          'tRNA': ('_tRNA_tRNAscan', 'fClaHyb_{G}.tRNA.sorted.gff3.gz'), 'miRNA': ('_miRNA', 'fClaHyb_{G}.miRNA.curated.sorted.gff3.gz'),
+          'gene': ('_genes_lifton', 'fClaHyb_{G}.lifton.sorted.gff3.gz'), 'SINE': (None, 'fClaHyb_{G}.SINE.AnnoSINE.merged.bed.gz')}
+
+
 def load_annotations(a, chroms):
-    feats = collections.defaultdict(list)
-    def add(c, s, e, lab, fid):
-        if c in chroms and e > s: feats[c].append((s, e, lab, fid))
-    F = lambda *p: os.path.join(a.func, *p)
-    G = a.genome_tag
-    edta = F('_repeats_EDTA', f'fClaHyb_{G}.TEanno.sorted.gff3.gz')
-    if os.path.exists(edta):                      # full EDTA annotation (step 45 insertions are derived from it, so not added twice)
-        for l in opn(edta):
-            if l.startswith('#'): continue
-            f = l.split('\t', 9)
-            if len(f) >= 9 and f[0] in chroms and f[2] not in EDTA_SKIP: add(f[0], int(f[3]) - 1, int(f[4]), te_label(f[2]), f'e{f[0]}:{f[3]}')
-    else:
-        for l in opn(os.path.join(a.out, '45_te_insertions.bed')):
-            f = l.rstrip('\n').split('\t')
-            if len(f) >= 4 and not l.startswith(('#', 'track')): add(f[0], int(f[1]), int(f[2]), te_label(f[3]), f'te{f[0]}:{f[1]}')
-    rf = F('_ncRNA_rfam', f'fClaHyb_{G}.rfam.all_classes.sorted.gff3.gz')
-    if os.path.exists(rf):                        # Rfam classes other than rRNA/tRNA/miRNA (those come from their own tools)
-        for l in opn(rf):
-            if l.startswith('#'): continue
-            f = l.rstrip('\n').split('\t')
-            if len(f) < 9 or f[0] not in chroms: continue
+    """2026-11-01 (CA25 / HB16 / CA44): layers via satpaths (func folder, then the overlays folder); a missing layer raises unless it is
+    named in --allow-missing; ids = (layer, chrom, start, end). Assembly gaps are no longer features: see Gaps in build_path."""
+    feats = collections.defaultdict(list); G = a.genome_tag
+    def add(c, s, e, lab, layer):
+        if c in chroms and e > s: feats[c].append((s, e, lab, f'{layer}:{c}:{s}-{e}'))
+    def layer(key, **kw):
+        sub, name = LAYERS[key]; name = name.format(G=G, **kw)
+        p = (func_path(a.func, G, sub, name, required=False) if sub else None) or overlay_path(a.overlays, G, name, required=False)
+        if p: return p
+        msg = f'annotation layer {key} ({name}) not found under {a.func} (fClaHyb_{G}{sub or ""}) or {a.overlays}'
+        if key in a.allow_missing: print(f'WARNING {msg}; skipped by --allow-missing', file=sys.stderr); return None
+        raise SystemExit(f'ERROR {msg}; add it to --allow-missing to run without this layer (2026-11-01, CA25)')
+    gff = lambda p: (f for f in (l.rstrip('\n').split('\t') for l in opn(p) if not l.startswith('#')) if len(f) >= 9 and f[0] in chroms)
+    p = layer('EDTA')                             # full EDTA annotation (step 45 insertions are derived from it, so never added twice)
+    if p:
+        for f in gff(p):
+            if f[2] not in EDTA_SKIP: add(f[0], int(f[3]) - 1, int(f[4]), te_label(f[2]), 'EDTA')
+    p = layer('Rfam')                             # Rfam classes other than rRNA/tRNA/miRNA (those come from their own tools)
+    if p:
+        for f in gff(p):
             nm = dict(x.split('=', 1) for x in f[8].split(';') if '=' in x).get('Name', f[2])
             if any(k in nm for k in ('rRNA', 'tRNA', 'mir', 'MIR', 'let-7')): continue
-            add(f[0], int(f[3]) - 1, int(f[4]), 'snRNA' if f[2] == 'snRNA' or nm.startswith('U') else 'ncRNA:' + f[2], f'f{f[0]}:{f[3]}')
+            add(f[0], int(f[3]) - 1, int(f[4]), 'snRNA' if f[2] == 'snRNA' or nm.startswith('U') else 'ncRNA:' + f[2], 'Rfam')
     for nm in ('di', 'tri', 'tetra', 'penta_hexa'):   # microsatellites inside arrays
-        p = F('_TR', 'GMATA_SSR', f'fClaHyb_{G}.SSR.{nm}.bed.gz')
-        if os.path.exists(p):
+        p = layer('SSR', nm=nm)
+        if p:
             for l in opn(p):
                 f = l.split('\t')
-                if len(f) >= 3 and f[0] in chroms: add(f[0], int(f[1]), int(f[2]), 'SSR', f'ssr{f[0]}:{f[1]}')
-    for path, kind in ((F('_rRNA_barrnap', f'fClaHyb_{G}.rRNA.sorted.gff3.gz'), 'rRNA'), (F('_tRNA_tRNAscan', f'fClaHyb_{G}.tRNA.sorted.gff3.gz'), 'tRNA'),
-                       (F('_miRNA', f'fClaHyb_{G}.miRNA.curated.sorted.gff3.gz'), 'miRNA'), (F('_genes_lifton', f'fClaHyb_{G}.lifton.sorted.gff3.gz'), 'gene')):
-        if not os.path.exists(path):
-            alt = os.path.join(a.overlays, os.path.basename(path))
-            if os.path.exists(alt): path = alt
-            else: print('missing', path); continue
-        for l in opn(path):
-            if l.startswith('#'): continue
-            f = l.rstrip('\n').split('\t')
-            if len(f) < 9 or f[0] not in chroms: continue
+                if len(f) >= 3 and f[0] in chroms: add(f[0], int(f[1]), int(f[2]), 'SSR', 'SSR')
+    for kind in ('rRNA', 'tRNA', 'miRNA', 'gene'):
+        p = layer(kind)
+        if not p: continue
+        for f in gff(p):
             s, e = int(f[3]) - 1, int(f[4])
-            if kind == 'rRNA': add(f[0], s, e, '5S' if '5S' in f[8] else 'rRNA', f'r{f[0]}:{s}')
-            elif kind == 'tRNA' and f[2] in ('tRNA', 'gene', 'pseudogene'): add(f[0], s, e, 'tRNA', f't{f[0]}:{s}')
-            elif kind == 'miRNA' and f[2] in ('miRNA', 'pre_miRNA', 'miRNA_primary_transcript', 'gene'): add(f[0], s, e, 'miRNA', f'm{f[0]}:{s}')
-            elif kind == 'gene' and f[2] in ('CDS', 'exon'): add(f[0], s, e, 'CDS' if f[2] == 'CDS' else 'exon', f'g{f[2]}{f[0]}:{s}')
-    sine = os.path.join(a.overlays, f'fClaHyb_{G}.SINE.AnnoSINE.merged.bed.gz')
-    if os.path.exists(sine):
-        for l in opn(sine):
+            if kind == 'rRNA': add(f[0], s, e, '5S' if '5S' in f[8] else 'rRNA', 'rRNA')
+            elif kind == 'tRNA' and f[2] in ('tRNA', 'gene', 'pseudogene'): add(f[0], s, e, 'tRNA', 'tRNA')
+            elif kind == 'miRNA' and f[2] in ('miRNA', 'pre_miRNA', 'miRNA_primary_transcript', 'gene'): add(f[0], s, e, 'miRNA', 'miRNA')
+            elif kind == 'gene' and f[2] in ('CDS', 'exon'): add(f[0], s, e, 'CDS' if f[2] == 'CDS' else 'exon', f'gene_{f[2]}')
+    p = layer('SINE')
+    if p:
+        for l in opn(p):
             f = l.split('\t')
-            if f[0] in chroms: add(f[0], int(f[1]), int(f[2]), 'SINE', f's{f[0]}:{f[1]}')
-    gp = F('_genome', f'fClaHyb_{G}_LG.gaps.detgaps.bed')
-    if os.path.exists(gp):
-        for l in open(gp):
-            f = l.split()
-            if len(f) >= 3 and f[0] in chroms: add(f[0], int(f[1]), int(f[2]), 'GAP', f'gap{f[0]}:{f[1]}')
-    # exon/CDS: keep CDS where both overlap the same span
+            if len(f) >= 3 and f[0] in chroms: add(f[0], int(f[1]), int(f[2]), 'SINE', 'SINE')
     for c in feats: feats[c].sort()
     return feats
 
@@ -126,11 +139,18 @@ def ins_label(L):
     return 'INS:<1kb' if L < 1000 else 'INS:1-5kb' if L < 5000 else 'INS:>5kb'
 
 
-def build_path(cs, feats, period, gapfrac):
-    """cs: copies sorted (s, e, state). feats: [(s, e, lab, fid)] overlapping the array, sorted.
+def _between_closed(gaps, c, a, b):
+    """gap or join in the stretch between two neighbours; closed test (join exactly at a copy edge counts) when gaps.py offers it (HB07)"""
+    try: return gaps.between(c, a, b, closed=True)
+    except TypeError: return gaps.between(c, a, b)
+
+
+def build_path(cs, feats, period, gapfrac, gaps=None, chrom=None):
+    """cs: copies sorted (s, e, state). feats: [(s, e, lab, fid)] overlapping the run, sorted.
     A feature covering >= 50 % of a copy replaces it; other features are inserted in order; consecutive pieces of one feature, and
     consecutive overlapping features with the same label, collapse into one state. An uncovered stretch between neighbours longer than
-    max(50 bp, gapfrac x period) becomes an INS node (non-satellite, unannotated DNA). An assembly gap is a path break (None)."""
+    max(50 bp, gapfrac x period) becomes an INS node (non-satellite, unannotated DNA). An assembly gap or contig join (gaps.between on
+    the stretch between two neighbours, or inside the next item) is a path break (None) - 2026-11-01, HB16."""
     import bisect
     fst = [f[0] for f in feats]; maxlen = max((f[1] - f[0] for f in feats), default=0)
     def near(s, e):
@@ -161,8 +181,10 @@ def build_path(cs, feats, period, gapfrac):
         if last is not None and ((fid is not None and fid == last[1]) or
                                  (fid is not None and last[1] is not None and st == last[0] and s < last_end)):
             last_end = max(last_end, e); continue
-        if last_end is not None and s - last_end > max(50, gapfrac * max(1, period)): path.append((last_end, ins_label(s - last_end)))
-        path.append((s, None if st == 'GAP' else st)); last = (st, fid); last_end = e if last_end is None else max(last_end, e)
+        if gaps is not None and ((last_end is not None and _between_closed(gaps, chrom, last_end, s)) or gaps.between(chrom, s, e)):
+            path.append((s if last_end is None else last_end, None)); last = None   # assembly gap / join = break (2026-11-01, HB16)
+        elif last_end is not None and s - last_end > max(50, gapfrac * max(1, period)): path.append((last_end, ins_label(s - last_end)))
+        path.append((s, st)); last = (st, fid); last_end = e if last_end is None else max(last_end, e)
     return path
 
 
@@ -289,16 +311,25 @@ def main():
     ap.add_argument('--out', required=True); ap.add_argument('--run', required=True); ap.add_argument('--func', required=True)
     ap.add_argument('--overlays', required=True); ap.add_argument('--genome-tag', required=True)
     ap.add_argument('--arrays'); ap.add_argument('--max-gap-frac', type=float, default=0.5); ap.add_argument('--perms', type=int, default=200)
-    ap.add_argument('--runs', help='catalogue runs tsv (run mode, as in 53 --runs)')
+    ap.add_argument('--runs', help='catalogue runs of record tsv (run_id, array_id, chrom, start0, end, unit_bp; as in 53 --runs); the default unit')
+    ap.add_argument('--extents-ok', action='store_true', help='allow step-02 interval extents as units without --runs (CA43)')
+    ap.add_argument('--dest', help='output folder (default <--run>/53b); sweeps write elsewhere (2026-11-01, CA27)')
+    ap.add_argument('--gaps', help='assembly-gap BED (detgaps); default satpaths.gaps_bed(func, G); must exist (2026-11-01, HB16)')
+    ap.add_argument('--allow-missing', type=lambda s: set(x for x in s.split(',') if x), default=set(),
+                    help='annotation layers that may be absent (EDTA,Rfam,SSR,rRNA,tRNA,miRNA,gene,SINE); default none (2026-11-01, CA25)')
+    ap.add_argument('--seed', type=int, default=53)
     ap.add_argument('--order2-sims', type=int, default=100, help='first-order simulations for the second-order (Miga) test')
     ap.add_argument('--min-trans', type=int, default=40, help='segments with fewer transitions are reported but not paired')
     ap.add_argument('--intrinsic-frac', type=float, default=0.3)
     ap.add_argument('--uniform-frac', type=float, default=0.95); ap.add_argument('--copy-scale', type=float, default=2.0)
     ap.add_argument('--major-p', type=float, default=0.15); ap.add_argument('--major-n', type=int, default=5)
-    ap.add_argument('--lib-quantiles', type=lambda s: [float(x) for x in s.split(',')], default=[0.25, 0.5, 0.75, 0.9],
-                    help='library cut = this quantile of the nearest-neighbour distance (sweep)')
+    ap.add_argument('--lib-null-quantiles', type=lambda s: [float(x) for x in s.split(',')], default=[0.5, 0.9, 0.95, 0.99],
+                    help='library cut = this quantile of the split-half null D (one segment vs its own other half); a sweep (2026-11-01, HB09)')
+    ap.add_argument('--null-split', choices=['halves', 'alternate'], default='halves', help='split-half null: contiguous halves | odd/even transitions')
     a = ap.parse_args()
-    dest = os.path.join(a.run, '53b'); os.makedirs(dest, exist_ok=True)
+    if not a.runs and not a.extents_ok: ap.error('--runs <runs of record> is the unit; step-02 extents need --extents-ok (2026-11-01, CA43)')
+    gaps = Gaps(a.gaps or gaps_bed(a.func, a.genome_tag))      # raises when the BED is missing: GAP breaks are never silently absent
+    dest = a.dest or os.path.join(a.run, '53b'); os.makedirs(dest, exist_ok=True)
     R = lambda f: list(csv.DictReader(open(os.path.join(a.run, f)), delimiter='\t'))
     segs = collections.defaultdict(list)
     for r in R('53_segments.tsv'): segs[r['array_id']].append(r)
@@ -328,10 +359,9 @@ def main():
             conf = row[ix['complete_or_truncated']] == 'complete' and idt >= 80
             cop[aid].append((int(row[ix['genomic_start_0based']]), int(row[ix['genomic_end']]), row[ix['monomer_class']] if conf else 'U', row[ix['family_id']]))
     feats = load_annotations(a, {r['chrom'] for r in arrays.values()})
-    rng = random.Random(53)
     tw = csv.writer(open(os.path.join(dest, '53b_topologies.tsv'), 'w', newline=''), delimiter='\t', lineterminator='\n')
-    cols = ['n_states', 'n_trans', 'n_breaks', 'size_flag', 'entropy_bits', 'entropy_rate_bits', 'memory_MI_bits', 'memory_null_bits', 'memory_excess_bits', 'memory_z', 'stay_obs', 'stay_expected', 'structure_index', 'structure_z', 'annotation_frac', 'var_n_trans', 'var_memory_excess_bits', 'var_memory_z', 'var_structure_index', 'var_structure_z', 'order2_gain_bits', 'order2_null_bits', 'order2_excess_bits', 'order2_z', 'order2_top_context']
-    tw.writerow(['array_id', 'chrom', 'unit', 'start0', 'end', 'segment_profile'] + cols + ['D_trans_vs_array', 'D_comp_vs_array', 'D_trans_vs_next', 'D_comp_vs_next', 'composition'])
+    cols = ['n_states', 'n_trans', 'n_breaks', 'size_flag', 'entropy_bits', 'entropy_rate_bits', 'memory_MI_bits', 'memory_null_bits', 'memory_excess_bits', 'memory_z', 'stay_obs', 'stay_expected', 'structure_index', 'structure_z', 'annotation_frac', 'var_n_trans', 'var_memory_excess_bits', 'var_memory_z', 'var_structure_index', 'var_structure_z', 'order2_gain_bits', 'order2_null_bits', 'order2_excess_bits', 'order2_z', 'order2_top_context', 'order2_sims']
+    tw.writerow(['array_id', 'chrom', 'unit', 'start0', 'end', 'segment_profile'] + cols + ['D_trans_vs_array', 'D_comp_vs_array', 'D_trans_vs_next', 'D_comp_vs_next', 'composition', 'intrinsic_annotations'])
     lw = csv.writer(open(os.path.join(dest, '53b_transitions.tsv'), 'w', newline=''), delimiter='\t', lineterminator='\n')
     lw.writerow(['array_id', 'unit', 'from', 'to', 'count'])
     mw = csv.writer(open(os.path.join(dest, '53b_state_map.tsv'), 'w', newline=''), delimiter='\t', lineterminator='\n')
@@ -340,8 +370,9 @@ def main():
     cw.writerow(['array_id', 'edge', 'role', 'n_segments_with_edge', 'n_segments_tested', 'segments', 'intrinsic_annotations'])
     pool = []
     for aid, A in arrays.items():
+        rng = random.Random(zlib.crc32(aid.encode()) ^ a.seed)   # 2026-11-01 (CA20): one seeded stream per run
         chrom = A['chrom']; s0, e0 = int(A['start_0based']), int(A['end']); period = float(A['period_mode_bp'] or 0)
-        pid = A.get('parent', aid); cs = sorted(c for c in cop.get(pid, []) if 'parent' not in A or s0 <= c[0] < e0)
+        pid = A.get('parent', aid); cs = sorted(c for c in cop.get(pid, []) if 'parent' not in A or s0 <= (c[0] + c[1]) // 2 < e0)   # midpoint rule (CA23)
         domfam = collections.Counter(f for *_, c, f in [(x[0], x[1], x[2], x[3]) for x in cs] if c != 'U').most_common(1)
         domfam = domfam[0][0] if domfam else None
         groups = collections.Counter(find((pid, c)) for _, _, c, f in cs if c != 'U' and f == domfam)
@@ -378,9 +409,9 @@ def main():
                 intrinsic[lab] = f'{fr:.2f}/{kind}'
                 if kind == 'copy': cross.append(lab)
         F = [x for x in F if x[2] not in intrinsic or x[2] in cross]   # copy-scale intrinsic labels stay, to tag their copies
-        path = build_path(states, F, period, a.max_gap_frac)
+        path = build_path(states, F, period, a.max_gap_frac, gaps, chrom)
         units = [('array', s0, e0, 'NA')] + [(f"seg{r['segment']}", int(r['start0']), int(r['end']), r['profile']) for r in segs[aid]]
-        res = []
+        res = []; intr_s = ';'.join(f'{k}:{v}' for k, v in intrinsic.items()) or 'none'
         for name, us, ue, prof in units:
             p = [(x, st) for x, st in path if us <= x < ue]
             st, tr, comp = stats(p, rng, a.perms)
@@ -388,13 +419,13 @@ def main():
             pv = [(x, s_ if (s_ is not None and s_.split('.')[0].startswith('V')) else None) for x, s_ in p]
             sv, _, _ = stats(pv, rng, a.perms)
             for k_ in ('n_trans', 'memory_excess_bits', 'memory_z', 'structure_index', 'structure_z'): st['var_' + k_] = sv.get(k_, 'NA')
-            st.update(order2(pv, rng, a.order2_sims))
-            res.append((name, us, ue, prof, st, tr, comp))
+            st.update(order2(pv, rng, a.order2_sims)); st['order2_sims'] = a.order2_sims; st['intrinsic_annotations'] = intr_s
+            res.append((name, us, ue, prof, st, tr, comp, p))
             for (x, y), v in sorted(tr.items()): lw.writerow([aid, name, x, y, v])
         arr = res[0]
         major = {}
-        for name, us, ue, prof, st, tr, comp in res[1:]:
-            if st.get('n_trans', 0) < a.min_trans or prof in ('unresolved', 'too_short'): continue   # flanks / tiny runs are not subtopologies
+        for name, us, ue, prof, st, tr, comp, _ in res[1:]:
+            if st.get('n_trans', 0) < a.min_trans or prof in ('unresolved', 'too_short'): continue   # flanks / tiny segments are not subtopologies
             row = collections.Counter()
             for (x, y), v in tr.items(): row[x] += v
             major[name] = {(x, y) for (x, y), v in tr.items() if v >= a.major_n and v / row[x] >= a.major_p}
@@ -404,12 +435,27 @@ def main():
                 where = [n for n, m in major.items() if e_ in m]
                 cw.writerow([aid, f'{e_[0]}>{e_[1]}', 'core' if e_ in core else 'accessory', len(where), len(major), ','.join(where),
                              ';'.join(f'{k}:{v}' for k, v in intrinsic.items()) or 'none'])
-        for i, (name, us, ue, prof, st, tr, comp) in enumerate(res):
+        for i, (name, us, ue, prof, st, tr, comp, p) in enumerate(res):
             dva = (D_trans(tr, comp, arr[5], arr[6]), round(jsd(comp, arr[6]), 4)) if i else ('NA', 'NA')
             nxt = res[i + 1] if i and i + 1 < len(res) else None
             dvn = (D_trans(tr, comp, nxt[5], nxt[6]), round(jsd(comp, nxt[6]), 4)) if nxt else ('NA', 'NA')
-            tw.writerow([aid, chrom, name, us, ue, prof] + [st.get(c, 'NA') for c in cols] + list(dva) + list(dvn) + [st.get('composition', '')])
-            if i and st.get('n_trans', 0) >= a.min_trans and prof not in ('unresolved', 'too_short'): pool.append((aid, name, prof) + coarsen(tr, comp))
+            tw.writerow([aid, chrom, name, us, ue, prof] + [st.get(c, 'NA') for c in cols] + list(dva) + list(dvn) + [st.get('composition', ''), intr_s])
+            if i and st.get('n_trans', 0) >= a.min_trans and prof not in ('unresolved', 'too_short'):
+                # 2026-11-01 (HB09): split-half null = D of this segment against its own other half, on the library alphabet. 'halves' =
+                # first vs second half of the path (STEP_METHOD sect. 3 rule 2; also sees spatial heterogeneity the segmentation left in),
+                # 'alternate' = odd vs even transitions (sampling noise only). Both are written; --null-split picks the one the cuts use.
+                hv = [coarsen(*stats(part, rng, 0)[1:]) for part in (p[:len(p) // 2], p[len(p) // 2:])]
+                ta, tb = collections.Counter(), collections.Counter()
+                for k_, ((x, y), v) in enumerate(sorted(tr.items())):
+                    for j in range(v): (ta if (k_ + j) % 2 == 0 else tb)[(x, y)] += 1
+                ca, cb = collections.Counter(), collections.Counter()
+                for (x, y), v in ta.items(): ca[x] += v
+                for (x, y), v in tb.items(): cb[x] += v
+                hv += [coarsen(ta, ca), coarsen(tb, cb)]
+                dd = []
+                for u, v_ in ((hv[0], hv[1]), (hv[2], hv[3])):
+                    dt = D_trans(u[0], u[1], v_[0], v_[1]); dd.append(round((1.0 if dt == 'NA' else dt) + jsd(u[1], v_[1]), 4))
+                pool.append((aid, name, prof) + coarsen(tr, comp) + (dd[0] if a.null_split == 'halves' else dd[1], dd[0], dd[1]))
     pw = csv.writer(open(os.path.join(dest, '53b_segment_pairs.tsv'), 'w', newline=''), delimiter='\t', lineterminator='\n')
     pw.writerow(['array_a', 'unit_a', 'profile_a', 'array_b', 'unit_b', 'profile_b', 'D_trans', 'D_comp'])
     for i in range(len(pool)):
@@ -422,10 +468,14 @@ def main():
             dt = D_trans(pool[i][3], pool[i][4], pool[j][3], pool[j][4]); dt = 1.0 if dt == 'NA' else dt
             D[i][j] = D[j][i] = dt + jsd(pool[i][4], pool[j][4])
     nn = sorted(min(D[i][j] for j in range(n) if j != i) for i in range(n)) if n > 1 else [0]
-    qcut = lambda q: nn[min(len(nn) - 1, int(q * len(nn)))]
-    cuts = [round(qcut(q), 4) for q in a.lib_quantiles]
+    null = sorted(x[5] for x in pool) or [0.0]   # split-half D per pooled segment (HB09): cuts are quantiles of THIS, not of nn
+    qcut = lambda q: null[min(len(null) - 1, int(q * len(null)))]
+    cuts = [round(qcut(q), 4) for q in a.lib_null_quantiles]
+    nw = csv.writer(open(os.path.join(dest, '53b_library_null.tsv'), 'w', newline=''), delimiter='\t', lineterminator='\n')
+    nw.writerow(['array_id', 'unit', 'segment_profile', 'split_half_D', 'halves_D', 'alternate_D', 'nearest_neighbour_D', 'null_split'])
+    for i, x in enumerate(pool): nw.writerow([x[0], x[1], x[2], x[5], x[6], x[7], round(min(D[i][j] for j in range(n) if j != i), 4) if n > 1 else 'NA', a.null_split])
     lw2 = csv.writer(open(os.path.join(dest, '53b_topology_library.tsv'), 'w', newline=''), delimiter='\t', lineterminator='\n')
-    lw2.writerow(['array_id', 'unit', 'segment_profile'] + [f'type_at_q{q}_D{c}' for q, c in zip(a.lib_quantiles, cuts)])
+    lw2.writerow(['array_id', 'unit', 'segment_profile'] + [f'type_at_nullq{q}_D{c}' for q, c in zip(a.lib_null_quantiles, cuts)])
     labels = []
     for cut in cuts:
         cl = [[i] for i in range(n)]
@@ -442,7 +492,8 @@ def main():
             for i in c: lab[i] = f'T{k + 1:02d}'
         labels.append(lab)
     for i, (aid, name, prof, *_ ) in enumerate(pool): lw2.writerow([aid, name, prof] + [l[i] for l in labels])
-    print(f'{len(arrays)} arrays, {len(pool)} segments paired; nearest-neighbour D median {nn[len(nn)//2]:.3f}; cuts', cuts, '-> library types', [len(set(l.values())) for l in labels], '->', dest)
+    print(f'{len(arrays)} {"runs" if a.runs else "step-02 intervals"}, {len(pool)} segments paired; nearest-neighbour D median {nn[len(nn)//2]:.3f}; '
+          f'split-half null D median {null[len(null)//2]:.3f}; cuts (null q {a.lib_null_quantiles})', cuts, '-> library types', [len(set(l.values())) for l in labels], '->', dest)
 
 
 if __name__ == '__main__':

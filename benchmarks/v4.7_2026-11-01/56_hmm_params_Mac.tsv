@@ -1,0 +1,7 @@
+iterations	4
+loglik	-212683.5
+P(A->A)	0.96722
+P(B->B)	0.99383
+train_arrays	400	train_paths	450	tables	1
+emission_A	C:0.7024	W:0.2712	J:0.0261	G:0.0004
+emission_B	C:0.0148	W:0.1639	J:0.8211	G:0.0002

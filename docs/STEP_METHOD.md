@@ -18,7 +18,7 @@ drifted between pipeline versions, and several results had to be withdrawn becau
 | **chain** | Consecutive runs of one family, separated by interruptions, whose topologies are compatible (section 3, rule 2) | 61 (+ topology test) | Interrupted and composite arrays |
 | **junction** | A run edge facing an interruption: OUT (satellite -> interruption) or IN (interruption -> satellite), array orientation | 61 | Boundary precision, structural ancestry |
 | **cycle** | A recurring closed walk in the topology: self-loop (monomeric), cycle over n monomer nodes (HOR), cycle through an interruption node (composite unit) | 62, 65, 61 | The unit of an array at every scale |
-| **family / lineage** | Majority family of confident copies; lineage A / B / centromeric minisatellite from copy-level k-mer clustering | 59, 55d | Naming, comparison |
+| **family / sequence cluster** | Majority family of confident copies; sequence cluster = k-mer composition cluster of the sampled monomers (K by a stated stability rule, 55c), assigned to a family only with a >= 70 % majority. Not a lineage: no tree, no ancestor; origin ("5S-derived", "RTE-interleaved") is a per-family homology statement | 59, 55d | Naming, comparison |
 | **putative centromeric array** | Largest run cluster of a chromosome (L1) | 31 / 59 | Location call, not function |
 
 `array_id` in the catalogue is the identifier of the **candidate interval** a run came from: a container label, not an array.
@@ -68,8 +68,11 @@ genome-wide sweep (57-58-58b)  ->  copies = observations (03)  ->  array inferen
   Not: base-pair edges (the HMM edge sits 9-154 bp inside the satellite edge; step 61 fixes it).
 
 ### Step 4 - catalogue (59, 59b, 59c, 59d)
-- Per run: gates G1 GC / G2 identity / G3 strand coherence, family, lineage, unit class, tier; tandem gene arrays apart (59b); TE layer with
-  intrinsic labels separated (59c); names (59d). Guarantees one row per run. Not: which rows are one array.
+- Per run: overlapping runs resolved first (same family merged, different families trimmed; C08); gates G1 GC / G2 identity (>= 85) /
+  G3 strand coherence with a sweep table; family, dominant class, unit class (100-bp rule); tandem gene arrays called before tiers and the
+  centromere flag (59b inside 59: bp ratio >= 0.7 AND >= 50 % of units carry a hit; C04); tiers on satellite families only; TE layer with
+  intrinsic labels separated (59c); names and tiers recomputed on family_v46 (59d); sequence cluster written back by 59f after step 55.
+  Guarantees one row per run, no overlapping rows. Not: which rows are one array.
 
 ### Step 5 - topology of each run (53 -> 53b)
 - 53: windows inside each run; feature blocks comp / kmer / period (label-free) and label / topo; change points accepted only when two
@@ -158,8 +161,20 @@ genome-wide sweep (57-58-58b)  ->  copies = observations (03)  ->  array inferen
 | Copies from one run used as replicates | inflated separation | leave whole runs / arrays out; n = arrays |
 
 ## 8. Sweeps
-56 posterior 0.5 / 0.8 / 0.95; val56 p80 / p90 / p95; 58 p95 / p99 / p99.9; 53 penalty and k-mer merge cutoffs; 61 flank x cutoff x tolerance;
-62 k = 6-31, lags 1-40; 65 identity threshold 0.90-0.995; 63 K, window; 64 k = 2-8, leave-out block; topology compatibility: split-point null.
+56 posterior 0.5 / 0.8 / 0.95; val56 p80 / p90 / p95; 58 p95 / p99 / p99.9; 53 penalty and k-mer merge cutoffs; topology compatibility: split-point null.
+
+Steps 60a-65 (2026-11-01, audit D09 / D13): each step writes its sweep to `benchmarks/<step>_sweep.tsv` when run with `--sweep`; no such
+file exists on disk yet (no genome-wide run of 61-65 has been stored), so the lines below describe code, not results.
+- 61: flank 100 / 150 / 300 x cutoff 0.6 / 0.7 / 0.8 x tolerance 10 / 25 / 50, plus the per-array null call (`homologous_share_null`).
+- 61b: k 3-6 x w 1 / 2 / 3 units; w = 1 unit is the edge, 2-3 units the stability check (`median_abs_dev_from_primary`).
+- 62: min_identity 60 / 65 / 80 x pairs 75 / 150 x perm 200 / 1000 x min_excess 0.02 / 0.03 / 0.05 -> candidates and FDR calls per setting.
+  k = 6-31 and lags 1-40 are scan ranges, not a sweep.
+- 63: K 2 / 3 / 4 / 6 / 8 (silhouette) and window 5 / 10 / 20 (exact-match share).
+- 64: k 2-8 x grouping x object type with block permutation and BH (`q_perm`); the sweep file is the separation table.
+- 65: min_copies 2 / 3 / 4 x identity threshold 0.90-0.995, each with its shuffled-string null; t chosen by the longest plateau above the null.
+Removed from this section (never produced): "62 k = 6-31, lags 1-40" as a sweep; "63 K, window" and "64 k = 2-8, leave-out block" as
+existing results. Section 7's "first genome-wide result" of 61 (homologous share 40-67 % / 72-100 %, +-10 bp) has no stored output
+either and is to be re-derived with the null-based call before it is quoted.
 
 ## 9. Topology is descriptive today, not yet a discovery sweep
 Discovery uses the k-mer sweep (57) and the copy-chain HMM (56). The topology and second-order Markov test (53 / 53b) run on every catalogue

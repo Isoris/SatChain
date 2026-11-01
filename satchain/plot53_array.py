@@ -1,12 +1,28 @@
 #!/usr/bin/env python3
-"""One array, its window features and segmentation (step 53). usage: plot53_array.py <out folder> <test53 dir> <array_id> <png>"""
-import sys, csv, gzip, collections
+"""One run of record (or, with --extents-ok, one step-02 interval), its window features and segmentation (step 53).
+2026-11-01 (HB11 / HB12): --runs <runs of record tsv> makes <id> a run_id: the run's interval is drawn and its copies are the parent
+array's copies whose midpoint lies in the run (the 53 / 53b rule); the title gives the run bp and never says 'centromere' unless the
+catalogue (--catalogue 59_catalogue_<G>.tsv) flags the run putative_centromeric_array_L1 = yes, and then says 'candidate centromeric
+array'. PNG at --dpi (default 450) plus a vector PDF next to it.
+usage: plot53_array.py <out folder> <53 dir> <run_id> <png> --runs <runs tsv> [--catalogue <59 catalogue tsv>] [--dpi 450] | --extents-ok"""
+import sys, csv, gzip, collections, argparse
 import matplotlib; matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
 
-OUT, T, AID, PNG = sys.argv[1:5]
+ap = argparse.ArgumentParser(); ap.add_argument('out'); ap.add_argument('t53'); ap.add_argument('aid'); ap.add_argument('png')
+ap.add_argument('--runs'); ap.add_argument('--catalogue'); ap.add_argument('--dpi', type=int, default=450); ap.add_argument('--extents-ok', action='store_true')
+A = ap.parse_args(); OUT, T, AID, PNG = A.out, A.t53, A.aid, A.png
+if not A.runs and not A.extents_ok: ap.error('--runs <runs of record> (run_id) is the unit; a step-02 interval needs --extents-ok (CA43)')
 csv.field_size_limit(1 << 30)
+run = None
+if A.runs:
+    run = next((r for r in csv.DictReader(open(A.runs), delimiter='\t') if r['run_id'] == AID), None)
+    if run is None: sys.exit(f'{AID} not in {A.runs}')
+    PARENT, S0, E0 = run['array_id'], int(run['start0']), int(run['end'])
+cen = 'no'
+if A.catalogue:
+    cen = next((r.get('putative_centromeric_array_L1', 'no') for r in csv.DictReader(open(A.catalogue), delimiter='\t') if r['run_id'] == AID), 'no')
 INK, INK2, GRID, SURF = '#1f1f1e', '#5f5e58', '#e4e2dc', '#ffffff'
 CAT = ['#2a78d6', '#eb6834', '#1baf7a', '#eda100', '#e87ba4']; OTHER = '#b4b2a9'
 PROF = {'homogeneous_monomeric': '#2a78d6', 'variant_mixed': '#1baf7a', 'alternating': '#6250d6', 'interleaved_families': '#eb6834', 'unresolved': '#b4b2a9'}
@@ -22,10 +38,12 @@ cop = []
 with open(f'{OUT}/03_monomer_copies.tsv', newline='') as fh:
     rd = csv.reader(fh, delimiter='\t'); h = next(rd); ix = {k: i for i, k in enumerate(h)}
     for row in rd:
-        if row[ix['array_id']] == AID:
+        if row[ix['array_id']] == (PARENT if run else AID):
+            s_, e_ = int(row[ix['genomic_start_0based']]), int(row[ix['genomic_end']])
+            if run and not (S0 <= (s_ + e_) // 2 < E0): continue      # run membership = copy midpoint
             try: idt = float(row[ix['best_alignment_identity']])
             except ValueError: idt = 0
-            cop.append(((int(row[ix['genomic_start_0based']]) + int(row[ix['genomic_end']])) / 2e6, row[ix['monomer_class']] + row[ix['strand']], idt,
+            cop.append(((s_ + e_) / 2e6, row[ix['monomer_class']], idt,     # state = class (53 default, HB10); strand not in the label
                         row[ix['complete_or_truncated']] == 'complete', row[ix['family_id']]))
 chrom = win[0]['chrom']; period = float(seg[0]['period_02'])
 x = [(int(r['start0']) + int(r['end'])) / 2e6 for r in win]
@@ -65,9 +83,11 @@ for ax in axs:
         ax.axvline(int(c['position']) / 1e6, color=INK if c['status'] == 'accepted' else INK2, lw=1.1 if c['status'] == 'accepted' else 0.7,
                    ls='-' if c['status'] == 'accepted' else ':', zorder=0)
 axs[-1].set_xlabel(f'{chrom} position (Mb)')
-fig.suptitle(f'{AID}, {chrom} centromere: {NAMES.get(fam, fam)} ({fam}), {len(cop):,} copies; window {int(win[0]["end"]) - int(win[0]["start0"]):,} bp, step half a window',
-             x=0.01, ha='left', fontsize=13, color=INK, fontweight='bold')
-fig.text(0.01, 0.945, 'solid line = accepted boundary (>= 2 feature blocks, >= 1 sequence-only block); dotted = change point in one block only', fontsize=9.5, color=INK2)
+u0, u1 = (S0, E0) if run else (int(seg[0]['start0']), int(seg[-1]['end']))
+what = ('run of record' if run else 'step-02 interval') + (', candidate centromeric array' if cen == 'yes' else '')   # HB12: never 'centromere'
+fig.suptitle(f'{AID} ({what}), {chrom}:{u0:,}-{u1:,}, {u1 - u0:,} bp: {NAMES.get(fam, fam)} ({fam}), {len(cop):,} copies; '
+             f'window {int(win[0]["end"]) - int(win[0]["start0"]):,} bp, step half a window', x=0.01, ha='left', fontsize=13, color=INK, fontweight='bold')
+fig.text(0.01, 0.945, 'solid line = accepted boundary (>= 2 feature-block groups, >= 1 sequence-only; comp + kmer count as one group); dotted = other change point', fontsize=9.5, color=INK2)
 fig.subplots_adjust(left=0.15, right=0.99, top=0.93, bottom=0.05, hspace=0.18)
-fig.savefig(PNG, dpi=150, facecolor=SURF)
-print('wrote', PNG)
+fig.savefig(PNG, dpi=A.dpi, facecolor=SURF); fig.savefig(PNG.rsplit('.', 1)[0] + '.pdf', facecolor=SURF)   # 2026-11-01: >= 450 dpi + vector PDF
+print('wrote', PNG, 'and', PNG.rsplit('.', 1)[0] + '.pdf')

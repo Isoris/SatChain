@@ -5,14 +5,17 @@
 Every step-03 tile of a candidate interval is one observation along the chromosome, in order:
   C = confident copy (complete, identity >= --conf), W = weak copy (identity --weak..conf, or truncated with identity >= --conf),
   J = junk tile (identity < --weak), G = uncovered stretch longer than --gap-units x period (one G per stretch)
-Two hidden states: A (array) and B (background). Transitions and emissions are learned by Baum-Welch over all candidate paths of
-one subgenome (start from A: C .70 W .20 J .08 G .02 ; B: C .05 W .15 J .50 G .30 ; stay .98). The posterior P(A) of each tile is
-computed by forward-backward; an array run = a maximal stretch of tiles with P(A) >= --post (swept), trimmed to its first and last
-C tile, kept if it holds >= --min-c confident copies. Short interruptions (TE, degraded copies) stay inside a run when the chain
-continues on both sides.
-Outputs (<dest>/): 56_hmm_params.tsv, 56_runs.bed (BED6, name = array|run|n_conf|n_tiles|mean_post), 56_vs_36.tsv (bp overlap with the
-step-36 runs: shared, HMM-only, 36-only), 56_summary.tsv.
-usage: 56_path_hmm.py --out <pipeline out> --dest <dir> [--post 0.5,0.8,0.95]
+Two hidden states: A (array) and B (background). Transitions and emissions are learned by Baum-Welch on a seeded sample of --train-n
+candidate ARRAYS (all segments of a sampled array; the sample is drawn from the sorted array ids, so adding --gaps or another table does
+not reshuffle it: audit HB06) of ONE haplotype, over the union of every --out table given (existing step-02 arrays and new 58b
+candidates together: one model per haplotype, audit HB05; start from A: C .70 W .20 J .08 G .02 ; B: C .05 W .15 J .50 G .30 ; stay .98).
+The posterior P(A) of each tile is computed by forward-backward; an array run = a maximal stretch of tiles with P(A) >= --post (swept),
+trimmed to its first and last C tile, kept if it holds >= --min-c confident copies. Short interruptions (TE, degraded copies) stay inside
+a run when the chain continues on both sides. E[.,G] is learned from a handful of G observations (47 / 54 per haplotype) and is noise;
+G acts as a soft stop only (audit CA46; a hard stop is the assembly gap, --gaps).
+Outputs (<dest>/): 56_hmm_params.tsv, 56_runs_post<p>.bed (BED6, name = array|run|n_conf|n_tiles|mean_post over the trimmed run|g<segment>|
+table index), 56_summary.tsv (bp overlap with the step-36 runs of the first table: shared, HMM-only, 36-only).
+usage: 56_path_hmm.py --out <pipeline out> [<new03 dir> ...] --dest <dir> [--post 0.5,0.8,0.95] [--gaps <detgaps bed>]
 """
 import sys, argparse, collections, csv, math, os
 import numpy as np
@@ -20,32 +23,40 @@ csv.field_size_limit(1 << 30)
 SYM = {'C': 0, 'W': 1, 'J': 2, 'G': 3}
 
 
-def paths(out, conf, weak, gapu, gaps=None):
-    arr = {r['array_id']: r for r in csv.DictReader(open(os.path.join(out, '02_satellite_arrays.tsv')), delimiter='\t')}
-    cop = collections.defaultdict(list)
-    with open(os.path.join(out, '03_monomer_copies.tsv'), newline='') as fh:
-        rd = csv.reader(fh, delimiter='\t'); h = next(rd); ix = {k: i for i, k in enumerate(h)}
-        for row in rd:
-            try: idt = float(row[ix['best_alignment_identity']])
-            except ValueError: idt = 0.0
-            cop[row[ix['array_id']]].append((int(row[ix['genomic_start_0based']]), int(row[ix['genomic_end']]), idt, row[ix['complete_or_truncated']] == 'complete',
-                                             row[ix['chrom']] if 'chrom' in ix else ''))
+def paths(outs, conf, weak, gapu, gaps=None):
+    """outs: one or more pipeline folders (02_satellite_arrays.tsv + 03_monomer_copies.tsv each). Returns P[(array, segment)] =
+    (chrom, observations, positions, table index) and the merged 02 table. 2026-11-01: several tables (HB05); exact duplicate tiles
+    (same start, end: StringDecomposer batch-overlap duplicates, audit CB01) are dropped here as well, so an un-deduplicated 03 table
+    gives the same paths as a 03b-deduplicated one."""
+    arr = {}; cop = collections.defaultdict(list); ndup = 0
+    for ti, out in enumerate(outs):
+        for r in csv.DictReader(open(os.path.join(out, '02_satellite_arrays.tsv')), delimiter='\t'): arr[r['array_id']] = r
+        with open(os.path.join(out, '03_monomer_copies.tsv'), newline='') as fh:
+            rd = csv.reader(fh, delimiter='\t'); h = next(rd); ix = {k: i for i, k in enumerate(h)}
+            for row in rd:
+                try: idt = float(row[ix['best_alignment_identity']])
+                except ValueError: idt = 0.0
+                cop[(ti, row[ix['array_id']])].append((int(row[ix['genomic_start_0based']]), int(row[ix['genomic_end']]), idt, row[ix['complete_or_truncated']] == 'complete',
+                                                       row[ix['chrom']] if 'chrom' in ix else ''))
     # v4.7: a path (and so a run) never crosses an assembly gap: the copies after a gap start a new segment (key (array, segment));
     # copies overlapping a gap are dropped. v4.6 bug fixed: chrom of arrays missing from 02 was taken from a coordinate.
     P = {}; dropped = 0
-    for aid, cs in cop.items():
+    for (ti, aid), cs in cop.items():
         cs.sort(); per = float(arr[aid]['period_mode_bp'] or 0) if aid in arr else 0
         chrom = arr[aid]['chrom'] if aid in arr else cs[0][4]
-        seg = 1; obs, pos = [], []; last = None
+        seg = 1; obs, pos = [], []; last = None; prev = None
         for s, e, idt, comp, _c in cs:
+            if prev is not None and (s, e) == prev: ndup += 1; continue                      # CB01: duplicate tile
+            prev = (s, e)
             if gaps is not None and gaps.between(chrom, s, e): dropped += 1; continue
-            if gaps is not None and last is not None and gaps.between(chrom, last, s):
-                if obs: P[(aid, seg)] = (chrom, np.array(obs), pos)
+            if gaps is not None and last is not None and gaps.between(chrom, last, s, closed=True):   # HB07: a join on the tile boundary stops the chain
+                if obs: P[(aid, seg)] = (chrom, np.array(obs), pos, ti)
                 seg += 1; obs, pos = [], []; last = None
             if last is not None and s - last > gapu * max(1, per): obs.append(3); pos.append((last, s))
             o = 0 if (comp and idt >= conf) else 1 if idt >= weak and (comp or idt >= conf) else 1 if idt >= weak else 2
             obs.append(o); pos.append((s, e)); last = e if last is None else max(last, e)
-        if obs: P[(aid, seg)] = (chrom, np.array(obs), pos)
+        if obs: P[(aid, seg)] = (chrom, np.array(obs), pos, ti)
+    print(f'{len(outs)} table(s): {len(cop)} arrays, {len(P)} paths; {ndup} duplicate tiles skipped', flush=True)
     if gaps is not None: print(f'gap stop: {sum(1 for k in P if k[1] > 1)} extra segments, {dropped} copies overlapping a gap dropped', flush=True)
     return P, arr
 
@@ -80,7 +91,7 @@ def baum_welch(seqs, iters=30):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument('--out', required=True); ap.add_argument('--dest', required=True)
+    ap.add_argument('--out', required=True, nargs='+', help='pipeline folder(s); the first one supplies the step-36 comparison'); ap.add_argument('--dest', required=True)
     ap.add_argument('--conf', type=float, default=80); ap.add_argument('--weak', type=float, default=65); ap.add_argument('--gap-units', type=float, default=0.5)
     ap.add_argument('--post', default='0.5,0.8,0.95'); ap.add_argument('--min-c', type=int, default=4)
     ap.add_argument('--train-n', type=int, default=400, help='arrays used to learn the parameters (seeded sample)')
@@ -90,23 +101,25 @@ def main():
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); from gaps import Gaps
     gaps = Gaps(a.gaps or None, a.genome if a.scan_n else None) if (a.gaps or a.scan_n) else None
     P, arr = paths(a.out, a.conf, a.weak, a.gap_units, gaps)
-    keys = sorted(P); rs = np.random.default_rng(56); tr = rs.choice(len(keys), min(a.train_n, len(keys)), replace=False)
-    seqs = [P[keys[i]][1] for i in tr]
+    # training sample = --train-n arrays drawn from the sorted array ids (2026-11-01, HB06: independent of gap segmentation and of the
+    # table set, so a --gaps rerun refits on the same arrays); every segment of a sampled array is used
+    aids = sorted({k[0] for k in P}); rs = np.random.default_rng(56); tr = {aids[i] for i in rs.choice(len(aids), min(a.train_n, len(aids)), replace=False)}
+    seqs = [v[1] for k, v in sorted(P.items()) if k[0] in tr]
     T, E, pi, ll, nit = baum_welch(seqs)
     with open(os.path.join(a.dest, '56_hmm_params.tsv'), 'w') as fh:
-        fh.write(f'iterations\t{nit}\nloglik\t{ll:.1f}\nP(A->A)\t{T[0,0]:.5f}\nP(B->B)\t{T[1,1]:.5f}\n')
+        fh.write(f'iterations\t{nit}\nloglik\t{ll:.1f}\nP(A->A)\t{T[0,0]:.5f}\nP(B->B)\t{T[1,1]:.5f}\ntrain_arrays\t{len(tr)}\ttrain_paths\t{len(seqs)}\ttables\t{len(a.out)}\n')
         for i, st in enumerate('AB'):
             fh.write(f'emission_{st}\t' + '\t'.join(f'{k}:{E[i, j]:.4f}' for k, j in SYM.items()) + '\n')
     # step-36 runs for comparison
     r36 = collections.defaultdict(list)
-    p36 = os.path.join(a.out, '36_characterized_intervals.bed')
+    p36 = os.path.join(a.out[0], '36_characterized_intervals.bed')
     for l in (open(p36) if os.path.exists(p36) else []):
         if l.startswith(('#', 'track')): continue
         f = l.split('\t'); r36[f[0]].append((int(f[1]), int(f[2])))
     summ = []
     for post in [float(x) for x in a.post.split(',')]:
         runs = collections.defaultdict(list); bed = open(os.path.join(a.dest, f'56_runs_post{post}.bed'), 'w'); n = 0
-        for aid, (chrom, o, pos) in P.items():
+        for aid, (chrom, o, pos, ti) in sorted(P.items()):
             if len(o) < 2: continue
             _, _, _, g = fb(o, T, E, pi); inA = g[:, 0] >= post; i = 0
             while i < len(o):
@@ -116,8 +129,8 @@ def main():
                 cidx = [k for k in range(i, j + 1) if o[k] == 0]
                 if len(cidx) >= a.min_c:
                     s, e = pos[cidx[0]][0], pos[cidx[-1]][1]; n += 1
-                    runs[chrom].append((s, e))
-                    bed.write(f'{chrom}\t{s}\t{e}\t{aid[0]}|hmm{n}|{len(cidx)}|{j - i + 1}|{g[i:j + 1, 0].mean():.3f}|g{aid[1]}\t0\t.\n')
+                    runs[chrom].append((s, e))                                            # mean_post over the trimmed run (HB13)
+                    bed.write(f'{chrom}\t{s}\t{e}\t{aid[0]}|hmm{n}|{len(cidx)}|{cidx[-1] - cidx[0] + 1}|{g[cidx[0]:cidx[-1] + 1, 0].mean():.3f}|g{aid[1]}|t{ti}\t0\t.\n')
                 i = j + 1
         bed.close()
         def bp(iv):

@@ -4,13 +4,22 @@ For each pair of groups (step-03 classes, or the two domains either side of a st
 >= p_in of one group's copies and <= p_out of the other's, for k = 5..20 and four (p_in, p_out) cutoffs, and the same count
 after shuffling the group labels (--perms permutations; group sizes kept). A k-mer is counted once per copy (presence).
 Also reports the best single-k-mer classifier accuracy (balanced) per k.
-usage: kmer_separation_sweep.py <03_monomer_copies.tsv> <array_id> <boundary_bp|-> <out prefix>"""
-import csv, collections, random, sys
+2026-11-01 (CB13 / CA36): --perms default 50 (was 5: null_max_total was 0 in every benchmark row); the stderr line prints the
+0.9 / 0.1 cut (it printed the 0.8 / 0.2 row); --k-report <k> prints, per comparison, the decision at that k (diagnostic k-mers at the
+0.9 / 0.1 cut vs the null maximum and the METHODS rule '>= 5 near-fixed k-mers and above the null') and the k range where the rule
+holds, and writes it to <out prefix>.k_report.tsv; the merge decision depends on k (benchmark Gar_SAT01307: 3-11 k-mers for k 5-14,
+0-1 for k >= 18), so the k used must be stated.
+usage: kmer_separation_sweep.py <03_monomer_copies.tsv> <array_id> <boundary_bp|-> <out prefix> [--perms 50] [--k-report 10]"""
+import csv, collections, random, sys, argparse
 csv.field_size_limit(1 << 30)
-COPIES, AID, BND, OUT = sys.argv[1:5]
+ap = argparse.ArgumentParser()
+for x in ('copies', 'aid', 'bnd', 'out'): ap.add_argument(x)
+ap.add_argument('--perms', type=int, default=50); ap.add_argument('--k-report', type=int, default=10)
+ap.add_argument('--min-diag', type=int, default=5, help='METHODS rule: diagnostic k-mers needed at the 0.9 / 0.1 cut')
+ARGS = ap.parse_args(); COPIES, AID, BND, OUT = ARGS.copies, ARGS.aid, ARGS.bnd, ARGS.out
 KS = [5, 6, 7, 8, 9, 10, 12, 14, 16, 18, 20]
 CUTS = [(0.9, 0.1), (0.8, 0.2), (0.7, 0.3), (0.6, 0.4)]
-PERMS = 5
+PERMS = ARGS.perms
 
 rows = []
 with open(COPIES, newline='') as fh:
@@ -61,9 +70,22 @@ for k in KS:
         for cut in CUTS:
             da, db = diag(ca, na, cb, nb, *cut)
             out.append([name, na, nb, k, cut[0], cut[1], da, db, da + db, max(null[cut]), round(acc, 3), round(max(nacc), 3)])
-        print(name, k, out[-3][6:], file=sys.stderr)
+        print(name, k, 'cut 0.9/0.1:', out[-len(CUTS)][6:], file=sys.stderr)       # 2026-11-01: the 0.9 / 0.1 row (was the 0.8 / 0.2 row)
 with open(OUT + '.tsv', 'w', newline='') as fh:
     w = csv.writer(fh, delimiter='\t', lineterminator='\n')
     w.writerow(['comparison', 'n_a', 'n_b', 'k', 'p_in', 'p_out', 'diag_a', 'diag_b', 'diag_total', 'null_max_total', 'best_kmer_balanced_acc', 'null_max_acc'])
     w.writerows(out)
 print('wrote', OUT + '.tsv')
+# 2026-11-01 (CB13): k-report, the decision at --k-report and the k range where the METHODS rule holds (0.9 / 0.1 cut)
+with open(OUT + '.k_report.tsv', 'w', newline='') as fh:
+    w = csv.writer(fh, delimiter='\t', lineterminator='\n')
+    w.writerow(['comparison', 'k_report', 'diag_total_at_k', 'null_max_at_k', 'rule_holds_at_k', 'k_where_rule_holds', 'perms'])
+    for name, _, _ in pairs:
+        rows09 = {r[3]: r for r in out if r[0] == name and r[4] == 0.9}
+        holds = [k for k, r in sorted(rows09.items()) if r[8] >= ARGS.min_diag and r[8] > r[9]]
+        r = rows09.get(ARGS.k_report)
+        at = (r[8], r[9], 'yes' if ARGS.k_report in holds else 'no') if r else ('NA', 'NA', 'NA')
+        w.writerow([name, ARGS.k_report, *at, ','.join(map(str, holds)) or 'none', PERMS])
+        print(f'k-report {name}: k={ARGS.k_report} diagnostic {at[0]} (null max {at[1]}) rule >= {ARGS.min_diag} & > null: {at[2]}; '
+              f'rule holds for k in [{",".join(map(str, holds)) or "none"}]')
+print('wrote', OUT + '.k_report.tsv')

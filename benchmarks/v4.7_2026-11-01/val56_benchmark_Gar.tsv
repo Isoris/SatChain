@@ -1,0 +1,4 @@
+tag	track	q	threshold	runs_kept	runs_total	kept_Mb	dropped_Mb	shared_with_36_Mb	frac_36_bp_kept	added_beyond_36_Mb	runs_few_bins	background_bins	background_zero_share	background_rule	subsample	min_bins
+Gar	scan57_any_lag	0.8	0.0161	5109	5342	21.112	1.292	17.479	0.9412	3.633	227	995324	0.006	outside_all_candidates	1	2
+Gar	scan57_any_lag	0.9	0.0271	5055	5342	21.086	1.318	17.473	0.9409	3.613	227	995324	0.006	outside_all_candidates	1	2
+Gar	scan57_any_lag	0.95	0.0392	4696	5342	20.903	1.501	17.463	0.9403	3.439	227	995324	0.006	outside_all_candidates	1	2

@@ -33,16 +33,25 @@ class Gaps:
             else: buf.append(l.strip())
         if name: flush()
 
-    def between(self, c, a, b):
-        """True when a gap overlaps [a, b) or a join point lies strictly inside (a, b)."""
+    def between(self, c, a, b, closed=False):
+        """True when a gap overlaps [a, b) or a join point lies strictly inside (a, b).
+        closed=True (2026-11-01, audit HB07): a zero-length join at a or b also counts. Use it for the stretch BETWEEN two
+        neighbouring copies / runs (last_end, next_start): a join exactly on a tile boundary separates the tiles, and the open test
+        let a chain continue across it. Keep closed=False for the tile itself (a join at its own edge does not make it a gap copy)."""
         v = self.iv.get(c)
-        if not v or b <= a: return False
-        i = bisect.bisect_left(self.starts[c], b) - 1
+        if not v or b < a or (b == a and not closed): return False
+        i = bisect.bisect_left(self.starts[c], b + (1 if closed else 0)) - 1
         while i >= 0:
             s, e = v[i]
-            if e > a and s < b and (s != e or a < s < b): return True
+            if s == e:
+                if (a <= s <= b) if closed else (a < s < b): return True
+            elif e > a and s < b: return True
             if e <= a and s < a - 10_000_000: break
             i -= 1
         return False
+
+    def gaps_in(self, c, a, b):
+        """all gap / join rows of chromosome c that between(c, a, b, closed=True) would see (for reports)"""
+        return [(s, e) for s, e in self.iv.get(c, []) if (s == e and a <= s <= b) or (s != e and e > a and s < b)]
 
     def count(self): return sum(len(v) for v in self.iv.values())

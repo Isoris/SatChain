@@ -1,9 +1,15 @@
 #!/usr/bin/env python3
 """
-53_array_segmentation.py  (v4.5.2; windowed features, local topology and segmentation INSIDE arrays; read-only)
+53_array_segmentation.py  (v4.5.2; windowed features, local topology and segmentation INSIDE runs; read-only)
 
-Grain: sliding windows inside each step-02 array, W = max(--min-win-bp, --win-units x period), step W/2
-(short-unit arrays get >= 1 kb, long-unit arrays >= 20 units). Each window carries five feature blocks:
+UNIT (2026-11-01, HB02 / CA43): the catalogue runs of record (--runs tsv: run_id, array_id, chrom, start0, end, unit_bp) are the default
+and only sanctioned unit; a run's copies are the parent array's copies whose MIDPOINT lies in the run (the same membership rule as 53b,
+CA23). Windowing the step-02 interval extents (array-extent inflation, STEP_METHOD sect. 7) needs --extents-ok.
+Grain: sliding windows inside each run, W = max(--min-win-bp, --win-units x period), step W/2, plus one last window ending at the
+run end (2026-11-01, CA19: the right edge used to be never windowed). A run with < 2 x --min-seg such windows falls back to
+copy-indexed windows (--copy-win consecutive copies, step half; shrunk down to --copy-win-min copies until >= 2 x --min-seg windows
+exist); a run with too few copies for that is written with segmentable = no (one segment, no change-point model run).
+Each window carries five feature blocks:
   comp    GC, CpG obs/exp, normalised entropy of 1/2/3/5-mers                        (sequence, label-free)
   kmer    canonical 4-mer profile (136) -> first --kmer-pcs principal components per array (sequence, label-free)
   period  k-mer (k=10) next-recurrence: dominant distance (local period, bp), its strength,
@@ -11,22 +17,30 @@ Grain: sliding windows inside each step-02 array, W = max(--min-win-bp, --win-un
   label   step-03 copies whose midpoint lies in the window: median length / period, length IQR / period,
           mean identity, confident fraction (identity >= 80, complete), dominant-class fraction, n classes,
           fraction of the array's top-3 families                                     (decomposition labels)
-  topo    local transition graph of confident copies (class+strand): self-loop fraction, order-1 entropy,
+  topo    local transition graph of confident copies: self-loop fraction, order-1 entropy,
           (AB)n alternation, distinct edges per transition                            (decomposition labels)
-Segmentation: per block, binary segmentation on the window series (features z-scored within the array; cost =
+STATE (2026-11-01, HB10 / CA21): a copy's topology state is its merged step-03 class alone (--state class, default; the same
+definition 53b uses), strand is an optional second label (--state class+strand, the pre-2026-11-01 behaviour); the share of
+confident copies on the minority strand is reported per run (minority_strand_frac in 53_array_summary.tsv).
+Segmentation: per block, binary segmentation on the window series (features z-scored within the run; cost =
 within-segment sum of squares; split while gain > --penalty x d x log n; min segment --min-seg windows).
-A boundary is ACCEPTED when >= 2 blocks place a change point within +/- 1 window AND at least one of them is
-label-free (comp, kmer, period), so wrong monomer calls cannot confirm themselves. Single-block change points are
-kept as 'candidate'.
+A boundary is ACCEPTED when >= 2 block GROUPS place a change point within +/- 1 window AND at least one of them is
+label-free, so wrong monomer calls cannot confirm themselves. Groups (2026-11-01, HB03): comp and kmer count as ONE
+'composition' group (GC and the k-mer entropies are functions of the 4-mer profile, so their agreement is one piece of evidence),
+period, label, topo. Other change points are kept as 'candidate'; 53_summary.tsv lists the block combination of every accepted
+boundary and the share of boundaries that rest on comp+kmer only (accepted by the pre-2026-11-01 rule, candidate now).
+RNG (2026-11-01, CA20): the class-merge subsample is drawn from a generator seeded per run (crc32(run_id) ^ --seed), so a run's
+result does not depend on the run set or its order.
 Segments (between accepted boundaries) get a profile from their confident copies:
   unresolved (< 10 confident copies or confident fraction < 0.3) | interleaved_families (>= 2 families each >= 20 %)
   | alternating (alternation >= 0.5) | variant_mixed (class self-loop < 0.6) | homogeneous_monomeric
   plus local period, dominant family and its fraction. HOR / composite calls stay with steps 30/34/47.
 Outputs (<out>/53_segmentation/): 53_window_features.tsv.gz, 53_change_points.tsv, 53_segments.tsv,
-53_segments.bed (BED9 coloured by profile), 53_array_summary.tsv, 53_summary.tsv.
+53_segments.bed (BED9 coloured by profile), 53_array_summary.tsv (one row per run: window_mode bp|copy, n_windows, segmentable,
+minority_strand_frac), 53_summary.tsv. The column name array_id holds the run_id in run mode (kept for downstream readers).
 NOT done here: re-decomposition of each side of a boundary (step 50 local library) - the validation stage.
 """
-import argparse, collections, csv, gzip, math, os, sys
+import argparse, collections, csv, gzip, math, os, sys, zlib
 import numpy as np
 
 csv.field_size_limit(1 << 30)
@@ -168,7 +182,11 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--out', required=True); ap.add_argument('--genome', required=True)
     ap.add_argument('--dest'); ap.add_argument('--arrays', help='comma list or file of array_ids (default all)')
-    ap.add_argument('--runs', help='catalogue runs (tsv: run_id, array_id, chrom, start0, end, unit_bp): segment runs instead of step-02 arrays')
+    ap.add_argument('--runs', help='catalogue runs of record (tsv: run_id, array_id, chrom, start0, end, unit_bp); the default unit (2026-11-01)')
+    ap.add_argument('--extents-ok', action='store_true', help='allow windowing step-02 interval extents without --runs (not arrays; CA43)')
+    ap.add_argument('--state', choices=['class', 'class+strand'], default='class', help='topology state of a copy (2026-11-01, HB10)')
+    ap.add_argument('--copy-win', type=int, default=10, help='copies per copy-indexed window for short runs (2026-11-01, HB02)')
+    ap.add_argument('--copy-win-min', type=int, default=4); ap.add_argument('--seed', type=int, default=53)
     ap.add_argument('--min-win-bp', type=int, default=1000); ap.add_argument('--win-units', type=int, default=20)
     ap.add_argument('--max-win-bp', type=int, default=60000); ap.add_argument('--kmer-pcs', type=int, default=5)
     ap.add_argument('--penalty', type=float, default=3.0); ap.add_argument('--min-seg', type=int, default=3)
@@ -177,6 +195,7 @@ def main():
     ap.add_argument('--merge-min-diag', type=int, default=5); ap.add_argument('--merge-min-copies', type=int, default=20)
     ap.add_argument('--merge-sample', type=int, default=400)
     a = ap.parse_args()
+    if not a.runs and not a.extents_ok: ap.error('--runs <runs of record> is the unit; windowing step-02 extents needs --extents-ok (2026-11-01, CA43)')
     P = lambda f: os.path.join(a.out, f); dest = a.dest or P('53_segmentation'); os.makedirs(dest, exist_ok=True)
     arrays = list(csv.DictReader(open(P('02_satellite_arrays.tsv')), delimiter='\t'))
     if a.arrays:
@@ -196,7 +215,7 @@ def main():
             comp = row[ix['complete_or_truncated']] == 'complete'
             s, e = int(row[ix['genomic_start_0based']]), int(row[ix['genomic_end']])
             conf = comp and idt >= 80
-            copies[row[ix['array_id']]].append(dict(mid=(s + e) // 2, len=e - s, idt=idt, conf=conf, fam=row[ix['family_id']],
+            copies[row[ix['array_id']]].append(dict(mid=(s + e) // 2, s=s, e=e, len=e - s, idt=idt, conf=conf, fam=row[ix['family_id']],
                                                     cls0=row[ix['monomer_class']], strand=row[ix['strand']],
                                                     seq=row[ix['sequence']].upper() if conf else ''))
     for v in copies.values(): v.sort(key=lambda c: c['mid'])
@@ -204,10 +223,12 @@ def main():
     # near-fixed (in >= --merge-pin of one class's copies, <= --merge-pout of the other's) at some k in --merge-ks;
     # otherwise they are merged (union-find) before any label or topology feature is computed. Classes with < --merge-min-copies
     # confident copies are not testable and keep their own label (flag untested).
+    # 2026-11-01 (CA42): --merge-min-diag 5 is NOT five independent differences: one fixed substitution creates up to k diagnostic
+    # k-mers, so 5 k-mers at k >= 5 is about ONE fixed base; the sensitivity of the rule sits in --merge-pin / --merge-pout.
     mlog = open(os.path.join(dest, '53_class_merges.tsv'), 'w'); mw = csv.writer(mlog, delimiter='\t', lineterminator='\n')
     mw.writerow(['array_id', 'class_a', 'class_b', 'n_a', 'n_b'] + [f'diag_k{k}' for k in a.merge_ks] + ['max_diag', 'best_k', 'decision'])
-    rng = np.random.default_rng(53)
     for aid, cs in copies.items():
+        rng = np.random.default_rng(zlib.crc32(aid.encode()) ^ a.seed)   # 2026-11-01 (CA20): one seeded stream per array
         by = collections.defaultdict(list)
         for c in cs:
             if c['conf']: by[c['cls0']].append(c['seq'])
@@ -232,10 +253,10 @@ def main():
         for k in by:
             if k not in testable: mw.writerow([aid, k, 'NA', len(by[k]), 'NA'] + ['NA'] * len(a.merge_ks) + ['NA', 'NA', 'untested_small_class'])
         state = {k: '+'.join(sorted(m for m in by if find(m) == find(k))) for k in by}
-        for c in cs:
-            c['cls'] = state.get(c['cls0'], c['cls0']) + c['strand']; c['seq'] = ''
+        for c in cs:   # 2026-11-01 (HB10): state = merged class; strand only with --state class+strand
+            c['cls'] = state.get(c['cls0'], c['cls0']) + (c['strand'] if a.state == 'class+strand' else ''); c['seq'] = ''
     mlog.close()
-    print(f'{len(arrays)} arrays, {sum(map(len, copies.values()))} copies', file=sys.stderr)
+    print(f'{len(arrays)} {"runs" if a.runs else "step-02 intervals"}, {sum(map(len, copies.values()))} copies', file=sys.stderr)
     genome = read_fasta(a.genome, {x['chrom'] for x in arrays})
     WCOL = ['array_id', 'chrom', 'win', 'start0', 'end', 'valid_bp', 'GC', 'CpG_oe', 'ent1', 'ent2', 'ent3', 'ent5'] + \
            [f'kmer_pc{i + 1}' for i in range(a.kmer_pcs)] + ['local_period', 'period_strength', 'strength_at_02', 'recur_frac',
@@ -246,27 +267,42 @@ def main():
               'label': ['len_med_rel', 'len_iqr_rel', 'mean_identity', 'confident_frac', 'dom_class_frac', 'n_classes', 'fam1_frac', 'fam2_frac', 'fam3_frac'],
               'topo': ['selfloop', 'trans_entropy', 'alternation', 'edge_diversity']}
     FREE = {'comp', 'kmer', 'period'}
+    GROUP = lambda b: 'composition' if b in ('comp', 'kmer') else b   # 2026-11-01 (HB03): comp + kmer = one label-free group
+    FREEG = {GROUP(b) for b in FREE}
     wf = gzip.open(os.path.join(dest, '53_window_features.tsv.gz'), 'wt'); ww = csv.writer(wf, delimiter='\t', lineterminator='\n'); ww.writerow(WCOL)
     cpf = open(os.path.join(dest, '53_change_points.tsv'), 'w'); cw = csv.writer(cpf, delimiter='\t', lineterminator='\n')
-    cw.writerow(['array_id', 'chrom', 'position', 'window_index', 'blocks', 'n_blocks', 'label_free_support', 'status'])
+    cw.writerow(['array_id', 'chrom', 'position', 'window_index', 'blocks', 'n_blocks', 'n_block_groups', 'label_free_support', 'status'])
     sgf = open(os.path.join(dest, '53_segments.tsv'), 'w'); sw = csv.writer(sgf, delimiter='\t', lineterminator='\n')
     sw.writerow(['array_id', 'chrom', 'segment', 'start0', 'end', 'bp', 'n_windows', 'profile', 'dominant_family', 'dominant_family_frac',
                  'n_copies', 'n_confident', 'class_selfloop', 'alternation', 'local_period_median', 'period_02'])
     bed = open(os.path.join(dest, '53_segments.bed'), 'w')
-    asum = []; tot = collections.Counter(); totbp = collections.Counter()
+    asum = []; tot = collections.Counter(); totbp = collections.Counter(); bcomb = collections.Counter(); ck_only = 0
+    segab = collections.Counter(); segbp = collections.Counter()
     for k_, A in enumerate(arrays):
         aid, chrom = A['array_id'], A['chrom']; s0, e0 = int(A['start_0based']), int(A['end'])
         period = float(A['period_mode_bp'] or 0); cs = copies.get(A.get('parent', aid), [])
-        if 'parent' in A: cs = [c for c in cs if s0 <= c['mid'] < e0]
+        if 'parent' in A: cs = [c for c in cs if s0 <= c['mid'] < e0]   # run membership = copy midpoint (one rule with 53b; CA23)
         W = int(min(a.max_win_bp, max(a.min_win_bp, a.win_units * period))); st = max(1, W // 2)
         if e0 - s0 < W: starts = [s0]; W = e0 - s0
-        else: starts = list(range(s0, e0 - W + 1, st))
+        else:
+            starts = list(range(s0, e0 - W + 1, st))
+            if starts[-1] + W < e0: starts.append(e0 - W)   # 2026-11-01 (CA19): last window ends at the run end (step < W/2 there)
+        wins = [(ws, ws + W) for ws in starts]; mode = 'bp'
+        if len(wins) < 2 * a.min_seg:   # 2026-11-01 (HB02): copy-indexed fallback, m copies per window, step m // 2
+            for m in range(a.copy_win, a.copy_win_min - 1, -1):
+                stp = max(1, m // 2); n_ = (len(cs) - m) // stp + 1 if len(cs) >= m else 0
+                if n_ >= 2 * a.min_seg:
+                    wins = [(cs[i]['s'], cs[i + m - 1]['e']) for i in range(0, len(cs) - m + 1, stp)]; mode = f'copy{m}'
+                    W = int(np.median([e - s for s, e in wins])); break
+        segmentable = len(wins) >= 2 * a.min_seg
         seq = genome.get(chrom, b'')
         mids = np.array([c['mid'] for c in cs]) if cs else np.empty(0)
         top3 = [f for f, _ in collections.Counter(c['fam'] for c in cs if c['conf']).most_common(3)]
+        strands = collections.Counter(c['strand'] for c in cs if c['conf'])   # 2026-11-01 (HB10): minority-strand share per run
+        msf = (sum(strands.values()) - max(strands.values())) / sum(strands.values()) if strands else np.nan
         rows, profs = [], []
-        for wi, ws in enumerate(starts):
-            we = ws + W; arr = ENC[np.frombuffer(seq[ws:we], np.uint8)] if seq else np.empty(0, np.int8)
+        for wi, (ws, we) in enumerate(wins):
+            arr = ENC[np.frombuffer(seq[ws:we], np.uint8)] if seq else np.empty(0, np.int8)
             f, prof = window_seq_features(arr, period)
             i0, i1 = np.searchsorted(mids, ws), np.searchsorted(mids, we); wc = cs[i0:i1]
             conf = [c for c in wc if c['conf']]
@@ -304,10 +340,12 @@ def main():
             else: clusters.append({'t': [t], 'b': {b}})
         acc = []
         for c in clusters:
-            t = int(round(np.median(c['t']))); ok = len(c['b']) >= 2 and bool(c['b'] & FREE)
+            t = int(round(np.median(c['t']))); grp = {GROUP(b) for b in c['b']}; ok = len(grp) >= 2 and bool(grp & FREEG)
             pos = rows[t][0] + (rows[t][1] - rows[t][0]) // 2 if t < len(rows) else rows[-1][1]
-            cw.writerow([aid, chrom, pos, t, ','.join(sorted(c['b'])), len(c['b']), ','.join(sorted(c['b'] & FREE)) or 'none', 'accepted' if ok else 'candidate'])
-            if ok: acc.append(pos)
+            combo = ','.join(sorted(c['b']))
+            cw.writerow([aid, chrom, pos, t, combo, len(c['b']), len(grp), ','.join(sorted(c['b'] & FREE)) or 'none', 'accepted' if ok else 'candidate'])
+            if ok: acc.append(pos); bcomb[combo] += 1
+            elif c['b'] == {'comp', 'kmer'}: ck_only += 1   # accepted by the pre-2026-11-01 rule on two correlated blocks only (HB03)
         bounds = [s0] + [p for p in acc if s0 < p < e0] + [e0]
         segs = []
         for si in range(len(bounds) - 1):
@@ -321,18 +359,27 @@ def main():
             bed.write(f'{chrom}\t{ss}\t{se}\t{aid}|seg{si + 1}|{prof}|{df}\t0\t.\t{ss}\t{se}\t{COLOR[prof]}\n')
             tot[prof] += 1; totbp[prof] += se - ss
         arch = 'single_segment' if len(segs) == 1 else ('same_profile_segments' if len(set(segs)) == 1 else 'multi_profile')
-        asum.append([aid, chrom, s0, e0, period, W, len(rows), len(cs), len(acc), sum(len(v) for v in cps.values()), len(segs), arch, ','.join(segs)])
+        asum.append([aid, chrom, s0, e0, period, W, len(rows), len(cs), len(acc), sum(len(v) for v in cps.values()), len(segs), arch, ','.join(segs),
+                     mode, 'yes' if segmentable else 'no', sum(strands.values()), r(msf, 3)])
+        segab[(mode if segmentable else 'unsegmentable')] += 1; segbp[(mode if segmentable else 'unsegmentable')] += e0 - s0
         if k_ % 200 == 0: print(f'{k_}/{len(arrays)} {aid}', file=sys.stderr)
     wf.close(); cpf.close(); sgf.close(); bed.close()
     with open(os.path.join(dest, '53_array_summary.tsv'), 'w') as fh:
         w = csv.writer(fh, delimiter='\t', lineterminator='\n')
         w.writerow(['array_id', 'chrom', 'start0', 'end', 'period_02', 'window_bp', 'n_windows', 'n_copies', 'n_accepted_boundaries',
-                    'n_block_change_points', 'n_segments', 'architecture', 'segment_profiles']); w.writerows(asum)
-    arch = collections.Counter(x[11] for x in asum)
+                    'n_block_change_points', 'n_segments', 'architecture', 'segment_profiles', 'window_mode', 'segmentable', 'n_confident',
+                    'minority_strand_frac']); w.writerows(asum)
+    arch = collections.Counter(x[11] for x in asum); unit = 'run' if a.runs else 'interval'
     with open(os.path.join(dest, '53_summary.tsv'), 'w') as fh:
         w = csv.writer(fh, delimiter='\t', lineterminator='\n'); w.writerow(['kind', 'name', 'n', 'Mb'])
         for p, n in tot.most_common(): w.writerow(['segment_profile', p, n, round(totbp[p] / 1e6, 2)])
-        for p, n in arch.most_common(): w.writerow(['array_architecture', p, n, ''])
+        for p, n in arch.most_common(): w.writerow([f'{unit}_architecture', p, n, ''])
+        for p, n in segab.most_common(): w.writerow([f'{unit}_windowing', p, n, round(segbp[p] / 1e6, 2)])   # bp | copy<m> | unsegmentable (HB02)
+        for p, n in bcomb.most_common(): w.writerow(['accepted_boundary_blocks', p, n, ''])             # block combination per accepted boundary (HB03)
+        nacc = sum(bcomb.values())
+        w.writerow(['acceptance_rule', 'comp_kmer_only_candidates', ck_only, ''])
+        w.writerow(['acceptance_rule', 'comp_kmer_only_share_of_old_rule', round(ck_only / (nacc + ck_only), 3) if nacc + ck_only else 'NA', ''])
+        w.writerow(['state_definition', a.state, len(asum), ''])
     for l in open(os.path.join(dest, '53_summary.tsv')): print(l.rstrip())
 
 

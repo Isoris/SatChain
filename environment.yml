@@ -2,9 +2,12 @@ name: satchain
 channels: [conda-forge, bioconda]
 dependencies:
   - python>=3.10
-  - numpy
-  - pandas
-  - matplotlib
+  # pinned to the versions the 2026-11-01 test suite ran on (Windows, Python 3.11.9); D20
+  - numpy=2.3.4
+  - pandas=2.3.3
+  - biopython=1.85
+  - matplotlib=3.11.2
+  - pytest
   - openpyxl
   - python-edlib
   - stringdecomposer=1.1.2

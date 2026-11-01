@@ -31,6 +31,20 @@ Convergence currently uses repeated boundary stability. Library similarity is
 reported separately but does not independently establish convergence. Class assignment stability is NOT implemented as
 an independent criterion. `unresolved_fraction` is the share of array positions
 not covered by a decomposer interval; it is not a confidence-filtered fraction.
+
+2026-11-01 (audit coreA):
+  CB01  StringDecomposer runs with its default 5,000-bp batches and reports the tiles of every batch-overlap zone twice
+        (identical coordinates) or as partially overlapping tiles; 4-5 % of the rows of the v4.5 tables. ordered_valid_calls now
+        drops exact duplicates (higher identity kept), resolves overlaps > OVL_FRAC of the shorter tile by identity and trims
+        smaller overlaps (later tile's start -> previous end + 1); monomer_index is numbered on the cleaned list. The same rule is
+        applied to existing tables by 03b_dedup_copies.py.
+  CB19  the StringDecomposer reliability column ('?') and a trimmed start are carried into qc_flag
+        (WARN_SD_unreliable, WARN_overlap_trimmed; several flags joined by ';', PASS only when no flag applies).
+  CB08  03_array_status.tsv gains library_rebuilt / converged / iterations / dup_dropped / overlap_dropped / overlap_trimmed.
+  CB07  period_bound_hit (low / high / no) flags arrays whose dominant-class consensus length sits at the 0.70 / 1.30 x period
+        bound of the library filter (the period is a hard constraint on the unit, not a prior); --seed-multiples also tests
+        per/2 and 2*per seeds and keeps the seed with the best mean identity (seed_period_bp, seed_periods_tested in the status).
+  CB18  IUPAC letters in the complement table; faidx_lite.py ships with the repo.
 """
 import argparse, csv, os, sys, subprocess, tempfile, collections, shutil, hashlib, gc
 import numpy as np
@@ -52,8 +66,13 @@ LIB_EPS       = 0.98    # library consensus similarity, reported
 STABLE_ROUNDS = 2       # consecutive rounds with boundary shift < BOUNDARY_EPS
 MAX_BOOT_BP   = 150000
 CLUSTER_SAMPLE = 600    # copies sampled for class discovery
+# --- tile clean-up (2026-11-01, CB01) and period-bound flag (CB07)
+OVL_FRAC      = 0.5     # overlap > this share of the shorter tile: keep the higher-identity tile; smaller: trim the later tile
+BOUND_EPS     = 0.01    # consensus length / period within this of 0.70 or 1.30 -> period_bound_hit
+MIN_SEED_PER  = 7       # smallest seed period tried by --seed-multiples
 
-COMP = str.maketrans('ACGTN', 'TGCAN')
+# 2026-11-01 (CB18): IUPAC letters complement too (R<->Y, K<->M, B<->V, D<->H, S/W/N self)
+COMP = str.maketrans('ACGTNRYKMBVDHSWacgtnrykmbvdhsw', 'TGCANYRMKVBHDSWtgcanyrmkvbhdsw')
 # COMPARISON RECOMMENDATION [DESIGN_ONLY]: Keep reverse-complement primitive; validate orientation on palindromic and IUPAC-containing copies.
 def rc(s): return s.translate(COMP)[::-1]
 # COMPARISON RECOMMENDATION [DESIGN_ONLY]: Keep sequence GC as descriptive; separately report masked/ambiguous base fraction.
@@ -61,14 +80,41 @@ def gc_(s): return (s.count('G') + s.count('C')) / max(1, len(s))
 
 
 # COMPARISON RECOMMENDATION [DESIGN_ONLY]: Preserve ordered_valid_calls behavior while comparing same-grain outputs, provenance and boundary conditions.
-def ordered_valid_calls(calls, array_length):
-    """Preserve observed genomic order; fail rather than silently misplace copies."""
+def ordered_valid_calls(calls, array_length, stats=None):
+    """Preserve observed genomic order; fail rather than silently misplace copies.
+    2026-11-01 (CB01): StringDecomposer (default batch 5,000 bp) reports the tiles of each batch-overlap zone twice (identical
+    coordinates) or as partially overlapping tiles. Exact duplicates are dropped (the higher-identity row is kept); an overlap larger
+    than OVL_FRAC of the shorter tile keeps the higher-identity tile; a smaller overlap trims the later tile's start to the previous
+    end + 1 (its identity stays the StringDecomposer value of the untrimmed tile). Tiles are lists of strings (SD columns: seq, monomer,
+    start, end, identity, ...); only start is modified, on a copy. stats (dict, optional) receives dup_dropped / overlap_dropped /
+    overlap_trimmed counts and 'trimmed' = set of (start, end) of trimmed tiles."""
     ordered = sorted(calls, key=lambda f: (int(f[2]), int(f[3])))
     for f in ordered:
         start, end = int(f[2]), int(f[3])  # StringDecomposer: inclusive end
         if start < 0 or end < start or end >= array_length:
             raise ValueError(f'invalid StringDecomposer interval [{start},{end}] in length={array_length}')
-    return ordered
+    st = stats if stats is not None else {}
+    for k in ('dup_dropped', 'overlap_dropped', 'overlap_trimmed'): st.setdefault(k, 0)
+    st.setdefault('trimmed', set())
+    kept = []
+    for f in ordered:
+        f = list(f); s, e = int(f[2]), int(f[3]); drop = False
+        while kept:
+            p = kept[-1]; ps, pe = int(p[2]), int(p[3])
+            if s > pe: break                                            # no overlap with the last kept tile
+            if s == ps and e == pe:                                     # exact duplicate: keep the higher identity
+                st['dup_dropped'] += 1
+                if float(f[4]) > float(p[4]): kept[-1] = f
+                drop = True; break
+            ov = pe - s + 1
+            if ov > OVL_FRAC * min(e - s + 1, pe - ps + 1):             # large overlap: keep the higher-identity tile
+                st['overlap_dropped'] += 1
+                if float(f[4]) > float(p[4]): kept.pop(); continue      # re-check f against the tile before
+                drop = True; break
+            f[2] = str(pe + 1); s = pe + 1; st['overlap_trimmed'] += 1  # small overlap: trim the later tile
+            st['trimmed'].add((s, e)); break
+        if not drop: kept.append(f)
+    return kept
 
 
 # COMPARISON RECOMMENDATION [DESIGN_ONLY]: Preserve nearest_boundary_shift behavior while comparing same-grain outputs, provenance and boundary conditions.
@@ -183,13 +229,15 @@ COLUMNS = ['assembly_id','species','haplotype','array_id','monomer_id','chrom',
 # each). The parent writes rows in array order and checkpoints per array, as
 # before. A failure in one array is recorded as FAILED:<reason> in
 # 03_array_status.tsv instead of aborting the whole step.
-_W = {'fai': None, 'chrom': None, 'seq': None, 'tag': None, 'run_id': None}
+_W = {'fai': None, 'chrom': None, 'seq': None, 'tag': None, 'run_id': None, 'seed_multiples': False}
+STATUS_EXTRA = ['library_rebuilt', 'converged', 'iterations', 'period_bound_hit', 'seed_period_bp', 'seed_periods_tested',
+                'dup_dropped', 'overlap_dropped', 'overlap_trimmed']     # 2026-11-01 (CB07 / CB08 / CB01) columns of 03_array_status.tsv
 
 
-def _worker_init(genome, tag, run_id):
+def _worker_init(genome, tag, run_id, seed_multiples=False):
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
     from faidx_lite import Fai
-    _W['fai'] = Fai(genome); _W['tag'] = tag; _W['run_id'] = run_id
+    _W['fai'] = Fai(genome); _W['tag'] = tag; _W['run_id'] = run_id; _W['seed_multiples'] = seed_multiples
 
 
 # COMPARISON RECOMMENDATION [DESIGN_ONLY]: Cache by chromosome; verify faidx index, coordinate convention and checksum on per-array extraction.
@@ -199,10 +247,129 @@ def _chromseq(c):
     return _W['seq']
 
 
+def _decompose_at(aid, full, boot, per, fa, tmp, sub):
+    """bootstrap loop + final pass at ONE seed period (2026-11-01: split out of decompose_array so that --seed-multiples can
+    try per/2 and 2*per). Returns dict: status (None = ok, else a SKIPPED_* code), library, iters (trace rows), dec (final
+    cleaned tiles), it (last iteration index), rebuilt, conv, stats (tile clean-up of the final pass), mean_id."""
+    res = {'status': None, 'library': [], 'iters': [], 'dec': [], 'it': 0, 'rebuilt': False, 'conv': False, 'stats': {},
+           'mean_id': float('nan'), 'per': per}
+    # SATELLITE v4.2 SOURCE CLARIFICATION: seed is NOT the TRF motif.
+    # It comes from the Step-02 lag-scan period, selecting an actual
+    # genome window with high identity to its neighbor one period away.
+    # StringDecomposer then infers flexible boundaries using sequence
+    # alignment; the seed interval does NOT enforce uniform copy length.
+    # (seed alternatives: scripts/29_seed_ensemble_pilot.py)
+    # ---- seed: best next-copy window; period is a PRIOR for the seed only (CB07: the library filter below then locks the
+    # unit to [0.70, 1.30] x per; see period_bound_hit)
+    arr = np.frombuffer(boot.encode(), dtype=np.uint8)
+    # FIX v4.5.1: a seed may not contain N (assembly gaps inside the
+    # scan interval produced all-N consensuses on the Gar run)
+    isN = np.concatenate(([0], np.cumsum(arr == ord('N'))))
+    bi, bv = -1, -1.0
+    for i in range(0, min(len(boot) - 2 * per, 60000), max(1, per // 4)):
+        if isN[i + 2 * per] - isN[i] > 0: continue
+        v = (arr[i:i + per] == arr[i + per:i + 2 * per]).mean()
+        if v > bv: bv, bi = v, i
+    if bi < 0:
+        res['status'] = 'SKIPPED_N_MASKED_NO_CLEAN_SEED'; return res
+    library = [('C01', boot[bi:bi + per])]
+
+    prev_starts, prev_lab = None, None
+    prev_libsim = float('nan')
+    stable = 0
+    conv = False
+    rebuilt = False
+    for it in range(MAX_ITER):
+        mf = os.path.join(tmp, f'lib{sub}.fa')
+        with open(mf, 'w') as fh:
+            for nm, s in library: fh.write(f'>{nm}\n{s}\n')
+        dec = ordered_valid_calls(
+            run_sd(fa, mf, os.path.join(tmp, f'sd{sub}'), second_best=True), len(full))
+
+        starts, copies, labs, ids = [], [], [], []
+        for f in dec:
+            idn = float(f[4])
+            s0, e0 = int(f[2]), int(f[3])
+            mono = f[1]; revf = mono.endswith("'")
+            cpy = full[s0:e0 + 1]
+            if revf: cpy = rc(cpy)
+            starts.append(s0); copies.append(cpy)
+            labs.append(mono.rstrip("'")); ids.append(idn)
+        iv = sorted(zip(starts, [s + len(c) for s, c in zip(starts, copies)]))
+        mg = []
+        for s_, e_ in iv:
+            if mg and s_ <= mg[-1][1]: mg[-1][1] = max(mg[-1][1], e_)
+            else: mg.append([s_, e_])
+        covered = sum(e_ - s_ for s_, e_ in mg)
+        unres = max(0.0, 1.0 - covered / max(1, len(full)))
+
+        shift = float('nan'); stab = float('nan')
+        if prev_starts is not None:
+            dshift = nearest_boundary_shift(prev_starts, starts)
+            if dshift is not None: shift = dshift
+            stab = prev_libsim
+            # boundaries are what every downstream step consumes, so
+            # convergence is declared on boundary stability, not on the
+            # library churning between an equivalent set of classes
+            stable = stable + 1 if np.isfinite(shift) and shift < BOUNDARY_EPS else 0
+            conv = stable >= STABLE_ROUNDS
+        res['iters'].append([aid, it, len(library), len(copies),
+                             round(float(np.mean(ids)), 2) if ids else 'NA',
+                             ('NA' if shift != shift else round(shift, 2)),
+                             ('NA' if stab != stab else round(stab, 4)),
+                             round(unres, 4), int(conv)])
+        if conv or it == MAX_ITER - 1:
+            break
+
+        # ---- rebuild the library: cluster copies into monomer CLASSES
+        good = [c for c, i2 in zip(copies, ids)
+                if i2 >= 60 and abs(len(c) - per) <= LEN_TOL * per * 2
+                and c.count('N') <= 0.05 * len(c)]
+        if len(good) < MIN_CLASS:
+            break                      # CB08: the raw seed stays the whole library (library_rebuilt = no)
+        samp = good if len(good) <= CLUSTER_SAMPLE else \
+               [good[i] for i in np.linspace(0, len(good) - 1, CLUSTER_SAMPLE).astype(int)]
+        groups = cluster_copies(samp)
+        newlib = []
+        for gi, g in enumerate(groups, 1):
+            if len(g) < MIN_CLASS: continue
+            mem = [samp[i] for i in g]
+            ref = mem[len(mem) // 2]
+            newlib.append((f'C{gi:02d}', consensus_of(mem, ref)))
+        if not newlib:
+            break
+        # library similarity: how much did the consensus set actually move?
+        if len(newlib) == len(library):
+            sims = []
+            for (_, o), (_, n2) in zip(library, newlib):
+                d = edlib.align(o, n2 + n2, mode='HW')['editDistance']
+                sims.append(max(0.0, 1 - d / len(o)))
+            prev_libsim = float(np.mean(sims))
+        else:
+            prev_libsim = 0.0
+        # High library similarity alone is not evidence that the
+        # source-coordinate boundaries are stable. Keep iterating
+        # until the boundary criterion is satisfied or MAX_ITER hits.
+        library = newlib; rebuilt = True
+        prev_starts, prev_lab = starts, labs
+
+    # ---- final pass, library fixed
+    mf = os.path.join(tmp, f'lib_final{sub}.fa')
+    with open(mf, 'w') as fh:
+        for nm, s in library: fh.write(f'>{nm}\n{s}\n')
+    st = {}
+    dec = ordered_valid_calls(
+        run_sd(fa, mf, os.path.join(tmp, f'sdf{sub}'), second_best=True), len(full), st)
+    res.update(library=library, dec=dec, it=it, rebuilt=rebuilt, conv=conv, stats=st,
+               mean_id=(float(np.mean([float(f[4]) for f in dec])) if dec else float('nan')))
+    return res
+
+
 def decompose_array(r):
-    """one array -> dict(aid, status, iters, cons, mono, nlib); never raises"""
+    """one array -> dict(aid, status, iters, cons, mono, nlib, extra); never raises"""
     aid = r['array_id']; tag = _W['tag']; run_id = _W['run_id']
-    out = {'aid': aid, 'status': 'NOT_PROCESSED', 'iters': [], 'cons': [], 'mono': [], 'nlib': 0}
+    out = {'aid': aid, 'status': 'NOT_PROCESSED', 'iters': [], 'cons': [], 'mono': [], 'nlib': 0,
+           'extra': {k: 'NA' for k in STATUS_EXTRA}}
     try:
         chrom = r['chrom']; st = int(r['start_0based']); en = int(r['end'])
         per = int(r['period_mode_bp'])
@@ -214,118 +381,36 @@ def decompose_array(r):
             out['status'] = 'SKIPPED_FEWER_THAN_THREE_PERIODS'; return out
         tmp = tempfile.mkdtemp(prefix='sd_')
         try:
-            # SATELLITE v4.2 SOURCE CLARIFICATION: seed is NOT the TRF motif.
-            # It comes from the Step-02 lag-scan period, selecting an actual
-            # genome window with high identity to its neighbor one period away.
-            # StringDecomposer then infers flexible boundaries using sequence
-            # alignment; the seed interval does NOT enforce uniform copy length.
-            # (seed alternatives: scripts/29_seed_ensemble_pilot.py)
-            # ---- seed: best next-copy window; period is a PRIOR, not a fixed length
-            arr = np.frombuffer(boot.encode(), dtype=np.uint8)
-            # FIX v4.5.1: a seed may not contain N (assembly gaps inside the
-            # scan interval produced all-N consensuses on the Gar run)
-            isN = np.concatenate(([0], np.cumsum(arr == ord('N'))))
-            bi, bv = -1, -1.0
-            for i in range(0, min(len(boot) - 2 * per, 60000), max(1, per // 4)):
-                if isN[i + 2 * per] - isN[i] > 0: continue
-                v = (arr[i:i + per] == arr[i + per:i + 2 * per]).mean()
-                if v > bv: bv, bi = v, i
-            if bi < 0:
-                out['status'] = 'SKIPPED_N_MASKED_NO_CLEAN_SEED'; return out
-            library = [('C01', boot[bi:bi + per])]
-
             fa = os.path.join(tmp, 'arr.fa')
             with open(fa, 'w') as seq_out:
                 seq_out.write(f'>{aid}\n{full}\n')
-
-            prev_starts, prev_lab = None, None
-            prev_libsim = float('nan')
-            stable = 0
-            conv = False
-            for it in range(MAX_ITER):
-                mf = os.path.join(tmp, 'lib.fa')
-                with open(mf, 'w') as fh:
-                    for nm, s in library: fh.write(f'>{nm}\n{s}\n')
-                dec = ordered_valid_calls(
-                    run_sd(fa, mf, os.path.join(tmp, 'sd'), second_best=True), len(full))
-
-                starts, copies, labs, ids = [], [], [], []
-                for f in dec:
-                    idn = float(f[4])
-                    s0, e0 = int(f[2]), int(f[3])
-                    mono = f[1]; revf = mono.endswith("'")
-                    cpy = full[s0:e0 + 1]
-                    if revf: cpy = rc(cpy)
-                    starts.append(s0); copies.append(cpy)
-                    labs.append(mono.rstrip("'")); ids.append(idn)
-                iv = sorted(zip(starts, [s + len(c) for s, c in zip(starts, copies)]))
-                mg = []
-                for s_, e_ in iv:
-                    if mg and s_ <= mg[-1][1]: mg[-1][1] = max(mg[-1][1], e_)
-                    else: mg.append([s_, e_])
-                covered = sum(e_ - s_ for s_, e_ in mg)
-                unres = max(0.0, 1.0 - covered / max(1, len(full)))
-
-                shift = float('nan'); stab = float('nan')
-                if prev_starts is not None:
-                    dshift = nearest_boundary_shift(prev_starts, starts)
-                    if dshift is not None: shift = dshift
-                    stab = prev_libsim
-                    # boundaries are what every downstream step consumes, so
-                    # convergence is declared on boundary stability, not on the
-                    # library churning between an equivalent set of classes
-                    stable = stable + 1 if np.isfinite(shift) and shift < BOUNDARY_EPS else 0
-                    conv = stable >= STABLE_ROUNDS
-                out['iters'].append([aid, it, len(library), len(copies),
-                                     round(float(np.mean(ids)), 2) if ids else 'NA',
-                                     ('NA' if shift != shift else round(shift, 2)),
-                                     ('NA' if stab != stab else round(stab, 4)),
-                                     round(unres, 4), int(conv)])
-                if conv or it == MAX_ITER - 1:
-                    break
-
-                # ---- rebuild the library: cluster copies into monomer CLASSES
-                good = [c for c, i2 in zip(copies, ids)
-                        if i2 >= 60 and abs(len(c) - per) <= LEN_TOL * per * 2
-                        and c.count('N') <= 0.05 * len(c)]
-                if len(good) < MIN_CLASS:
-                    break
-                samp = good if len(good) <= CLUSTER_SAMPLE else \
-                       [good[i] for i in np.linspace(0, len(good) - 1, CLUSTER_SAMPLE).astype(int)]
-                groups = cluster_copies(samp)
-                newlib = []
-                for gi, g in enumerate(groups, 1):
-                    if len(g) < MIN_CLASS: continue
-                    mem = [samp[i] for i in g]
-                    ref = mem[len(mem) // 2]
-                    newlib.append((f'C{gi:02d}', consensus_of(mem, ref)))
-                if not newlib:
-                    break
-                # library similarity: how much did the consensus set actually move?
-                if len(newlib) == len(library):
-                    sims = []
-                    for (_, o), (_, n2) in zip(library, newlib):
-                        d = edlib.align(o, n2 + n2, mode='HW')['editDistance']
-                        sims.append(max(0.0, 1 - d / len(o)))
-                    prev_libsim = float(np.mean(sims))
-                else:
-                    prev_libsim = 0.0
-                # High library similarity alone is not evidence that the
-                # source-coordinate boundaries are stable. Keep iterating
-                # until the boundary criterion is satisfied or MAX_ITER hits.
-                library = newlib
-                prev_starts, prev_lab = starts, labs
-
-            # ---- final pass, library fixed
-            mf = os.path.join(tmp, 'lib_final.fa')
-            with open(mf, 'w') as fh:
-                for nm, s in library: fh.write(f'>{nm}\n{s}\n')
-            dec = ordered_valid_calls(
-                run_sd(fa, mf, os.path.join(tmp, 'sdf'), second_best=True), len(full))
+            # 2026-11-01 (CB07): --seed-multiples tries per/2 and 2*per as well and keeps the seed with the best mean identity
+            periods = [per]
+            if _W['seed_multiples']:
+                periods += [p for p in (per // 2, 2 * per) if p >= MIN_SEED_PER and len(boot) >= 3 * p]
+            trials = [_decompose_at(aid, full, boot, p, fa, tmp, k) for k, p in enumerate(periods)]
+            ok = [t for t in trials if t['status'] is None]
+            out['extra']['seed_periods_tested'] = ','.join(f"{t['per']}:{t['mean_id']:.2f}" if t['status'] is None
+                                                           else f"{t['per']}:{t['status']}" for t in trials)
+            if not ok:
+                out['status'] = trials[0]['status']; return out
+            best = max(ok, key=lambda t: (t['mean_id'] if t['mean_id'] == t['mean_id'] else -1.0))
+            per = best['per']; library = best['library']; dec = best['dec']; it = best['it']
+            out['iters'] = best['iters']
+            out['extra'].update(library_rebuilt='yes' if best['rebuilt'] else 'no', converged='yes' if best['conv'] else 'no',
+                                iterations=it + 1, seed_period_bp=per,
+                                dup_dropped=best['stats'].get('dup_dropped', 0), overlap_dropped=best['stats'].get('overlap_dropped', 0),
+                                overlap_trimmed=best['stats'].get('overlap_trimmed', 0))
+            trimmed = best['stats'].get('trimmed', set())
             libd = dict(library)
             classcount = collections.Counter()
             for f in dec: classcount[f[1].rstrip("'")] += 1
             ntot = sum(classcount.values())
+            # CB07: dominant-class consensus length against the [0.70, 1.30] x period bound of the library filter
+            if classcount:
+                ratio = len(libd[classcount.most_common(1)[0][0]]) / per
+                out['extra']['period_bound_hit'] = ('low' if ratio <= 1 - 2 * LEN_TOL + BOUND_EPS else
+                                                    'high' if ratio >= 1 + 2 * LEN_TOL - BOUND_EPS else 'no')
 
             for nm, cs in library:
                 palin = 100 * (1 - edlib.align(cs, rc(cs) + rc(cs), mode='HW')['editDistance'] / len(cs))
@@ -339,6 +424,7 @@ def decompose_array(r):
             for mi, f in enumerate(dec):
                 mono, s0, e0, idn = f[1], int(f[2]), int(f[3]), float(f[4])
                 sb = float(f[6]) if len(f) > 6 and f[6] not in ('None', '') else -1.0
+                unreliable = len(f) > 7 and f[-1].strip() == '?'      # CB19: StringDecomposer reliability column
                 strand = '-' if mono.endswith("'") else '+'
                 cls = mono.rstrip("'")
                 cons = libd[cls]
@@ -363,6 +449,12 @@ def decompose_array(r):
                 trunc = 'complete' if abs(L - len(cons)) <= LEN_TOL * len(cons) else 'truncated'
                 nN = oriented.count('N')
                 atp = 100 * (oriented.count('A') + oriented.count('T')) / max(1, len(oriented) - nN)   # ACGT only
+                # 2026-11-01 (CB19 / CB01): qc_flag = ';'-joined warnings, PASS only when none applies
+                flags = []
+                if nN > 0.05 * len(oriented): flags.append('WARN_N_bases')
+                elif idn < 70: flags.append('WARN_low_identity')
+                if unreliable: flags.append('WARN_SD_unreliable')
+                if (s0, e0) in trimmed: flags.append('WARN_overlap_trimmed')
                 out['mono'].append([
                     tag, ('C. gariepinus' if tag.startswith('Gar') else 'C. macrocephalus'),
                     tag, aid, f'{aid}_M{mi+1:05d}', chrom,
@@ -377,8 +469,7 @@ def decompose_array(r):
                     round(atp, 2), round(100 - atp, 2),
                     hashlib.sha1(oriented.encode()).hexdigest()[:16],
                     'stringdecomposer', '1.1.2', run_id,
-                    ('WARN_N_bases' if nN > 0.05 * len(oriented) else
-                     'PASS' if idn >= 70 else 'WARN_low_identity'), oriented])
+                    (';'.join(flags) if flags else 'PASS'), oriented])
             out['status'] = 'DECOMPOSED' if dec else 'NO_MONOMER_CALLS'
             out['nlib'] = len(library)
         finally:
@@ -398,6 +489,8 @@ def main():
     ap.add_argument('--out', required=True)
     ap.add_argument('--threads', type=int, default=1)
     ap.add_argument('--min-array-bp', type=int, default=5000)
+    ap.add_argument('--seed-multiples', action='store_true',
+                    help='2026-11-01 (CB07): also seed at per/2 and 2*per, keep the seed with the best mean identity (3x the runtime)')
     a = ap.parse_args()
     run_id = os.environ.get('RUN_ID', 'na')
 
@@ -408,7 +501,12 @@ def main():
     status = {r['array_id']: ('SKIPPED_BELOW_MIN_ARRAY_BP'
               if int(r['array_length_bp']) < a.min_array_bp else 'NOT_PROCESSED')
               for r in all_arrays}
+    extra = {r['array_id']: {k: 'NA' for k in STATUS_EXTRA} for r in all_arrays}
     arrays.sort(key=lambda r: (r['chrom'], int(r['start_0based'])))
+    # 2026-11-01 (CB06): overlapping input intervals are decomposed independently and their copies cover the same bases twice;
+    # the candidate table should be a union (58 / 58c merge regions). Warn, do not abort.
+    novl = sum(1 for p, q in zip(arrays, arrays[1:]) if p['chrom'] == q['chrom'] and int(q['start_0based']) < int(p['end']))
+    if novl: print(f'    WARNING: {novl} input intervals overlap the previous interval of their chromosome (copies will be duplicated across arrays)')
 
     monp = os.path.join(a.out, '03_monomer_copies.tsv')
     conp = os.path.join(a.out, '03_array_consensus.tsv')
@@ -422,6 +520,7 @@ def main():
     fp_h = hashlib.sha256(open(os.path.abspath(__file__), 'rb').read())
     for r in arrays:
         fp_h.update(f"{r['array_id']}\t{r['chrom']}\t{r['start_0based']}\t{r['end']}\t{r['period_mode_bp']}\n".encode())
+    fp_h.update(f'seed_multiples={int(a.seed_multiples)}\n'.encode())
     fp_tag = '#fingerprint=' + fp_h.hexdigest()
     done = set()
     if os.path.exists(ckpt):
@@ -454,12 +553,13 @@ def main():
                   '04_array_dominant_family.tsv', '04_satellite_family_consensuses.fa', '04_consensus_identity_matrix.npy'):
             q = os.path.join(a.out, p)
             if os.path.exists(q): os.replace(q, q + '.stale')
-    # previous per-array statuses survive a resume (FAILED arrays are retried)
+    # previous per-array statuses (and their CB08 columns) survive a resume (FAILED arrays are retried)
     prevstat = os.path.join(a.out, '03_array_status.tsv')
     if done and os.path.exists(prevstat):
         for r in csv.DictReader(open(prevstat), delimiter='\t'):
             if r['array_id'] in done and r['status'].startswith(('DECOMPOSED', 'NO_MONOMER', 'SKIPPED', 'INVALID')):
                 status[r['array_id']] = r['status']
+                extra[r['array_id']] = {k: r.get(k, 'NA') for k in STATUS_EXTRA}
     mode = 'a' if done else 'w'
     mfh = open(monp, mode, newline=''); cfh = open(conp, mode, newline='')
     ifh = open(itp, mode, newline='')
@@ -485,12 +585,13 @@ def main():
     # a worker is killed (OOM) instead of hanging like multiprocessing.Pool.imap
     from concurrent.futures import ProcessPoolExecutor
     if a.threads <= 1:                       # in-process: no pool, no pickling
-        _worker_init(a.genome, a.tag, run_id)
+        _worker_init(a.genome, a.tag, run_id, a.seed_multiples)
         pool_cm = contextlib.nullcontext(None)
         def run_all(): return map(decompose_array, todo)
     else:
-        pool_cm = ProcessPoolExecutor(a.threads, initializer=_worker_init, initargs=(a.genome, a.tag, run_id))
+        pool_cm = ProcessPoolExecutor(a.threads, initializer=_worker_init, initargs=(a.genome, a.tag, run_id, a.seed_multiples))
         def run_all(): return pool_cm.map(decompose_array, todo, chunksize=1)
+    ndup = ntrim = 0
     try:
         with pool_cm:
             for ai, res in enumerate(run_all(), 1):
@@ -500,7 +601,10 @@ def main():
                 if res['status'] in ('DECOMPOSED', 'NO_MONOMER_CALLS'): narr += 1
                 if res['status'].startswith('FAILED'):
                     nfail += 1; print(f'    !! {aid}: {res["status"]}', flush=True)
-                status[aid] = res['status']
+                status[aid] = res['status']; extra[aid] = res.get('extra', extra[aid])
+                x = res.get('extra', {})
+                ndup += sum(int(x[k]) for k in ('dup_dropped', 'overlap_dropped') if str(x.get(k, 'NA')).isdigit())
+                ntrim += int(x['overlap_trimmed']) if str(x.get('overlap_trimmed', 'NA')).isdigit() else 0
                 mfh.flush(); cfh.flush(); ifh.flush()
                 # checkpoint only final outcomes; FAILED arrays are retried on resume
                 if not res['status'].startswith('FAILED'):
@@ -513,11 +617,12 @@ def main():
         # Status is a separate non-destructive product. Full input universe retained.
         with open(os.path.join(a.out, '03_array_status.tsv'), 'w', newline='') as sf:
             sw = csv.writer(sf, delimiter='\t', lineterminator='\n')
-            sw.writerow(['array_id','chrom','start_0based','end','status','run_id'])
+            sw.writerow(['array_id','chrom','start_0based','end','status','run_id'] + STATUS_EXTRA)
             for r in all_arrays:
                 sw.writerow([r['array_id'],r['chrom'],r['start_0based'],r['end'],
-                             status[r['array_id']],run_id])
+                             status[r['array_id']],run_id] + [extra[r['array_id']].get(k, 'NA') for k in STATUS_EXTRA])
     print(f'    wrote {nrows:,} monomer copies across {narr} arrays this pass; {nfail} arrays FAILED (see 03_array_status.tsv)')
+    print(f'    tile clean-up (CB01): {ndup:,} duplicate / overlapping tiles dropped, {ntrim:,} tiles trimmed this pass')
     print(f'    per-iteration trace: {itp}')
 
 

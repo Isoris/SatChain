@@ -5,10 +5,15 @@
 Every chromosome is tiled with windows at two scales:
   small  --small bp windows, step half a window, lags 2..--small-lag   (micro-, mini- and satellites up to ~1 kb units)
   large  --large bp windows, step half a window, lags --small-lag..--large-lag   (long units, 1-5 kb)
-For each window: the k-mer (k = 10) next-recurrence distance histogram minus the same histogram of a base-shuffled copy of the window
-(the step-48 excess), smoothed +/- 6 % of the lag; reported: the maximum excess, its lag, the excess at 2x that lag (harmonic support),
-the fraction of the window's k-mers that recur within the lag range, the N fraction.
+For each window: the k-mer (k = 10, forward strand only, NOT canonical: copies of one array lie on one strand) next-recurrence
+distance histogram minus the same histogram of a base-shuffled copy of the window (the step-48 excess), smoothed +/- 6 % of the lag;
+reported: the maximum excess, its lag, the excess at 2x that lag (harmonic support), the fraction of the window's k-mers that recur
+within the lag range, the N fraction. Lags 2-6 bp are scanned here and treated by 58 (lag >= 7 for the null and the candidates).
 No threshold is applied here: calibration against the clean null and the tiers are a separate step.
+2026-11-01 (CB15): the shuffle permutes only the non-N positions, so a window with 0 < N fraction <= 0.5 is compared with a null of the
+same N layout (the base shuffle scattered the Ns and inflated the excess: 39 % of the Gar N windows exceeded p99.9).
+2026-11-01 (CB14): a right-aligned final window (start = chromosome length - W) is added when the half-window grid leaves an
+unscored tail; it overlaps the previous window by more than half (58 merges overlapping windows).
 Output: one TSV per chromosome group: chrom, scale, start, end, n_frac, max_excess, best_lag, excess_at_2x, recur_frac
 usage: 57_genome_tandem_scan.py <genome fasta> <tag> <out tsv> <chrom1,chrom2,...|all> [--small 2000 --large 10000]
 """
@@ -66,10 +71,13 @@ def main():
             c = CODE[np.frombuffer(s, dtype=np.uint8)]
             for scale, W, lo, hi in (('small', a.small, 2, a.small_lag), ('large', a.large, a.small_lag, a.large_lag)):
                 hi_ = min(hi, W // 2)
-                for st in range(0, max(1, len(c) - W + 1), W // 2):
+                starts = list(range(0, max(1, len(c) - W + 1), W // 2))
+                if len(c) > W and starts[-1] != len(c) - W: starts.append(len(c) - W)     # CB14: right-aligned final window
+                for st in starts:
                     w = c[st:st + W]; nf = float((w >= 4).mean())
                     if nf > 0.5: fh.write(f'{chrom}\t{scale}\t{st}\t{st + len(w)}\t{nf:.3f}\tNA\tNA\tNA\tNA\n'); continue
-                    h, nv, rec = hist(w, lo, hi_); h0, nv0, _ = hist(rng.permutation(w), lo, hi_)
+                    w0 = w.copy(); nn = np.flatnonzero(w < 4); w0[nn] = w[nn][rng.permutation(len(nn))]   # CB15: permute non-N positions only
+                    h, nv, rec = hist(w, lo, hi_); h0, nv0, _ = hist(w0, lo, hi_)
                     ex = smooth(h, nv) - smooth(h0, nv0); ex[:max(2, lo)] = -1
                     j = int(np.argmax(ex)); e2 = float(ex[2 * j]) if 2 * j < len(ex) else float('nan')
                     fh.write(f'{chrom}\t{scale}\t{st}\t{st + len(w)}\t{nf:.3f}\t{ex[j]:.4f}\t{j}\t{e2:.4f}\t{rec / max(1, nv):.4f}\n')

@@ -1,7 +1,3 @@
 __pycache__/
 *.pyc
-out/
-work/
-*.jf
-*.sra
-*.fa.fai
+*.bak

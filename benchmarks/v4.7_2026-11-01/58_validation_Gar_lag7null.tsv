@@ -1,0 +1,4 @@
+tier	region_Mb_sum	candidate_Mb_union	candidate_Mb	n_regions	n_candidates	n_overlapping_incompatible	recall_validated_hmm_bp	recall_step36_bp	share_of_02_interval_bp	new_outside_02_Mb_sum	new_outside_02_Mb	new_7-39bp	new_40-60bp	new_61-1000bp	new_gt1000bp	new_TE_derived
+0.95	192.56	191.12	152.69	38394	37897	10371	0.92	0.927	0.621	135.29	117.87	17.42Mb	3.71Mb	15.42Mb	16.89Mb	81.85Mb
+0.99	63.38	62.52	58.14	14406	14157	2975	0.918	0.926	0.533	30.02	28.26	7.93Mb	1.52Mb	3.96Mb	1.67Mb	14.94Mb
+0.999	32.43	31.92	30.77	6028	5881	1081	0.896	0.911	0.434	6.54	6.42	1.96Mb	0.36Mb	0.63Mb	0.21Mb	3.38Mb
