@@ -1,0 +1,134 @@
+item	value	note
+Mac_chromosomes	27	
+Mac_5S_calls	12209	
+Mac_clusters_ge5_gap50kb	22	
+Mac_clusters_at_5S_related_array	13	
+Mac_clusters_at_other_satellite_run	4	
+Mac_clusters_no_satellite_run	5	
+Mac_calls_in_clusters	12134	
+Mac_chromosomes_with_cluster	10	
+Mac_largest_cluster_calls	2529	
+Mac_largest_cluster	C_mac_LG20:26886702-27463958	
+Mac_largest_cluster_class	S	
+Gar_chromosomes	28	
+Gar_5S_calls	4272	
+Gar_clusters_ge5_gap50kb	11	
+Gar_clusters_at_5S_related_array	6	
+Gar_clusters_at_other_satellite_run	1	
+Gar_clusters_no_satellite_run	4	
+Gar_calls_in_clusters	4213	
+Gar_chromosomes_with_cluster	6	
+Gar_largest_cluster_calls	1854	
+Gar_largest_cluster	C_gar_LG04:20737829-21222722	
+Gar_largest_cluster_class	B	
+sweep_Mac_gap10kb_clusters	30	
+sweep_Mac_gap10kb_calls_in_clusters	12109	
+sweep_Mac_gap10kb_top3_calls	2529/2181/1796	
+sweep_Mac_gap10kb_chromosomes	10	
+sweep_Mac_gap50kb_clusters	22	
+sweep_Mac_gap50kb_calls_in_clusters	12134	
+sweep_Mac_gap50kb_top3_calls	2529/2181/1796	
+sweep_Mac_gap50kb_chromosomes	10	
+sweep_Mac_gap100kb_clusters	23	
+sweep_Mac_gap100kb_calls_in_clusters	12152	
+sweep_Mac_gap100kb_top3_calls	4710/1796/1409	
+sweep_Mac_gap100kb_chromosomes	11	
+sweep_Mac_gap500kb_clusters	23	
+sweep_Mac_gap500kb_calls_in_clusters	12158	
+sweep_Mac_gap500kb_top3_calls	6119/1796/807	
+sweep_Mac_gap500kb_chromosomes	12	
+sweep_Mac_gap1000kb_clusters	23	
+sweep_Mac_gap1000kb_calls_in_clusters	12165	
+sweep_Mac_gap1000kb_top3_calls	6119/1796/891	
+sweep_Mac_gap1000kb_chromosomes	13	
+sweep_Mac_tol0kb_at_5S_related	13	
+sweep_Mac_tol0kb_at_other_satellite	1	
+sweep_Mac_tol0kb_none	8	
+sweep_Mac_tol10kb_at_5S_related	13	
+sweep_Mac_tol10kb_at_other_satellite	4	
+sweep_Mac_tol10kb_none	5	
+sweep_Mac_tol50kb_at_5S_related	13	
+sweep_Mac_tol50kb_at_other_satellite	4	
+sweep_Mac_tol50kb_none	5	
+sweep_Mac_tol100kb_at_5S_related	13	
+sweep_Mac_tol100kb_at_other_satellite	4	
+sweep_Mac_tol100kb_none	5	
+sweep_Mac_gap50kb_min3_clusters	36	
+sweep_Mac_gap50kb_min5_clusters	22	
+sweep_Mac_gap50kb_min10_clusters	18	
+sweep_Mac_gap50kb_min20_clusters	16	
+sweep_Gar_gap10kb_clusters	12	
+sweep_Gar_gap10kb_calls_in_clusters	4206	
+sweep_Gar_gap10kb_top3_calls	1635/1118/736	
+sweep_Gar_gap10kb_chromosomes	6	
+sweep_Gar_gap50kb_clusters	11	
+sweep_Gar_gap50kb_calls_in_clusters	4213	
+sweep_Gar_gap50kb_top3_calls	1854/1635/316	
+sweep_Gar_gap50kb_chromosomes	6	
+sweep_Gar_gap100kb_clusters	11	
+sweep_Gar_gap100kb_calls_in_clusters	4216	
+sweep_Gar_gap100kb_top3_calls	1854/1635/316	
+sweep_Gar_gap100kb_chromosomes	6	
+sweep_Gar_gap500kb_clusters	8	
+sweep_Gar_gap500kb_calls_in_clusters	4219	
+sweep_Gar_gap500kb_top3_calls	3489/328/316	
+sweep_Gar_gap500kb_chromosomes	6	
+sweep_Gar_gap1000kb_clusters	8	
+sweep_Gar_gap1000kb_calls_in_clusters	4220	
+sweep_Gar_gap1000kb_top3_calls	3490/328/316	
+sweep_Gar_gap1000kb_chromosomes	6	
+sweep_Gar_tol0kb_at_5S_related	5	
+sweep_Gar_tol0kb_at_other_satellite	1	
+sweep_Gar_tol0kb_none	5	
+sweep_Gar_tol10kb_at_5S_related	6	
+sweep_Gar_tol10kb_at_other_satellite	1	
+sweep_Gar_tol10kb_none	4	
+sweep_Gar_tol50kb_at_5S_related	6	
+sweep_Gar_tol50kb_at_other_satellite	1	
+sweep_Gar_tol50kb_none	4	
+sweep_Gar_tol100kb_at_5S_related	6	
+sweep_Gar_tol100kb_at_other_satellite	1	
+sweep_Gar_tol100kb_none	4	
+sweep_Gar_gap50kb_min3_clusters	20	
+sweep_Gar_gap50kb_min5_clusters	11	
+sweep_Gar_gap50kb_min10_clusters	7	
+sweep_Gar_gap50kb_min20_clusters	6	
+old_table_Mac_clusters	22	
+old_table_Mac_identical_to_gff_clusters	22	
+old_table_Gar_clusters	11	
+old_table_Gar_identical_to_gff_clusters	11	
+old_table_differences	0	
+Mac_other_satellite_families_at_clusters	LG13:9282349=MacSat6336; LG20:26447802=MacSat1272; LG20:26886702=MacSat1272; LG20:27528574=MacSat1272	
+cluster	Mac C_mac_LG01:8966981-9082183	115.2 kb; 365 5S calls; class B (B = 5S-related array GarSat04 / GarSat49 / MacSat06, S = other run of record, - = none)
+cluster	Mac C_mac_LG01:13141173-13574574	433.4 kb; 1796 5S calls; class B (B = 5S-related array GarSat04 / GarSat49 / MacSat06, S = other run of record, - = none)
+cluster	Mac C_mac_LG01:24839306-25105086	265.8 kb; 807 5S calls; class B (B = 5S-related array GarSat04 / GarSat49 / MacSat06, S = other run of record, - = none)
+cluster	Mac C_mac_LG01:40549566-40744888	195.3 kb; 706 5S calls; class B (B = 5S-related array GarSat04 / GarSat49 / MacSat06, S = other run of record, - = none)
+cluster	Mac C_mac_LG02:7776491-7831031	54.5 kb; 41 5S calls; class B (B = 5S-related array GarSat04 / GarSat49 / MacSat06, S = other run of record, - = none)
+cluster	Mac C_mac_LG02:18639032-18810804	171.8 kb; 38 5S calls; class B (B = 5S-related array GarSat04 / GarSat49 / MacSat06, S = other run of record, - = none)
+cluster	Mac C_mac_LG03:24919164-25185484	266.3 kb; 491 5S calls; class B (B = 5S-related array GarSat04 / GarSat49 / MacSat06, S = other run of record, - = none)
+cluster	Mac C_mac_LG03:27286071-27340339	54.3 kb; 121 5S calls; class B (B = 5S-related array GarSat04 / GarSat49 / MacSat06, S = other run of record, - = none)
+cluster	Mac C_mac_LG03:28232391-28578418	346.0 kb; 770 5S calls; class B (B = 5S-related array GarSat04 / GarSat49 / MacSat06, S = other run of record, - = none)
+cluster	Mac C_mac_LG04:15333559-15336693	3.1 kb; 6 5S calls; class - (B = 5S-related array GarSat04 / GarSat49 / MacSat06, S = other run of record, - = none)
+cluster	Mac C_mac_LG04:27126251-27134412	8.2 kb; 7 5S calls; class - (B = 5S-related array GarSat04 / GarSat49 / MacSat06, S = other run of record, - = none)
+cluster	Mac C_mac_LG08:11022594-11037215	14.6 kb; 18 5S calls; class B (B = 5S-related array GarSat04 / GarSat49 / MacSat06, S = other run of record, - = none)
+cluster	Mac C_mac_LG08:16083353-16088827	5.5 kb; 5 5S calls; class - (B = 5S-related array GarSat04 / GarSat49 / MacSat06, S = other run of record, - = none)
+cluster	Mac C_mac_LG08:32651314-32722733	71.4 kb; 21 5S calls; class B (B = 5S-related array GarSat04 / GarSat49 / MacSat06, S = other run of record, - = none)
+cluster	Mac C_mac_LG10:15886259-15937517	51.3 kb; 13 5S calls; class - (B = 5S-related array GarSat04 / GarSat49 / MacSat06, S = other run of record, - = none)
+cluster	Mac C_mac_LG13:9282349-9354843	72.5 kb; 76 5S calls; class S (B = 5S-related array GarSat04 / GarSat49 / MacSat06, S = other run of record, - = none)
+cluster	Mac C_mac_LG20:21293993-21446178	152.2 kb; 683 5S calls; class B (B = 5S-related array GarSat04 / GarSat49 / MacSat06, S = other run of record, - = none)
+cluster	Mac C_mac_LG20:26447802-26762488	314.7 kb; 1409 5S calls; class S (B = 5S-related array GarSat04 / GarSat49 / MacSat06, S = other run of record, - = none)
+cluster	Mac C_mac_LG20:26886702-27463958	577.3 kb; 2529 5S calls; class S (B = 5S-related array GarSat04 / GarSat49 / MacSat06, S = other run of record, - = none)
+cluster	Mac C_mac_LG20:27528574-28026798	498.2 kb; 2181 5S calls; class S (B = 5S-related array GarSat04 / GarSat49 / MacSat06, S = other run of record, - = none)
+cluster	Mac C_mac_LG25:22082174-22367289	285.1 kb; 42 5S calls; class B (B = 5S-related array GarSat04 / GarSat49 / MacSat06, S = other run of record, - = none)
+cluster	Mac C_mac_LG26:12930150-12938537	8.4 kb; 9 5S calls; class - (B = 5S-related array GarSat04 / GarSat49 / MacSat06, S = other run of record, - = none)
+cluster	Gar C_gar_LG04:16310507-16337606	27.1 kb; 123 5S calls; class B (B = 5S-related array GarSat04 / GarSat49 / MacSat06, S = other run of record, - = none)
+cluster	Gar C_gar_LG04:16445693-16511958	66.3 kb; 205 5S calls; class B (B = 5S-related array GarSat04 / GarSat49 / MacSat06, S = other run of record, - = none)
+cluster	Gar C_gar_LG04:20737829-21222722	484.9 kb; 1854 5S calls; class B (B = 5S-related array GarSat04 / GarSat49 / MacSat06, S = other run of record, - = none)
+cluster	Gar C_gar_LG04:21610522-22000112	389.6 kb; 1635 5S calls; class B (B = 5S-related array GarSat04 / GarSat49 / MacSat06, S = other run of record, - = none)
+cluster	Gar C_gar_LG13:16947778-17065767	118.0 kb; 316 5S calls; class B (B = 5S-related array GarSat04 / GarSat49 / MacSat06, S = other run of record, - = none)
+cluster	Gar C_gar_LG15:12969847-12987410	17.6 kb; 7 5S calls; class B (B = 5S-related array GarSat04 / GarSat49 / MacSat06, S = other run of record, - = none)
+cluster	Gar C_gar_LG16:16683921-16726012	42.1 kb; 7 5S calls; class - (B = 5S-related array GarSat04 / GarSat49 / MacSat06, S = other run of record, - = none)
+cluster	Gar C_gar_LG17:20148644-20152592	3.9 kb; 19 5S calls; class - (B = 5S-related array GarSat04 / GarSat49 / MacSat06, S = other run of record, - = none)
+cluster	Gar C_gar_LG17:20343020-20351791	8.8 kb; 5 5S calls; class - (B = 5S-related array GarSat04 / GarSat49 / MacSat06, S = other run of record, - = none)
+cluster	Gar C_gar_LG17:25714944-25731016	16.1 kb; 8 5S calls; class - (B = 5S-related array GarSat04 / GarSat49 / MacSat06, S = other run of record, - = none)
+cluster	Gar C_gar_LG25:15757591-15825534	67.9 kb; 34 5S calls; class S (B = 5S-related array GarSat04 / GarSat49 / MacSat06, S = other run of record, - = none)

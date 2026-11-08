@@ -1,0 +1,5 @@
+panel	group	family	species	chrom	unit_class_v47	element_class_v47	seq_cluster_v47	monomer_bp_stack_period	period_from_v453_table	v47_unit_bp	run_bp	run_start0	array_start0_shown	rows_shown	row_identity_to_consensus_pct	phase_identity_to_Gar_consensus_pct	five_S_segment_start_bp	five_S_segment_end_bp	five_S_local_score_on_2x_consensus	stack_reverse_complemented_vs_earlier_panel	rows_with_5S_hit_above_shuffled_p99_pct
+b	cen	GarSat03	Gar	C_gar_LG09	satellite	satellite	C2.1	226	1	226	597217	20620101	20623101	30	96.3	100			15		0.0
+b	cen	MacSat03	Mac	C_mac_LG07	satellite	satellite	C2.1	213	1	225	32428	14025813	14028813	30	95.7	58.2			14		0.0
+b	5S	GarSat04	Gar	C_gar_LG09	satellite	satellite	C2.2	217	1	210	410170	9121571	9124571	30	75.8	100	20	101	82	1	100.0
+b	5S	MacSat06	Mac	C_mac_LG01	gene_array	gene_array:5S_rRNA	na	218	1	219	338743	13147977	13150977	30	94.7	62.2	7	121	153	1	100.0

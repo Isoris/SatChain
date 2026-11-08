@@ -1,0 +1,63 @@
+panel	row_type	tree	name	species	tips	tips_in_tree	tree_file	tree_total_branch_length	element_class_v47	seq_cluster_v47	families	n_chromosome_arrays	chromosomes	centromeric_arrays	other_arrays	unknown_arrays	nn_cross_species	nn_cross_expected_random	root_ufboot	diameter	mean_pairwise	persistence_cuts_030_100	cut	ufboot_min	min_copies	ufboot_node	clades_below	monophyletic	long_branch	n_tips_below	ufboot_chain	tips_assigned	n_clades	plateau
+a	family	5S-related	GarSat04	Gar	132	256	lineageB_5S_derived.treefile	14.21	satellite	C2.2																								
+a	family	5S-related	GarSat49	Gar	24	256	lineageB_5S_derived.treefile	14.21	gene_array	na																								
+a	family	5S-related	MacSat06	Mac	84	256	lineageB_5S_derived.treefile	14.21	gene_array	na																								
+a	family	5S-related	5S_rRNA	Gar	8	256	lineageB_5S_derived.treefile	14.21	satellite																									
+a	family	5S-related	5S_rRNA	Mac	8	256	lineageB_5S_derived.treefile	14.21	satellite																									
+a	clade	5S-related	S1	Gar:108	108	256	lineageB_5S_derived.treefile	14.21			GarSat04:108	9	Gar_LG02:12;Gar_LG18:12;Gar_LG06:12;Gar_LG09:12;Gar_LG15:12;Gar_LG14:12;Gar_LG16:12;Gar_LG05:12;Gar_LG07:12	8	1	0	0.0	0.0	100	0.4178	0.1819	0.8	0.75	95	5									
+a	clade	5S-related	S2	Mac:44	44	256	lineageB_5S_derived.treefile	14.21			MacSat06:44	4	Mac_LG02:9;Mac_LG25:12;Mac_LG08:12;Mac_LG22:11	0	0	4	0.0	0.0	100	0.4394	0.2502	0.8	0.75	95	5									
+a	clade	5S-related	S3	Gar:24+Mac:13	37	256	lineageB_5S_derived.treefile	14.21			GarSat49:24+MacSat06:13	4	Gar_LG04:12;Gar_LG13:12;Mac_LG20:12;Mac_LG22:1	0	0	4	0.0	0.667	98	0.4028	0.177	0.8	0.75	95	5									
+a	clade	5S-related	S4	Mac:12	12	256	lineageB_5S_derived.treefile	14.21			MacSat06:12	1	Mac_LG03:12	0	0	1			100	0.4464	0.301	0.8	0.75	95	5									
+a	clade	5S-related	S5	Gar:12	12	256	lineageB_5S_derived.treefile	14.21			GarSat04:12	1	Gar_LG27:12	0	0	1			100	0.2031	0.1323	1.0	0.75	95	5									
+a	clade	5S-related	S6	Mac:5	5	256	lineageB_5S_derived.treefile	14.21			MacSat06:5	2	Mac_LG01:2;Mac_LG02:3	0	0	2	0.0	0.0	95	0.2018	0.1334	1.0	0.75	95	5									
+a	backbone_node	5S-related	node18				lineageB_5S_derived.treefile																			100	6							
+a	backbone_node	5S-related	node21				lineageB_5S_derived.treefile																			99	5							
+a	backbone_node	5S-related	node237				lineageB_5S_derived.treefile																			100	4							
+a	backbone_node	5S-related	node311				lineageB_5S_derived.treefile																			94	3							
+a	backbone_node	5S-related	node312				lineageB_5S_derived.treefile																			96	2							
+a	reference_group	5S-related	5S rRNA genes	Gar:8+Mac:8	16	256	lineageB_5S_derived.treefile					3	Gar_LG04:8;Mac_LG20:4;Mac_LG01:4						100	0.7249								1	0.2975					
+a	5S_attachment_node	5S-related	5S group + S6				lineageB_5S_derived.treefile				5S_rRNA:16+MacSat06:15															96	1			31	91/73/72/46/89/96			
+a	summary	5S-related	clade_set		256		lineageB_5S_derived.treefile	14.21									0.0	0.479					0.75									218	6	0.45-1.1
+a	family	centromeric	GarSat03	Gar	192	624	lineageA.treefile	24.691	satellite	C2.1																								
+a	family	centromeric	GarSat09	Gar	60	624	lineageA.treefile	24.691	satellite	C2.1																								
+a	family	centromeric	GarSat10	Gar	60	624	lineageA.treefile	24.691	satellite	C2.1																								
+a	family	centromeric	MacSat03	Mac	300	624	lineageA.treefile	24.691	satellite	C2.1																								
+a	family	centromeric	MacSat162	Mac	12	624	lineageA.treefile	24.691	satellite	C2.1																								
+a	clade	centromeric	R1	Mac:168	168	624	lineageA.treefile	24.691			MacSat03:168	14	Mac_LG01:12;Mac_LG07:12;Mac_LG14:12;Mac_LG17:12;Mac_LG23:12;Mac_LG02:12;Mac_LG03:12;Mac_LG24:12;Mac_LG21:12;Mac_LG04:12;Mac_LG09:12;Mac_LG15:12;Mac_LG26:12;Mac_LG19:12	12	0	2	0.0	0.0	99	0.6052	0.2784	0.2	0.7	95	5									
+a	clade	centromeric	R2	Gar:60	60	624	lineageA.treefile	24.691			GarSat10:60	5	Gar_LG01:12;Gar_LG07:12;Gar_LG03:12;Gar_LG05:12;Gar_LG14:12	1	4	0	0.0	0.0	100	0.6261	0.271	0.267	0.7	95	5									
+a	clade	centromeric	R3	Gar:59	59	624	lineageA.treefile	24.691			GarSat03:59	5	Gar_LG08:12;Gar_LG11:12;Gar_LG20:12;Gar_LG22:12;Gar_LG09:11	4	1	0	0.0	0.0	100	0.1847	0.0831	0.867	0.7	95	5									
+a	clade	centromeric	R4	Gar:37	37	624	lineageA.treefile	24.691			GarSat03:37	4	Gar_LG06:12;Gar_LG09:1;Gar_LG21:12;Gar_LG23:12	2	1	1	0.0	0.0	96	0.4296	0.2349	0.667	0.7	95	5									
+a	clade	centromeric	R5	Gar:36	36	624	lineageA.treefile	24.691			GarSat09:36	3	Gar_LG17:12;Gar_LG19:12;Gar_LG18:12	1	2	0	0.0	0.0	100	0.3034	0.1572	0.6	0.7	95	5									
+a	clade	centromeric	R6	Mac:36	36	624	lineageA.treefile	24.691			MacSat03:36	3	Mac_LG05:12;Mac_LG12:12;Mac_LG27:12	3	0	0	0.0	0.0	100	0.4622	0.2386	0.4	0.7	95	5									
+a	clade	centromeric	R7	Mac:36	36	624	lineageA.treefile	24.691			MacSat03:36	3	Mac_LG08:12;Mac_LG25:12;Mac_LG16:12	3	0	0	0.0	0.0	98	0.2915	0.0993	0.667	0.7	95	5									
+a	clade	centromeric	R8	Mac:36	36	624	lineageA.treefile	24.691			MacSat03:24+MacSat162:12	2	Mac_LG11:24;Mac_LG18:12	1	0	1	0.0	0.0	100	0.4673	0.2408	0.4	0.7	95	5									
+a	clade	centromeric	R9	Gar:24	24	624	lineageA.treefile	24.691			GarSat03:24	2	Gar_LG03:12;Gar_LG26:12	2	0	0	0.0	0.0	100	0.221	0.1187	0.733	0.7	95	5									
+a	clade	centromeric	R10	Gar:24	24	624	lineageA.treefile	24.691			GarSat09:24	2	Gar_LG10:12;Gar_LG13:12	1	1	0	0.0	0.0	100	0.3248	0.1813	0.6	0.7	95	5									
+a	clade	centromeric	R11	Mac:12	12	624	lineageA.treefile	24.691			MacSat03:12	1	Mac_LG13:12	1	0	0			100	0.2693	0.1399	0.667	0.7	95	5									
+a	clade	centromeric	R12	Mac:12	12	624	lineageA.treefile	24.691			MacSat03:12	1	Mac_LG06:12	1	0	0			97	0.3108	0.1952	0.6	0.7	95	5									
+a	clade	centromeric	R13	Mac:12	12	624	lineageA.treefile	24.691			MacSat03:12	1	Mac_LG22:12	0	1	0			99	0.3336	0.1214	0.667	0.7	95	5									
+a	clade	centromeric	R14	Gar:12	12	624	lineageA.treefile	24.691			GarSat03:12	1	Gar_LG12:12	1	0	0			100	0.1722	0.103	0.867	0.7	95	5									
+a	clade	centromeric	R15	Gar:12	12	624	lineageA.treefile	24.691			GarSat03:12	1	Gar_LG16:12	0	1	0			100	0.3924	0.177	0.733	0.7	95	5									
+a	clade	centromeric	R16	Gar:12	12	624	lineageA.treefile	24.691			GarSat03:12	1	Gar_LG15:12	0	1	0			100	0.2381	0.1137	0.867	0.7	95	5									
+a	clade	centromeric	R17	Gar:12	12	624	lineageA.treefile	24.691			GarSat03:12	1	Gar_LG25:12	1	0	0			100	0.3653	0.1848	0.733	0.7	95	5									
+a	clade	centromeric	R18	Gar:12	12	624	lineageA.treefile	24.691			GarSat03:12	1	Gar_LG04:12	0	1	0			100	0.4513	0.2256	0.6	0.7	95	5									
+a	clade	centromeric	R19	Gar:7	7	624	lineageA.treefile	24.691			GarSat03:7	1	Gar_LG02:7	0	1	0			100	0.0965	0.0692	0.867	0.7	95	5									
+a	backbone_node	centromeric	node6				lineageA.treefile																			100	19							
+a	backbone_node	centromeric	node22				lineageA.treefile																			100	18							
+a	backbone_node	centromeric	node23				lineageA.treefile																			63	16							
+a	backbone_node	centromeric	node24				lineageA.treefile																			45	15							
+a	backbone_node	centromeric	node25				lineageA.treefile																			100	11							
+a	backbone_node	centromeric	node73				lineageA.treefile																			99	10							
+a	backbone_node	centromeric	node74				lineageA.treefile																			95	9							
+a	backbone_node	centromeric	node75				lineageA.treefile																			62	3							
+a	backbone_node	centromeric	node123				lineageA.treefile																			50	2							
+a	backbone_node	centromeric	node482				lineageA.treefile																			55	6							
+a	backbone_node	centromeric	node483				lineageA.treefile																			59	2							
+a	backbone_node	centromeric	node578				lineageA.treefile																			85	4							
+a	backbone_node	centromeric	node579				lineageA.treefile																			69	2							
+a	backbone_node	centromeric	node674				lineageA.treefile																			28	2							
+a	backbone_node	centromeric	node936				lineageA.treefile																			90	4							
+a	backbone_node	centromeric	node1010				lineageA.treefile																			52	3							
+a	backbone_node	centromeric	node1011				lineageA.treefile																			41	2							
+a	backbone_node	centromeric	node1104				lineageA.treefile																			92	2							
+a	summary	centromeric	clade_set		624		lineageA.treefile	24.691									0.0	0.511					0.7									619	19	0.65-0.75

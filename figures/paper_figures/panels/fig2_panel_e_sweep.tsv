@@ -1,0 +1,15 @@
+haplotype	large_kb	n_large	chromosomes	n_fragment_1kb_to_large
+Mac	2	69	LG08:24;LG16:22;LG25:23	6
+Mac	3	69	LG08:24;LG16:22;LG25:23	6
+Mac	4	67	LG08:23;LG16:22;LG25:22	8
+Mac	5	64	LG08:23;LG16:19;LG25:22	11
+Mac	3	69	fragment lower bound 500 bp	438
+Mac	3	69	fragment lower bound 1000 bp	6
+Mac	3	69	fragment lower bound 2000 bp	0
+Gar	2	0		0
+Gar	3	0		0
+Gar	4	0		0
+Gar	5	0		0
+Gar	3	0	fragment lower bound 500 bp	152
+Gar	3	0	fragment lower bound 1000 bp	0
+Gar	3	0	fragment lower bound 2000 bp	0

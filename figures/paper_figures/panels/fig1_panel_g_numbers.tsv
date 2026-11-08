@@ -1,0 +1,189 @@
+item	value	note
+GarSat04_monomer_bp	220	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+GarSat04_aligned_bp	89	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+GarSat04_identity_pct	78.7	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+GarSat04_5S_nt_start	8	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+GarSat04_5S_nt_end	96	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+GarSat04_wraps_seam	False	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+GarSat04_score	83.0	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+GarSat04_strand_in_consensus_file	+	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+MacSat06_monomer_bp	208	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+MacSat06_aligned_bp	110	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+MacSat06_identity_pct	70.9	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+MacSat06_5S_nt_start	6	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+MacSat06_5S_nt_end	115	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+MacSat06_wraps_seam	True	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+MacSat06_score	52.0	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+MacSat06_strand_in_consensus_file	+	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+GarSat49_monomer_bp	209	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+GarSat49_aligned_bp	115	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+GarSat49_identity_pct	100.0	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+GarSat49_5S_nt_start	1	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+GarSat49_5S_nt_end	115	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+GarSat49_wraps_seam	False	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+GarSat49_score	230.0	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+GarSat49_strand_in_consensus_file	-	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+GarSat04_null_score	83.0	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+GarSat04_null_mean	15.46	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+GarSat04_null_max	26.0	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+GarSat04_null_z	33.26	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+GarSat04_null_shuffles_ge_real	0	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+MacSat06_null_score	52.0	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+MacSat06_null_mean	15.29	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+MacSat06_null_max	28.0	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+MacSat06_null_z	18.55	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+MacSat06_null_shuffles_ge_real	0	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+GarSat49_null_score	230.0	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+GarSat49_null_mean	16.23	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+GarSat49_null_max	30.0	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+GarSat49_null_z	97.62	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+GarSat49_null_shuffles_ge_real	0	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+GarSat03_null_score	14.0	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+GarSat03_null_mean	14.77	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+GarSat03_null_max	23.0	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+GarSat03_null_z	-0.43	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+GarSat03_null_shuffles_ge_real	781	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+MacSat03_null_score	16.0	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+MacSat03_null_mean	15.35	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+MacSat03_null_max	26.0	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+MacSat03_null_z	0.34	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+MacSat03_null_shuffles_ge_real	431	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+ref_len	115	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+n_refs	16	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+ref_medoid	Gar|LG04|20913566	summary.json / null.tsv (consensus monomer vs 115-bp medoid 5S gene, scoring 2/-3/-5/-2)
+sweep_all72|GarSat03_n	72	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_all72|GarSat03_len_min	7	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_all72|GarSat03_len_med	25.0	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_all72|GarSat03_len_max	150	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_all72|GarSat03_id_med	0.648	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_all72|GarSat03_n_60_80	1	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_all72|GarSat03_n_ge_85	14	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_all72|GarSat03_n_lt_60	55	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_all72|GarSat03_g_start_med	30.0	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_all72|GarSat03_g_end_med	55.0	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_all72|GarSat04_n	72	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_all72|GarSat04_len_min	43	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_all72|GarSat04_len_med	96.0	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_all72|GarSat04_len_max	122	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_all72|GarSat04_id_med	0.773	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_all72|GarSat04_n_60_80	0	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_all72|GarSat04_n_ge_85	51	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_all72|GarSat04_n_lt_60	21	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_all72|GarSat04_g_start_med	3.0	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_all72|GarSat04_g_end_med	96.0	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_all72|GarSat49_n	72	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_all72|GarSat49_len_min	115	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_all72|GarSat49_len_med	115.0	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_all72|GarSat49_len_max	115	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_all72|GarSat49_id_med	1.0	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_all72|GarSat49_n_60_80	0	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_all72|GarSat49_n_ge_85	72	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_all72|GarSat49_n_lt_60	0	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_all72|GarSat49_g_start_med	0.0	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_all72|GarSat49_g_end_med	115.0	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_all72|MacSat03_n	72	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_all72|MacSat03_len_min	7	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_all72|MacSat03_len_med	22.0	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_all72|MacSat03_len_max	139	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_all72|MacSat03_id_med	0.753	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_all72|MacSat03_n_60_80	0	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_all72|MacSat03_n_ge_85	19	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_all72|MacSat03_n_lt_60	53	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_all72|MacSat03_g_start_med	35.0	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_all72|MacSat03_g_end_med	59.0	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_all72|MacSat06_n	72	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_all72|MacSat06_len_min	10	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_all72|MacSat06_len_med	110.0	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_all72|MacSat06_len_max	130	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_all72|MacSat06_id_med	0.709	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_all72|MacSat06_n_60_80	6	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_all72|MacSat06_n_ge_85	43	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_all72|MacSat06_n_lt_60	23	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_all72|MacSat06_g_start_med	5.0	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_all72|MacSat06_g_end_med	114.0	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_plausible54|GarSat03_n	54	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_plausible54|GarSat03_len_min	7	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_plausible54|GarSat03_len_med	7.0	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_plausible54|GarSat03_len_max	150	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_plausible54|GarSat03_id_med	1.0	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_plausible54|GarSat03_n_60_80	1	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_plausible54|GarSat03_n_ge_85	2	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_plausible54|GarSat03_n_lt_60	51	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_plausible54|GarSat03_g_start_med	46.0	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_plausible54|GarSat03_g_end_med	53.0	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_plausible54|GarSat04_n	54	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_plausible54|GarSat04_len_min	43	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_plausible54|GarSat04_len_med	90.0	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_plausible54|GarSat04_len_max	122	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_plausible54|GarSat04_id_med	0.786	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_plausible54|GarSat04_n_60_80	0	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_plausible54|GarSat04_n_ge_85	33	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_plausible54|GarSat04_n_lt_60	21	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_plausible54|GarSat04_g_start_med	7.0	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_plausible54|GarSat04_g_end_med	96.0	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_plausible54|GarSat49_n	54	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_plausible54|GarSat49_len_min	115	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_plausible54|GarSat49_len_med	115.0	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_plausible54|GarSat49_len_max	115	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_plausible54|GarSat49_id_med	1.0	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_plausible54|GarSat49_n_60_80	0	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_plausible54|GarSat49_n_ge_85	54	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_plausible54|GarSat49_n_lt_60	0	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_plausible54|GarSat49_g_start_med	0.0	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_plausible54|GarSat49_g_end_med	115.0	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_plausible54|MacSat03_n	54	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_plausible54|MacSat03_len_min	7	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_plausible54|MacSat03_len_med	10.0	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_plausible54|MacSat03_len_max	139	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_plausible54|MacSat03_id_med	0.9	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_plausible54|MacSat03_n_60_80	0	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_plausible54|MacSat03_n_ge_85	4	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_plausible54|MacSat03_n_lt_60	50	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_plausible54|MacSat03_g_start_med	35.0	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_plausible54|MacSat03_g_end_med	54.0	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_plausible54|MacSat06_n	54	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_plausible54|MacSat06_len_min	10	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_plausible54|MacSat06_len_med	74.0	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_plausible54|MacSat06_len_max	130	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_plausible54|MacSat06_id_med	0.716	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_plausible54|MacSat06_n_60_80	6	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_plausible54|MacSat06_n_ge_85	25	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_plausible54|MacSat06_n_lt_60	23	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_plausible54|MacSat06_g_start_med	12.0	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+sweep_plausible54|MacSat06_g_end_med	108.0	sweep.tsv; all72 = 72 scoring sets, plausible54 = break-even identity >= 50%
+copies_GarSat03_n	200	copies_check.tsv (200 random genomic monomers per family)
+copies_GarSat03_len_med	16.0	copies_check.tsv (200 random genomic monomers per family)
+copies_GarSat03_len_q25	16.0	copies_check.tsv (200 random genomic monomers per family)
+copies_GarSat03_len_q75	16.0	copies_check.tsv (200 random genomic monomers per family)
+copies_GarSat03_id_med	0.812	copies_check.tsv (200 random genomic monomers per family)
+copies_GarSat03_frac_60_80	0.0	copies_check.tsv (200 random genomic monomers per family)
+copies_GarSat03_frac_ge_60	0.0	copies_check.tsv (200 random genomic monomers per family)
+copies_GarSat03_score_min	12.0	copies_check.tsv (200 random genomic monomers per family)
+copies_GarSat03_score_max	22.0	copies_check.tsv (200 random genomic monomers per family)
+copies_GarSat04_n	200	copies_check.tsv (200 random genomic monomers per family)
+copies_GarSat04_len_med	81.0	copies_check.tsv (200 random genomic monomers per family)
+copies_GarSat04_len_q25	81.0	copies_check.tsv (200 random genomic monomers per family)
+copies_GarSat04_len_q75	82.0	copies_check.tsv (200 random genomic monomers per family)
+copies_GarSat04_id_med	0.802	copies_check.tsv (200 random genomic monomers per family)
+copies_GarSat04_frac_60_80	0.09	copies_check.tsv (200 random genomic monomers per family)
+copies_GarSat04_frac_ge_60	0.965	copies_check.tsv (200 random genomic monomers per family)
+copies_GarSat04_score_min	60.0	copies_check.tsv (200 random genomic monomers per family)
+copies_GarSat04_score_max	94.0	copies_check.tsv (200 random genomic monomers per family)
+copies_MacSat03_n	200	copies_check.tsv (200 random genomic monomers per family)
+copies_MacSat03_len_med	13.0	copies_check.tsv (200 random genomic monomers per family)
+copies_MacSat03_len_q25	8.0	copies_check.tsv (200 random genomic monomers per family)
+copies_MacSat03_len_q75	21.0	copies_check.tsv (200 random genomic monomers per family)
+copies_MacSat03_id_med	0.84	copies_check.tsv (200 random genomic monomers per family)
+copies_MacSat03_frac_60_80	0.0	copies_check.tsv (200 random genomic monomers per family)
+copies_MacSat03_frac_ge_60	0.0	copies_check.tsv (200 random genomic monomers per family)
+copies_MacSat03_score_min	12.0	copies_check.tsv (200 random genomic monomers per family)
+copies_MacSat03_score_max	24.0	copies_check.tsv (200 random genomic monomers per family)
+copies_MacSat06_n	200	copies_check.tsv (200 random genomic monomers per family)
+copies_MacSat06_len_med	110.0	copies_check.tsv (200 random genomic monomers per family)
+copies_MacSat06_len_q25	109.0	copies_check.tsv (200 random genomic monomers per family)
+copies_MacSat06_len_q75	114.0	copies_check.tsv (200 random genomic monomers per family)
+copies_MacSat06_id_med	0.826	copies_check.tsv (200 random genomic monomers per family)
+copies_MacSat06_frac_60_80	0.005	copies_check.tsv (200 random genomic monomers per family)
+copies_MacSat06_frac_ge_60	1.0	copies_check.tsv (200 random genomic monomers per family)
+copies_MacSat06_score_min	74.0	copies_check.tsv (200 random genomic monomers per family)
+copies_MacSat06_score_max	220.0	copies_check.tsv (200 random genomic monomers per family)

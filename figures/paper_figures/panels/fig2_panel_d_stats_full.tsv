@@ -1,0 +1,41 @@
+scope	n_Mac	n_Gar	metric	observed	null_mean	null_p2_5	null_p97_5	p_observed_le_null
+all copies	316.0	400.0	NN_other_species_share	0.03631	0.4932	0.4469	0.5391	0.000999
+all copies	316.0	400.0	parsimony_species_changes	15.0	233.7	220.0	247.0	0.000999
+all copies	316.0	400.0	association_index	2.902	34.97	31.33	38.83	0.000999
+all copies	316.0	400.0	internal_nodes_with_both_species	0.08671	0.8007	0.7692	0.8336	0.000999
+all copies	316.0	400.0	NN_other_species_share_of_Mac_copies	0.01899				
+all copies	316.0	400.0	NN_other_species_share_of_Gar_copies	0.05				
+arm copies only (outside centromere +-1 Mb)	104.0	362.0	NN_other_species_share	0.04721	0.3486	0.2554	0.515	0.000999
+arm copies only (outside centromere +-1 Mb)	104.0	362.0	parsimony_species_changes	14.0	94.63	89.0	100.0	0.000999
+arm copies only (outside centromere +-1 Mb)	104.0	362.0	association_index	2.748	17.01	14.56	19.64	0.000999
+arm copies only (outside centromere +-1 Mb)	104.0	362.0	internal_nodes_with_both_species	0.1247	0.6579	0.6128	0.7011	0.000999
+arm copies only (outside centromere +-1 Mb)	104.0	362.0	NN_other_species_share_of_Mac_copies	0.05769				
+arm copies only (outside centromere +-1 Mb)	104.0	362.0	NN_other_species_share_of_Gar_copies	0.0442				
+centromeric copies only (inside +-1 Mb)	212.0	38.0	NN_other_species_share	0.016	0.2589	0.192	0.3481	0.000999
+centromeric copies only (inside +-1 Mb)	212.0	38.0	parsimony_species_changes	4.0	36.24	33.0	38.0	0.000999
+centromeric copies only (inside +-1 Mb)	212.0	38.0	association_index	0.2899	5.201	3.668	6.804	0.000999
+centromeric copies only (inside +-1 Mb)	212.0	38.0	internal_nodes_with_both_species	0.04016	0.6263	0.5462	0.7028	0.000999
+centromeric copies only (inside +-1 Mb)	212.0	38.0	NN_other_species_share_of_Mac_copies	0.004717				
+centromeric copies only (inside +-1 Mb)	212.0	38.0	NN_other_species_share_of_Gar_copies	0.07895				
+all copies, branches SH-aLRT < 80 collapsed (parsimony only is affected)	316.0	400.0	NN_other_species_share	0.03631	0.4933	0.4483	0.5419	0.000999
+all copies, branches SH-aLRT < 80 collapsed (parsimony only is affected)	316.0	400.0	parsimony_species_changes	17.0	265.5	251.0	278.0	0.000999
+all copies, branches SH-aLRT < 80 collapsed (parsimony only is affected)	316.0	400.0	association_index	2.902	34.99	30.92	38.71	0.000999
+all copies, branches SH-aLRT < 80 collapsed (parsimony only is affected)	316.0	400.0	internal_nodes_with_both_species	0.08671	0.8013	0.7664	0.8336	0.000999
+all copies, branches SH-aLRT < 80 collapsed (parsimony only is affected)	316.0	400.0	NN_other_species_share_of_Mac_copies	0.01899				
+all copies, branches SH-aLRT < 80 collapsed (parsimony only is affected)	316.0	400.0	NN_other_species_share_of_Gar_copies	0.05				
+maximal single-species clades >= 10 copies, SH-aLRT >= 90			Gar clade	264.0				
+maximal single-species clades >= 10 copies, SH-aLRT >= 90			Mac clade	241.0				
+maximal single-species clades >= 10 copies, SH-aLRT >= 90			Gar clade	34.0				
+maximal single-species clades >= 10 copies, SH-aLRT >= 90			Gar clade	14.0				
+maximal single-species clades >= 10 copies, SH-aLRT >= 90			Gar clade	14.0				
+copies inside those clades			Mac	241.0				
+copies inside those clades			Gar	326.0				
+clades with SH-aLRT >= 80 holding both species			count (any mixture)	21.0				
+clades with SH-aLRT >= 80 holding both species			count with >= 5 copies of each species	8.0				
+clades with SH-aLRT >= 80 holding both species			count with <= 100 tips (rest are the nested deep nodes above the two big pure clades)	14.0				
+clades with SH-aLRT >= 80 holding both species			largest of those (tips)	55.0				
+clades with SH-aLRT >= 80 holding both species			its Mac copies	37.0				
+median patristic distance			Gar-Gar	0.1039				
+median patristic distance			Mac-Mac	0.1691				
+median patristic distance			Gar-Mac	0.1832				
+drawing			terminal branches cut at 0.225 (depth from midpoint root: n, max)	3.0	0.309			

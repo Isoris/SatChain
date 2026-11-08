@@ -1,0 +1,77 @@
+item	value	note
+array	Mac_SAT00318	
+chrom	C_mac_LG04	
+array_start_bp	27720724	
+array_end_bp	28092047	
+array_span_kb	371.3	
+centromere_start	27699546	
+centromere_end	28132088	
+centromere_kb	432.5	
+runs	28	
+interruptions	27	
+satellite_in_runs_kb	132.3	
+interruptions_kb	239.0	
+copies_in_runs	599	
+RTE_arrows_total	29	
+RTE_arrows_forward_(minus_hit)	29	
+RTE_arrows_reverse_(plus_hit)	0	
+interruptions_with_RTE	26	
+ins_245bp_copies	14	
+ins_interruptions	11	
+types_A	11	
+types_B	10	
+types_C	5	
+untyped_interruption_1_truncated_end_piece_bp	1312	
+type_per_interruption	2B,3A,4A,5A,6A,7A,8C,9C,10B,11B,12B,13C,14B,15C,16B,17B,18B,19A,20A,21C,22B,23B,24A,25A,26A,27A	
+unit_def	run + the interruption that follows it (run start -> next run start)	
+zoom_units	7-10	
+zoom_span_kb	62.5	
+overview_mm_per_kb	0.2219	
+zoom_mm_per_kb	1.536	
+zoom_types	ACCB	
+unit_bp_median	12957	
+unit_bp_min	6684	
+unit_bp_max	25850	
+evidence_level_spacer_types	L2	
+copies_C01	265	
+copies_C02	155	
+copies_C03	39	
+copies_C04	24	
+copies_C06	27	
+copies_C07	17	
+copies_C08	19	
+copies_C09	24	
+copies_U	29	
+sweep_ident70_partial_copies	29	
+sweep_ident70_copies_changed_vs80	0	
+sweep_ident80_partial_copies	29	
+sweep_ident80_copies_changed_vs80	0	
+sweep_ident90_partial_copies	30	
+sweep_ident90_copies_changed_vs80	1	
+sweep_RTE_minHSP150_arrows	29	
+sweep_RTE_minHSP150_interruptions	26	
+sweep_RTE_minHSP500_arrows	29	
+sweep_RTE_minHSP500_interruptions	26	
+sweep_RTE_minHSP1000_arrows	29	
+sweep_RTE_minHSP1000_interruptions	26	
+sweep_RTE_minHSP2000_arrows	29	
+sweep_RTE_minHSP2000_interruptions	26	
+ins_15mer_share_min_A_set	0.87	
+ins_15mer_share_max_non_A	0.0	
+sweep_A_kmer_share_ge0.1_n	11	
+sweep_A_kmer_share_ge0.1_equals_ins_set	True	
+sweep_A_kmer_share_ge0.3_n	11	
+sweep_A_kmer_share_ge0.3_equals_ins_set	True	
+sweep_A_kmer_share_ge0.5_n	11	
+sweep_A_kmer_share_ge0.5_equals_ins_set	True	
+sweep_A_kmer_share_ge0.7_n	11	
+sweep_A_kmer_share_ge0.7_equals_ins_set	True	
+sweep_A_kmer_share_ge0.9_n	9	
+sweep_A_kmer_share_ge0.9_equals_ins_set	False	
+sweep_BvsC_cut_auto_minor2	42 columns, clusters 5+10, = C set: True	
+sweep_BvsC_cut_auto_minor3	36 columns, clusters 5+10, = C set: True	
+sweep_BvsC_cut_auto_minor4	30 columns, clusters 5+10, = C set: True	
+sweep_BvsC_cut_linsi_minor2	41 columns, clusters 5+10, = C set: True	
+sweep_BvsC_cut_linsi_minor3	35 columns, clusters 5+10, = C set: True	
+sweep_BvsC_cut_linsi_minor4	30 columns, clusters 5+10, = C set: True	
+sweep_BvsC_all_six_recover_C	True	

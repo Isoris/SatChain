@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="249.448819pt" height="147.401575pt" viewBox="0 0 249.448819 147.401575" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-11-02T18:55:55.248860</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 147.401575 
+L 249.448819 147.401575 
+L 249.448819 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 17.007874 36.850394 
+L 235.5566 36.850394 
+L 235.5566 56.692913 
+L 17.007874 56.692913 
+z
+" clip-path="url(#pd4779ccec5)" style="fill: #e6a817; opacity: 0.55"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 133.411139 36.850394 
+L 220.021978 36.850394 
+L 220.021978 56.692913 
+L 133.411139 56.692913 
+z
+" clip-path="url(#pd4779ccec5)" style="fill: #8a6208"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 235.5566 41.385827 
+L 238.110236 41.385827 
+L 238.110236 52.15748 
+L 235.5566 52.15748 
+z
+" clip-path="url(#pd4779ccec5)" style="fill: #a7aeb3"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 37.082294 32.314961 
+L 81.699999 32.314961 
+L 81.699999 34.299213 
+L 37.082294 34.299213 
+z
+" clip-path="url(#pd4779ccec5)" style="fill: #17252d"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 147.101468 32.314961 
+L 197.039249 32.314961 
+L 197.039249 34.299213 
+L 147.101468 34.299213 
+z
+" clip-path="url(#pd4779ccec5)" style="fill: #17252d"/>
+   </g>
+   <g id="line2d_1">
+    <path d="M 42.898911 31.181102 
+L 42.898911 56.692913 
+" clip-path="url(#pd4779ccec5)" style="fill: none; stroke: #17252d; stroke-width: 0.5"/>
+   </g>
+   <g id="line2d_2">
+    <path d="M 236.692913 31.181102 
+L 236.692913 41.385827 
+" clip-path="url(#pd4779ccec5)" style="fill: none; stroke: #17252d; stroke-width: 0.5"/>
+   </g>
+   <g id="line2d_3">
+    <path d="M 17.007874 61.228346 
+L 235.5566 61.228346 
+" clip-path="url(#pd4779ccec5)" style="fill: none; stroke: #17252d; stroke-width: 0.5"/>
+   </g>
+   <g id="line2d_4">
+    <path d="M 17.007874 59.244094 
+L 17.007874 63.212598 
+" clip-path="url(#pd4779ccec5)" style="fill: none; stroke: #17252d; stroke-width: 0.5"/>
+   </g>
+   <g id="line2d_5">
+    <path d="M 235.5566 59.244094 
+L 235.5566 63.212598 
+" clip-path="url(#pd4779ccec5)" style="fill: none; stroke: #17252d; stroke-width: 0.5"/>
+   </g>
+   <g id="line2d_6">
+    <path d="M 17.007874 76.535433 
+L 238.110236 76.535433 
+" clip-path="url(#pd4779ccec5)" style="fill: none; stroke: #17252d; stroke-width: 0.5; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_7">
+    <path d="M 17.007874 76.535433 
+L 17.007874 79.370079 
+" clip-path="url(#pd4779ccec5)" style="fill: none; stroke: #17252d; stroke-width: 0.5"/>
+   </g>
+   <g id="line2d_8">
+    <path d="M 52.475048 76.535433 
+L 52.475048 79.370079 
+" clip-path="url(#pd4779ccec5)" style="fill: none; stroke: #17252d; stroke-width: 0.5"/>
+   </g>
+   <g id="line2d_9">
+    <path d="M 87.942222 76.535433 
+L 87.942222 79.370079 
+" clip-path="url(#pd4779ccec5)" style="fill: none; stroke: #17252d; stroke-width: 0.5"/>
+   </g>
+   <g id="line2d_10">
+    <path d="M 123.409396 76.535433 
+L 123.409396 79.370079 
+" clip-path="url(#pd4779ccec5)" style="fill: none; stroke: #17252d; stroke-width: 0.5"/>
+   </g>
+   <g id="line2d_11">
+    <path d="M 158.87657 76.535433 
+L 158.87657 79.370079 
+" clip-path="url(#pd4779ccec5)" style="fill: none; stroke: #17252d; stroke-width: 0.5"/>
+   </g>
+   <g id="line2d_12">
+    <path d="M 194.343744 76.535433 
+L 194.343744 79.370079 
+" clip-path="url(#pd4779ccec5)" style="fill: none; stroke: #17252d; stroke-width: 0.5"/>
+   </g>
+   <g id="line2d_13">
+    <path d="M 229.810918 76.535433 
+L 229.810918 79.370079 
+" clip-path="url(#pd4779ccec5)" style="fill: none; stroke: #17252d; stroke-width: 0.5"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start; fill: #17252d" x="11.905512" y="5.663121" transform="rotate(-0 11.905512 5.663121)">RTE LINE: consensus of 37 full-length copies</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 7px; font-family: 'Arial'; text-anchor: middle; fill: #17252d" x="75.209506" y="48.583109" transform="rotate(-0 75.209506 48.583109)">N-terminal region</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 7px; font-family: 'Arial'; fill: #ffffff" transform="translate(165.046793 45.466297)">reverse</text>
+    <text style="font-size: 7px; font-family: 'Arial'; fill: #ffffff" transform="translate(156.681793 51.701697)">transcriptase</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 7px; font-family: 'Arial'; text-anchor: end; fill: #17252d" x="14.173228" y="48.583177" transform="rotate(-0 14.173228 48.583177)">5′</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 7px; font-family: 'Arial'; text-anchor: start; fill: #17252d" x="240.944882" y="48.583177" transform="rotate(-0 240.944882 48.583177)">3′</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 7px; font-family: 'Arial'; text-anchor: start; fill: #17252d" x="41.765053" y="19.503097" transform="rotate(-0 41.765053 19.503097)">APE-like motif CVQET (aa 122)</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 7px; font-family: 'Arial'; text-anchor: end; fill: #17252d" x="243.779528" y="19.503097" transform="rotate(-0 243.779528 19.503097)">(AAG)n</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 7px; font-family: 'Arial'; text-anchor: middle; fill: #17252d" x="126.282237" y="68.879684" transform="rotate(-0 126.282237 68.879684)">one ORF, 1,027 aa (LINE 1–3,081), open at the 5′ end</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 7px; font-family: 'Arial'; text-anchor: middle; fill: #17252d" x="17.007874" y="85.316664" transform="rotate(-0 17.007874 85.316664)">0</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 7px; font-family: 'Arial'; text-anchor: middle; fill: #17252d" x="52.475048" y="85.316664" transform="rotate(-0 52.475048 85.316664)">500</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 7px; font-family: 'Arial'; text-anchor: middle; fill: #17252d" x="87.942222" y="85.316664" transform="rotate(-0 87.942222 85.316664)">1,000</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 7px; font-family: 'Arial'; text-anchor: middle; fill: #17252d" x="123.409396" y="85.316664" transform="rotate(-0 123.409396 85.316664)">1,500</text>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 7px; font-family: 'Arial'; text-anchor: middle; fill: #17252d" x="158.87657" y="85.316664" transform="rotate(-0 158.87657 85.316664)">2,000</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 7px; font-family: 'Arial'; text-anchor: middle; fill: #17252d" x="194.343744" y="85.316664" transform="rotate(-0 194.343744 85.316664)">2,500</text>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 7px; font-family: 'Arial'; text-anchor: middle; fill: #17252d" x="229.810918" y="85.316664" transform="rotate(-0 229.810918 85.316664)">3,000</text>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 7px; font-family: 'Arial'; text-anchor: end; fill: #17252d" x="238.110236" y="93.820601" transform="rotate(-0 238.110236 93.820601)">LINE position (bp)</text>
+   </g>
+   <g id="text_17">
+    <text style="font-size: 5.8px; font-family: 'Arial'; text-anchor: start; fill: #17252d" x="37.082294" y="30.527313" transform="rotate(-0 37.082294 30.527313)">Exo_endo_phos PF03372, aa 95–304 (Pfam)</text>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 5.8px; font-family: 'Arial'; text-anchor: end; fill: #17252d" x="238.110236" y="30.527426" transform="rotate(-0 238.110236 30.527426)">RVT_1 PF00078, aa 612–846</text>
+   </g>
+   <g id="text_19">
+    <text style="font-size: 7px; font-family: 'Arial'; text-anchor: start; fill: #17252d" x="11.905512" y="113.946585" transform="rotate(-0 11.905512 113.946585)">reverse transcriptase: best match RTE clade (40 % identity), next RTEX</text>
+   </g>
+   <g id="text_20">
+    <text style="font-size: 7px; font-family: 'Arial'; text-anchor: start; fill: #17252d" x="11.905512" y="124.718239" transform="rotate(-0 11.905512 124.718239)">no target-site duplications (2 of 37 copies)</text>
+   </g>
+   <g id="text_21">
+    <text style="font-size: 7px; font-family: 'Arial'; text-anchor: start; fill: #17252d" x="11.905512" y="135.489892" transform="rotate(-0 11.905512 135.489892)">3′ end …AAGAAGAAGAAGA, an (AAG)n tail</text>
+   </g>
+  </g>
+  <g id="text_22">
+   <text style="font-weight: 700; font-size: 8px; font-family: 'Arial'; text-anchor: start; fill: #17252d" x="0" y="5.824219" transform="rotate(-0 0 5.824219)">A</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pd4779ccec5">
+   <rect x="0" y="0" width="249.448819" height="147.401575"/>
+  </clipPath>
+ </defs>
+</svg>

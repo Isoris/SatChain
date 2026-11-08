@@ -1,0 +1,75 @@
+item	value	note
+example_LG01_units	4	
+example_LG01_span_kb	51.2	
+example_LG01_coords	C_mac_LG01:25489592-25540827	
+example_LG16_units	4	
+example_LG16_span_kb	57.2	
+example_LG16_coords	C_mac_LG16:17970820-18027976	
+LG01_units	34	
+LG01_median_unit_kb	13.41	
+LG02_units	23	
+LG02_median_unit_kb	12.15	
+LG03_units	19	
+LG03_median_unit_kb	13.86	
+LG04_units	27	
+LG04_median_unit_kb	12.96	
+LG07_units	21	
+LG07_median_unit_kb	13.14	
+LG14_units	23	
+LG14_median_unit_kb	11.99	
+LG15_units	22	
+LG15_median_unit_kb	14.55	
+LG17_units	15	
+LG17_median_unit_kb	14.3	
+LG19_units	28	
+LG19_median_unit_kb	15.16	
+LG21_units	16	
+LG21_median_unit_kb	16.53	
+LG23_units	16	
+LG23_median_unit_kb	14.19	
+LG26_units	26	
+LG26_median_unit_kb	11.94	
+LG08_units	23	
+LG08_median_unit_kb	13.3	
+LG16_units	19	
+LG16_median_unit_kb	14.81	
+LG25_units	21	
+LG25_median_unit_kb	14.75	
+centromeres	15	
+type_I_centromeres	12	
+type_II_centromeres	3	
+units_total	333	
+units_type_I	270	
+units_type_II	63	
+units_with_RTE_fragment_aligned_ge100bp	330	
+unit_length_median_kb	13.61	
+unit_length_Q1_kb	12.35	
+unit_length_Q3_kb	15.19	
+unit_length_min_kb	6.25	
+unit_length_max_kb	40.57	
+units_per_centromere_min	15	
+units_per_centromere_max	34	
+units_per_centromere_median	22.0	
+block_median_bp_typeI	5126.0	
+block_median_bp_typeII	4892.0	
+interruption_median_bp_typeI	8160.5	
+interruption_median_bp_typeII	9469.0	
+median_unit_kb_typeI	13.48	
+median_unit_kb_typeII	14.58	
+fraction_arrows_pointing_right	0.409	
+centromere_median_unit_range_kb	11.94-16.53	
+units_over_30kb	1	
+units_on_other_centromeres_without_RTE	238	
+sweep_selection	aligned_bp>=50; fraction>=30%	15 centromeres, 333 units, type II 3	
+sweep_selection	aligned_bp>=50; fraction>=50%	15 centromeres, 333 units, type II 3	
+sweep_selection	aligned_bp>=50; fraction>=70%	15 centromeres, 333 units, type II 3	
+sweep_selection	aligned_bp>=100; fraction>=30%	15 centromeres, 333 units, type II 3	
+sweep_selection	aligned_bp>=100; fraction>=50%	15 centromeres, 333 units, type II 3	
+sweep_selection	aligned_bp>=100; fraction>=70%	15 centromeres, 333 units, type II 3	
+sweep_selection	aligned_bp>=300; fraction>=30%	15 centromeres, 333 units, type II 3	
+sweep_selection	aligned_bp>=300; fraction>=50%	15 centromeres, 333 units, type II 3	
+sweep_selection	aligned_bp>=300; fraction>=70%	15 centromeres, 333 units, type II 3	
+sweep_min_block_bp	0	333 units; median unit 13.61 kb; IQR 12.35-15.19 kb	
+sweep_min_block_bp	500	333 units; median unit 13.61 kb; IQR 12.35-15.19 kb	
+sweep_min_block_bp	1000	333 units; median unit 13.61 kb; IQR 12.35-15.19 kb	
+sweep_min_block_bp	2000	329 units; median unit 13.63 kb; IQR 12.36-15.22 kb	
