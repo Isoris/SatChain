@@ -176,6 +176,10 @@ Removed from this section (never produced): "62 k = 6-31, lags 1-40" as a sweep;
 existing results. Section 7's "first genome-wide result" of 61 (homologous share 40-67 % / 72-100 %, +-10 bp) has no stored output
 either and is to be re-derived with the null-based call before it is quoted.
 
+Decision 2026-11-09 (docs/analysis_2026-11-09/DRAFT_STEPS_DECISION_2026-11-09.md): 53c, 60a, 61, 61b, 63 and 64 are EXPLORATORY, not
+part of the v4.7 results (no result, figure or thesis claim depends on them; 61/61b removed from run_satchain.sh). 62 and 65 are run
+narrow on the HOR-like centromeric arrays only, with their sweeps, to re-test the one HOR claim of the thesis (MacSat1272, Mac LG20).
+
 ## 9. Topology is descriptive today, not yet a discovery sweep
 Discovery uses the k-mer sweep (57) and the copy-chain HMM (56). The topology and second-order Markov test (53 / 53b) run on every catalogue
 run after discovery (second-order structure: 88 / 459 Gar and 73 / 552 Mac arrays, L2). A genome-wide topology sweep (order structure

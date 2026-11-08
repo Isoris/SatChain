@@ -43,11 +43,13 @@ python3 $SC/59f_apply_clusters.py $G $WORK/cat59 $WORK/lin55/55d_family_cluster.
 python3 $SC/53_array_segmentation.py --out $OUT/fClaHyb_${G}_satellites --genome $FA --runs $WORK/cat59/59_catalogue_$G.tsv --dest $WORK/cat53/$G
 python3 $SC/53b_topology_compare.py --out $OUT/fClaHyb_${G}_satellites --run $WORK/cat53/$G --func $FUNC --overlays $OVL --genome-tag $G --runs $WORK/cat59/59_catalogue_$G.tsv --gaps $GAPS
 python3 $SC/53b_o2_summary.py --topologies $G:existing=$WORK/cat53/$G/53b/53b_topologies.tsv --catalogue $G=$WORK/cat59/59_catalogue_$G.tsv --dest $WORK/cat53
-# 61 / 61b: unit boundaries of interrupted arrays (chains built by chains.py on family_v46), composition boundaries (JSD, clipped to the spacer)
-python3 $SC/61_unit_boundaries.py --catalogue $WORK/cat59/59_catalogue_$G.tsv \
-  --copies $OUT/fClaHyb_${G}_satellites/03_monomer_copies.tsv $WORK/new03_$G/03_monomer_copies.tsv \
-  --consensus $OUT/fClaHyb_${G}_satellites/03_array_consensus.tsv $WORK/new03_$G/03_array_consensus.tsv \
-  --genome $FA --dest $WORK/units61 --tag $G --gaps $GAPS
-python3 $SC/61b_jsd_boundaries.py --catalogue $WORK/cat59/59_catalogue_$G.tsv --genome $FA --gaps $GAPS --dest $WORK/jsd61b --tag $G
-# 62-65 (exploratory until their sweeps are on disk): see docs/STEP_METHOD.md section 8 and each script's usage line
+# 61 / 61b: EXPLORATORY since 2026-11-09 (docs/analysis_2026-11-09/DRAFT_STEPS_DECISION_2026-11-09.md): no result needs base-pair
+# edges (composite units ~13.6 kb; the 56 edge is 9-154 bp inside the satellite). Not part of the v4.7 chain; code and synthetic tests kept.
+# python3 $SC/61_unit_boundaries.py --catalogue $WORK/cat59/59_catalogue_$G.tsv \
+#   --copies $OUT/fClaHyb_${G}_satellites/03_monomer_copies.tsv $WORK/new03_$G/03_monomer_copies.tsv \
+#   --consensus $OUT/fClaHyb_${G}_satellites/03_array_consensus.tsv $WORK/new03_$G/03_array_consensus.tsv \
+#   --genome $FA --dest $WORK/units61 --tag $G --gaps $GAPS
+# python3 $SC/61b_jsd_boundaries.py --catalogue $WORK/cat59/59_catalogue_$G.tsv --genome $FA --gaps $GAPS --dest $WORK/jsd61b --tag $G
+# 62 / 65: run NARROW only (2026-11-09) on the HOR-like centromeric arrays of thesis Table 3.9, to re-test the MacSat1272 HOR claim;
+#   driver docs/analysis_2026-11-09/run_hor_narrow.py. 53c, 60a, 63, 64: EXPLORATORY (same decision note). See docs/STEP_METHOD.md section 8.
 # benchmarks: python3 $SC/benchmark_band_test.py $OUT/fClaHyb_${G}_satellites $FA $G $WORK/cat59/59_catalogue_$G.tsv $FUNC/fClaHyb_${G}_TR/TRF/fClaHyb_${G}.TRF.bed.gz benchmarks/threshold_band_test_$G

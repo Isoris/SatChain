@@ -1,0 +1,166 @@
+genome	chrom	rank	start_Mb	end_Mb	locus_kb	composition	locus_class	in_synteny_interval	is_cen_candidate_ror
+Gar	C_gar_LG01	1	29.71	30.63	915	GarSat04 satellite 915 kb	satellite array	yes	yes
+Gar	C_gar_LG01	2	25.59	25.91	312	GarSat04 satellite 312 kb	satellite array	no	no
+Gar	C_gar_LG01	3	4.41	4.53	127	GarSat277 gene_array:tRNA 127 kb	tandem gene array	no	no
+Gar	C_gar_LG02	1	27.14	28.18	982	GarSat04 satellite 982 kb	satellite array	yes	yes
+Gar	C_gar_LG02	2	51.45	51.69	157	GarSat04 satellite 150 kb; GarSat283 satellite 5 kb; GarSat15 satellite 1 kb	satellite array	no	no
+Gar	C_gar_LG02	3	14.74	15.19	120	GarSat03 satellite 116 kb; MacSat6298 satellite 1 kb; GarSat854 satellite 1 kb	satellite array	no	no
+Gar	C_gar_LG03	1	30.61	30.91	121	GarSat10 satellite 64 kb; GarSat115 satellite 28 kb; GarSat284 satellite 26 kb	satellite array	yes	yes
+Gar	C_gar_LG03	2	3.10	3.32	53	GarSat05 satellite 46 kb; GarSat16 satellite 6 kb; GarSat19 minisat 1 kb	satellite array	no	no
+Gar	C_gar_LG03	3	28.51	28.59	34	GarSat05 satellite 34 kb; GarSat16 satellite 1 kb	satellite array	no	no
+Gar	C_gar_LG04	1	20.74	21.22	404	GarSat49 gene_array:5S_rRNA 404 kb	tandem gene array	no	no
+Gar	C_gar_LG04	2	21.61	22.00	357	GarSat49 gene_array:5S_rRNA 357 kb	tandem gene array	yes	no
+Gar	C_gar_LG04	3	7.53	7.76	87	GarSat03 satellite 87 kb	satellite array	no	yes
+Gar	C_gar_LG05	1	41.00	41.46	280	GarSat4282 satellite(gene_related:tRNA) 269 kb; GarSat45 minisat 7 kb; GarSat15 satellite 4 kb	gene-related satellite (tRNA-derived)	no	yes
+Gar	C_gar_LG05	2	13.87	14.12	252	GarSat04 satellite 252 kb	satellite array	yes	no
+Gar	C_gar_LG05	3	13.27	13.40	129	GarSat04 satellite 129 kb	satellite array	no	no
+Gar	C_gar_LG06	1	29.47	29.73	160	GarSat03 satellite 160 kb	satellite array	yes	yes
+Gar	C_gar_LG06	2	5.17	5.32	94	GarSat04 satellite 93 kb; NewSatGar00478 minisat 1 kb	satellite array	no	no
+Gar	C_gar_LG06	3	36.93	37.10	82	GarSat114 gene_array:tRNA 81 kb; NewSatGar00493 minisat 1 kb	tandem gene array	no	no
+Gar	C_gar_LG07	1	31.69	32.66	966	GarSat04 satellite 966 kb	satellite array	yes	yes
+Gar	C_gar_LG07	2	17.73	18.01	123	GarSat10 satellite 123 kb	satellite array	no	no
+Gar	C_gar_LG07	3	40.80	40.83	28	GarSat29 satellite 28 kb	satellite array	no	no
+Gar	C_gar_LG08	1	28.72	29.39	668	GarSat03 satellite 668 kb	satellite array	yes	yes
+Gar	C_gar_LG08	2	39.40	40.03	63	GarSat42 minisat 20 kb; GarSat19 minisat 20 kb; GarSat01 minisat 18 kb	minisatellite cluster	no	no
+Gar	C_gar_LG08	3	36.12	36.23	48	GarSat4234 satellite(gene_related:tRNA) 48 kb	gene-related satellite (tRNA-derived)	no	no
+Gar	C_gar_LG09	1	20.45	21.30	628	GarSat03 satellite 625 kb; GarSat91 satellite 1 kb; GarSat156 satellite 1 kb	satellite array	no	yes
+Gar	C_gar_LG09	2	9.12	9.60	477	GarSat04 satellite 477 kb	satellite array	yes	no
+Gar	C_gar_LG09	3	35.70	35.87	73	MacSat6296 gene_array:tRNA 63 kb; NewSatGar00666 gene_array:tRNA 9 kb; GarSat01 minisat 2 kb	tandem gene array	no	no
+Gar	C_gar_LG10	1	19.84	20.12	123	GarSat09 satellite 119 kb; GarSat10 satellite 2 kb; MacSat03 satellite 1 kb	satellite array	yes	yes
+Gar	C_gar_LG10	2	5.55	5.61	60	GarSat157 gene_array:tRNA 60 kb	tandem gene array	no	no
+Gar	C_gar_LG10	3	22.26	22.32	32	GarSat29 satellite 32 kb; GarSat144 minisat 0 kb	satellite array	no	no
+Gar	C_gar_LG11	1	14.33	14.84	507	GarSat03 satellite 507 kb	satellite array	yes	yes
+Gar	C_gar_LG11	2	0.25	0.74	36	GarSat01 minisat 22 kb; GarSat06 minisat 5 kb; GarSat08 minisat 4 kb	minisatellite cluster	no	no
+Gar	C_gar_LG11	3	33.28	33.51	14	GarSat78 minisat 4 kb; GarSat01 minisat 3 kb; GarSat15 satellite 3 kb	minisatellite cluster	no	no
+Gar	C_gar_LG12	1	0.20	0.72	487	GarSat154 gene_array:snRNA_U2 487 kb	tandem gene array	no	no
+Gar	C_gar_LG12	2	34.85	35.27	190	GarSat278 satellite 187 kb; NewSatGar00098 minisat 1 kb; GarSat4033 minisat 1 kb	satellite array	no	yes
+Gar	C_gar_LG12	3	2.83	3.39	168	GarSat03 satellite 145 kb; GarSat244 minisat 8 kb; GarSat799 minisat 7 kb	satellite array	yes	no
+Gar	C_gar_LG13	1	25.87	26.10	70	GarSat09 satellite 70 kb	satellite array	no	yes
+Gar	C_gar_LG13	2	16.92	17.06	66	GarSat49 gene_array:5S_rRNA 65 kb; GarSat36 minisat 1 kb	tandem gene array	yes	no
+Gar	C_gar_LG13	3	31.75	31.92	53	NewSatGar00013 gene_array:tRNA 53 kb	tandem gene array	no	no
+Gar	C_gar_LG14	1	12.66	13.13	470	GarSat04 satellite 470 kb	satellite array	yes	yes
+Gar	C_gar_LG14	2	1.57	1.75	130	GarSat153 gene_array:miR-430 130 kb	tandem gene array	no	no
+Gar	C_gar_LG14	3	5.36	5.51	65	GarSat10 satellite 65 kb	satellite array	no	no
+Gar	C_gar_LG15	1	12.74	13.02	215	GarSat04 satellite 215 kb; GarSat48 minisat 1 kb	satellite array	yes	yes
+Gar	C_gar_LG15	2	8.05	8.30	202	GarSat155 gene_array:tRNA 157 kb; NewSatGar00944 gene_array:tRNA 38 kb; GarSat279 gene_array:tRNA 7 kb	tandem gene array	no	no
+Gar	C_gar_LG15	3	6.94	7.13	72	GarSat03 satellite 72 kb	satellite array	no	no
+Gar	C_gar_LG16	1	10.87	11.34	461	GarSat04 satellite 461 kb	satellite array	yes	yes
+Gar	C_gar_LG16	2	22.33	22.80	181	GarSat03 satellite 181 kb	satellite array	no	no
+Gar	C_gar_LG16	3	0.14	0.66	23	GarSat01 minisat 13 kb; GarSat02 minisat 2 kb; MacSat5828 minisat 2 kb	minisatellite cluster	no	no
+Gar	C_gar_LG17	1	10.77	11.02	93	GarSat09 satellite 92 kb; GarSat845 satellite 1 kb	satellite array	no	yes
+Gar	C_gar_LG17	2	29.65	30.13	62	GarSat137 minisat 37 kb; GarSat01 minisat 10 kb; GarSat80 minisat 4 kb	minisatellite cluster	no	no
+Gar	C_gar_LG17	3	0.03	0.34	51	GarSat291 satellite 26 kb; GarSat3715 minisat 12 kb; GarSat01 minisat 5 kb	satellite array	no	no
+Gar	C_gar_LG18	1	9.78	9.98	192	GarSat04 satellite 192 kb	satellite array	yes	yes
+Gar	C_gar_LG18	2	20.59	21.00	135	GarSat09 satellite 134 kb; GarSat870 minisat 0 kb	satellite array	no	no
+Gar	C_gar_LG18	3	2.79	2.84	48	GarSat217 minisat 48 kb	minisatellite cluster	no	no
+Gar	C_gar_LG19	1	18.16	18.42	77	GarSat09 satellite 48 kb; GarSat285 satellite 26 kb; GarSat16 satellite 2 kb	satellite array	yes	yes
+Gar	C_gar_LG19	2	30.02	30.41	14	GarSat20 minisat 5 kb; GarSat01 minisat 2 kb; GarSat08 minisat 2 kb	minisatellite cluster	no	no
+Gar	C_gar_LG19	3	30.60	30.65	13	GarSat4233 satellite 7 kb; GarSat283 satellite 5 kb	satellite array	no	no
+Gar	C_gar_LG20	1	14.81	15.34	504	GarSat03 satellite 502 kb; GarSat854 satellite 2 kb	satellite array	yes	yes
+Gar	C_gar_LG20	2	24.35	24.45	30	GarSat4369 satellite 28 kb; GarSat1406 minisat 1 kb	satellite array	no	no
+Gar	C_gar_LG20	3	0.02	0.36	26	GarSat15 satellite 10 kb; GarSat42 minisat 5 kb; GarSat06 minisat 4 kb	satellite array	no	no
+Gar	C_gar_LG21	1	16.84	17.13	114	GarSat03 satellite 113 kb; GarSat854 satellite 1 kb	satellite array	yes	yes
+Gar	C_gar_LG21	2	27.17	27.34	29	GarSat46 minisat 29 kb	minisatellite cluster	no	no
+Gar	C_gar_LG21	3	27.60	27.65	27	GarSat811 minisat 16 kb; GarSat1451 minisat 9 kb; GarSat128 minisat 2 kb	minisatellite cluster	no	no
+Gar	C_gar_LG22	1	18.73	19.52	780	GarSat03 satellite 780 kb	satellite array	yes	yes
+Gar	C_gar_LG22	2	0.01	0.40	59	GarSat41 satellite 36 kb; GarSat06 minisat 13 kb; GarSat2603 minisat 4 kb	satellite array	no	no
+Gar	C_gar_LG22	3	29.85	29.97	14	GarSat02 minisat 6 kb; GarSat01 minisat 4 kb; NewSatGar00025 minisat 2 kb	minisatellite cluster	no	no
+Gar	C_gar_LG23	1	25.21	25.67	185	GarSat03 satellite 185 kb	satellite array	yes	yes
+Gar	C_gar_LG23	2	0.03	0.10	62	GarSat278 satellite 62 kb	satellite array	no	no
+Gar	C_gar_LG23	3	21.80	21.82	22	GarSat4211 satellite 22 kb	satellite array	no	no
+Gar	C_gar_LG24	1	12.87	13.30	416	GarSat91 satellite 416 kb	satellite array	yes	yes
+Gar	C_gar_LG24	2	25.19	25.76	58	GarSat01 minisat 25 kb; GarSat4328 satellite 12 kb; GarSat20 minisat 6 kb	minisatellite cluster	no	no
+Gar	C_gar_LG24	3	0.17	0.47	12	GarSat940 minisat 3 kb; NewSatGar01383 minisat 1 kb; GarSat06 minisat 1 kb	minisatellite cluster	no	no
+Gar	C_gar_LG25	1	14.14	14.43	217	GarSat03 satellite 217 kb	satellite array	yes	yes
+Gar	C_gar_LG25	2	11.35	11.54	183	GarSat847 gene_array:tRNA 183 kb	tandem gene array	no	no
+Gar	C_gar_LG25	3	24.43	24.47	39	GarSat01 minisat 37 kb; GarSat382 minisat 2 kb	minisatellite cluster	no	no
+Gar	C_gar_LG26	1	13.36	13.80	417	GarSat03 satellite 413 kb; GarSat115 satellite 4 kb	satellite array	yes	yes
+Gar	C_gar_LG26	2	26.29	26.44	149	GarSat03 satellite 149 kb	satellite array	no	no
+Gar	C_gar_LG26	3	0.21	0.75	32	GarSat01 minisat 15 kb; GarSat137 minisat 6 kb; GarSat02 minisat 5 kb	minisatellite cluster	no	no
+Gar	C_gar_LG27	1	9.54	9.73	183	GarSat04 satellite 183 kb	satellite array	yes	yes
+Gar	C_gar_LG27	2	0.00	0.30	116	GarSat90 satellite 97 kb; GarSat282 satellite 18 kb	satellite array	no	no
+Gar	C_gar_LG27	3	23.57	24.01	10	GarSat15 satellite 4 kb; GarSat30 minisat 2 kb; GarSat80 minisat 2 kb	satellite array	no	no
+Gar	C_gar_LG28	1	15.35	15.73	356	GarSat62 gene_array:tRNA 356 kb	tandem gene array	no	no
+Gar	C_gar_LG28	2	18.01	18.22	68	GarSat156 satellite 68 kb	satellite array	yes	yes
+Gar	C_gar_LG28	3	0.00	0.20	42	GarSat62 gene_array:tRNA 32 kb; GarSat113 minisat 7 kb; GarSat15 satellite 2 kb	tandem gene array	no	no
+Mac	C_mac_LG01	1	13.15	13.57	421	MacSat06 gene_array:5S_rRNA 421 kb	tandem gene array	no	no
+Mac	C_mac_LG01	2	25.41	25.92	222	MacSat03 satellite 219 kb; MacSat1280 satellite 2 kb; MacSat6298 satellite 2 kb	satellite array	yes	yes
+Mac	C_mac_LG01	3	24.84	25.10	194	MacSat06 gene_array:5S_rRNA 194 kb	tandem gene array	yes	no
+Mac	C_mac_LG02	1	40.32	40.64	241	MacSat1282 satellite(gene_related:tRNA) 238 kb; MacSat5908 minisat 3 kb; MacSat50 minisat 0 kb	gene-related satellite (tRNA-derived)	no	yes
+Mac	C_mac_LG02	2	8.32	8.63	139	MacSat03 satellite 139 kb	satellite array	yes	no
+Mac	C_mac_LG02	3	18.66	18.81	135	MacSat06 gene_array:5S_rRNA 135 kb	tandem gene array	no	no
+Mac	C_mac_LG03	1	0.10	0.69	308	MacSat1286 gene_array:tRNA 189 kb; MacSat1287 gene_array:tRNA 84 kb; MacSat07 minisat 17 kb	tandem gene array	no	no
+Mac	C_mac_LG03	2	28.24	28.56	300	MacSat06 gene_array:5S_rRNA 300 kb	tandem gene array	no	no
+Mac	C_mac_LG03	3	24.90	25.19	196	MacSat06 gene_array:5S_rRNA 196 kb; NewSatMac00248 minisat 0 kb	tandem gene array	no	no
+Mac	C_mac_LG04	1	27.71	28.11	137	MacSat03 satellite 137 kb	satellite array	yes	yes
+Mac	C_mac_LG04	2	8.94	9.18	131	MacSat15 satellite 118 kb; MacSat318 satellite 13 kb	satellite array	no	no
+Mac	C_mac_LG04	3	34.91	34.97	55	MacSat6317 gene_array:tRNA 55 kb	tandem gene array	no	no
+Mac	C_mac_LG05	1	16.94	17.58	285	MacSat03 satellite 285 kb	satellite array	yes	yes
+Mac	C_mac_LG05	2	0.49	1.12	44	MacSat05 minisat 20 kb; MacSat01 minisat 7 kb; MacSat276 minisat 6 kb	minisatellite cluster	no	no
+Mac	C_mac_LG05	3	37.30	37.74	37	MacSat01 minisat 19 kb; MacSat02 minisat 10 kb; MacSat44 minisat 7 kb	minisatellite cluster	no	no
+Mac	C_mac_LG06	1	13.87	14.18	247	MacSat109 gene_array:tRNA 246 kb; MacSat01 minisat 2 kb	tandem gene array	no	no
+Mac	C_mac_LG06	2	35.02	35.34	148	MacSat03 satellite 148 kb	satellite array	yes	yes
+Mac	C_mac_LG06	3	37.33	37.41	37	MacSat1348 satellite 33 kb; MacSat1283 satellite 4 kb	satellite array	no	no
+Mac	C_mac_LG07	1	13.97	14.29	150	MacSat03 satellite 150 kb	satellite array	yes	yes
+Mac	C_mac_LG07	2	28.24	28.36	116	MacSat319 gene_array:tRNA 116 kb	tandem gene array	no	no
+Mac	C_mac_LG07	3	32.43	33.05	33	MacSat09 minisat 8 kb; MacSat02 minisat 8 kb; MacSat01 minisat 6 kb	minisatellite cluster	no	no
+Mac	C_mac_LG08	1	31.47	31.80	107	MacSat03 satellite 105 kb; GarSat10 satellite 2 kb	satellite array	yes	yes
+Mac	C_mac_LG08	2	32.65	32.72	62	MacSat06 gene_array:5S_rRNA 62 kb	tandem gene array	no	no
+Mac	C_mac_LG08	3	10.16	10.30	44	MacSat165 gene_array:tRNA 44 kb; NewSatMac00505 minisat 1 kb	tandem gene array	no	no
+Mac	C_mac_LG09	1	17.17	17.46	125	MacSat03 satellite 123 kb; MacSat6201 satellite 2 kb	satellite array	yes	yes
+Mac	C_mac_LG09	2	29.01	29.98	64	MacSat01 minisat 26 kb; MacSat02 minisat 23 kb; MacSat219 minisat 5 kb	minisatellite cluster	no	no
+Mac	C_mac_LG09	3	0.52	0.62	22	MacSat156 minisat 18 kb; MacSat1246 minisat 2 kb; MacSat40 minisat 1 kb	minisatellite cluster	no	no
+Mac	C_mac_LG10	1	10.33	10.65	138	MacSat51 satellite 138 kb	satellite array	no	yes
+Mac	C_mac_LG10	2	21.02	21.11	94	MacSat161 gene_array:tRNA 94 kb	tandem gene array	yes	no
+Mac	C_mac_LG10	3	29.33	29.60	51	MacSat01 minisat 42 kb; MacSat45 minisat 5 kb; MacSat134 minisat 3 kb	minisatellite cluster	no	no
+Mac	C_mac_LG11	1	14.18	14.51	141	MacSat162 satellite 141 kb	satellite array	yes	yes
+Mac	C_mac_LG11	2	24.46	24.77	35	MacSat01 minisat 24 kb; MacSat307 minisat 7 kb; MacSat374 minisat 3 kb	minisatellite cluster	no	no
+Mac	C_mac_LG11	3	0.06	0.29	32	MacSat01 minisat 21 kb; MacSat241 minisat 10 kb; MacSat1972 minisat 1 kb	minisatellite cluster	no	no
+Mac	C_mac_LG12	1	25.55	26.09	361	MacSat21 satellite 351 kb; MacSat24 minisat 3 kb; MacSat1129 minisat 2 kb	satellite array	no	yes
+Mac	C_mac_LG12	2	2.53	2.90	358	MacSat169 gene_array:snRNA_U2 358 kb	tandem gene array	no	no
+Mac	C_mac_LG12	3	3.59	4.43	319	MacSat03 satellite 304 kb; MacSat173 minisat 5 kb; MacSat294 minisat 4 kb	satellite array	yes	no
+Mac	C_mac_LG13	1	10.68	11.08	174	MacSat03 satellite 174 kb	satellite array	yes	yes
+Mac	C_mac_LG13	2	0.22	1.18	84	MacSat01 minisat 23 kb; MacSat02 minisat 18 kb; MacSat2272 minisat 11 kb	minisatellite cluster	no	no
+Mac	C_mac_LG13	3	9.29	9.35	65	MacSat6336 gene_array:5S_rRNA 65 kb	tandem gene array	no	no
+Mac	C_mac_LG14	1	15.11	15.41	129	MacSat03 satellite 125 kb; MacSat6298 satellite 3 kb	satellite array	yes	yes
+Mac	C_mac_LG14	2	0.00	0.96	100	MacSat33 satellite 36 kb; MacSat01 minisat 18 kb; MacSat02 minisat 14 kb	satellite array	no	no
+Mac	C_mac_LG14	3	22.14	22.65	66	MacSat01 minisat 28 kb; MacSat02 minisat 20 kb; MacSat53 satellite 9 kb	minisatellite cluster	no	no
+Mac	C_mac_LG15	1	16.36	16.69	152	MacSat03 satellite 152 kb	satellite array	yes	yes
+Mac	C_mac_LG15	2	27.02	27.47	80	MacSat130 minisat 44 kb; MacSat218 minisat 11 kb; MacSat01 minisat 9 kb	minisatellite cluster	no	no
+Mac	C_mac_LG15	3	0.02	0.61	60	MacSat01 minisat 28 kb; MacSat02 minisat 14 kb; MacSat47 satellite 6 kb	minisatellite cluster	no	no
+Mac	C_mac_LG16	1	17.94	18.24	111	MacSat03 satellite 111 kb	satellite array	yes	yes
+Mac	C_mac_LG16	2	23.85	24.64	68	MacSat05 minisat 33 kb; MacSat944 minisat 16 kb; MacSat01 minisat 7 kb	minisatellite cluster	no	no
+Mac	C_mac_LG16	3	0.96	1.52	39	MacSat01 minisat 11 kb; MacSat215 minisat 5 kb; MacSat312 minisat 5 kb	minisatellite cluster	no	no
+Mac	C_mac_LG17	1	11.49	11.73	93	MacSat03 satellite 92 kb; NewSatMac00017 minisat 1 kb	satellite array	yes	yes
+Mac	C_mac_LG17	2	22.75	23.95	70	MacSat01 minisat 25 kb; MacSat260 minisat 6 kb; MacSat04 minisat 6 kb	minisatellite cluster	no	no
+Mac	C_mac_LG17	3	0.25	0.50	26	MacSat30 minisat 16 kb; MacSat01 minisat 7 kb; NewSatMac00859 minisat 1 kb	minisatellite cluster	no	no
+Mac	C_mac_LG18	1	12.23	12.60	110	MacSat03 satellite 107 kb; MacSat6298 satellite 2 kb; GarSat10 satellite 1 kb	satellite array	yes	yes
+Mac	C_mac_LG18	2	24.57	25.05	66	MacSat01 minisat 47 kb; MacSat02 minisat 15 kb; MacSat255 minisat 3 kb	minisatellite cluster	no	no
+Mac	C_mac_LG18	3	0.15	0.50	48	MacSat01 minisat 30 kb; MacSat627 minisat 7 kb; MacSat02 minisat 5 kb	minisatellite cluster	no	no
+Mac	C_mac_LG19	1	17.30	17.73	160	MacSat03 satellite 160 kb	satellite array	yes	yes
+Mac	C_mac_LG19	2	30.22	31.14	41	MacSat01 minisat 24 kb; MacSat02 minisat 5 kb; MacSat102 minisat 4 kb	minisatellite cluster	no	no
+Mac	C_mac_LG19	3	0.00	0.37	37	MacSat04 minisat 11 kb; MacSat01 minisat 7 kb; MacSat05 minisat 6 kb	minisatellite cluster	no	no
+Mac	C_mac_LG20	1	26.19	26.45	246	MacSat1272 satellite(gene_related:tRNA) 183 kb; MacSat1271 satellite(gene_related:tRNA) 63 kb	gene-related satellite (tRNA-derived)	no	yes
+Mac	C_mac_LG20	2	0.11	0.38	162	MacSat21 satellite 154 kb; MacSat232 minisat 5 kb; MacSat5525 minisat 1 kb	satellite array	no	no
+Mac	C_mac_LG20	3	21.29	21.45	152	MacSat06 gene_array:5S_rRNA 152 kb	tandem gene array	no	no
+Mac	C_mac_LG21	1	9.64	9.89	234	MacSat167 gene_array:tRNA 234 kb	tandem gene array	no	no
+Mac	C_mac_LG21	2	18.73	19.12	130	MacSat03 satellite 123 kb; MacSat01 minisat 6 kb; MacSat6298 satellite 2 kb	satellite array	yes	yes
+Mac	C_mac_LG21	3	28.32	29.10	60	MacSat01 minisat 23 kb; MacSat943 minisat 8 kb; MacSat02 minisat 7 kb	minisatellite cluster	no	no
+Mac	C_mac_LG22	1	8.95	9.30	331	MacSat06 gene_array:5S_rRNA 331 kb	tandem gene array	yes	no
+Mac	C_mac_LG22	2	19.57	19.80	94	MacSat03 satellite 94 kb	satellite array	no	yes
+Mac	C_mac_LG22	3	0.00	0.94	79	MacSat01 minisat 41 kb; MacSat02 minisat 12 kb; MacSat04 minisat 5 kb	minisatellite cluster	no	no
+Mac	C_mac_LG23	1	24.02	24.30	136	MacSat03 satellite 136 kb	satellite array	yes	yes
+Mac	C_mac_LG23	2	29.97	30.09	94	NewSatMac00007 gene_array:tRNA 94 kb	tandem gene array	no	no
+Mac	C_mac_LG23	3	0.00	0.07	13	MacSat6197 satellite 10 kb; MacSat22 minisat 4 kb	satellite array	no	no
+Mac	C_mac_LG24	1	28.73	29.65	542	MacSat33 satellite 471 kb; MacSat01 minisat 39 kb; MacSat844 minisat 18 kb	satellite array	no	yes
+Mac	C_mac_LG24	2	0.60	1.14	76	MacSat01 minisat 55 kb; MacSat3719 minisat 6 kb; MacSat50 minisat 5 kb	minisatellite cluster	no	no
+Mac	C_mac_LG24	3	0.00	0.49	59	MacSat961 minisat 24 kb; MacSat01 minisat 17 kb; MacSat02 minisat 8 kb	minisatellite cluster	no	no
+Mac	C_mac_LG25	1	22.09	22.36	255	MacSat06 gene_array:5S_rRNA 255 kb	tandem gene array	no	no
+Mac	C_mac_LG25	2	0.00	0.25	241	MacSat315 gene_array:snRNA_U1 241 kb	tandem gene array	no	no
+Mac	C_mac_LG25	3	33.42	33.74	124	MacSat03 satellite 124 kb	satellite array	yes	yes
+Mac	C_mac_LG26	1	3.77	3.90	117	MacSat108 satellite(gene_related:tRNA) 117 kb	gene-related satellite (tRNA-derived)	no	yes
+Mac	C_mac_LG26	2	11.58	11.90	109	MacSat03 satellite 109 kb	satellite array	yes	no
+Mac	C_mac_LG26	3	39.20	39.70	57	MacSat05 minisat 36 kb; MacSat789 minisat 11 kb; MacSat213 minisat 4 kb	minisatellite cluster	no	no
+Mac	C_mac_LG27	1	25.20	25.44	98	MacSat03 satellite 96 kb; MacSat09 minisat 1 kb	satellite array	yes	yes
+Mac	C_mac_LG27	2	0.43	1.02	56	MacSat50 minisat 27 kb; MacSat01 minisat 9 kb; MacSat04 minisat 5 kb	minisatellite cluster	no	no
+Mac	C_mac_LG27	3	29.69	30.15	25	MacSat07 minisat 7 kb; MacSat01 minisat 6 kb; MacSat05 minisat 4 kb	minisatellite cluster	no	no

@@ -60,6 +60,10 @@ for G in TAGS:
         c = collections.Counter(); bpc = collections.Counter()
         for r in it: c[r['class']] += 1; bpc[r['class']] += int(r['bp'])
         put('interruptions (n / Mb) by class', G, '; '.join(f'{k}:{c[k]}/{mb(bpc[k])}' for k in sorted(c)), '59e_interruptions'); put('interruptions across array_ids', G, sum(r['array_relation'] == 'across_arrays' for r in it), '59e_interruptions')
+        ucl = {r['run_id']: r['unit_class'] for r in cat}; c2 = collections.Counter(); b2 = collections.Counter()      # the same, satellite-class (unit >= 100 bp) runs only
+        for r in it:
+            if ucl.get(r['run_left']) == 'satellite': c2[r['class']] += 1; b2[r['class']] += int(r['bp'])
+        put('interruptions between unit >= 100 bp runs (n / Mb) by class', G, '; '.join(f'{k}:{c2[k]}/{mb(b2[k])}' for k in sorted(c2)), '59e_interruptions x 59_catalogue unit_class')
     sw = rows(f'{V}/cat59/59e_sweep_{G}.tsv')
     if sw:
         te_mb = [float(r['Mb_class']) for r in sw if r['class'] == 'TE_insertion' and r['max_gap'] == '50000']; put('TE-filled interruptions Mb, sweep min-max (gap <= 50 kb)', G, f'{min(te_mb):.2f}-{max(te_mb):.2f}', '59e_sweep')
@@ -68,7 +72,7 @@ for G in TAGS:
         put('band test: tandem share above null p95 by lag-identity band', G, '; '.join(f"{r['band']}:{float(r['tandem_above_null_p95']):.2f}" for r in bt), 'threshold_band_test_summary')
     s53 = rows(f'{V}/cat53/{G}_existing/53_array_summary.tsv')
     if s53:
-        put('53 runs: unsegmentable / copy-windowed / bp-windowed', G, f"{sum(r.get('segmentable') == 'no' for r in s53)} / {sum(r.get('window_mode', '').startswith('copy') for r in s53)} / {sum(r.get('window_mode') == 'bp' for r in s53)}", '53_array_summary')
+        put('53 runs: unsegmentable / copy-windowed / bp-windowed', G, f"{sum(r.get('segmentable') == 'no' for r in s53)} / {sum(r.get('window_mode', '').startswith('copy') for r in s53)} / {sum(r.get('window_mode') == 'bp' and r.get('segmentable') != 'no' for r in s53)}", '53_array_summary (bp-windowed excludes unsegmentable runs, fixed 2026-11-09)')
         put('53 runs with > 1 segment', G, sum(int(r.get('n_segments', 1)) > 1 for r in s53 if r.get('n_segments', '1').isdigit()), '53_array_summary')
 kc = rows(f'{V}/lin55/55_K_choice.tsv')
 if kc:

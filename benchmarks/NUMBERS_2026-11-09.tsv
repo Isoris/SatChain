@@ -1,0 +1,43 @@
+key	Gar	Mac	pooled	source
+runs (all)	4030	5191		59_catalogue
+satellite families Mb	18.75	13.14		59_catalogue element_class=satellite
+satellite Mb, unit >= 100 bp	14.27	6.53		59_catalogue unit_class=satellite
+minisatellite Mb (7-99 bp)	4.48	6.61		59_catalogue
+gene arrays Mb / runs	2.94 / 88	4.86 / 139		59_catalogue element_class=gene_array
+gene-array families	GarSat114:tRNA, GarSat153:miR-430, GarSat154:snRNA_U2, GarSat155:tRNA, GarSat157:tRNA, GarSat276:miR-430, GarSat277:tRNA, GarSat279:tRNA, GarSat4215:tRNA, GarSat4239:snRNA_U1, GarSat4240:tRNA, GarSat4249:tRNA, GarSat4256:tRNA, GarSat49:5S_rRNA, GarSat62:tRNA, GarSat847:tRNA, MacSat170:tRNA, MacSat6296:tRNA, MacSat6338:tRNA, new:Gar_NEW00669:tRNA, new:Gar_NEW00924:tRNA, new:Gar_NEW00925:tRNA, new:Gar_NEW00926:tRNA, new:Gar_NEW00927:tRNA, new:Gar_NEW00929:tRNA, new:Gar_NEW00951:tRNA, new:Gar_NEW01016:tRNA, new:Gar_NEW01570:5S_rRNA	MacSat06:5S_rRNA, MacSat109:tRNA, MacSat1286:tRNA, MacSat1287:tRNA, MacSat161:tRNA, MacSat165:tRNA, MacSat167:tRNA, MacSat169:snRNA_U2, MacSat170:tRNA, MacSat315:snRNA_U1, MacSat319:tRNA, MacSat320:tRNA, MacSat6296:tRNA, MacSat6317:tRNA, MacSat6320:tRNA, MacSat6328:snRNA_U4, MacSat6331:miR-430, MacSat6334:tRNA, MacSat6336:5S_rRNA, MacSat6337:snRNA_U6, MacSat6338:tRNA, new:Mac_NEW00348:snRNA_U6, new:Mac_NEW00906:tRNA, new:Mac_NEW00907:tRNA, new:Mac_NEW00908:tRNA, new:Mac_NEW00909:tRNA		59_catalogue
+new runs / Mb	1011 / 1.28	709 / 1.19		59_catalogue source=new
+new runs carried from v4.6 draft	0	0		59_catalogue carried_from
+runs passing G1+G2+G3 (%)	89	79		59_catalogue gates_passed (G2 >= 85 since 2026-11-01)
+G2 fails (identity < 85)	251	650		59_catalogue
+overlapping runs resolved	16	21		59_catalogue overlap_note
+satellite share in step-31 centromere intervals (%, all satellite families)	51	28		59_catalogue putative_centromeric_array_L1
+satellite share in largest run cluster per chromosome (%, all satellite families)	54	34		59_catalogue cen_candidate_ror
+satellite (unit >= 100 bp) share in step-31 centromere intervals / largest run cluster (%)	67 / 71	55 / 69		59_catalogue unit_class=satellite
+satellite families	1602	1453		59_catalogue family_v46
+runs by seq_cluster	C2.1:424; C2.2:58; none:3460	C2.1:2210; none:2842		59_catalogue seq_cluster
+families with a seq_cluster (not none/unassigned)	17	37		59_catalogue (catalogue families, C05)
+runs by tier	core:198; major:2158; minor:1206; rare:380	core:2491; major:1360; minor:932; rare:269		59_catalogue tier (59d, family_v46)
+HMM Mb at posterior 0.5 / 0.8 / 0.95	22.11 / 21.91 / 21.72	18.62 / 18.26 / 18.15		56_summary
+HMM runs at posterior 0.95	4099	5485		56_summary
+HMM P(A->A) / P(B->B)	0.97297 / 0.99323	0.95880 / 0.99118		56_hmm_params
+val56 runs kept at q0.8 / 0.9 / 0.95	4090/4099 / 4045/4099 / 3935/4099	5432/5485 / 5207/5485 / 4652/5485		val56_benchmark
+val56 Mb added beyond v4.5 at q0.8 / 0.9 / 0.95	3.268 / 3.248 / 3.185	3.936 / 3.823 / 3.523		val56_benchmark
+val56 fraction of v4.5 bp kept at q0.8 / 0.9 / 0.95	1.0021 / 1.0018 / 1.0011	1.0143 / 1.0126 / 1.0031		val56_benchmark
+val56 background zero share	0.006	0.005		val56_benchmark (bins outside all candidate intervals)
+gene-array Mb at ratio cut 0.5 / 0.7 / 0.8 (unit share 0.5)	2.996 / 2.937 / 2.937	5.358 / 4.855 / 2.264		59b_gene_arrays_sweep
+runs passing all gates, sweep min-max (%)	64-98	52-95		59_gates_sweep
+TE insertions inside runs, intrinsic cut 0.2 / 0.3 / 0.5 (carry rule copy) Mb	1.29 / 1.49 / 1.78	1.11 / 1.31 / 1.50		59c_te (cat59)
+TE insertions as % of run bp (carry rule copy)	5.9-8.2	6.2-8.3		59c_te (cat59)
+TE insertions inside runs, intrinsic cut 0.2 / 0.3 / 0.5 (carry rule min) Mb	0.15 / 0.23 / 0.54	0.17 / 0.24 / 0.44		59c_te (cat59_minrule)
+TE insertions as % of run bp (carry rule min)	0.7-2.5	0.9-2.4		59c_te (cat59_minrule)
+interruptions (n / Mb) by class	TE_insertion:735/5.20; missed_TE_54:93/0.26; other:SSR:2/0.00; other:exon_CDS:11/0.01; other:intron:260/1.25; other:ncRNA:2/0.02; unannotated:160/0.95	TE_insertion:768/6.19; missed_TE_54:104/0.58; other:SSR:1/0.00; other:exon_CDS:39/0.09; other:intron:662/6.50; other:ncRNA:2/0.02; unannotated:537/5.18		59e_interruptions
+interruptions across array_ids	32	57		59e_interruptions
+interruptions between unit >= 100 bp runs (n / Mb) by class	TE_insertion:603/4.48; missed_TE_54:72/0.22; other:exon_CDS:1/0.00; other:ncRNA:2/0.02; unannotated:54/0.09	TE_insertion:581/4.78; missed_TE_54:84/0.52; other:exon_CDS:8/0.00; other:intron:2/0.00; other:ncRNA:2/0.02; unannotated:9/0.14		59e_interruptions x 59_catalogue unit_class
+TE-filled interruptions Mb, sweep min-max (gap <= 50 kb)	4.01-6.33	2.40-11.32		59e_sweep
+band test: tandem share above null p95 by lag-identity band	0.25-0.30:0.17; 0.30-0.32:0.88; 0.32-0.34:0.99; 0.34-0.36:1.00; 0.36-0.40:1.00; 0.40-1.00:1.00; random_outside_arrays:0.05	0.25-0.30:0.10; 0.30-0.32:0.70; 0.32-0.34:0.94; 0.34-0.36:0.99; 0.36-0.40:1.00; 0.40-1.00:1.00; random_outside_arrays:0.05		threshold_band_test_summary
+53 runs: unsegmentable / copy-windowed / bp-windowed	1121 / 1473 / 359	1433 / 2481 / 450		53_array_summary (bp-windowed excludes unsegmentable runs, fixed 2026-11-09)
+53 runs with > 1 segment	30	23		53_array_summary
+seq clusters: chosen K (rule / fallback), min ARI across k, min ARI restarts, silhouette			2 (fallback_K2), 1.0, 1.0, 0.39	55_K_choice
+seq clusters at chosen K (k = 6): n, Gar, Mac, median len, median 5S frac			C2.1: 28382, 9029, 19353, 225, 0.0; C2.2: 5636, 5636, 0, 218, 0.0	55_cluster_summary
+seq clusters: ARI pooled vs own-haplotype at chosen K (k = 6)			Gar:1.0; Mac:0.0	55_haplotype_stability
+families assigned a seq_cluster / unassigned (sampled families)	17 / 0	37 / 0		55d_family_cluster

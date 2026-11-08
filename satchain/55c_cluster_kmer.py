@@ -3,7 +3,7 @@
 a partition of monomers by k-mer composition; it is not a phylogeny and the clusters are not evolutionary lineages (the old name 'lineage'
 is dropped everywhere). Origin statements (5S-derived, RTE-interleaved) are made per family from homology evidence, not from here.
 Features: canonical k-mer frequencies per copy (orientation- and rotation-free), k = 5, 6, 7; Hellinger transform, centring, SVD to 20
-dimensions; k-means (K = 2..8, 10 restarts, seeded). Reported per (k, K): silhouette (2,000-copy subsample), ARI vs the k = 6 partition
+dimensions; k-means (K = 2..8, 50 k-means++ starts, seeded). Reported per (k, K): silhouette (2,000-copy subsample), ARI vs the k = 6 partition
 (stability across k), ARI between two independent restart seeds (stability across restarts), and the same for each haplotype alone
 (the pooled labels restricted to the haplotype vs a clustering of that haplotype only). K is chosen by a stated rule
 (55_K_choice.tsv): the largest K whose minimum cross-k ARI and restart ARI are both >= --ari (0.8) and whose silhouette is within 10 %
@@ -45,18 +45,12 @@ def feats(k):
     return TruncatedSVD(n_components=20, random_state=55, algorithm='randomized', n_iter=7).fit_transform(X).astype(np.float64)
 
 
-def kmeans(Z, K, rng, restarts=10):
-    best = None
-    for r in range(restarts):
-        C = Z[rng.choice(len(Z), K, replace=False)]
-        for _ in range(100):
-            d = ((Z[:, None, :] - C[None]) ** 2).sum(2); lab = d.argmin(1)
-            C2 = np.array([Z[lab == j].mean(0) if (lab == j).any() else C[j] for j in range(K)])
-            if np.allclose(C2, C): break
-            C = C2
-        inertia = d[np.arange(len(Z)), lab].sum()
-        if best is None or inertia < best[0]: best = (inertia, lab)
-    lab = best[1]; order = {j: r for r, (j, _) in enumerate(collections.Counter(lab.tolist()).most_common())}      # rank by size -> stable names
+def kmeans(Z, K, rng, restarts=50):
+    """2026-11-02: 50 k-means++ starts (sklearn). The earlier 10 uniform random starts could keep a local optimum: on the final fClaHyb run the k = 6, K = 2 partition had
+    inertia 8,060 against 7,583 for the partition that k = 5 and k = 7 found, which read as instability across k. Labels are ranked by cluster size."""
+    from sklearn.cluster import KMeans
+    lab = KMeans(K, n_init=restarts, init='k-means++', max_iter=300, random_state=int(rng.integers(1 << 31))).fit(Z).labels_
+    order = {j: r for r, (j, _) in enumerate(collections.Counter(lab.tolist()).most_common())}
     return np.array([order[j] for j in lab])
 
 

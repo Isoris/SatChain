@@ -62,7 +62,6 @@ PALIN_ID      = 80.0
 # --- iteration
 MAX_ITER      = 5
 BOUNDARY_EPS  = 2.0     # mean |delta start| in bp
-LIB_EPS       = 0.98    # library consensus similarity, reported
 STABLE_ROUNDS = 2       # consecutive rounds with boundary shift < BOUNDARY_EPS
 MAX_BOOT_BP   = 150000
 CLUSTER_SAMPLE = 600    # copies sampled for class discovery
@@ -128,18 +127,6 @@ def nearest_boundary_shift(previous, current):
     left = ps[np.maximum(j - 1, 0)]
     right = ps[np.minimum(j, len(ps) - 1)]
     return float(np.minimum(np.abs(cs - left), np.abs(cs - right)).mean())
-
-
-# COMPARISON RECOMMENDATION [DESIGN_ONLY]: Keep only if required; compare against indexed sequence extraction with source checksums.
-def read_fasta(path):
-    n, s = None, []
-    for line in open(path):
-        line = line.rstrip()
-        if line.startswith('>'):
-            if n: yield n, ''.join(s).upper()
-            n = line[1:].split()[0]; s = []
-        else: s.append(line)
-    if n: yield n, ''.join(s).upper()
 
 
 # COMPARISON RECOMMENDATION [DESIGN_ONLY]: Keep StringDecomposer placement as primary; compare its boundaries with independent builtin/TRASH/ArraySplitter results at the same array_id.

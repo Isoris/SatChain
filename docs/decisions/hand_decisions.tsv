@@ -1,0 +1,2 @@
+family	haplotype	rule_label_59g	hand_decision	decided_on	decided_by	evidence	locus_note
+MacSat06	Mac	unresolved	gene_array	2026-11-09	author	59g unit = intact 5S gene + spacer (identity 1.0, coverage 1.0); 59b ratio 0.726 (threshold-sensitive); 59g_run_axis 2026-11-09: 34/78 runs (bp share 0.658) intact 5S in run consensus, copies 0.355 intact	LG01, LG02, LG08, LG20, LG25: intact 5S gene + spacer (34 runs, 1.68 Mb); LG03, LG22: 5S-derived units only, no intact gene in any sampled copy (44 runs, 0.87 Mb), closer to MacSat06 units (median identity 0.82) than to GarSat04 (0.74)

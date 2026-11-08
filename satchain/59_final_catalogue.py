@@ -29,7 +29,7 @@ Runs without a confident copy are logged in 59_dropped_runs_<G>.tsv (audit C22);
 Outputs: 59_catalogue_<G>.tsv, 59_catalogue_<G>.bed (BED9 by seq_cluster), 59_family_tiers_<G>.tsv, 59_summary_<G>.tsv,
 59b_gene_arrays_<G>.tsv (+ _sweep), 59_gates_sweep_<G>.tsv, 59_dropped_runs_<G>.tsv
 usage: 59_final_catalogue.py <G> <pipeline out> <hmm56 dir> <new03 dir|-> <hmm56new dir|-> <famnew tsv|-> <cluster tsv|-> <func folder> <genome fasta> <dest>
-       [--overlays <annotation_overlays/G>] [--carry-new <draft catalogue>] [--validated-name 56_runs_validated_q0.9.bed] [--gaps <bed>]
+       [--overlays <annotation_overlays/G>] [--carry-new <draft catalogue>] [--validated-name 56_runs_validated_q0.9.bed]
 --carry-new: rows of source 'new' are taken from an earlier catalogue when the new-array 03 table is lost (Mac, 2026-10-31); they are
 flagged carried_from and get no copy-level recomputation.
 """
@@ -40,7 +40,7 @@ from satpaths import func_path
 ap = argparse.ArgumentParser()
 for k in ('G', 'OUT', 'H', 'N03', 'HN', 'FAMNEW', 'CLUS', 'FUNC', 'FA', 'DEST'): ap.add_argument(k)
 ap.add_argument('--overlays', default=''); ap.add_argument('--carry-new', default=''); ap.add_argument('--validated-name', default='56_runs_validated_q0.9.bed')
-ap.add_argument('--gene-cut', type=float, default=0.7); ap.add_argument('--unit-cut', type=float, default=0.5); ap.add_argument('--gaps', default='')
+ap.add_argument('--gene-cut', type=float, default=0.7); ap.add_argument('--unit-cut', type=float, default=0.5)
 a = ap.parse_args(); G, OUT, H, N03, HN, FAMNEW, CLUS, FUNC, FA, DEST = [getattr(a, k) for k in ('G', 'OUT', 'H', 'N03', 'HN', 'FAMNEW', 'CLUS', 'FUNC', 'FA', 'DEST')]
 os.makedirs(DEST, exist_ok=True); P = os.path.join(OUT, f'fClaHyb_{G}_satellites'); N03 = '' if N03 == '-' else N03; HN = '' if HN == '-' else HN
 OVL = a.overlays or os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(FUNC))), 'satellite_FISH', 'annotation_overlays', G)
